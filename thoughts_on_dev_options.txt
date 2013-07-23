@@ -1,0 +1,44 @@
+publify (typo)
+enki
+
+monologue
+	does tags, title, post, date, probably read more
+	not sure about video, images, sharing, outbound link button
+
+publify 
+
+
+minitest invalid option: --profile (OptionParser::InvalidOption)
+minitest invalid option: --profile
+minitest invalid option profile
+
+
+
+activeadmin
+cancan
+brakeman
+hobo
+
+
+
+check out light table again sometime
+julian deposit
+call parents
+chat with ollie
+
+requirements:
+	embed video, including kickstarter, vimeo, and youtube
+	embed image
+	post text
+	post title
+	share: twitter, fb, email, tumblr, link
+	outbound link button
+	clickable tags
+	date
+	read more button that leads to page
+
+
+
+
+admin
+LJeb3Ib

@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require common
-//= require live-comment-preview
-//= require_self
+//= require jquery.livequery
+//= require jquery.form
+//= require jquery.easing.1.3
+//= require humanmsg
+//= require_tree ./admin

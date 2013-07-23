@@ -6,12 +6,14 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-
+# for enki
+gem 'sqlite3'
+# end for enki
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails',   '~> 3.2.6'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -21,6 +23,35 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+
+
+# for enki
+gem 'RedCloth', '~> 4.2.9', :require => 'redcloth'
+gem 'ruby-openid', :require => 'openid'
+gem 'rack-openid', :require => 'rack/openid'
+gem 'aaronh-chronic', :require => 'chronic' # Fixes for 1.9.2
+gem 'coderay', '~> 1.0.5'
+gem 'lesstile', '~> 1.1.0'
+gem 'formtastic'
+gem 'will_paginate', '~> 3.0.2'
+gem 'exception_notification', '~> 2.5.2'
+gem 'open_id_authentication'
+
+group :test do
+  gem 'database_cleaner'
+  gem 'cucumber-rails',    :require => false
+  gem 'cucumber-websteps', :require => false
+  gem 'factory_girl'
+  gem 'rspec'
+  gem 'nokogiri', '~> 1.5.0'
+  gem 'webrat'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+end
+# end for enki
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
