@@ -1,6 +1,6 @@
 module ApplicationHelper
   def author
-    Struct.new(:name, :email).new(enki_config[:author][:name], enki_config[:author][:email])
+    Struct.new(:name, :email).new(htcv2_config[:author][:name], htcv2_config[:author][:email])
   end
 
   def open_id_delegation_link_tags(server, delegate)

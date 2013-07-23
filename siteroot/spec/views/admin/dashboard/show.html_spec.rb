@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../../../spec_helper'
 
 describe "/admin/dashboard/show.html" do
   before(:each) do
-    view.stub!(:enki_config).and_return(Enki::Config.default)
+    view.stub!(:htcv2_config).and_return(Htcv2::Config.default)
   end
 
   after(:each) do

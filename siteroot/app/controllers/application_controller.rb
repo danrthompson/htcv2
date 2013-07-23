@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def enki_config
-    @@enki_config = Htcv2::Config.default
+  def htcv2_config
+    @@htcv2_config = Htcv2::Config.default
   end
-  helper_method :enki_config
+  helper_method :htcv2_config
 end

@@ -1,18 +1,12 @@
+leave for now
 /Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/config/initializers/enki_ext.rb:
     1  require 'core_extensions/string'
     2  require 'core_extensions/object'
     3: require 'enki/html5_tags'
     4  
 
-/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/config/initializers/exception_notifier.rb:
-    1  require 'action_controller/metal/request_forgery_protection'
-    2  
-    3: Enki::Application.config.middleware.use ExceptionNotifier,
-    4    :ignore_exceptions    => [ActionController::InvalidAuthenticityToken],
-    5:   :email_prefix         => "[Enki] ",
-    6:   :sender_address       => [Enki::Config.default[:author, :email]],
-    7:   :exception_recipients => [Enki::Config.default[:author, :email]]
-    8  
+fix
+
 
 
 

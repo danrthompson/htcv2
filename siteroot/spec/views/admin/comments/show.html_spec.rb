@@ -8,8 +8,8 @@ describe "/admin/comments/show.html" do
   it 'should render' do
     assign :comment, Comment.new(
       :author                  => 'Don Alias',
-      :author_url              => 'http://enkiblog.com',
-      :author_email            => 'donalias@enkiblog.com',
+      :author_url              => 'http://htcv2blog.com',
+      :author_email            => 'donalias@htcv2blog.com',
       :body                    => 'Hello I am a post',
       :created_at              => Time.now
     )

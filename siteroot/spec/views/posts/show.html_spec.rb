@@ -4,7 +4,7 @@ describe "/posts/show.html" do
   include UrlHelper
 
   before(:each) do
-    view.stub!(:enki_config).and_return(Enki::Config.default)
+    view.stub!(:htcv2_config).and_return(Htcv2::Config.default)
 
     mock_tag = mock_model(Tag,
       :name => 'code'
@@ -13,8 +13,8 @@ describe "/posts/show.html" do
     mock_comment = mock_model(Comment,
       :created_at              => 1.month.ago,
       :author                  => "Don Alias",
-      :author_url              => "http://enkiblog.com",
-      :author_openid_authority => "http://enkiblog.com/server",
+      :author_url              => "http://htcv2blog.com",
+      :author_openid_authority => "http://htcv2blog.com/server",
       :body_html               => "A comment"
     )
 

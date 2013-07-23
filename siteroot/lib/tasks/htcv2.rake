@@ -1,10 +1,10 @@
-namespace :enki do
-  desc "Generates public/yadis.xrdf from enki.yml, for OpenID delegation"
+namespace :htcv2 do
+  desc "Generates public/yadis.xrdf from htcv2.yml, for OpenID delegation"
   task :generate_yadis => :environment do
     file = "public/yadis.xrdf"
     raise "#{file} already exists, please remove it before running this task" if File.exists?(file)
-    enki_config = Enki::Config.default
-    raise "open_id_delegation section not provided in config/enki.yml" unless enki_config[:open_id_delegation]
+    htcv2_config = Htcv2::Config.default
+    raise "open_id_delegation section not provided in config/htcv2.yml" unless htcv2_config[:open_id_delegation]
     File.open("public/yadis.xrdf", "w") do |f|
       f.write <<-EOS
 <xrds:XRDS xmlns:xrds="xri://$xrds" xmlns="xri://$xrd*($v*2.0)"
@@ -13,8 +13,8 @@ namespace :enki do
 
     <Service priority="1">
       <Type>http://openid.net/signon/1.0</Type>
-      <URI>#{enki_config[:open_id_delegation, :server]}</URI>
-      <openid:Delegate>#{enki_config[:open_id_delegation, :delegate]}</openid:Delegate>
+      <URI>#{htcv2_config[:open_id_delegation, :server]}</URI>
+      <openid:Delegate>#{htcv2_config[:open_id_delegation, :delegate]}</openid:Delegate>
     </Service>
 
   </XRD>

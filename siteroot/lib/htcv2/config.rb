@@ -1,6 +1,6 @@
 require 'delegate'
 
-module Enki
+module Htcv2
   class Config < SimpleDelegator
     def initialize(file_name)
       super(symbolize_keys(YAML::load(IO.read(file_name))))
@@ -17,11 +17,11 @@ module Enki
     end
 
     def self.default
-      Enki::Config.new(default_location)
+      Htcv2::Config.new(default_location)
     end
 
     def self.default_location
-      "#{Rails.root}/config/enki.yml"
+      "#{Rails.root}/config/htcv2.yml"
     end
 
     private

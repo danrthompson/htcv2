@@ -75,8 +75,8 @@ describe Admin::SessionsController, "handling CREATE with post" do
 
   def stub_open_id_authenticate(url, status_code, return_value)
     status = mock("Result", :successful? => status_code == :successful, :message => '')
-    @controller.stub!(:enki_config).and_return(mock("enki_config", :author_open_ids => [
-        "http://enkiblog.com",
+    @controller.stub!(:htcv2_config).and_return(mock("htcv2_config", :author_open_ids => [
+        "http://htcv2blog.com",
         "http://secondaryopenid.com"
       ].collect {|uri| URI.parse(uri)}
     ))
@@ -89,10 +89,10 @@ describe Admin::SessionsController, "handling CREATE with post" do
     end
     it_should_behave_like "not logged in"
   end
-  describe "with valid URL http://enkiblog.com and OpenID authentication succeeding" do
+  describe "with valid URL http://htcv2blog.com and OpenID authentication succeeding" do
     before do
-      stub_open_id_authenticate("http://enkiblog.com", :successful, false)
-      post :create, :openid_url => "http://enkiblog.com"
+      stub_open_id_authenticate("http://htcv2blog.com", :successful, false)
+      post :create, :openid_url => "http://htcv2blog.com"
     end
     it_should_behave_like "logged in and redirected to /admin"
   end
@@ -103,24 +103,24 @@ describe Admin::SessionsController, "handling CREATE with post" do
     end
     it_should_behave_like "logged in and redirected to /admin"
   end
-  describe "with valid URL http://enkiblog.com and OpenID authentication returning 'failed'" do
+  describe "with valid URL http://htcv2blog.com and OpenID authentication returning 'failed'" do
     before do
-      stub_open_id_authenticate("http://enkiblog.com", :failed, true)
-      post :create, :openid_url => "http://enkiblog.com"
+      stub_open_id_authenticate("http://htcv2blog.com", :failed, true)
+      post :create, :openid_url => "http://htcv2blog.com"
     end
     it_should_behave_like "not logged in"
   end
-  describe "with valid URL http://enkiblog.com and OpenID authentication returning 'missing'" do
+  describe "with valid URL http://htcv2blog.com and OpenID authentication returning 'missing'" do
     before do
-      stub_open_id_authenticate("http://enkiblog.com", :missing, true)
-      post :create, :openid_url => "http://enkiblog.com"
+      stub_open_id_authenticate("http://htcv2blog.com", :missing, true)
+      post :create, :openid_url => "http://htcv2blog.com"
     end
     it_should_behave_like "not logged in"
   end
-  describe "with valid URL http://enkiblog.com and OpenID authentication returning 'canceled'" do
+  describe "with valid URL http://htcv2blog.com and OpenID authentication returning 'canceled'" do
     before do
-      stub_open_id_authenticate("http://enkiblog.com", :canceled, true)
-      post :create, :openid_url => "http://enkiblog.com"
+      stub_open_id_authenticate("http://htcv2blog.com", :canceled, true)
+      post :create, :openid_url => "http://htcv2blog.com"
     end
     it_should_behave_like "not logged in"
   end
