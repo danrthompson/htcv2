@@ -1,0 +1,146 @@
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/config/initializers/enki_ext.rb:
+    1  require 'core_extensions/string'
+    2  require 'core_extensions/object'
+    3: require 'enki/html5_tags'
+    4  
+
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/config/initializers/exception_notifier.rb:
+    1  require 'action_controller/metal/request_forgery_protection'
+    2  
+    3: Enki::Application.config.middleware.use ExceptionNotifier,
+    4    :ignore_exceptions    => [ActionController::InvalidAuthenticityToken],
+    5:   :email_prefix         => "[Enki] ",
+    6:   :sender_address       => [Enki::Config.default[:author, :email]],
+    7:   :exception_recipients => [Enki::Config.default[:author, :email]]
+    8  
+
+
+
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/lib/enki/config.rb:
+    1  require 'delegate'
+    2  
+    3: module Enki
+    4    class Config < SimpleDelegator
+    5      def initialize(file_name)
+    .
+   18  
+   19      def self.default
+   20:       Enki::Config.new(default_location)
+   21      end
+   22  
+   23      def self.default_location
+   24:       "#{Rails.root}/config/enki.yml"
+   25      end
+   26  
+
+
+
+
+
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/lib/tasks/enki.rake:
+    1: namespace :enki do
+    2:   desc "Generates public/yadis.xrdf from enki.yml, for OpenID delegation"
+    3    task :generate_yadis => :environment do
+    4      file = "public/yadis.xrdf"
+    5      raise "#{file} already exists, please remove it before running this task" if File.exists?(file)
+    6:     enki_config = Enki::Config.default
+    7:     raise "open_id_delegation section not provided in config/enki.yml" unless enki_config[:open_id_delegation]
+    8      File.open("public/yadis.xrdf", "w") do |f|
+    9        f.write <<-EOS
+   ..
+   14      <Service priority="1">
+   15        <Type>http://openid.net/signon/1.0</Type>
+   16:       <URI>#{enki_config[:open_id_delegation, :server]}</URI>
+   17:       <openid:Delegate>#{enki_config[:open_id_delegation, :delegate]}</openid:Delegate>
+   18      </Service>
+   19  
+
+
+
+
+                                 "---\n").
+
+
+
+
+
+
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/spec/views/admin/dashboard/show.html_spec.rb:
+    3  describe "/admin/dashboard/show.html" do
+    4    before(:each) do
+    5:     view.stub!(:enki_config).and_return(Enki::Config.default)
+    6    end
+    7  
+
+
+
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/spec/views/admin/sessions/new.html_spec.rb:
+    7  
+    8    it "renders" do
+    9:     view.stub!(:enki_config).and_return(Enki::Config.default)
+   10      view.stub!(:allow_login_bypass?).and_return(true)
+   11      render :template => '/admin/sessions/new', :formats => [:html]
+
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/spec/views/archives/index.html_spec.rb:
+    7  
+    8    before(:each) do
+    9:     view.stub!(:enki_config).and_return(Enki::Config.default)
+   10  
+   11      month = Struct.new(:date, :posts)
+
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/spec/views/layouts/admin.html_spec.rb:
+    3  describe "/layouts/admin.html" do
+    4    it 'renders' do
+    5:     view.stub!(:enki_config).and_return(Enki::Config.default)
+    6      render :template => '/layouts/admin', :formats => [:html]
+    7    end
+
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/spec/views/layouts/application.html_spec.rb:
+    3  describe "/layouts/application.html" do
+    4    before(:each) do
+    5:     view.stub!(:enki_config).and_return(Enki::Config.default)
+    6  
+    7      mock_tag = mock_model(Tag,
+
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/spec/views/layouts/login.html_spec.rb:
+    3  describe "/layouts/login.html" do
+    4    it 'renders' do
+    5:     view.stub!(:enki_config).and_return(Enki::Config.default)
+    6      render :template => '/layouts/login', :formats => [:html]
+    7    end
+
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/spec/views/pages/show.html_spec.rb:
+    5  
+    6    before(:each) do
+    7:     view.stub!(:enki_config).and_return(Enki::Config.default)
+    8  
+    9      @page = mock_model(Page,
+
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/spec/views/posts/index.atom.builder_spec.rb:
+    3  describe "/posts/index.atom.builder" do
+    4    before(:each) do
+    5:     view.stub!(:enki_config).and_return(Enki::Config.default)
+    6  
+    7      mock_tag = mock_model(Tag,
+
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/spec/views/posts/index.html_spec.rb:
+    3  describe "/posts/index.html" do
+    4    before(:each) do
+    5:     view.stub!(:enki_config).and_return(Enki::Config.default)
+    6  
+    7      mock_tag = mock_model(Tag,
+
+/Users/atlantis/Dropbox/Code/D2/htcv2/siteroot/spec/views/posts/show.html_spec.rb:
+    5  
+    6    before(:each) do
+    7:     view.stub!(:enki_config).and_return(Enki::Config.default)
+    8  
+    9      mock_tag = mock_model(Tag,
+   ..
+   14        :created_at              => 1.month.ago,
+   15        :author                  => "Don Alias",
+   16:       :author_url              => "http://enkiblog.com",
+   17:       :author_openid_authority => "http://enkiblog.com/server",
+   18        :body_html               => "A comment"
+   19      )
+
