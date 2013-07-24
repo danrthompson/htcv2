@@ -11,5 +11,5 @@ else
 
   # If this is an open source project, DO NOT commit your secret to source
   # control. Load it from ENV or a file that is git ignored (File.read)
-  Htcv2::Application.config.secret_token = '3cf62f9930f04d94212e7b4a7e4df6b3e2d97980c7cf5fca8c1ed810b991f96944cf29929994c48391be78f03446b491495a6b3e5b87e37e66c2ec200e641a09'
+  Htcv2::Application.config.secret_token = '113ef4ef33392ed203026a1401377fdb4d904f8b552bde493c3201eefcfa2e8b215bc949056b31951a76403df7778d0e314cee06eebd16160f5d846105e605c8'
 end

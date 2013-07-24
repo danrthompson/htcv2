@@ -2,7 +2,7 @@
 %html{:dir => "ltr", :lang => "en-US"}
   %head
     %meta{:charset => "utf-8"}/
-    %title Htcv2
+    %title= html_title yield(:page_title)
     = csrf_meta_tag
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag 'application'
@@ -15,25 +15,25 @@
         #main
           = yield
         #navigation
-          %h2 Pages
-          %ul
-            - page_links_for_navigation.each do |link|
-              %li= link_to(link.name, link.url)
+          -# %h2 Pages
+          -# %ul
+          -#   - page_links_for_navigation.each do |link|
+          -#     %li= link_to(link.name, link.url)
           - unless category_links_for_navigation.empty?
-            %h2 Categories
+            %h2 Tags
             %ul
               - category_links_for_navigation.each do |link|
                 %li= link_to(link.name, link.url)
-          %form#sform{:action => "http://www.google.com/search", :method => "get"}
-            %div
-              %h2
-                %label{:for => "q"} Search
-              %input#q{:name => "q", :type => "text", :value => ""}/
-              %input{:name => "sitesearch", :type => "hidden", :value => htcv2_config[:url]}/
-        #footer
-          = htcv2_config[:title]
-          © #{htcv2_config[:author, :name]}. Valid
-          %a{:href => "http://validator.w3.org/check?uri=referer"} HTML5
-          and #{link_to "ATOM", "http://feedvalidator.org/check.cgi?url=#{htcv2_config[:url]}/posts.atom"}. Powered by
-          = succeed "." do
-            %a{:href => "http://www.htcv2blog.com", :title => "A Ruby on Rails blogging app for the fashionable developer"} Htcv2
+          -# %form#sform{:action => "http://www.google.com/search", :method => "get"}
+          -#   %div
+          -#     %h2
+          -#       %label{:for => "q"} Search
+          -#     %input#q{:name => "q", :type => "text", :value => ""}/
+          -#     %input{:name => "sitesearch", :type => "hidden", :value => htcv2_config[:url]}/
+        -# #footer
+        -#   = htcv2_config[:title]
+        -#   © #{htcv2_config[:author, :name]}. Valid
+        -#   %a{:href => "http://validator.w3.org/check?uri=referer"} HTML5
+        -#   and #{link_to "ATOM", "http://feedvalidator.org/check.cgi?url=#{htcv2_config[:url]}/posts.atom"}. Powered by
+        -#   = succeed "." do
+        -#     %a{:href => "http://www.htcv2blog.com", :title => "A Ruby on Rails blogging app for the fashionable developer"} Htcv2
