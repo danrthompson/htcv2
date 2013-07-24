@@ -1,0 +1,11 @@
+%h2= link_to_post(post)
+.entry-body
+  = raw(post.body_html)
+.meta
+  %ul
+    %li.date
+      Posted on #{format_post_date(post.published_at) if post.published?}
+    %li.comments= link_to_post_comments post
+    - unless post.tags.empty?
+      %li.tags
+        Tagged #{linked_tag_list(post.tags)}

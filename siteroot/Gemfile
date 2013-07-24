@@ -23,7 +23,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem "haml"
 
 
 # for htcv2
