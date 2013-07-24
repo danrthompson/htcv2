@@ -1,9 +1,6 @@
 class Comment < ActiveRecord::Base
   DEFAULT_LIMIT = 15
 
-  attr_accessor         :openid_error
-  attr_accessor         :openid_valid
-
   belongs_to            :post
 
   before_save           :apply_filter
@@ -11,11 +8,8 @@ class Comment < ActiveRecord::Base
   after_destroy         :denormalize
 
   validates             :author, :body, :post, :presence => true
-  validate :open_id_error_should_be_blank
 
-  def open_id_error_should_be_blank
-    errors.add(:base, openid_error) unless openid_error.blank?
-  end
+
 
   def apply_filter
     self.body_html = Lesstile.format_as_xhtml(self.body, :code_formatter => Lesstile::CodeRayFormatter)
@@ -26,17 +20,8 @@ class Comment < ActiveRecord::Base
     self.author_email = ""
   end
 
-  def requires_openid_authentication?
-    return false unless author
-
-    !!(author =~ %r{^https?://} || author =~ /\w+\.\w+/)
-  end
 
   def trusted_user?
-    false
-  end
-
-  def user_logged_in?
     false
   end
 
@@ -76,10 +61,6 @@ class Comment < ActiveRecord::Base
 
     def build_for_preview(params)
       comment = Comment.new_with_filter(params)
-      if comment.requires_openid_authentication?
-        comment.author_url = comment.author
-        comment.author     = "Your OpenID Name"
-      end
       comment
     end
 

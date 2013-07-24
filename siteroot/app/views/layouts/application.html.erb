@@ -6,7 +6,6 @@
   <%= csrf_meta_tag %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag 'application' %>
-  <%= open_id_delegation_link_tags(htcv2_config[:open_id_delegation, :server], htcv2_config[:open_id_delegation, :delegate]) if htcv2_config[:open_id_delegation] %>
   <%= yield(:head) %>
 </head>
 <body>
