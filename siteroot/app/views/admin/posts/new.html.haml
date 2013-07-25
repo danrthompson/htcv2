@@ -1,5 +1,12 @@
 %h1 New post
-= semantic_form_for([:admin, @post]) do |form|
-  = render :partial => 'form', :locals => {:form => form}
-  = form.actions do
-    = form.action :submit, :as => :button
+- if not params[:key]
+	%h4 If you want to upload a post with an image, first upload the image below. Otherwise, just create the post below.
+	= direct_upload_form_for @uploader do |f|
+		%p= f.file_field :image
+		%p= f.submit "Upload Image"
+- else
+	%h3 Image successfully uploaded. The post below will be associated with the image.
+= semantic_form_for([:admin, @post], html: {multipart: true}) do |form|
+	= render :partial => 'form', :locals => {:form => form}
+	= form.actions do
+		= form.action :submit, :as => :button
