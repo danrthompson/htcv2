@@ -8,6 +8,8 @@
     = javascript_include_tag 'application'
     = yield(:head)
   %body
+    %p.notice= notice
+    %p.alert= alert
     #page_container
       #content
         %h1#page_heading

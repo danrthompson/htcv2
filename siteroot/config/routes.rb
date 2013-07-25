@@ -1,5 +1,7 @@
 Htcv2::Application.routes.draw do
 
+  devise_for :administrators
+
   namespace :admin do
     resource :session
 

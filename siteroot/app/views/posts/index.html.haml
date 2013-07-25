@@ -2,6 +2,15 @@
 	= posts_title(@tag)
 - content_for :head do
 	= auto_discovery_link_tag(:atom, @tag.nil? ? formatted_posts_path(:format => 'atom') : posts_path(:tag => @tag, :format => 'atom'))
+- if administrator_signed_in?
+	%p 
+		Logged in as
+		%strong= current_administrator.email
+	%p= link_to 'Edit profile', edit_administrator_registration_path
+	%p= link_to "Logout", destroy_administrator_session_path, method: :delete
+- else
+	%p= link_to "Sign up", new_administrator_registration_path
+	%p= link_to "Login", new_administrator_session_path
 - if @posts.empty?
 	%p There are no posts yet.
 - else
