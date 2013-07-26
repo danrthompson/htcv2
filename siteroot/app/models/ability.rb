@@ -1,7 +1,17 @@
 class Ability
   include CanCan::Ability
 
+
   def initialize(user)
+    if user.is_a? Administrator then
+        can :manage, :all
+        can :access, :admin_area
+    else
+        can :read, Post do |post|
+            post.published_at && post.published_at < Time.now
+        end
+    end
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
