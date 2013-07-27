@@ -1,6 +1,7 @@
 - content_for :page_title do
 	= posts_title(@tag)
 - content_for :head do
+	= stylesheet_link_tag    "test_style"
 	= auto_discovery_link_tag(:atom, @tag.nil? ? formatted_posts_path(:format => 'atom') : posts_path(:tag => @tag, :format => 'atom'))
 - if administrator_signed_in?
 	%p 
