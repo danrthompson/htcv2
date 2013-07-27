@@ -90,4 +90,6 @@ class Admin::PostsController < Admin::BaseController
   def find_post
     @post = Post.find(params[:id])
   end
+
+
 end

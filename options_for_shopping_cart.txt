@@ -1,0 +1,10 @@
+ror-e
+spree
+
+
+re looks more like a rails app (spree disputes)
+re has accounting built in (spree disputes)
+re has purchase orders built in
+re has less front end built out (spree disputes)
+re gives more insight into customer flow if they delete stuff (spree maybe disputes)
+re follows MVC better (spree disputes)

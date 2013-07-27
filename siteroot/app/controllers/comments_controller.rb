@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-
+  before_filter :admin_auth_check!
   include UrlHelper
-
+  
 
   before_filter :find_post, :except => [:new]
 
