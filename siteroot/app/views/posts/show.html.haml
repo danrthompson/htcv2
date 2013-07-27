@@ -1,12 +1,17 @@
 - content_for :page_title do
-  = post_title @post
+	= post_title @post
+- content_for :head do
+	= stylesheet_link_tag    "main_style"
+	= auto_discovery_link_tag(:atom, @tag.nil? ? formatted_posts_path(:format => 'atom') : posts_path(:tag => @tag, :format => 'atom'))
+	
+
 = render @post
 -# %ol#comments.commentlist
 -#   - @post.approved_comments.each do |comment|
 -#     <li#{raw cycle(' class="alt"', '')} id="comment-#{comment.id}">
 -#     \#{render comment}
 .related
-  Looking for more? Head on over to the #{link_to 'archives', archives_path}.
+	Looking for more? Head on over to the #{link_to 'archives', archives_path}.
 -# %h2 Post a comment
 -# - unless @comment.errors.empty?
 -#   .errors

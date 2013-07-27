@@ -1,14 +1,29 @@
-%h2= link_to_post(post)
+
+
+%h1= link_to_post(post)
+
 - if post.image?
 	.blog_post_main_image
-		%img{src: post.image_url}
-.entry-body
+		%img.center_img{src: post.image_url}
+
+/ This is The Main Paragraph Text
+.entry-description
 	= raw(post.body_html)
-.meta
+
+/ This Is The Content At The End Of The Post
+.entry-meta
 	%ul
 		%li.date
-			Posted on #{format_post_date(post.published_at) if post.published?}
+			#{format_post_date(post.published_at) if post.published?}
+
 		-# %li.comments= link_to_post_comments post
 		- unless post.tags.empty?
 			%li.tags
-				Tagged #{linked_tag_list(post.tags)}
+				#{linked_tag_list(post.tags)}
+
+
+		%li.action-item
+			%a{:href => "http://www.google.com"} Share 
+			%a{:href => "http://www.google.com"} Read More 
+
+.divider

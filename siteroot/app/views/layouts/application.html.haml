@@ -5,26 +5,50 @@
     %title= html_title yield(:page_title)
     = csrf_meta_tag
     = javascript_include_tag 'application'
+    / Gives Head
     = yield(:head)
   %body
     %p.notice= notice
     %p.alert= alert
     #page_container
       #content
-        %h1#page_heading
-          %a{:href => root_url}= htcv2_config[:title]
-        #main
+        %ul.nav
+          %li#nav-logo
+            %a{:href => ""}
+              %img{src: "https://s3.amazonaws.com/HarnessTheCrowd/HTC-LOGO-SIDE-TRANSPARENT.png"}
+
+          %li 
+            %a{:href => ""} Headlines
+          %li 
+            %a{:href => ""} Conversation
+          %li 
+            %a{:href => ""} Campaign Tools
+          %li 
+            %a{:href => ""} Marketplace
+        
+        .about-us-wrapper
+          %h1 What We're About
+          %p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing.
+        / May Delete because page title is unnecessary
+        / %h1#page_heading
+        /   %a{:href => root_url}= htcv2_config[:title]
+        .divider
+        .post-entry
           = yield
         #navigation
+        .footer
           -# %h2 Pages
           -# %ul
           -#   - page_links_for_navigation.each do |link|
           -#     %li= link_to(link.name, link.url)
-          - unless category_links_for_navigation.empty?
-            %h2 Tags
-            %ul
-              - category_links_for_navigation.each do |link|
-                %li= link_to(link.name, link.url)
+
+          / / THESE TAGS ARE ONLY APPLICABLE TO THE BLOG
+          / - unless category_links_for_navigation.empty?
+          /   %h2 Tags
+          /   %ul
+          /     - category_links_for_navigation.each do |link|
+          /       %li= link_to(link.name, link.url)
+
           -# %form#sform{:action => "http://www.google.com/search", :method => "get"}
           -#   %div
           -#     %h2
