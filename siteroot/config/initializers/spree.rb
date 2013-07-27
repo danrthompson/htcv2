@@ -12,3 +12,10 @@ Spree.config do |config|
 end
 
 Spree.user_class = "Spree::User"
+
+Spree.config do |config|
+  config.use_s3 = true
+  config.s3_bucket = 'HarnessTheCrowd'
+  config.s3_access_key = "AKIAJOFY7RVQXDXGNZNQ"
+  config.s3_secret = "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"
+end
