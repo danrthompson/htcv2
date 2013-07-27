@@ -4,7 +4,9 @@
 
 - if post.image?
 	.blog_post_main_image
-		%img.center_img{src: post.image_url}
+		/ This link needs to be implemented
+		%a{:href => "http://www.google.com"} 
+			%img.center_img{src: post.image_url}
 
 / This is The Main Paragraph Text
 .entry-description

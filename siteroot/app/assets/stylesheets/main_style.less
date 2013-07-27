@@ -89,7 +89,7 @@ ul {
 }
 
 .footer {
-	margin-top: 50px;
+	margin-top: 0px;
 	height: 100px;
 	border-top: 1px solid @stroke-color;
 }
@@ -177,6 +177,10 @@ ul {
 
 ///////// BLOG POST CONTENT ////////
 
+.post{
+	margin-top: 50px;
+}
+
 .post-entry{
 	.container-width;
 	text-align: center;
@@ -196,6 +200,15 @@ ul {
 		padding: 10px;
 		p {
 			line-height: 30px;
+
+			a{
+				font-weight: 800;
+				color: @teal;
+			}
+
+			a:hover{
+				color: @black-gray;
+			}
 		}
 	}
 
@@ -234,6 +247,10 @@ ul {
 				font-size: 18px;
 				color: @teal;
 			}
+
+			a:hover{
+				color:@black-gray;
+			}
 		}
 	}
 
@@ -241,7 +258,20 @@ ul {
 		width: 80%;
 		margin: auto;
 		margin-top: 40px;
-		margin-bottom: 60px;
+		margin-bottom: 10px;
+	}
+}
+
+.more-posts-wrapper{
+	.container-width;
+	overflow: hidden;
+	a{
+		float:right;
+
+	}
+
+	a:hover{
+		color: @black-gray;
 	}
 }
 
