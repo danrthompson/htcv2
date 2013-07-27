@@ -1,23 +1,30 @@
 - content_for :page_title do
 	= posts_title(@tag)
 - content_for :head do
-	= stylesheet_link_tag    "test_style"
+	= stylesheet_link_tag    "main_style"
 	= auto_discovery_link_tag(:atom, @tag.nil? ? formatted_posts_path(:format => 'atom') : posts_path(:tag => @tag, :format => 'atom'))
-- if administrator_signed_in?
-	%p 
-		Logged in as
-		%strong= current_administrator.email
-	%p= link_to 'Edit profile', edit_administrator_registration_path
-	%p= link_to "Logout", destroy_administrator_session_path, method: :delete
-- else
-	%p= link_to "Sign up", new_administrator_registration_path
-	%p= link_to "Login", new_administrator_session_path
+
+/ ADMIN SIGN IN OPTION
+/ - if administrator_signed_in?
+/ 	%p 
+/ 		Logged in as
+/ 		%strong= current_administrator.email
+/ 	%p= link_to 'Edit profile', edit_administrator_registration_path
+/ 	%p= link_to "Logout", destroy_administrator_session_path, method: :delete
+
+/ - else
+/ 	%p= link_to "Sign up", new_administrator_registration_path
+/ 	%p= link_to "Login", new_administrator_session_path
+
+/  THIS IS A GIVEN POST. EACH POST HAS IT'S OWN CONTENT
 - if @posts.empty?
 	%p There are no posts yet.
 - else
+	/ 	MAKE A POST HAPPEN. FOR EACH POST GENERATRE POST
 	- @posts.each do |post|
 		.post{:id => dom_id(post)}
 			= render post
+	
 	- if more_content?
 		.related
 			Looking for more? Head on over to the #{link_to 'archives', archives_path}.

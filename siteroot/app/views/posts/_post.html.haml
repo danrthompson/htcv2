@@ -1,9 +1,16 @@
+
+
 %h2= link_to_post(post)
+
 - if post.image?
 	.blog_post_main_image
-		%img{src: post.image_url}
+		%img.post_main_img{src: post.image_url}
+
+/ This is The Main Paragraph Text
 .entry-body
 	= raw(post.body_html)
+
+/ This Is The Content At The End Of The Post
 .meta
 	%ul
 		%li.date
