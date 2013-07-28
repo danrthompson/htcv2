@@ -1,9 +1,10 @@
 - content_for :page_title do
 	= posts_title(@tag)
-- content_for :head do
-	= stylesheet_link_tag    "main_style"
-	= auto_discovery_link_tag(:atom, @tag.nil? ? formatted_posts_path(:format => 'atom') : posts_path(:tag => @tag, :format => 'atom'))
-
+= render partial: 'shared/blog/head', layout: 'shared/head'
+- content_for :intro_text do
+	.about-us-wrapper
+		%h1 What We're About
+		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing.
 / ADMIN SIGN IN OPTION
 / - if administrator_signed_in?
 / 	%p 
@@ -26,5 +27,7 @@
 			= render post
 	
 	- if more_content?
-		.related
-			Looking for more? Head on over to the #{link_to 'archives', archives_path}.
+		= render 'shared/blog/archives_link'
+.more-posts-wrapper
+	%a{:href => ""} 
+		%h2.teal More Posts

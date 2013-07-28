@@ -5,11 +5,7 @@
 #
 # In order to initialize a setting do:
 # config.setting_name = 'new value'
-Spree.config do |config|
-  # Example:
-  # Uncomment to override the default site name.
-  # config.site_name = "Spree Demo Site"
-end
+
 
 Spree.user_class = "Spree::User"
 
@@ -18,4 +14,5 @@ Spree.config do |config|
   config.s3_bucket = 'HarnessTheCrowd'
   config.s3_access_key = "AKIAJOFY7RVQXDXGNZNQ"
   config.s3_secret = "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"
+  config.layout = 'layouts/application'
 end
