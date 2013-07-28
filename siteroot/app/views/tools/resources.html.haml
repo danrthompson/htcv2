@@ -1,5 +1,10 @@
 - content_for :head do
 	= stylesheet_link_tag    "main_style"
 
+= render 'tools/shared/subnav'
+- content_for :intro_text do
+	.about-us-wrapper.extra-padding
+		%h1 People Are Amazing
+		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing.
 
 

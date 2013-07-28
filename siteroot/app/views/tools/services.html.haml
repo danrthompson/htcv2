@@ -1,35 +1,10 @@
 - content_for :head do
 	= stylesheet_link_tag    "main_style"
 
+= render 'tools/shared/service_subnav'
+- content_for :intro_text do
+	.about-us-wrapper.extra-padding
+		%h1 People Are Amazing
+		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing.
 
-// Sub Navigation First Row
-.sub_nav_top
-	%ul.sub_nav.top_half
-		%li 
-			%a{:href => ""} 
-				%h2 Film
-		%li.current-selection
-			%a{:href => ""} 
-				%h2 Products
-		%li.right-stroke 
-			%a{:href => ""} 
-				%h2 Music
 
-// Sub Navigation Second Row
-.sub_nav_bottom
-	%ul.sub_nav.bottom_half
-		%li 
-			%a{:href => ""} Technology
-		%li.current-selection
-			%a{:href => ""} Publishing
-		%li.right-stroke 
-			%a{:href => ""} Fashion
-		%li.right-stroke 
-			%a{:href => ""} Surprise
-
-= @resources
-resource.title
-.description
-.out_link
-.category
-.subcategory
