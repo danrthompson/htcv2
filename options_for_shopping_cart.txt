@@ -29,3 +29,6 @@ Spree tries to be its own framework.  What this means is that spree overrides se
 later:
 	https://www.ruby-toolbox.com/projects/stripe
 	there are spreadsheet / invoice generating apps for generating order reports
+	https://www.ruby-toolbox.com/projects/activemerchant
+	https://www.ruby-toolbox.com/projects/invoicing
+	
