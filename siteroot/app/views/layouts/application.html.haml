@@ -24,22 +24,22 @@
             %a{:href => ""} Campaign Tools
           %li 
             %a{:href => ""} Marketplace
-        
-        .about-us-wrapper
-          %h1 What We're About
-          %p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing.
+
+        = yield(:sub_nav)
+
+        = yield(:intro_text)
+
+
         / May Delete because page title is unnecessary
         / %h1#page_heading
         /   %a{:href => root_url}= htcv2_config[:title]
         .divider
         .post-entry
           = yield
-        #navigation
+        -# #navigation
 
 
-        .more-posts-wrapper
-          %a{:href => ""} 
-            %h2.teal More Posts
+
         .footer
           -# %h2 Pages
           -# %ul

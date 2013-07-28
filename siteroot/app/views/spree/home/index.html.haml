@@ -1,5 +1,14 @@
-- content_for :sidebar do
-  %div{"data-hook" => "homepage_sidebar_navigation"}
-    = render :partial => 'spree/shared/taxonomies'
+- content_for :page_title do
+	Store
+= render 'shared/head'
+= render 'spree/shared_custom/subnav'
+- content_for :intro_text do
+	.about-us-wrapper.extra-padding
+		%h1 People Are Amazing
+		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing.
+
+-# - content_for :sidebar do
+-#   %div{"data-hook" => "homepage_sidebar_navigation"}
+-#     = render :partial => 'spree/shared/taxonomies'
 %div{"data-hook" => "homepage_products"}
-  = render :partial => 'spree/shared/products', :locals => { :products => @products }
+	= render :partial => 'spree/shared/products', :locals => { :products => @products }
