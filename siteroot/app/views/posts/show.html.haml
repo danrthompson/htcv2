@@ -1,6 +1,6 @@
 - content_for :page_title do
 	= post_title @post
-= render "shared/blog/head"
+= render partial: 'shared/blog/head', layout: 'shared/head'
 = render @post
 -# %ol#comments.commentlist
 -#   - @post.approved_comments.each do |comment|
