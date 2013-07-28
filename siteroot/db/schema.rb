@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130727202313) do
+ActiveRecord::Schema.define(:version => 20130728163507) do
 
   create_table "administrators", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -96,6 +96,32 @@ ActiveRecord::Schema.define(:version => 20130727202313) do
 
   add_index "posts", ["published_at"], :name => "index_posts_on_published_at"
   add_index "posts", ["slug"], :name => "posts_slug_unique_idx"
+
+  create_table "resources", :force => true do |t|
+    t.string   "category"
+    t.string   "subcategory"
+    t.boolean  "featured"
+    t.integer  "rank"
+    t.integer  "featured_rank"
+    t.string   "title"
+    t.text     "description"
+    t.text     "out_link"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "services", :force => true do |t|
+    t.string   "category"
+    t.boolean  "featured"
+    t.integer  "rank"
+    t.integer  "featured_rank"
+    t.string   "title"
+    t.string   "subtitle"
+    t.text     "description"
+    t.text     "out_link"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
