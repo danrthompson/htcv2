@@ -1,0 +1,169 @@
+<!doctype html>
+/[if lt IE 7 ] <html class="ie ie6" lang="<haml:loud> I18n.locale </haml:loud>">
+/[if IE 7 ] <html class="ie ie7" lang="<haml:loud> I18n.locale </haml:loud>">
+/[if IE 8 ] <html class="ie ie8" lang="<haml:loud> I18n.locale </haml:loud>">
+/[if IE 9 ] <html class="ie ie9" lang="<haml:loud> I18n.locale </haml:loud>">
+/ [if gt IE 9]><!
+%html{:lang => I18n.locale}
+  / <![endif]
+  %head{"data-hook" => "inside_head"}
+    / <haml:loud> render :partial =&amp;gt; 'spree/shared/head' </haml:loud>
+    = stylesheet_link_tag    "main_style"
+  %body{:class => body_class, "data-hook" => "body", :id => @body_id || 'default'}
+
+
+    / This is the beginning of HEADLINES copied code
+    .page_container
+      .content
+        
+        / This Is The Top Nav Code
+        %ul.nav
+          %li#nav-logo
+            %a{:href => ""}
+              %img{src: "https://s3.amazonaws.com/HarnessTheCrowd/HTC-LOGO-SIDE-TRANSPARENT.png"}
+          %li 
+            %a{:href => ""} Headlines
+          %li 
+            %a{:href => ""} Conversation
+          %li 
+            %a{:href => ""} Campaign Tools
+          %li 
+            %a{:href => ""} Marketplace
+  
+        // Sub Navigation First Row
+        .sub_nav_top
+          %ul.sub_nav.top_half
+            %li 
+              %a{:href => ""} 
+                %h2 Film
+            %li.current-selection
+              %a{:href => ""} 
+                %h2 Products
+            %li.right-stroke 
+              %a{:href => ""} 
+                %h2 Music
+
+        // Sub Navigation Second Row
+        .sub_nav_bottom
+          %ul.sub_nav.bottom_half
+            %li 
+              %a{:href => ""} Technology
+            %li.current-selection
+              %a{:href => ""} Publishing
+            %li.right-stroke 
+              %a{:href => ""} Fashion
+            %li.right-stroke 
+              %a{:href => ""} Surprise
+        
+        / This Is The About Us Wrapper
+        .about-us-wrapper.extra-padding
+          %h1 People Are Amazing
+          %p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing.
+        / May Delete because page title is unnecessary
+        / %h1#page_heading
+        /   %a{:href => root_url}= htcv2_config[:title]
+        .divider
+
+        .store-card-wrapper
+          .column.first_col
+            %ul 
+              %li
+                %img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2013/04/ostrichpillow-2.jpg", :alt => ""}/ 
+                %a{:href => ""}  
+                  .store_overlay 
+                    %a{:href => ""} 
+                      %h3 Pig Benis
+                    %p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+                    .deets_wrapper
+                      %a.product_button.deets{:href => ""}  Check It Out
+                      %a.product_button.getone{:href => ""}  Get One
+
+              %li 
+                %img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/11/nibbles-2.jpg", :alt => ""}/ 
+                %a{:href => ""}  
+                  .store_overlay 
+                    %a{:href => ""} 
+                      %h3 Pig Benis
+                    %p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.orbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+                    .deets_wrapper
+                      %a.product_button.product_button_centered{:href => ""}  Check It Out
+              %li 
+                .store_overlay 
+                  %h3 
+                  %p 
+                  %h4 
+                %img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/12/iguaneye-5.jpg", :alt => ""}/ 
+              %li 
+                .store_overlay 
+                  %h3 
+                  %p 
+                  %h4
+                %img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/10/porthole-3_1.jpg", :alt => ""}/  
+              %li 
+                .store_overlay 
+                  %h3 
+                  %p 
+                  %h4
+                %img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/12/memoto-5.png", :alt => ""}/  
+          .column.second_col
+            %ul 
+              %li 
+                %img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/12/iguaneye-5.jpg", :alt => ""}/ 
+                %a{:href => ""}  
+                  .store_overlay 
+                    %a{:href => ""} 
+                      %h3 Long Rod
+                    %p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.orbi leo.
+                    .deets_wrapper
+                      %a.product_button.product_button_centered{:href => ""}  Check It Out
+
+              %li 
+                .store_overlay 
+                  %h3 
+                  %p 
+                  %h4
+                %img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/10/porthole-3_1.jpg", :alt => ""}/  
+              %li 
+                .store_overlay 
+                  %h3 
+                  %p 
+                  %h4
+                %img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/12/memoto-5.png", :alt => ""}/  
+          .column.third_col
+            %ul 
+              %li 
+                .store_overlay 
+                  %h3 
+                  %p 
+                  %h4
+                %img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/10/porthole-3_1.jpg", :alt => ""}/  
+              %li 
+                .store_overlay 
+                  %h3 
+                  %p 
+                  %h4
+                %img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/12/memoto-5.png", :alt => ""}/  
+              %li 
+                .store_overlay 
+                  %h3 
+                  %p 
+                  %h4 
+                %img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/12/iguaneye-5.jpg", :alt => ""}/ 
+
+        .container
+          / = render :partial => 'spree/shared/header'
+          #wrapper.row{"data-hook" => ""}
+            = breadcrumbs(@taxon)
+            = render :partial => 'spree/shared/sidebar' if content_for? :sidebar
+
+            #content{:class => "columns #{!content_for?(:sidebar) ? "sixteen" : "twelve"}", "data-hook" => ""}
+              = flash_messages
+              = yield
+          = render :partial => 'spree/shared/footer'
+        = render :partial => 'spree/shared/google_analytics'
+
+    / This is the end of HEADLINES copied code
+
+
+
+
