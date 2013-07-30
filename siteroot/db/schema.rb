@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730155313) do
+ActiveRecord::Schema.define(:version => 20130730220619) do
 
   create_table "administrators", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -43,20 +43,6 @@ ActiveRecord::Schema.define(:version => 20130730155313) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "comments", :force => true do |t|
-    t.integer  "post_id",      :null => false
-    t.string   "author",       :null => false
-    t.string   "author_url",   :null => false
-    t.string   "author_email", :null => false
-    t.text     "body",         :null => false
-    t.text     "body_html",    :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["created_at"], :name => "index_comments_on_created_at"
-  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
