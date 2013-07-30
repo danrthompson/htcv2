@@ -1,0 +1,8 @@
+%p#notice= notice
+
+%h4= @advice_post.title
+%p= @advice_post.post_text
+
+= link_to 'Edit', edit_advice_post_path(@advice_post)
+\|
+= link_to 'All posts', advice_posts_path

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130728163507) do
+ActiveRecord::Schema.define(:version => 20130730155313) do
 
   create_table "administrators", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(:version => 20130728163507) do
   add_index "administrators", ["email"], :name => "index_administrators_on_email", :unique => true
   add_index "administrators", ["reset_password_token"], :name => "index_administrators_on_reset_password_token", :unique => true
   add_index "administrators", ["unlock_token"], :name => "index_administrators_on_unlock_token", :unique => true
+
+  create_table "advice_posts", :force => true do |t|
+    t.string   "title"
+    t.text     "post_text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "post_id",      :null => false
@@ -97,6 +104,18 @@ ActiveRecord::Schema.define(:version => 20130728163507) do
   add_index "posts", ["published_at"], :name => "index_posts_on_published_at"
   add_index "posts", ["slug"], :name => "posts_slug_unique_idx"
 
+  create_table "resource_categories", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "resource_subcategories", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "resources", :force => true do |t|
     t.string   "category"
     t.string   "subcategory"
@@ -108,6 +127,12 @@ ActiveRecord::Schema.define(:version => 20130728163507) do
     t.text     "out_link"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "service_categories", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "services", :force => true do |t|
