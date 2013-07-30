@@ -4,8 +4,6 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable
 
-  has_many                :comments, :dependent => :destroy
-  has_many                :approved_comments, :class_name => 'Comment'
   mount_uploader :image, ImageUploader
 
   before_validation       :generate_slug

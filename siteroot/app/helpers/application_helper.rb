@@ -4,11 +4,11 @@ module ApplicationHelper
   end
 
 
-  def format_comment_error(error)
-    {
-      'body'   => 'Please comment',
-      'author' => 'Please provide your name',
-      'base'   => error.last
-    }[error.first.to_s]
-  end
+  # def format_comment_error(error)
+  #   {
+  #     'body'   => 'Please comment',
+  #     'author' => 'Please provide your name',
+  #     'base'   => error.last
+  #   }[error.first.to_s]
+  # end
 end

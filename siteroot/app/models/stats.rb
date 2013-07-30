@@ -4,7 +4,7 @@ class Stats
   end
 
   def comment_count
-    Comment.count
+    # Comment.count
   end
 
   def tag_count

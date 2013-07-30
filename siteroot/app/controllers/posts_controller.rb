@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by_permalink(*([:year, :month, :day, :slug].collect {|x| params[x] } << {:include => [:approved_comments, :tags]}))
+    @post = Post.find_by_permalink(*([:year, :month, :day, :slug].collect {|x| params[x] } << {:include => [:tags]}))
     # @comment = Comment.new
     authorize! :read, @post
   end
