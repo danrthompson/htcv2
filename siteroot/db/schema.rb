@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730222952) do
+ActiveRecord::Schema.define(:version => 20130731221626) do
 
   create_table "administrators", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(:version => 20130730222952) do
   add_index "administrators", ["unlock_token"], :name => "index_administrators_on_unlock_token", :unique => true
 
   create_table "advice_posts", :force => true do |t|
-    t.string   "title"
     t.text     "post_text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
