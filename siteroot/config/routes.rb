@@ -1,6 +1,8 @@
 Htcv2::Application.routes.draw do
 
 
+  devise_for :users
+
   get "tools/resources"
 
   get "tools/services"
@@ -21,7 +23,6 @@ Htcv2::Application.routes.draw do
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
   mount Spree::Core::Engine, :at => '/store'
         
-  devise_for :administrators
 
   scope '/blog' do
 

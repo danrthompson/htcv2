@@ -3,10 +3,18 @@ class Ability
 
 
   def initialize(user)
-    if user.is_a? Administrator then
-        can :manage, :all
-        can :access, :admin_area
+    if user.is_a? User then
+        if user.administrator then
+            can :manage, :all
+            can :access, :admin_area
+        else
+            # regular user
+            can :read, Post do |post|
+                post.published_at && post.published_at < Time.now
+            end
+        end
     else
+        # not logged in
         can :read, Post do |post|
             post.published_at && post.published_at < Time.now
         end
