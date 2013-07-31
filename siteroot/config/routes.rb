@@ -9,7 +9,7 @@ Htcv2::Application.routes.draw do
   # scope '/conversation' do
     # resources :advice_posts, path: 'advice' do
     resources :advice_posts do
-      resources :comments
+      resources :comments, only: [:create, :destroy]
     end
 
     # root :to => 'advice_posts#index'
