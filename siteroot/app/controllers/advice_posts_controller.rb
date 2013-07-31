@@ -14,6 +14,7 @@ class AdvicePostsController < ApplicationController
   # GET /advice_posts/1.json
   def show
     @advice_post = AdvicePost.find(params[:id])
+    @comments = @advice_post.comments
 
     respond_to do |format|
       format.html # show.html.erb

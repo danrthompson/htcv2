@@ -10,8 +10,8 @@
 %h1 Listing advice
 
 - @advice_posts.each do |advice_post|
-	%h4= advice_post.title
-	%p= advice_post.post_text
+	%h4= "Title: #{advice_post.title}"
+	%p= "Body: #{advice_post.post_text}"
 	%p 
 		= link_to 'Show', advice_post
 		= link_to 'Edit', edit_advice_post_path(advice_post)
