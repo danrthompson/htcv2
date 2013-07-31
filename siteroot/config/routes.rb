@@ -6,14 +6,13 @@ Htcv2::Application.routes.draw do
   get "tools/services"
 
 
-  # scope '/conversation' do
-    # resources :advice_posts, path: 'advice' do
-    resources :advice_posts do
+  scope '/conversation' do
+    resources :advice_posts, only: [:index, :show, :create, :destroy], path: 'advice' do
       resources :comments, only: [:create, :destroy]
     end
 
-    # root :to => 'advice_posts#index'
-  # end
+    root :to => 'advice_posts#index'
+  end
 
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.

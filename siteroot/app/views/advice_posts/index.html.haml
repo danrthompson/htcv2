@@ -14,7 +14,6 @@
 	%p= "Body: #{advice_post.post_text}"
 	%p 
 		= link_to 'Show', advice_post
-		= link_to 'Edit', edit_advice_post_path(advice_post)
 		= link_to 'Destroy', advice_post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
