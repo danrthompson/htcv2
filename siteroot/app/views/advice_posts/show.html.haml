@@ -7,7 +7,15 @@
 	- @comments.each do |comment|
 		%p= comment.body
 		%p= link_to 'Delete Comment', [@advice_post, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
-%h4 Create new comment
-= render partial: 'comments/form', locals: {comment: @advice_post.comments.new, commentable: @advice_post}
+		%br
+		- if comment.has_children? then
+			- comment.children.each do |child_comment|
+				%p= child_comment.body
+				%p= link_to 'Delete Comment', [@advice_post, child_comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
+		%h6 Create new comment on comment
+		= render partial: 'comments/form', locals: {comment: @advice_post.comments.new, commentable: @advice_post, parent_id: comment.id}
+
+%h4 Create new comment on Advice
+= render partial: 'comments/form', locals: {comment: @advice_post.comments.new, commentable: @advice_post, parent_id: nil}
 
 = link_to 'All posts', advice_posts_path

@@ -1,7 +1,10 @@
 class Comment < ActiveRecord::Base
+  @@max_nesting = 1
+
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
 
   validates :body, :user_id, :presence => true
+  validate :comment_not_overnested
   # validates :user, :presence => true
 
   # NOTE: install the acts_as_votable plugin if you
@@ -12,6 +15,17 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+
+  def comment_not_overnested
+    if not parent_id.blank? then
+      parent = Comment.find_by_id(parent_id)
+      if not parent then
+        errors.add(:parent, "Does not exist")
+      elsif parent.level >= @@max_nesting then
+        errors.add(:parent, "Already nested at the max")
+      end
+    end 
+  end
 
   # Helper class method that allows you to build a comment
   # by passing a commentable object, a user_id, and comment text
