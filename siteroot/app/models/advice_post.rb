@@ -3,7 +3,8 @@ class AdvicePost < ActiveRecord::Base
   validates :post_text, :user_id, presence: true
 
   acts_as_commentable
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :destroy
+  belongs_to :user
 
   def title
   	post_text.truncate(80, separator: ' ')
