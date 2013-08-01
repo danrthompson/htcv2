@@ -11,7 +11,7 @@ class AdvicePostsController < ApplicationController
 
   def show
     @advice_post = AdvicePost.find(params[:id])
-    @comments = @advice_post.comments
+    @comments = @advice_post.root_comments
 
     respond_to do |format|
       format.html # show.html.erb
