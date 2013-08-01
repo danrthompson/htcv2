@@ -1,0 +1,20 @@
+- content_for :sub_nav do
+	.sub_nav_top
+		%ul.sub_nav.top_half
+			%li 
+				%a{:href => "./resources"} 
+					%h2 Resources
+			%li.current-selection
+				%a{:href => "./services"} 
+					%h2 Services
+
+	.sub_nav_bottom
+		%ul.sub_nav.bottom_half
+			%li 
+				%a{:href => ""} Technology
+			%li.current-selection
+				%a{:href => ""} Publishing
+			%li.right-stroke 
+				%a{:href => ""} Fashion
+			%li.right-stroke 
+				%a{:href => ""} Surprise
