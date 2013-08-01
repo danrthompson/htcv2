@@ -1,14 +1,10 @@
 class CommentsController < ApplicationController
   before_filter :load_commentable
 
-  @@max_nesting = 1
-
   def create
     authorize! :create, AdvicePost
-
-
-
-    @comment = Comment.build_from(@commentable, (current_user ? current_user.id : -1), params[:comment][:body])
+    @comment = @commentable.comments.new(params[:comment])
+    @comment.user_id = current_user ? current_user.id : -1
 
     respond_to do |format|
       if @comment.save
@@ -39,19 +35,6 @@ class CommentsController < ApplicationController
     parent_klasses = [AdvicePost]
     klass = parent_klasses.detect { |c| params["#{c.name.underscore}_id"] }
     @commentable = klass.find(params["#{klass.name.underscore}_id"])
-  end
-
-  def get_parent_and_ensure_not_overnested(parent_id)
-    if parent_id.blank? then
-      return nil
-    else
-      parent_comment = Comment.find(parent_id)
-      if parent_comment.level < @@max_nesting then
-        return parent_comment
-      end
-    end
-    # raise Exception
-    return nil
   end
 
 
