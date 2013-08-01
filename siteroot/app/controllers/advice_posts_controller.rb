@@ -29,7 +29,7 @@ class AdvicePostsController < ApplicationController
         format.html { redirect_to @advice_post, notice: 'Advice post was successfully created.' }
         format.json { render json: @advice_post, status: :created, location: @advice_post }
       else
-        format.html { render action: "index" }
+        format.html { redirect_to action: "index", notice: @advice_post.errors.full_messages.first }
         format.json { render json: @advice_post.errors, status: :unprocessable_entity }
       end
     end

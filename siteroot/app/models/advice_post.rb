@@ -1,5 +1,6 @@
 class AdvicePost < ActiveRecord::Base
   attr_accessible :post_text
+  validates :post_text, :user_id, presence: true
 
   acts_as_commentable
   has_many :comments, as: :commentable
