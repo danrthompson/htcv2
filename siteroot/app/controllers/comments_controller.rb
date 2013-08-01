@@ -2,7 +2,9 @@ class CommentsController < ApplicationController
   before_filter :load_commentable
 
   def create
+    authorize! :create, AdvicePost
     @comment = @commentable.comments.new(params[:comment])
+    @comment.user_id = current_user ? current_user.id : -1
 
     respond_to do |format|
       if @comment.save
@@ -18,6 +20,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+    authorize! :destroy, @comment
     @comment.destroy
 
     respond_to do |format|

@@ -12,12 +12,17 @@ class Ability
             can :read, Post do |post|
                 post.published_at && post.published_at < Time.now
             end
+            can :manage, [Comment, AdvicePost], user_id: user.id
+            can [:create, :read], [Comment, AdvicePost]
+            can :read, [Resource, ResourceCategory, ResourceSubcategory, Service, ServiceCategory]
         end
     else
         # not logged in
         can :read, Post do |post|
             post.published_at && post.published_at < Time.now
         end
+        can [:create, :read], [Comment, AdvicePost]
+        can :read, [Resource, ResourceCategory, ResourceSubcategory, Service, ServiceCategory]
     end
 
     # Define abilities for the passed in user here. For example:

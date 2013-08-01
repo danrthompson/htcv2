@@ -20,7 +20,9 @@ class AdvicePostsController < ApplicationController
   end
 
   def create
+    authorize! :create, AdvicePost
     @advice_post = AdvicePost.new(params[:advice_post])
+    @advice_post.user_id = current_user ? current_user.id : -1
 
     respond_to do |format|
       if @advice_post.save
@@ -35,6 +37,7 @@ class AdvicePostsController < ApplicationController
 
   def destroy
     @advice_post = AdvicePost.find(params[:id])
+    authorize! :destroy, @advice_post
     @advice_post.destroy
 
     respond_to do |format|
