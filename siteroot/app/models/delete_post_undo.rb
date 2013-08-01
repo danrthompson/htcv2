@@ -6,9 +6,9 @@ class DeletePostUndo < UndoItem
     post = nil
     transaction do
       post = Post.create!(post_attributes)
-      loaded_data[:comments].each do |comment|
-        post.comments.create!(comment.except('id', 'post_id'))
-      end
+      # loaded_data[:comments].each do |comment|
+      #   post.comments.create!(comment.except('id', 'post_id'))
+      # end
       self.destroy
     end
     post
@@ -28,7 +28,7 @@ class DeletePostUndo < UndoItem
 
   class << self
     def create_undo(post)
-      DeletePostUndo.create!(:data => {:post => post.attributes, :comments => post.comments.collect(&:attributes)}.to_yaml)
+      DeletePostUndo.create!(:data => {:post => post.attributes}.to_yaml)
     end
   end
 end

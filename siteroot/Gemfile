@@ -11,6 +11,9 @@ gem 'sqlite3'
 # end for htcv2
 
 
+gem 'acts_as_commentable_with_threading'
+
+
 gem 'carrierwave'
 gem 'fog'
 gem 'carrierwave_direct'
@@ -36,6 +39,7 @@ end
 
 gem 'jquery-rails', '2.2.1'
 gem "haml"
+gem "haml-rails"
 
 
 # for htcv2

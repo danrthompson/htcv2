@@ -11,45 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130728163507) do
+ActiveRecord::Schema.define(:version => 20130801000649) do
 
-  create_table "administrators", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.integer  "failed_attempts",        :default => 0
-    t.string   "unlock_token"
-    t.datetime "locked_at"
-    t.string   "authentication_token"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+  create_table "advice_posts", :force => true do |t|
+    t.text     "post_text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id",    :null => false
   end
 
-  add_index "administrators", ["authentication_token"], :name => "index_administrators_on_authentication_token", :unique => true
-  add_index "administrators", ["email"], :name => "index_administrators_on_email", :unique => true
-  add_index "administrators", ["reset_password_token"], :name => "index_administrators_on_reset_password_token", :unique => true
-  add_index "administrators", ["unlock_token"], :name => "index_administrators_on_unlock_token", :unique => true
+  add_index "advice_posts", ["user_id"], :name => "index_advice_posts_on_user_id"
 
   create_table "comments", :force => true do |t|
-    t.integer  "post_id",      :null => false
-    t.string   "author",       :null => false
-    t.string   "author_url",   :null => false
-    t.string   "author_email", :null => false
-    t.text     "body",         :null => false
-    t.text     "body_html",    :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "commentable_id",   :default => 0
+    t.string   "commentable_type", :default => ""
+    t.string   "title",            :default => ""
+    t.text     "body",             :default => ""
+    t.string   "subject",          :default => ""
+    t.integer  "user_id",          :default => 0,  :null => false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
-  add_index "comments", ["created_at"], :name => "index_comments_on_created_at"
-  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+  add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
@@ -97,6 +85,18 @@ ActiveRecord::Schema.define(:version => 20130728163507) do
   add_index "posts", ["published_at"], :name => "index_posts_on_published_at"
   add_index "posts", ["slug"], :name => "posts_slug_unique_idx"
 
+  create_table "resource_categories", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "resource_subcategories", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "resources", :force => true do |t|
     t.string   "category"
     t.string   "subcategory"
@@ -108,6 +108,12 @@ ActiveRecord::Schema.define(:version => 20130728163507) do
     t.text     "out_link"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "service_categories", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "services", :force => true do |t|
@@ -822,5 +828,35 @@ ActiveRecord::Schema.define(:version => 20130728163507) do
   end
 
   add_index "undo_items", ["created_at"], :name => "index_undo_items_on_created_at"
+
+  create_table "users", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.integer  "failed_attempts",        :default => 0
+    t.string   "unlock_token"
+    t.datetime "locked_at"
+    t.string   "authentication_token"
+    t.boolean  "administrator"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
 
 end

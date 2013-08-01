@@ -1,0 +1,22 @@
+-# %h2 Advice
+-# - @advice.each do |advice|
+
+
+-# %h2 New advice
+-# = form_for(AdvicePost.new)
+
+
+
+%h1 Listing advice
+
+- @advice_posts.each do |advice_post|
+	%h4= "Title: #{advice_post.title}"
+	%p= "Body: #{advice_post.post_text}"
+	%p 
+		= link_to 'Show', advice_post
+		= link_to 'Destroy', advice_post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+%h1 New advice
+= render partial: 'form', locals: {advice_post: AdvicePost.new}

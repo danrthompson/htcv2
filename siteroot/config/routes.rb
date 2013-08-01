@@ -1,8 +1,20 @@
 Htcv2::Application.routes.draw do
 
+
+  devise_for :users
+
   get "tools/resources"
 
   get "tools/services"
+
+
+  scope '/conversation' do
+    resources :advice_posts, only: [:index, :show, :create, :destroy], path: 'advice' do
+      resources :comments, only: [:create, :destroy]
+    end
+
+    root :to => 'advice_posts#index'
+  end
 
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
@@ -11,7 +23,6 @@ Htcv2::Application.routes.draw do
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
   mount Spree::Core::Engine, :at => '/store'
         
-  devise_for :administrators
 
   scope '/blog' do
 

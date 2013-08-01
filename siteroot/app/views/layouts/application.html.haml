@@ -35,6 +35,8 @@
         /   %a{:href => root_url}= htcv2_config[:title]
         .divider
         .post-entry
+          - if current_user then
+            = link_to 'sign_out', destroy_user_session_path, :method => :delete
           = yield
         -# #navigation
 

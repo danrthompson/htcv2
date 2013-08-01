@@ -1,76 +1,41 @@
 class CommentsController < ApplicationController
-  before_filter :admin_auth_check!
-  include UrlHelper
-  
+  before_filter :load_commentable
 
-  before_filter :find_post, :except => [:new]
-
-  def index
-    redirect_to(post_path(@post))
-  end
-
-  def new
-    @comment = Comment.build_for_preview(params[:comment])
+  def create
+    authorize! :create, AdvicePost
+    @comment = @commentable.comments.new(params[:comment])
+    @comment.user_id = current_user ? current_user.id : -1
 
     respond_to do |format|
-      format.js do
-        render :partial => 'comment', :locals => {:comment => @comment}
+      if @comment.save
+        format.html { redirect_to @commentable, notice: 'Comment was successfully created.' }
+        format.json { render json: @comment, status: :created, location: @comment }
+      else
+        format.html { redirect_to @commentable, notice: @comment.errors.full_messages.first }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  def create
-    @comment = Comment.new((session[:pending_comment] || params[:comment] || {}).
-      reject {|key, value| !Comment.protected_attribute?(key) })
-    @comment.post = @post
 
-    session[:pending_comment] = nil
+  def destroy
+    @comment = Comment.find(params[:id])
+    authorize! :destroy, @comment
+    @comment.destroy
 
-    # if @comment.requires_openid_authentication?
-    #   session[:pending_comment] = params[:comment]
-    #   authenticate_with_open_id(@comment.author,
-    #     :optional => [:nickname, :fullname, :email]
-    #   ) do |result, identity_url, registration|
-    #     if result.status == :successful
-    #       @comment.post = @post
-
-    #       @comment.author_url = @comment.author
-    #       @comment.author = (
-    #         registration["fullname"] ||
-    #         registration["nickname"] ||
-    #         @comment.author_url
-    #       ).to_s
-    #       @comment.author_email = (
-    #         registration["email"] ||
-    #         @comment.author_url
-    #       ).to_s
-
-    #       @comment.openid_error = ""
-    #       session[:pending_comment] = nil
-    #     else
-    #       @comment.openid_error = OPEN_ID_ERRORS[ result.status ]
-    #     end
-    #   end
-    # else
-    @comment.blank_openid_fields
-    # end
-
-    # not sure what to do with this
-    # unless response.headers[Rack::OpenID::AUTHENTICATE_HEADER]
-    if @comment.save
-      redirect_to post_path(@post)
-    else
-      render :template => 'posts/show'
+    respond_to do |format|
+      format.html { redirect_to @commentable }
+      format.json { head :no_content }
     end
-    # end
   end
 
-  protected
+  private
 
-  def find_post
-    @post = Post.find_by_permalink(*[:year, :month, :day, :slug].map {|x|
-      params[x]
-    })
+  def load_commentable
+    parent_klasses = [AdvicePost, Comment]
+    klass = parent_klasses.detect { |c| params["#{c.name.underscore}_id"] }
+    @commentable = klass.find(params["#{klass.name.underscore}_id"])
   end
+
 
 end

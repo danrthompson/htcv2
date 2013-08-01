@@ -1,74 +1,48 @@
 class Comment < ActiveRecord::Base
-  DEFAULT_LIMIT = 15
+  acts_as_nested_set :scope => [:commentable_id, :commentable_type]
 
-  belongs_to            :post
+  validates :body, :user_id, :presence => true
+  # validates :user, :presence => true
 
-  before_save           :apply_filter
-  after_save            :denormalize
-  after_destroy         :denormalize
+  # NOTE: install the acts_as_votable plugin if you
+  # want user to vote on the quality of comments.
+  #acts_as_votable
 
-  validates             :author, :body, :post, :presence => true
+  belongs_to :commentable, :polymorphic => true
 
+  # NOTE: Comments belong to a user
+  belongs_to :user
 
-
-  def apply_filter
-    self.body_html = Lesstile.format_as_xhtml(self.body, :code_formatter => Lesstile::CodeRayFormatter)
+  # Helper class method that allows you to build a comment
+  # by passing a commentable object, a user_id, and comment text
+  # example in readme
+  def self.build_from(obj, user_id, comment)
+    new \
+      :commentable => obj,
+      :body        => comment,
+      :user_id     => user_id
   end
 
-  def blank_openid_fields
-    self.author_url = ""
-    self.author_email = ""
+  #helper method to check if a comment has children
+  def has_children?
+    self.children.any?
   end
 
+  # Helper class method to lookup all comments assigned
+  # to all commentable types for a given user.
+  scope :find_comments_by_user, lambda { |user|
+    where(:user_id => user.id).order('created_at DESC')
+  }
 
-  def trusted_user?
-    false
-  end
+  # Helper class method to look up all comments for
+  # commentable class name and commentable id.
+  scope :find_comments_for_commentable, lambda { |commentable_str, commentable_id|
+    where(:commentable_type => commentable_str.to_s, :commentable_id => commentable_id).order('created_at DESC')
+  }
 
-  def approved?
-    true
-  end
-
-  def denormalize
-    self.post.denormalize_comments_count!
-  end
-
-  def destroy_with_undo
-    undo_item = nil
-    transaction do
-      self.destroy
-      undo_item = DeleteCommentUndo.create_undo(self)
-    end
-    undo_item
-  end
-
-  # Delegates
-  def post_title
-    post.title
-  end
-
-  class << self
-    def protected_attribute?(attribute)
-      [:author, :body].include?(attribute.to_sym)
-    end
-
-    def new_with_filter(params)
-      comment = Comment.new(params)
-      comment.created_at = Time.now
-      comment.apply_filter
-      comment
-    end
-
-    def build_for_preview(params)
-      comment = Comment.new_with_filter(params)
-      comment
-    end
-
-    def find_recent(options = {})
-      find(:all, {
-        :limit => DEFAULT_LIMIT,
-        :order => 'created_at DESC'
-      }.merge(options))
-    end
+  # Helper class method to look up a commentable object
+  # given the commentable class name and id
+  def self.find_commentable(commentable_str, commentable_id)
+    commentable_str.constantize.find(commentable_id)
   end
 end

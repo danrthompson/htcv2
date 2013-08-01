@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%h4= "Title: #{@advice_post.title}"
+%p= "Body: #{@advice_post.post_text}"
+- if @comments then
+	%h4 Comments:
+	- @comments.each do |comment|
+		%p= comment.body
+		%p= link_to 'Delete Comment', [@advice_post, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
+%h4 Create new comment
+= render partial: 'comments/form', locals: {comment: @advice_post.comments.new, commentable: @advice_post}
+
+= link_to 'All posts', advice_posts_path
