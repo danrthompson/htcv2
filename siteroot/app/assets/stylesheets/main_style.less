@@ -122,10 +122,15 @@ ul {
 	border-top: 1px solid @stroke-color;
 }
 
+
 ///////////// UNIVERSAL CLASSES ////////
 
 .teal {
 	color: @teal;
+}
+
+.half-opacity{
+	opacity: 0.5;
 }
 
 .right-stroke{
@@ -215,7 +220,7 @@ ul {
 ///////// BLOG POST CONTENT ////////
 
 .post{
-	margin-top: 50px;
+	margin-top: 70px;
 }
 
 .post-entry{
@@ -409,7 +414,7 @@ ul {
 	}
 }
 
-.store-card-wrapper{
+.three-column-wrapper{
 	.inline-list;
 	overflow: hidden;
 	margin-top: 30px;
@@ -437,6 +442,20 @@ ul {
 
 		}
 
+		h3{
+				color: @teal;
+				margin: 5% 0 5% 0;
+				text-align: center;
+			}
+
+		p{
+			font-size: 12px;
+			line-height: 16px;
+			color: black;
+			width: 90%;
+			margin: auto;
+		}
+
 		.store_overlay{
 			position:absolute;
 			width:95%;
@@ -448,18 +467,6 @@ ul {
 			border:1px solid @stroke-color;
 			opacity: 0.95;
 
-			h3{
-				color: @teal;
-				margin: 5% 0 5% 0;
-			}
-
-			p{
-				font-size: 12px;
-				line-height: 16px;
-				color: black;
-				width: 90%;
-				margin: auto;
-			}
 			.deets_wrapper{
 				background-color: @current-teal;
 				text-align: center;
@@ -522,4 +529,142 @@ ul {
 
 .second_col, .third_col{
 	margin-left:5%;
+}
+
+.services{
+	width: 120%;
+	margin-left:-10%;
+	li{
+		height: 290px;
+		padding: 20px 30px 20px 30px;
+		.rounded-corners(15px);
+		border: 1px solid @stroke-color;
+		border-right: 2px solid @stroke-color;
+		border-bottom: 2px solid @stroke-color;
+
+		img {
+			height: 50px;
+			width: auto;
+			max-width: 100%;
+			margin: auto;
+			margin-top: 10px;
+			margin-bottom: 25px;
+		}
+
+		h3{
+			color: @black-gray;
+			text-align: left;
+			text-transform: uppercase;
+			font-size: 18px;
+			margin-bottom: 15px;
+		}
+
+		h3:hover{
+			color: @dark-gray;
+		}
+
+		p{
+			width:100%;
+			font-size: 14px;
+			height: 100px;
+			overflow: hidden;
+			word-wrap: ellipsis;
+			color: @middle-gray;
+			line-height: 18px;
+
+		}
+		a{
+			float: left;
+			font-size: 14px;
+			
+			h4{
+				color: @teal;
+				text-transform: uppercase;
+				font-weight: 800;
+				padding:0;
+				margin:10px 0;
+				font-size: 16px;
+			}
+
+			h4:hover{
+				color: @black-gray;
+
+			}
+		}
+		a.extra-top-margin{
+			margin-top: 6px;
+		}
+	}
+
+	li:hover{
+		border: 1px solid @teal;
+		border-right: 2px solid @teal;
+		border-bottom: 2px solid @teal;
+	}
+
+	margin-bottom: 50px;
+}
+
+
+.resources_subsection{
+	margin-top: 40px;
+	margin-bottom: 75px;
+
+	.resource_entry{
+		margin: 10px 0px 20px 0px;
+	}
+
+	h2{
+		margin:auto;
+		text-transform: uppercase;
+		width: 80%;
+		color: @teal;
+		font-size: 36px;
+		margin-bottom: 42px;
+	}
+
+	img{
+		width: 84%;
+		margin: auto;
+		margin-bottom: 15px;
+	}
+
+	.resource_title_wrapper{
+		overflow: hidden;
+		margin-bottom: 15px;
+		text-transform: uppercase;
+
+		h3{
+			font-size: 22px;
+			float:left;
+			margin-bottom: 0;
+		}
+
+		.resource-action-items{
+			float:right;
+			
+			margin-top: 8px;
+			h4{
+				padding: 0;
+				margin-bottom: 0;
+			}
+
+			a{
+				font-weight: 800;
+				color: @dark-gray;
+				opacity: 0.5;
+				letter-spacing: 1px;
+			}
+
+			a:hover{
+				color: @teal;
+				opacity: 1;
+			}
+		}
+	}
+
+	p{
+		margin: 0;
+	}
+
 }
