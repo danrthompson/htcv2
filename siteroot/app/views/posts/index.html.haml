@@ -18,16 +18,17 @@
 / 	%p= link_to "Login", new_administrator_session_path
 
 /  THIS IS A GIVEN POST. EACH POST HAS IT'S OWN CONTENT
-- if @posts.empty?
-	%p There are no posts yet.
-- else
-	/ 	MAKE A POST HAPPEN. FOR EACH POST GENERATRE POST
-	- @posts.each do |post|
-		.post{:id => dom_id(post)}
-			= render post
-	
-	- if more_content?
-		= render 'shared/blog/archives_link'
-.more-posts-wrapper
-	%a{:href => ""} 
-		%h2.teal More Posts
+.post-entry
+	- if @posts.empty?
+		%p There are no posts yet.
+	- else
+		/ 	MAKE A POST HAPPEN. FOR EACH POST GENERATRE POST
+		- @posts.each do |post|
+			.post{:id => dom_id(post)}
+				= render post
+		
+		- if more_content?
+			= render 'shared/blog/archives_link'
+	.more-posts-wrapper
+		%a{:href => ""} 
+			%h2.teal More Posts
