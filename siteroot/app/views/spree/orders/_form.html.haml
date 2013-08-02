@@ -5,7 +5,7 @@
       %th.cart-item-description-header{:colspan => "2"}= Spree.t(:item)
       %th.cart-item-price-header= Spree.t(:price)
       %th.cart-item-quantity-header= Spree.t(:qty)
-      %th.cart-item-total-header= Spree.t(:total)
+      / %th.cart-item-total-header= Spree.t(:total)
       %th.cart-item-delete-header
   %tbody#line_items{"data-hook" => ""}
     = order_form.fields_for :line_items do |item_form|
