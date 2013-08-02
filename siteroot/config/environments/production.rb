@@ -1,12 +1,14 @@
 Htcv2::Application.configure do
 
   config.paperclip_defaults = {
-    :storage => ENV['UPLOAD_STORAGE'].to_sym,
-    :s3_credentials => {
-      :bucket => ENV['AWS_BUCKET'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
+    storage: ENV['UPLOAD_STORAGE'].to_sym,
+    s3_credentials: {
+      bucket: ENV['AWS_BUCKET'],
+      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+    },
+    path: ENV['PAPERCLIP_DEFAULT_PATH'],
+    hash_secret: ENV['PAPERCLIP_HASH_SECRET']
   }
 
   config.assets.initialize_on_precompile = false
