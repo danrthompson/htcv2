@@ -1,0 +1,24 @@
+%fieldset#payment{"data-hook" => ""}
+  %legend{:align => "center"}= Spree.t(:payment_information)
+  %div{"data-hook" => "checkout_payment_step"}
+    - @order.available_payment_methods.each do |method|
+      %p
+        %label
+          = radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first
+          = Spree.t(method.name, :scope => :payment_methods, :default => method.name)
+    %ul#payment-methods{"data-hook" => ""}
+      - @order.available_payment_methods.each do |method|
+        %li{:class => 'last' if method == @order.available_payment_methods.last, "data-hook" => "", :id => "payment_method_#{method.id}"}
+          %fieldset
+            = render :partial => "spree/checkout/payment/#{method.method_type}", :locals => { :payment_method => method }
+    %br{:style => "clear:both;"}/
+    - if Spree::Promotion.with_code.count > 0
+      %p.field{"data-hook" => "coupon_code"}
+        = form.label :coupon_code
+        %br/
+        = form.text_field :coupon_code
+%br.space/
+.form-buttons{"data-hook" => "buttons"}
+  = submit_tag Spree.t(:save_and_continue), :class => 'continue button primary'
+  :javascript
+    Spree.disableSaveOnClick();
