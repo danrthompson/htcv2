@@ -6,14 +6,10 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-# for htcv2
-gem 'sqlite3'
-# end for htcv2
-
-
+gem 'figaro'
 gem 'acts_as_commentable_with_threading'
-
-
+gem 'paperclip'
+gem 'aws-sdk'
 gem 'carrierwave'
 gem 'fog'
 gem 'carrierwave_direct'
