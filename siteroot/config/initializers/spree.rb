@@ -14,5 +14,5 @@ Spree.config do |config|
   config.s3_bucket = ENV['AWS_BUCKET']
   config.s3_access_key = ENV['AWS_ACCESS_KEY_ID']
   config.s3_secret = ENV['AWS_SECRET_ACCESS_KEY']
-  config.layout = ENV['layouts/application']
+  config.layout = 'layouts/application'
 end
