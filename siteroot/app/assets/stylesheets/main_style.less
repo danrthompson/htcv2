@@ -175,6 +175,14 @@ ul {
 	margin: auto;
 }
 
+.width-45{
+	width: 45%;
+	margin: auto;
+}
+
+.rpadding-5{
+	padding-right: 5%;
+}
 ////////////////// CODE INPUT FROM TWITTER BOOTSTRAP//////////////////
 
 .form-control {
@@ -974,8 +982,21 @@ padding-top: 100px;
 			.rounded-corners(3px);
 			color: white;
 			text-transform: uppercase;
-
 		}
+
+
+		.checkout-arrow{
+			color: @light-gray;
+			background-color: white;
+		}
+
+	}
+
+	li.current-first{
+		span{
+			background-color: @teal;
+		}
+
 
 		.checkout-arrow{
 			color: @light-gray;
@@ -984,7 +1005,23 @@ padding-top: 100px;
 
 
 	}
+
+
 }
+
+#checkout_form_address{
+	margin: auto;
+}
+
+.checkout-content{
+	padding-top: 50px;
+}
+
+.progress-start {
+	list-style: none;
+}
+
+
 
 #checkout {
 	overflow: hidden;
@@ -994,6 +1031,8 @@ padding-top: 100px;
 		.rounded-corners(15px);
 		width: 80%;
 		margin: auto;
+		padding: 20px 50px;
+		margin-bottom:50px;
 	}
 
 	.divider{
@@ -1002,19 +1041,35 @@ padding-top: 100px;
 	
 	.column{
 
-		width: 50%;
+		width: 80%;
+		margin: 0 10%;
 
 		.form-control{
 			width: 90%;
 			.rounded-corners(10px);
 			margin-top:5px;
+			margin-bottom: 15px;
 			height: 25px;
 			// margin: auto;
 		}
+
+		.form-control.yay-america{
+			height: 35px;
+			width:100%;
+
+		}
+
+		#bstate{
+			margin: 1px;
+		}
+
+		#bphone{
+			margin-top: 150px;
+		}
+
 	}
 
 	.second-column{
-		margin-left: %;
 	}
 
 	h2{
@@ -1028,17 +1083,21 @@ padding-top: 100px;
 		opacity: 0.5;
 		padding-bottom: 30px;
 	}
+
+	form{
+
+	}
+
+	
+	
+
 }
 
-#checkout_form_address{
-	margin: auto;
-}
-
-.checkout-content{
-	padding-top: 50px;
-}
-
-.progress-start {
-	list-style: none;
+#billing{
+	legend{
+		font-size: 24px;
+		text-transform: uppercase;
+		padding: 10px;
+	}
 }
 
