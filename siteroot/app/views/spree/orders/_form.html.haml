@@ -10,4 +10,5 @@
   %tbody#line_items{"data-hook" => ""}
     = order_form.fields_for :line_items do |item_form|
       = render :partial => 'line_item', :locals => { :variant => item_form.object.variant, :line_item => item_form.object, :item_form => item_form }
-  = render "spree/orders/adjustments" unless @order.adjustments.eligible.blank?
+  / Adds shipment information to the bottom of the page, order detials
+  / = render "spree/orders/adjustments" unless @order.adjustments.eligible.blank?

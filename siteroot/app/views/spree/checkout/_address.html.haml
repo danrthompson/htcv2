@@ -19,6 +19,12 @@
       = render :partial => 'spree/address/form', :locals => { :form => ship_form, :address_type => 'shipping', :address => @order.ship_address }
 
 
+.divider.caption
+  %a.float-left Want To Support More Amazing Projects, click here to continue browsing.
 / %hr.clear/
 .form-buttons{"data-hook" => "buttons"}
   = submit_tag Spree.t(:save_and_continue), :class => 'continue button blue-button float-right'
+
+.bottom-button-wrapper.float-left
+  %a.button.gray-button{:href => ""} Go Back
+  %a.button.gray-button{:href => ""} Continue Shopping 
