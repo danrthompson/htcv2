@@ -4,9 +4,9 @@
     #methods
       = form.fields_for :shipments do |ship_form|
         .shipment
-          %h3.stock-location{"data-hook" => "stock-location"}
-            = Spree.t(:package_from)
-            %strong.stock-location-name{"data-hook" => "stock-location-name"}= ship_form.object.stock_location.name
+          / %h3.stock-location{"data-hook" => "stock-location"}
+          /   = Spree.t(:package_from)
+          /   %strong.stock-location-name{"data-hook" => "stock-location-name"}= ship_form.object.stock_location.name
           %table.stock-contents{"data-hook" => "stock-contents"}
             %colgroup
               %col{:style => "width: 10%;"}/
@@ -14,18 +14,23 @@
               %col{:style => "width: 10%;"}/
               %col{:style => "width: 20%;"}/
             %thead
-        %th image
-        %th name
-        %th quantity
-        %th price
-        %tbody
-          - ship_form.object.manifest.each do |item|
-            %tr.stock-item
-              %td.item-image= mini_image(item.variant)
-              %td.item-name= item.variant.name
-              %td.item-qty= item.quantity
-              %td.item-price= display_price(item.variant)
-        %h5.stock-shipping-method-title= Spree.t(:shipping_method)
+        / Category titles
+        / %th image
+        / %th name
+        / %th quantity
+        / %th price
+        
+        / Product Images
+        / %tbody
+        /   - ship_form.object.manifest.each do |item|
+        /     %tr.stock-item
+        /       %td.item-image= mini_image(item.variant)
+        /       %td.item-name= item.variant.name
+        /       %td.item-qty= item.quantity
+        /       %td.item-price= display_price(item.variant)
+       
+        / "Shipping Method" Title
+        / %h5.stock-shipping-method-title= Spree.t(:shipping_method)
         %ul.field.radios.shipping-methods
           - ship_form.object.shipping_rates.frontend.each do |rate|
             %li.shipping-method
@@ -60,6 +65,19 @@
       = form.label :special_instructions, Spree.t(:shipping_instructions)
       %br/
       = form.text_area :special_instructions, :cols => 40, :rows => 7
-%br/
+
+
+.divider.caption
+  %a.float-left Want To Support More Amazing Projects, click here to continue browsing.
+/ %hr.clear/
 .form-buttons{"data-hook" => "buttons"}
-  = submit_tag Spree.t(:save_and_continue), :class => 'continue button primary'
+  = submit_tag Spree.t(:save_and_continue), :class => 'continue button blue-button float-right'
+
+/ PREVIOUS SUBMIT BUTTON
+/ %br/
+/ .form-buttons{"data-hook" => "buttons"}
+/   = submit_tag Spree.t(:save_and_continue), :class => 'continue button primary'
+
+.bottom-button-wrapper.float-left
+  %a.button.gray-button{:href => ""} Go Back
+  %a.button.gray-button{:href => ""} Continue Shopping 
