@@ -4,6 +4,7 @@
     %meta{:charset => "utf-8"}/
     %title= html_title yield(:page_title)
     = csrf_meta_tag
+    = favicon_link_tag image_path('favicon.ico')
     = javascript_include_tag 'application'
     / Gives Head
     = yield(:head)

@@ -1,6 +1,6 @@
 - content_for :page_title do
   Store
-= render 'shared/head'
+= render partial: 'spree/shared/head', layout: 'shared/head'
 
 #checkout.checkout-content{"data-hook" => ""}
   = render :partial => 'spree/shared/error_messages', :locals => { :target => @order }
