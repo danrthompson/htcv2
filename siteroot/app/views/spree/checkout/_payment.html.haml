@@ -8,7 +8,8 @@
           = Spree.t(method.name, :scope => :payment_methods, :default => method.name)
     %ul#payment-methods{"data-hook" => ""}
       - @order.available_payment_methods.each do |method|
-        %li{:class => 'last' if method == @order.available_payment_methods.last, "data-hook" => "", :id => "payment_method_#{method.id}"}
+        - li_class = ((method == @order.available_payment_methods.last) ? 'last' : nil)
+        %li{:class => li_class, "data-hook" => "", :id => "payment_method_#{method.id}"}
           %fieldset
             = render :partial => "spree/checkout/payment/#{method.method_type}", :locals => { :payment_method => method }
     %br{:style => "clear:both;"}/
