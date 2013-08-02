@@ -25,8 +25,8 @@ module Spree
         # It'd be nice to have separate classes but combining them with a dash helps out for IE6 which only sees the last class
         content_tag('li', content_tag('span', text) + content_tag('span', '-->', class: 'checkout-arrow'), class: css_classes.join('-'))
       end
-      items.insert(0, '<li class="progress-start"><h4>Start</h4><span class="checkout-arrow">--&gt;</span></li>')
-      items.append('<li class="progress-end"><h4>End</h4></li>')
+      items.insert(0, '<li class="progress-start">Start<span class="checkout-arrow">--&gt;</span></li>')
+      items.append('<li class="progress-end">End</li>')
       content_tag('ol', raw(items.join("\n")), class: 'progress-steps', id: "checkout-step-#{@order.state}")
     end
   end
