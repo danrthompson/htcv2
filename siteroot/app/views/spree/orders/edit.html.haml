@@ -3,7 +3,7 @@
 = render 'shared/head'
 
 
-.post-entry.left-align.shopping-cart
+.post-entry.extra-wide.left-align.shopping-cart
   - @body_id = 'cart'
   / %h1= Spree.t(:shopping_cart)
   - if @order.line_items.empty?
@@ -24,15 +24,19 @@
           /     = Spree.t(:subtotal)
           /     \:
           /     %span.order-total= @order.display_total.to_html
-          .links.columns.sixteen.alpha.omega{"data-hook" => "cart_buttons"}
+      
+        
+          .divider.caption
+            %a Want To Support More Amazing Projects, click here to continue browsing.
+          .links.columns.sixteen.alpha.omega.float-right.margin-b30{"data-hook" => "cart_buttons"}
             / = order_form.text_field :coupon_code, :size => 10, :placeholder => Spree.t(:coupon_code)
             / = button_tag :class => 'primary', :id => 'update-button' do
             /   = Spree.t(:update)
-            = button_tag :class => 'button checkout primary .left-', :id => 'checkout-link', :name => 'checkout' do
+            = button_tag :class => 'button blue-button checkout primary .left-', :id => 'checkout-link', :name => 'checkout' do
               = Spree.t(:checkout)
 
-    #empty-cart{"data-hook" => ""}
+    #empty-cart.float-left.margin-b30{"data-hook" => ""}
       = form_tag empty_cart_path, :method => :put do
         %p#clear_cart_link{"data-hook" => ""}
-          = submit_tag Spree.t(:empty_cart), :class => 'button blue-button'
-          = link_to Spree.t(:continue_shopping), products_path, :class => 'button blue-button'
+          = submit_tag Spree.t(:empty_cart), :class => 'button gray-button'
+          = link_to Spree.t(:continue_shopping), products_path, :class => 'button gray-button'

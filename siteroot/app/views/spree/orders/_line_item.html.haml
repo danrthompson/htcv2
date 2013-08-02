@@ -16,7 +16,7 @@
   %td.cart-item-price{"data-hook" => "cart_item_price"}
     = line_item.single_money.to_html
   %td.cart-item-quantity{"data-hook" => "cart_item_quantity"}
-    = item_form.number_field :quantity, :min => 0, :class => "line_item_quantity", :size => 5
+    = item_form.number_field :quantity, :min => 0, :class => "line_item_quantity form-control input-small", :size => 5
   / %td.cart-item-total{"data-hook" => "cart_item_total"}
   /   = line_item.display_amount.to_html unless line_item.quantity.nil?
   %td.cart-item-delete{"data-hook" => "cart_item_delete"}

@@ -10,6 +10,7 @@
 @dark-gray: #898989;
 @black-gray: #252525;
 @middle-gray: #929292;
+@light-gray: #C9C9C9;
 
 @teal: #0a7b8d;
 @button-hover-teal: #1c96a9;
@@ -64,6 +65,10 @@
   border-radius: @radius;
 }
 
+.margin-padding(@margin: 0px, @padding: 0px){
+	margin: @margin;
+	padding: @padding;
+}
 ////////////////////////////////////////
 
 
@@ -143,6 +148,62 @@ ul {
 .left-align{
 	text-align: left;
 }
+
+.center-align{
+	text-align: center;
+}
+
+.float-left {
+	float: left;
+	overflow: hidden;
+}
+
+.float-right {
+	float: right;
+	overflow: hidden;
+}
+
+////////////////// CODE INPUT FROM TWITTER BOOTSTRAP//////////////////
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 38px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+          transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.form-control:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+}
+
+.input-small {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
 
 //////////// PRIMARY PAGE ASSETS ///////
 
@@ -708,6 +769,16 @@ ul {
 	background: @button-hover-teal;
 }
 
+.gray-button{
+    background: @light-gray;
+    color: #FFF;
+}
+
+.gray-button:hover{
+    background: @black-gray;
+    color: #FFF;
+}
+
 select{
     padding: 7px 15px;
     border: none;
@@ -795,8 +866,10 @@ select{
 // controls the order quantity attribute on store/cart (shopping cart view)
 .line_item_quantity{
 	width:40px;
-	margin-left:20px;
+	margin-left:30px;
 	margin-right:30px;
+	padding: 0 0px 0 5px;
+	height: 25px;
 }
 
 .line-items{
@@ -827,54 +900,38 @@ select{
 }
 
 .shopping-cart{
+	overflow: hidden;
+
+	.divider.caption{
+		width: 100%;
+		padding-bottom:5px;
+	}
 	table {
 	    border-collapse: collapse;
 	}
 
 	td {
-	    padding-top: 20px;
-	    padding-bottom: 20px;
+	    padding: 20px 13px;
+	}
+
+	.caption a{
+		font-size: 14px;
+		color: @light-gray;
+		text-transform: uppercase;
+	}
+
+	.caption a:hover{
+		color: @middle-gray;
+		cursor: pointer;
 	}
 }
-////////////////// CODE INPUT FROM TWITTER BOOTSTRAP//////////////////
 
-.form-control {
-  display: block;
-  width: 100%;
-  height: 38px;
-  padding: 8px 12px;
-  font-size: 14px;
-  line-height: 1.428571429;
-  color: #555555;
-  vertical-align: middle;
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-          transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+
+#clear_cart_link{
+	.margin-padding(0,0);
 }
 
-.form-control:focus {
-  border-color: rgba(82, 168, 236, 0.8);
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+.margin-b30{
+	margin-bottom: 30px;
 }
-
-.form-control[disabled],
-.form-control[readonly],
-fieldset[disabled] .form-control {
-  cursor: not-allowed;
-  background-color: #eeeeee;
-}
-
-.input-small {
-  height: 30px;
-  padding: 5px 10px;
-  font-size: 12px;
-  border-radius: 3px;
-}
-
 
