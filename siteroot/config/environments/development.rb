@@ -1,11 +1,12 @@
 Htcv2::Application.configure do
   config.paperclip_defaults = {
-    :storage => ENV['UPLOAD_STORAGE'].to_sym,
-    :s3_credentials => {
-      :bucket => ENV['AWS_BUCKET'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    storage: ENV['UPLOAD_STORAGE'].to_sym,
+    s3_credentials: {
+      bucket: ENV['AWS_BUCKET'],
+      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     }
+    path: '/:class/:attachment/:id_partition/:style/:filename'
   }
 
   # Settings specified here will take precedence over those in config/application.rb
