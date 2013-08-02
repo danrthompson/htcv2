@@ -133,6 +133,9 @@ ul {
 	color: @teal;
 }
 
+.gray{
+	color: @middle-gray;
+}
 .half-opacity{
 	opacity: 0.5;
 }
@@ -165,6 +168,11 @@ ul {
 
 .all-caps{
 	text-transform: uppercase;
+}
+
+.width-80{
+	width: 80%;
+	margin: auto;
 }
 
 ////////////////// CODE INPUT FROM TWITTER BOOTSTRAP//////////////////
@@ -943,9 +951,46 @@ select{
 	margin-bottom: 30px;
 }
 
+.checkout_progress{
+	margin: auto;
+	text-align: center;
+padding-top: 100px;
+}
+
+.progress-steps{
+	display: inline;
+	list-style: none;
+	.margin-padding(0px);
+
+	ol{
+	}
+
+	li{
+		display:inline;
+
+		span{
+			padding: 5px 15px;
+			background-color: @light-gray;
+			.rounded-corners(3px);
+			color: white;
+			text-transform: uppercase;
+		}
+		
+
+		
+
+		.checkout-arrow{
+			color: @light-gray;
+			background-color: white;
+		}
+	}
+}
+
+
 
 #checkout {
 	overflow: hidden;
+	text-align: center;
 	fieldset{
 		border: 1px solid @stroke-color;
 		.rounded-corners(15px);
@@ -968,8 +1013,13 @@ select{
 	.second-column{
 		margin-left: %;
 	}
+
+	h2{
+		font-size: 40px;
+	}
 }
 
 #checkout_form_address{
 	margin: auto;
 }
+

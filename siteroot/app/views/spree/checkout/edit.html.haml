@@ -3,9 +3,11 @@
 = render partial: 'spree/shared/head', layout: 'shared/head'
 #checkout{"data-hook" => ""}
   = render :partial => 'spree/shared/error_messages', :locals => { :target => @order }
+  .columns.thirteen.omega{"data-hook" => "checkout_progress"}= checkout_progress
+  .divider.width-80
   .row{"data-hook" => "checkout_header"}
-    %h1.columns.three.alpha{"data-hook" => "checkout_title"}= Spree.t(:checkout)
-    .columns.thirteen.omega{"data-hook" => "checkout_progress"}= checkout_progress
+    %h2.teal.all-caps.columns.three.alpha{"data-hook" => "checkout_title"}= Spree.t(:checkout)
+
   .row{"data-hook" => "checkout_content"}
     %div{:class => "columns #{if @order.state != 'confirm' then 'alpha twelve' else 'alpha omega sixteen' end}", "data-hook" => "checkout_form_wrapper"}
       = form_for @order, :url => update_checkout_path(@order.state), :html => { :id => "checkout_form_#{@order.state}" } do |form|
