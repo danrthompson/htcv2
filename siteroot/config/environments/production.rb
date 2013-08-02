@@ -1,4 +1,14 @@
 Htcv2::Application.configure do
+
+  config.paperclip_defaults = {
+    :storage => ENV['UPLOAD_STORAGE'].to_sym,
+    :s3_credentials => {
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
+
   config.assets.initialize_on_precompile = false
   config.action_mailer.default_url_options = { :host => 'harnessthecrowd.com' }
   # Settings specified here will take precedence over those in config/application.rb
