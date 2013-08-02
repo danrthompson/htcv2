@@ -19,6 +19,6 @@
       = render :partial => 'spree/address/form', :locals => { :form => ship_form, :address_type => 'shipping', :address => @order.ship_address }
 
 
-%hr.clear/
+/ %hr.clear/
 .form-buttons{"data-hook" => "buttons"}
-  = submit_tag Spree.t(:save_and_continue), :class => 'continue button primary'
+  = submit_tag Spree.t(:save_and_continue), :class => 'continue button blue-button float-right'
