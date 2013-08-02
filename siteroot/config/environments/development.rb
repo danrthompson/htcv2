@@ -5,9 +5,12 @@ Htcv2::Application.configure do
       bucket: ENV['AWS_BUCKET'],
       access_key_id: ENV['AWS_ACCESS_KEY_ID'],
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-    }
-    path: '/:class/:attachment/:id_partition/:style/:filename'
+    },
+    path: ENV['PAPERCLIP_DEFAULT_PATH'],
+    hash_secret: ENV['PAPERCLIP_HASH_SECRET']
   }
+
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 
   # Settings specified here will take precedence over those in config/application.rb
 

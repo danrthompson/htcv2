@@ -1,4 +1,4 @@
-= form_for advice_post do |f|
+= form_for advice_post, html: { multipart: true } do |f|
 	- if advice_post.errors.any?
 		#error_explanation
 			%h2= "#{pluralize(advice_post.errors.count, "error")} prohibited this advice_post from being saved:"
@@ -8,5 +8,8 @@
 	.field
 		= f.label :post_text
 		= f.text_area :post_text
+	.field
+		= f.label "Image (optional)"
+		= f.file_field :image
 	.actions
 		= f.submit 'Save'
