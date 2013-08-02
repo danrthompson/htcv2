@@ -720,6 +720,18 @@ select{
     background-color: pink;
 
 }
+
+
+// Shopping Cart View
+.post-entry.left-align{
+	text-align: left;
+}
+
+.cart-item-image{
+	padding-right: 20px;
+}
+
+
 // Store Product Profile
 .product-profile{
 	overflow: hidden;
@@ -781,8 +793,50 @@ select{
 
 }
 
+// controls the order quantity attribute on store/cart (shopping cart view)
+.line_item_quantity{
+	width:40px;
+	margin-left:20px;
+	margin-right:30px;
+}
 
+.line-items{
+	overflow: hidden;
 
+	.alt{
+		margin:100px;
+	}
+}
+.line-item{
+	padding-top: 30px;
+	overflow: hidden;
+}
+
+.cart-item-description{
+	font-size: 14px;
+
+	h4{
+		margin:0 0 5px 0;
+		a{
+			text-transform: uppercase;
+			font-weight: 800;
+			color: black;
+			font-size: 24px;
+			margin:0;
+		}
+	}
+}
+
+.shopping-cart{
+	table {
+	    border-collapse: collapse;
+	}
+
+	td {
+	    padding-top: 20px;
+	    padding-bottom: 20px;
+	}
+}
 ////////////////// CODE INPUT FROM TWITTER BOOTSTRAP//////////////////
 
 .form-control {
@@ -825,11 +879,3 @@ fieldset[disabled] .form-control {
 }
 
 
-// Shopping Cart View
-.post-entry.left-align{
-	text-align: left;
-}
-
-.cart-item-image{
-	padding-right: 20px;
-}
