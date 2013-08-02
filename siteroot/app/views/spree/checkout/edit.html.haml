@@ -2,12 +2,13 @@
   Store
 = render 'shared/head'
 
-#checkout{"data-hook" => ""}
+#checkout.checkout-content{"data-hook" => ""}
   = render :partial => 'spree/shared/error_messages', :locals => { :target => @order }
   .columns.thirteen.omega{"data-hook" => "checkout_progress"}= checkout_progress
   .divider.width-80
   .row{"data-hook" => "checkout_header"}
     %h2.teal.all-caps.columns.three.alpha{"data-hook" => "checkout_title"}= Spree.t(:checkout)
+    %h3.gray (WHERE DO YOU WANT IT TO BE SENT?)
 
   .row{"data-hook" => "checkout_content"}
     %div{:class => "columns #{if @order.state != 'confirm' then 'alpha twelve' else 'alpha omega sixteen' end}", "data-hook" => "checkout_form_wrapper"}
