@@ -982,7 +982,7 @@ padding-top: 100px;
 		display:inline;
 
 		span{
-			padding: 5px 15px;
+			padding: 5px 12px;
 			background-color: @light-gray;
 			.rounded-corners(3px);
 			color: white;
@@ -1009,7 +1009,7 @@ padding-top: 100px;
 		}
 	}
 
-	li.completed-first{
+	li.completed-first, li.completed{
 		span{
 			background-color: @hover-teal;
 		}
@@ -1046,13 +1046,16 @@ padding-top: 100px;
 		margin: auto;
 		padding: 20px 0px 30px 40px;
 		margin-bottom:50px;
+
+	
 	}
+
 
 	.divider{
 		margin-top: 50px;
 	}
 	
-	.column{
+	.column, .credit-card-wrapper{
 
 		width: 80%;
 		margin: 0 10%;
@@ -1120,6 +1123,70 @@ padding-top: 100px;
 	}
 }
 
+#payment{
+
+	fieldset{
+		border: none;
+		margin-bottom: 0;
+		padding: 0;
+	}
+
+	#card_number{
+		padding: 5px 0 0 20px;
+		margin: 5px 0 0 0;
+	}
+
+	#card-expiration{
+		float:left;
+		width: 60%;
+		margin-bottom: 0px;
+		margin: -10px 0 0 0;
+	}
+
+	#card_year{
+		width: 60%;
+	}
+
+	#card_month{
+		width: 30%;
+		margin-right: 2%;
+	}
+
+	#card_code_wrapper{
+		margin: -10px 0 0 0;
+
+	}
+	#card_code{
+		width: 30%;
+		.margin-padding (0);
+		margin-top: 2px;
+
+		padding-left: 5px;
+		text-align: center;
+
+		float:left;
+
+		.form-control{
+			padding-left: 20px;
+		}
+	}
+	#cvv_link{
+		font-size: 12px;
+		margin-left: 10px;
+		float: right;	
+		a{
+			font-size: 12px;
+		}	
+	}
+
+	p{
+		.margin-padding(0);
+	}
+
+
+}
+
+
 #shipping_method{
 	text-align: left;
 	.shipping-methods{
@@ -1133,5 +1200,41 @@ padding-top: 100px;
 		}
 
 	}
+
+
+}
+
+.errorExplanation{
+	width: 80%;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 70px;
+	padding: 20px;
+	background-color: @hover-teal;
+	.rounded-corners(15px);
+	p{
+		text-align: center;
+		font-size: 18px;
+		display: none;
+	}
+	h2{
+		font-size: 26px;
+		color: @black-gray;
+		margin-top: 0px;
+		text-transform: uppercase;
+		padding-bottom: 15px;
+	}
+
+	#errorExplanation h2{
+		font-size: 32px;
+	}
+	li{
+		color: @teal;
+		font-size: 22px;
+	}
+}
+
+#errorExplanation h2{
+		font-size: 24px;
 }
 
