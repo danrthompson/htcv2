@@ -982,7 +982,7 @@ padding-top: 100px;
 		display:inline;
 
 		span{
-			padding: 5px 15px;
+			padding: 5px 12px;
 			background-color: @light-gray;
 			.rounded-corners(3px);
 			color: white;
@@ -1182,6 +1182,8 @@ padding-top: 100px;
 	p{
 		.margin-padding(0);
 	}
+
+
 }
 
 
@@ -1198,5 +1200,41 @@ padding-top: 100px;
 		}
 
 	}
+
+
+}
+
+.errorExplanation{
+	width: 80%;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 70px;
+	padding: 20px;
+	background-color: @hover-teal;
+	.rounded-corners(15px);
+	p{
+		text-align: center;
+		font-size: 18px;
+		display: none;
+	}
+	h2{
+		font-size: 26px;
+		color: @black-gray;
+		margin-top: 0px;
+		text-transform: uppercase;
+		padding-bottom: 15px;
+	}
+
+	#errorExplanation h2{
+		font-size: 32px;
+	}
+	li{
+		color: @teal;
+		font-size: 22px;
+	}
+}
+
+#errorExplanation h2{
+		font-size: 24px;
 }
 
