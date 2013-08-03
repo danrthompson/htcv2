@@ -1,8 +1,8 @@
 %fieldset#payment{"data-hook" => ""}
   %legend{:align => "center"}= Spree.t(:payment_information)
-  %div{"data-hook" => "checkout_payment_step"}
+  %div.credit-card-wrapper{"data-hook" => "checkout_payment_step"}
     - @order.available_payment_methods.each do |method|
-      %p
+      %p.dont-show
         %label
           = radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first
           = Spree.t(method.name, :scope => :payment_methods, :default => method.name)
@@ -18,8 +18,15 @@
         = form.label :coupon_code
         %br/
         = form.text_field :coupon_code
-%br.space/
+/ %br.space/
+/ .form-buttons{"data-hook" => "buttons"}
+/   = submit_tag Spree.t(:save_and_continue), :class => 'continue button primary'
+/   :javascript
+/     Spree.disableSaveOnClick();
+.divider.caption
+/ %hr.clear/
 .form-buttons{"data-hook" => "buttons"}
-  = submit_tag Spree.t(:save_and_continue), :class => 'continue button primary'
-  :javascript
-    Spree.disableSaveOnClick();
+  = submit_tag Spree.t(:save_and_continue), :class => 'continue button blue-button float-right'
+
+.bottom-button-wrapper.float-left
+  %a.button.gray-button{:href => ""} Go Back
