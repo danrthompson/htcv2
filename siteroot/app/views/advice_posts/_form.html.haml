@@ -6,8 +6,8 @@
 				- advice_post.errors.full_messages.each do |msg|
 					%li= msg
 	.field
-		= f.label :post_text
-		= f.text_area :post_text
+		= f.label :body
+		= f.text_area :body
 	.field
 		= f.label "Image (optional)"
 		= f.file_field :image

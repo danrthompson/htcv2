@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130803003208) do
+ActiveRecord::Schema.define(:version => 20130803212558) do
 
   create_table "advice_posts", :force => true do |t|
-    t.text     "post_text"
+    t.text     "body"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.integer  "user_id",            :null => false
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20130803003208) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "image_processing"
+    t.text     "video_link"
+    t.text     "video_html"
   end
 
   add_index "advice_posts", ["user_id"], :name => "index_advice_posts_on_user_id"

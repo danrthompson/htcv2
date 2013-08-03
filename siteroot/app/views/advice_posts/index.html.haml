@@ -11,7 +11,7 @@
 
 - @advice_posts.each do |advice_post|
 	%h4= "Title: #{advice_post.title}"
-	%p= "Body: #{advice_post.post_text}"
+	%p= "Body: #{advice_post.body}"
 	- if advice_post.image?
 		%p Image:
 		= image_tag advice_post.image.url(:thumb)
