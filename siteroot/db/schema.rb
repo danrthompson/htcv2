@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130802215112) do
+ActiveRecord::Schema.define(:version => 20130803003208) do
 
   create_table "advice_posts", :force => true do |t|
     t.text     "post_text"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130802215112) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "image_processing"
   end
 
   add_index "advice_posts", ["user_id"], :name => "index_advice_posts_on_user_id"
@@ -42,6 +43,22 @@ ActiveRecord::Schema.define(:version => 20130802215112) do
 
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0, :null => false
+    t.integer  "attempts",   :default => 0, :null => false
+    t.text     "handler",                   :null => false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"

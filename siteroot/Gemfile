@@ -17,6 +17,8 @@ gem 'sidekiq'
 gem 'devise'
 gem 'open_id_authentication'
 gem 'cancan', '1.6.8'
+gem 'delayed_job_active_record'
+gem 'delayed_paperclip'
 
 # Gems used only for assets and not required
 # in production environments by default.
