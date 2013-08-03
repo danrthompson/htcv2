@@ -20,6 +20,3 @@ class AdvicePost < ActiveRecord::Base
   end
 end
 
-
-
-# /:basename
