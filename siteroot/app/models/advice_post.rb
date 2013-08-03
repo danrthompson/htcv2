@@ -8,6 +8,8 @@ class AdvicePost < ActiveRecord::Base
   	thumb: '150x100',
   	original: '450x300'
   }
+  validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] }, size: { in: 0..1000.kilobytes }
+  
   belongs_to :user
 
   def title
