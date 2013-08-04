@@ -18,6 +18,12 @@
 	- elsif advice_post.video_html then
 		%p Video:
 		= advice_post.video_html.html_safe
+	- if current_user then
+		- vote_value = advice_post.current_user_vote_value(current_user)
+		- if vote_value == 1 then
+			%p You upvoted this post
+		- elsif vote_value == -1 then
+			%p You downvoted this post
 	= link_to "up", vote_advice_post_path(advice_post, type: "up"), method: "post"
 	= link_to "down", vote_advice_post_path(advice_post, type: "down"), method: "post"
 	%p= pluralize advice_post.reputation_for(:votes).to_i, "vote"

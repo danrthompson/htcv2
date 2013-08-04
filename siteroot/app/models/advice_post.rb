@@ -23,6 +23,15 @@ class AdvicePost < ActiveRecord::Base
   	body.truncate(80, separator: ' ')
   end
 
+  def current_user_vote_value(user)
+    vote = self.evaluations.where(source_type: user.class.name, source_id: user.id).first
+    if vote then
+      vote.value
+    else
+      0
+    end
+  end
+
   protected
 
   def create_video_html
