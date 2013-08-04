@@ -11,8 +11,7 @@ class AdvicePostsController < ApplicationController
 
   def show
     @advice_post = AdvicePost.find(params[:id])
-    @comments = @advice_post.root_comments
-
+    @comments = @advice_post.root_comments.find_with_reputation(:votes, :all, {order: 'votes desc'})
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @advice_post }

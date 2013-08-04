@@ -3,6 +3,8 @@ class Comment < ActiveRecord::Base
 
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
 
+  has_reputation :votes, source: :user, aggregated_by: :sum
+
   validates :body, :user_id, :presence => true
   validate :comment_not_overnested
   # validates :user, :presence => true
@@ -15,6 +17,15 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+
+  def current_user_vote_value(user)
+    vote = self.evaluations.where(source_type: user.class.name, source_id: user.id).first
+    if vote then
+      vote.value
+    else
+      0
+    end
+  end
 
   def comment_not_overnested
     if not parent_id.blank? then
@@ -44,6 +55,10 @@ class Comment < ActiveRecord::Base
 
   def can_have_children?
     self.level < @@max_nesting
+  end
+
+  def children_query
+    Comment.where(parent_id: self.id)
   end
 
   # Helper class method to lookup all comments assigned

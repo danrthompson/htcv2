@@ -4,11 +4,12 @@
 	%p= comment.body
 	- if comment.parent_id then
 		%p= "Parent comment: #{comment.parent.body}"
+	= render partial: 'voting', locals: {votable: comment, votable_name: 'comment', vote_path_for_votable: create_votable_path_for_comment(commentable, comment)}
 	%p= link_to 'Delete Comment', [commentable, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
 	%br
 	- if comment.can_have_children? then
 		- if comment.has_children? then
-			= render partial: 'comments/comments_on_object', locals: {comments: comment.children, commentable: commentable, parent_id: comment.id, new_comment_message: new_comment_on_comment_message}
+			= render partial: 'comments/comments_on_object', locals: {comments: comment.children_query.find_with_reputation(:votes, :all, {order: 'votes desc'}), commentable: commentable, parent_id: comment.id, new_comment_message: new_comment_on_comment_message}
 		- else
 			%h4= new_comment_on_comment_message
 			= render partial: comment_form, locals: {comment: commentable.comments.new, commentable: commentable, parent_id: comment.id}
