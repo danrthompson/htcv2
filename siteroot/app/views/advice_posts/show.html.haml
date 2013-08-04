@@ -5,6 +5,9 @@
 - if @advice_post.image?
 	%p Image:
 	= image_tag @advice_post.image.url(:original)
+- elsif @advice_post.video_html then
+	%p Video:
+	= @advice_post.video_html.html_safe
 - if @comments then
 	%h4 Comments:
 	- @comments.each do |comment|
