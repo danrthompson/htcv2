@@ -3,26 +3,21 @@ class Ability
 
 
   def initialize(user)
+    # anyone, logged in or not
+    can :read, Post do |post|
+        post.published_at && post.published_at < Time.now
+    end
+    can [:create, :read], [Comment, AdvicePost]
+    can :read, [Resource, ResourceCategory, ResourceSubcategory, Service, ServiceCategory]
     if user.is_a? User then
         if user.administrator then
             can :manage, :all
             can :access, :admin_area
         else
-            # regular user
-            can :read, Post do |post|
-                post.published_at && post.published_at < Time.now
-            end
+            # logged in user, not administrator
             can :manage, [Comment, AdvicePost], user_id: user.id
-            can [:create, :read], [Comment, AdvicePost]
-            can :read, [Resource, ResourceCategory, ResourceSubcategory, Service, ServiceCategory]
-        end
-    else
-        # not logged in
-        can :read, Post do |post|
-            post.published_at && post.published_at < Time.now
-        end
-        can [:create, :read], [Comment, AdvicePost]
-        can :read, [Resource, ResourceCategory, ResourceSubcategory, Service, ServiceCategory]
+            can :vote, [Comment, AdvicePost]
+        end 
     end
 
     # Define abilities for the passed in user here. For example:

@@ -4,11 +4,10 @@
 		%p= "You upvoted this #{votable_name}"
 	- elsif vote_value == -1 then
 		%p= "You downvoted this #{votable_name}"
-= link_to "up", vote_path_for_votable.call("up"), method: "post"
-= link_to "down", vote_path_for_votable.call("down"), method: "post"
+- if can? :vote, votable then
+	= link_to "up", vote_path_for_votable.call("up"), method: "post"
+	= link_to "down", vote_path_for_votable.call("down"), method: "post"
+- else
+	= link_to "up", new_user_session_path
+	= link_to "down", new_user_session_path
 %p= pluralize votable.reputation_for(:votes).to_i, "vote"
-
--# votable (advice_post)
--# (implement current_user_vote_value for comments as well)
--# votable_name (post)
--# votable_path (vote_advice_post_path)

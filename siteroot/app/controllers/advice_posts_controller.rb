@@ -46,6 +46,7 @@ class AdvicePostsController < ApplicationController
   end
 
   def vote
+    authorize! :vote, AdvicePost
     value = params[:type] == "up" ? 1 : -1
     @advice_post = AdvicePost.find(params[:id])
     @advice_post.add_or_update_evaluation(:votes, value, current_user)
