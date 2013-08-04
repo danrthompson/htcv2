@@ -1,0 +1,16 @@
+- comment_form = 'comments/form'
+- new_comment_on_comment_message = 'Create new comment on comment'
+- comments.each do |comment|
+	%p= comment.body
+	- if comment.parent_id then
+		%p= "Parent comment: #{comment.parent.body}"
+	%p= link_to 'Delete Comment', [commentable, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
+	%br
+	- if comment.can_have_children? then
+		- if comment.has_children? then
+			= render partial: 'comments/comments_on_object', locals: {comments: comment.children, commentable: commentable, parent_id: comment.id, new_comment_message: new_comment_on_comment_message}
+		- else
+			%h4= new_comment_on_comment_message
+			= render partial: comment_form, locals: {comment: commentable.comments.new, commentable: commentable, parent_id: comment.id}
+%h4= new_comment_message
+= render partial: comment_form, locals: {comment: commentable.comments.new, commentable: commentable, parent_id: parent_id}
