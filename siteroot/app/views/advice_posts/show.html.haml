@@ -8,6 +8,9 @@
 - elsif @advice_post.video_html then
 	%p Video:
 	= @advice_post.video_html.html_safe
+= link_to "up", vote_advice_post_path(@advice_post, type: "up"), method: "post"
+= link_to "down", vote_advice_post_path(@advice_post, type: "down"), method: "post"
+%p= pluralize @advice_post.reputation_for(:votes).to_i, "vote"
 - if @comments then
 	%h4 Comments:
 	- @comments.each do |comment|

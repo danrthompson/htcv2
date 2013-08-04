@@ -10,6 +10,7 @@ Htcv2::Application.routes.draw do
 
   scope '/conversation' do
     resources :advice_posts, only: [:index, :show, :create, :destroy], path: 'advice' do
+      member { post :vote }
       resources :comments, only: [:create, :destroy]
     end
 

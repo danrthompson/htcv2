@@ -1,5 +1,8 @@
 class AdvicePost < ActiveRecord::Base
   attr_accessible :body, :image, :video_link
+
+  has_reputation :votes, source: :user, aggregated_by: :sum
+
   validates :body, :user_id, presence: true
   before_save :create_video_html
 
