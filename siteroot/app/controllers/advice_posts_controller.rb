@@ -11,8 +11,7 @@ class AdvicePostsController < ApplicationController
 
   def show
     @advice_post = AdvicePost.find(params[:id])
-    @comments = @advice_post.root_comments
-
+    @comments = @advice_post.root_comments.find_with_reputation(:votes, :all, {order: 'votes desc'})
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @advice_post }
@@ -47,6 +46,7 @@ class AdvicePostsController < ApplicationController
   end
 
   def vote
+    authorize! :vote, AdvicePost
     value = params[:type] == "up" ? 1 : -1
     @advice_post = AdvicePost.find(params[:id])
     @advice_post.add_or_update_evaluation(:votes, value, current_user)

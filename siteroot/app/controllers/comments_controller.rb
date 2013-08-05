@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_filter :load_commentable
 
   def create
-    authorize! :create, AdvicePost
+    authorize! :create, Comment
     @comment = @commentable.comments.new(params[:comment])
     @comment.user_id = current_user ? current_user.id : -1
 
@@ -27,6 +27,14 @@ class CommentsController < ApplicationController
       format.html { redirect_to @commentable }
       format.json { head :no_content }
     end
+  end
+
+  def vote
+    authorize! :vote, Comment
+    value = params[:type] == "up" ? 1 : -1
+    @comment = Comment.find(params[:id])
+    @comment.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting"
   end
 
   private

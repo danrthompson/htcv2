@@ -2,12 +2,15 @@
 
 - @advice_posts.each do |advice_post|
 	= render partial: 'advice_post_display', locals: {advice_post: advice_post, image_style: :thumb}
-	= render partial: 'voting', locals: {advice_post: advice_post}
+	= render partial: 'voting', locals: {votable: advice_post, votable_name: 'post', vote_path_for_votable: create_votable_path_for_advice_post(advice_post)}
+
 	%p 
 		= link_to 'Show', advice_post
-		= link_to 'Destroy', advice_post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+		- if can? :destroy, advice_post then
+			= link_to 'Destroy', advice_post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
 %h1 New advice
-= render partial: 'form', locals: {advice_post: AdvicePost.new}
+- if can? :create, AdvicePost then
+	= render partial: 'form', locals: {advice_post: AdvicePost.new}
