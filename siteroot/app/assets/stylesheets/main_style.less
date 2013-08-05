@@ -334,6 +334,16 @@ fieldset[disabled] .form-control {
 	padding: 0px;
 }
 
+.marketplace-link:hover #mktplace-heart{
+	opacity: 1;
+}
+
+#mktplace-heart{
+	width: 13px;
+	height: 13px;
+	opacity: 0.4;
+}
+
 // ^^^ END NAV MENU
 
 
@@ -364,6 +374,16 @@ fieldset[disabled] .form-control {
 
 	p{
 		margin: 10px 0 15px 0;
+	}
+}
+
+.about-us-wrapper.no-heading{
+	p{
+		width:110%;
+		margin-left: -5%;
+		padding-top: 15px;
+		padding-bottom: 5px;
+		font-size: 16px;
 	}
 }
 
@@ -761,10 +781,23 @@ fieldset[disabled] .form-control {
 				font-size: 16px;
 			}
 
+			.message-icon{
+				width: 16px;
+				height: 12px;
+				margin-top:3px;
+				margin-bottom:10px;
+				margin-right: 10px;
+				opacity: 0.8;
+			}
+
 			h4:hover{
 				color: @black-gray;
-
 			}
+
+			h4:hover .message-icon{
+				opacity: 1;
+			}
+
 		}
 		a.extra-top-margin{
 			margin-top: 6px;
@@ -1088,13 +1121,18 @@ fieldset[disabled] .form-control {
 
 
 .suggest{
-			background-color: white;
-			opacity: 0.5;
-			margin-top: 1px;
-			margin-top: -30px;
-			font-weight: 200;
-		}
+	background-color: white;
+	opacity: 0.5;
+	margin-top: 1px;
+	margin-top: -30px;
+	font-weight: 200;
+}
 
+.product-suggest{
+	a{
+		font-size: 13px;
+	}
+}
 
 
 
@@ -1708,6 +1746,8 @@ label.error{
 	tfoot{
 	}
 }
+
+
 
 
 

@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(:version => 20130805175754) do
 
   create_table "conversation_posts", :force => true do |t|
     t.text     "body"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.integer  "user_id",            :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.integer  "user_id",            :default => 0, :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

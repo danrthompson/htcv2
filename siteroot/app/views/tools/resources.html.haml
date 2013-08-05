@@ -3,13 +3,12 @@
 
 = render 'tools/shared/subnav'
 - content_for :intro_text do
-	.about-us-wrapper.extra-padding
-		%h1 People Are Amazing
-		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing.
+	.about-us-wrapper.extra-padding.no-heading
+		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem.
 .post-entry
 	.resources_subsection
 		%h2 Make Your Project Represent Something Bigger
-		%img{:src => "http://www.handleband.com/images/gallery/gallery_1.jpg", :alt => ""}/ 
+		/ %img{:src => "http://www.handleband.com/images/gallery/gallery_1.jpg", :alt => ""}/ 
 		.resource_entry
 			.resource_title_wrapper
 				%a{:href => ""}
@@ -35,8 +34,8 @@
 		.divider
 
 		.resources_subsection
-		%h2 Make Your Project Represent Something Bigger
-		%img{:src => "http://www.handleband.com/images/gallery/gallery_1.jpg", :alt => ""}/ 
+		%h2 This is A Second Title
+		/ %img{:src => "http://www.handleband.com/images/gallery/gallery_1.jpg", :alt => ""}/ 
 		.resource_entry
 			.resource_title_wrapper
 				%a{:href => ""} 
