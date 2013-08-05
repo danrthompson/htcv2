@@ -827,9 +827,10 @@ fieldset[disabled] .form-control {
 
 		width: 32%;
 		margin-left: 2%;
-
+		
 		li{
 			height: auto;
+			overflow: hidden;
 		}
 		img{
 			width:100%;
@@ -842,8 +843,26 @@ fieldset[disabled] .form-control {
 			padding-bottom: 20px;
 		}
 
-		p{
+		p {
 			height: auto;
+			a{
+				text-decoration: none;
+				font-weight: 200;
+				color: #616161;
+				letter-spacing: 1px;
+				font-size: 14px;
+				text-align: justify;
+			}
+
+			a:hover{
+
+				text-decoration: none;
+				font-weight: 200;
+				color: #616161;
+				letter-spacing: 1px;
+				font-size: 14px;
+
+			}
 		}
 		
 	
@@ -857,7 +876,7 @@ fieldset[disabled] .form-control {
 			background-size:contain;
 			background-repeat: no-repeat;
 			background-position: center center;
-			margin: 20px 0 0px 0;
+			margin: 5px 0 0px 0;
 			opacity: .3;
 		}
 
@@ -877,7 +896,7 @@ fieldset[disabled] .form-control {
 		}
 
 		h4{
-			margin-top: 23px;
+			margin-top: 10px;
 			color:@light-gray;
 			font-size: 13px;
 			font-weight: 600;
@@ -896,18 +915,19 @@ fieldset[disabled] .form-control {
 
 		.chunky{
 
-			p{
+			p a, p a:hover{
 			.teal;
 			font-weight: 400;
-			font-size: 18px;
+			font-size: 16px;
 			color: @teal;
 			line-height: 22px;
 			opacity: 0.8;
+			text-align: center;
 			}
 		}
 
 		.extra-chunky{
-			p {
+			p a, p a:hover {
 				font-weight: 200;
 				font-size: 18px;
 				color:@dark-gray;
@@ -918,7 +938,7 @@ fieldset[disabled] .form-control {
 		}
 		
 		.extra-chunky.no-media{
-			p{
+			p a, p a:hover{
 				font-size: 20px;
 				color: @black-gray;
 				text-align: center;
