@@ -7,12 +7,13 @@
 @background-color: #f2f2f2;
 @stroke-color: #d7d7d7;
 
-@dark-gray: #898989;
+@dark-gray: #616161;
 @black-gray: #252525;
 @middle-gray: #929292;
 @light-gray: #C9C9C9;
 
 @teal: #0a7b8d;
+@dark-teal: #086270;
 @button-hover-teal: #1c96a9;
 @hover-teal: #dfeef1;
 @current-teal: #f0f4f5;
@@ -73,6 +74,13 @@
 .mp(@margin: 0px){
 	margin: @margin;
 	padding: @margin;
+}
+
+.arrow-padding(@arrow-box-color){
+	background-color: @arrow-box-color;
+	border: 10px solid @arrow-box-color;
+	border-top: 5px solid @arrow-box-color;
+	border-bottom: 5px solid @arrow-box-color;
 }
 ////////////////////////////////////////
 
@@ -801,6 +809,158 @@ fieldset[disabled] .form-control {
 		margin: 0;
 	}
 }
+
+
+
+
+.convo-entry{
+
+	.services{
+		li{
+			height: auto;
+		}
+	}
+	.column{
+		li{
+			height: auto;
+		}
+		img{
+			width:100%;
+			height: auto;
+		}
+
+		iframe{
+			width: 100%;
+			height: auto;
+			padding-bottom: 20px;
+		}
+
+		p{
+			height: auto;
+		}
+		
+	
+		.bottom-action-items{
+			overflow: hidden;
+		}
+
+		.vote-arrow{
+			width:25px;
+			height: 10px;
+			background-size:contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+			margin: 20px 0 0px 0;
+			opacity: .3;
+		}
+
+		.vote-arrow:hover{
+			opacity: 1;
+		}
+
+		a.up-arrow{
+			background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-up.png');
+			.arrow-padding(@teal);
+		}
+
+		a.down-arrow{
+			background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-down.png');
+			.arrow-padding(@middle-gray);
+			margin-left: 5px;
+		}
+
+		h4{
+			margin-top: 23px;
+			color:@light-gray;
+			font-size: 13px;
+			font-weight: 600;
+			letter-spacing: 0;
+			margin-bottom: 0;
+		}
+
+
+
+		.regular-weight{
+
+		}
+
+		.chunky{
+			.teal;
+		}
+
+		.extra-chunky{
+
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+//////////// START OF SPREE SHIT /////////////////
+//////////////////////////////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
 
 // Store Classes
 

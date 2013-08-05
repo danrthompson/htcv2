@@ -7,81 +7,90 @@
 / HTML CODE from Service Page
 
 
-.conversation-page
-%h1 Listing advice
+/ .conversation-page
+/ %h1 Listing advice
 
-- @advice_posts.each do |advice_post|
-	.column
-		/ Content for the post (e.g. title, description, etc)
-		= render partial: 'advice_post_display', locals: {advice_post: advice_post, image_style: :thumb}
-		/ Voting Information
-		= render partial: 'voting', locals: {votable: advice_post, votable_name: 'post', vote_path_for_votable: create_votable_path_for_advice_post(advice_post)}
-		%p 
-			= link_to 'Show', advice_post
-			- if can? :destroy, advice_post then
-				= link_to 'Destroy', advice_post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+/ - @advice_posts.each do |advice_post|
+/ 	.column
+/ 		/ Content for the post (e.g. title, description, etc)
+/ 		= render partial: 'advice_post_display', locals: {advice_post: advice_post, image_style: :thumb}
+/ 		/ Voting Information
+/ 		= render partial: 'voting', locals: {votable: advice_post, votable_name: 'post', vote_path_for_votable: create_votable_path_for_advice_post(advice_post)}
+/ 		%p 
+/ 			= link_to 'Show', advice_post
+/ 			- if can? :destroy, advice_post then
+/ 				= link_to 'Destroy', advice_post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
+/ %br
 
-%h1 New advice
-- if can? :create, AdvicePost then
-	= render partial: 'form', locals: {advice_post: AdvicePost.new}
+/ %h1 New advice
+/ - if can? :create, AdvicePost then
+/ 	= render partial: 'form', locals: {advice_post: AdvicePost.new}
 
 
+.post-convo-form
 
-/ .post-entry
-/ 	.three-column-wrapper.services 
-/ 		.column.first_col
-/ 			%ul 
-/ 				%li 
-/ 					%img{:src => "https://d1wgd08o7gfznj.cloudfront.net/assets/logo-title-f6dc287199cb99c0a025d2ff47e4f5e6.png", :alt => ""}/ 
-/ 					%a{:href => ""} 
-/ 						%h3 Backerkit
-/ 					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
-/ 					%a.extra-top-margin{:href => ""} 
-/ 						%h4 <> Get In Contact
-/ 					%a{:href => ""} VISIT THEIR WEBSITE
-/ 				%li 
-/ 					%img{:src => "https://dpao6ma8eqkx0.cloudfront.net/assets/img/celery-logo-small.png", :alt => ""}/ 
-/ 					%a{:href => ""} 
-/ 						%h3 Backerkit
-/ 					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
-/ 					%a.extra-top-margin{:href => ""} 
-/ 						%h4 <> Get In Contact
-/ 					%a{:href => ""} VISIT THEIR WEBSITE
-/ 		.column.second_col
-/ 			%ul 
-/ 				%li 
-/ 					%img{:src => "http://pnthr.com/wp-content/uploads/2013/07/BigPanther3.png", :alt => ""}/ 
-/ 					%a{:href => ""} 
-/ 						%h3 Backerkit
-/ 					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
-/ 					%a.extra-top-margin{:href => ""} 
-/ 						%h4 <> Get In Contact
-/ 					%a{:href => ""} VISIT THEIR WEBSITE
-/ 				%li 
-/ 					%img{:src => "http://crowdfundbuzz.com/img/logo/CFB_logo.png", :alt => ""}/ 
-/ 					%a{:href => ""} 
-/ 						%h3 Backerkit
-/ 					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
-/ 					%a.extra-top-margin{:href => ""} 
-/ 						%h4 <> Get In Contact
-/ 					%a{:href => ""} VISIT THEIR WEBSITE
-/ 		.column.third_col
-/ 			%ul 
-/ 				%li 
-/ 					%img{:src => "http://videogogo.com/wp-content/uploads/2012/11/web5.png", :alt => ""}/ 
-/ 					%a{:href => ""} 
-/ 						%h3 Backerkit
-/ 					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
-/ 					%a.extra-top-margin{:href => ""} 
-/ 						%h4 <> Get In Contact
-/ 					%a{:href => ""} VISIT THEIR WEBSITE
-/ 				%li 
-/ 					%img{:src => "http://cdn.blu-raydefinition.com/wordpress/wp-content/uploads/2009/03/logo_acutrack.gif", :alt => ""}/ 
-/ 					%a{:href => ""} 
-/ 						%h3 Backerakit
-/ 					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
-/ 					%a.extra-top-margin{:href => ""} 
-/ 						%h4 <> Get In Contact
-/ 					%a{:href => ""} VISIT THEIR WEBSITE
+.post-entry.convo-entry
+	.three-column-wrapper.services 
+		.column.first_col
+			%ul 
+				%li 
+					%img{:src => "https://s3.amazonaws.com/ksr/assets/000/615/232/286cdba1e9fe2a04f36fcf580da551cc_large.jpg?1369343407", :alt => ""}/ 
+					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel e odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
+					.bottom-action-items
+						.float-left
+							%a.vote-arrow.up-arrow{:href => "http://www.google.com"} .
+							%a.vote-arrow.down-arrow{:href => "http://www.google.com"} . 
+						.float-right
+							%a{:href => ""}
+								%h4 Add Thoughts
+				%li.chunky 
+					%img{:src => "https://s3.amazonaws.com/ksr/assets/000/615/232/286cdba1e9fe2a04f36fcf580da551cc_large.jpg?1369343407", :alt => ""}/ 
+					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget is ornare vel e odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
+					.bottom-action-items
+						.float-left
+							%a.vote-arrow.up-arrow{:href => "http://www.google.com"} .
+							%a.vote-arrow.down-arrow{:href => "http://www.google.com"} . 
+						.float-right
+							%a{:href => ""}
+								%h4 Add Thoughts
+		.column.second_col
+			%ul 
+				%li.chunky 
+					%iframe{:allowfullscreen => "", :frameborder => "0", :height => "300", :mozallowfullscreen => "", :src => "http://player.vimeo.com/video/68646939", :webkitallowfullscreen => "", :width => "400"}
+					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget is ornare vel e odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
+					.bottom-action-items
+						.float-left
+							%a.vote-arrow.up-arrow{:href => "http://www.google.com"} .
+							%a.vote-arrow.down-arrow{:href => "http://www.google.com"} . 
+						.float-right
+							%a{:href => ""}
+								%h4 Add Thoughts
+				%li.chunky 
+					%img{:src => "https://s3.amazonaws.com/ksr/assets/000/615/232/286cdba1e9fe2a04f36fcf580da551cc_large.jpg?1369343407", :alt => ""}/ 
+					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget is ornare vel e odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
+					.bottom-action-items
+						.float-left
+							%a.vote-arrow.up-arrow{:href => "http://www.google.com"} .
+							%a.vote-arrow.down-arrow{:href => "http://www.google.com"} . 
+						.float-right
+							%a{:href => ""}
+								%h4 Add Thoughts
+		.column.third_col
+			%ul 
+				%li 
+					%img{:src => "http://videogogo.com/wp-content/uploads/2012/11/web5.png", :alt => ""}/ 
+					%a{:href => ""} 
+						%h3 Backerkit
+					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
+					%a.extra-top-margin{:href => ""} 
+						%h4 <> Get In Contact
+					%a{:href => ""} VISIT THEIR WEBSITE
+				%li 
+					%img{:src => "http://cdn.blu-raydefinition.com/wordpress/wp-content/uploads/2009/03/logo_acutrack.gif", :alt => ""}/ 
+					%a{:href => ""} 
+						%h3 Backerakit
+					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
+					%a.extra-top-margin{:href => ""} 
+						%h4 <> Get In Contact
+					%a{:href => ""} VISIT THEIR WEBSITE
