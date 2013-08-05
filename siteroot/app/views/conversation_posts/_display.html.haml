@@ -1,0 +1,8 @@
+%h4= "Title: #{conversation_post.title}"
+%p= "Body: #{conversation_post.body}"
+- if conversation_post.image?
+	%p Image:
+	= image_tag conversation_post.image.url(image_style)
+- elsif conversation_post.video_html then
+	%p Video:
+	= conversation_post.video_html.html_safe

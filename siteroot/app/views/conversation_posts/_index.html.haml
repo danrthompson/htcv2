@@ -1,0 +1,87 @@
+- content_for :page_title do
+	= posts_title(@tag)
+= render partial: 'shared/blog/head', layout: 'shared/head'
+= render 'tools/shared/service_subnav'
+
+
+/ HTML CODE from Service Page
+
+
+.conversation-page
+%h1= "#{post_klass.friendly_name}"
+
+- @posts.each do |post|
+	.column
+		/ Content for the post (e.g. title, description, etc)
+		= render partial: 'conversation_posts/display', locals: {conversation_post: post, image_style: :thumb}
+		/ Voting Information
+		= render partial: 'shared/voting', locals: {votable: post, votable_name: 'post', vote_path_for_votable: create_votable_path_for_conversation_post(post)}
+		%p 
+			= link_to 'Show', post
+			- if can? :destroy, post then
+				= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+%h1= "New #{post_klass.friendly_name.downcase}"
+- if can? :create, post_klass then
+	= render partial: 'conversation_posts/create_form', locals: {conversation_post: post_klass.new}
+
+
+
+/ .post-entry
+/ 	.three-column-wrapper.services 
+/ 		.column.first_col
+/ 			%ul 
+/ 				%li 
+/ 					%img{:src => "https://d1wgd08o7gfznj.cloudfront.net/assets/logo-title-f6dc287199cb99c0a025d2ff47e4f5e6.png", :alt => ""}/ 
+/ 					%a{:href => ""} 
+/ 						%h3 Backerkit
+/ 					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
+/ 					%a.extra-top-margin{:href => ""} 
+/ 						%h4 <> Get In Contact
+/ 					%a{:href => ""} VISIT THEIR WEBSITE
+/ 				%li 
+/ 					%img{:src => "https://dpao6ma8eqkx0.cloudfront.net/assets/img/celery-logo-small.png", :alt => ""}/ 
+/ 					%a{:href => ""} 
+/ 						%h3 Backerkit
+/ 					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
+/ 					%a.extra-top-margin{:href => ""} 
+/ 						%h4 <> Get In Contact
+/ 					%a{:href => ""} VISIT THEIR WEBSITE
+/ 		.column.second_col
+/ 			%ul 
+/ 				%li 
+/ 					%img{:src => "http://pnthr.com/wp-content/uploads/2013/07/BigPanther3.png", :alt => ""}/ 
+/ 					%a{:href => ""} 
+/ 						%h3 Backerkit
+/ 					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
+/ 					%a.extra-top-margin{:href => ""} 
+/ 						%h4 <> Get In Contact
+/ 					%a{:href => ""} VISIT THEIR WEBSITE
+/ 				%li 
+/ 					%img{:src => "http://crowdfundbuzz.com/img/logo/CFB_logo.png", :alt => ""}/ 
+/ 					%a{:href => ""} 
+/ 						%h3 Backerkit
+/ 					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
+/ 					%a.extra-top-margin{:href => ""} 
+/ 						%h4 <> Get In Contact
+/ 					%a{:href => ""} VISIT THEIR WEBSITE
+/ 		.column.third_col
+/ 			%ul 
+/ 				%li 
+/ 					%img{:src => "http://videogogo.com/wp-content/uploads/2012/11/web5.png", :alt => ""}/ 
+/ 					%a{:href => ""} 
+/ 						%h3 Backerkit
+/ 					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
+/ 					%a.extra-top-margin{:href => ""} 
+/ 						%h4 <> Get In Contact
+/ 					%a{:href => ""} VISIT THEIR WEBSITE
+/ 				%li 
+/ 					%img{:src => "http://cdn.blu-raydefinition.com/wordpress/wp-content/uploads/2009/03/logo_acutrack.gif", :alt => ""}/ 
+/ 					%a{:href => ""} 
+/ 						%h3 Backerakit
+/ 					%p Duis mollis, odo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. 
+/ 					%a.extra-top-margin{:href => ""} 
+/ 						%h4 <> Get In Contact
+/ 					%a{:href => ""} VISIT THEIR WEBSITE

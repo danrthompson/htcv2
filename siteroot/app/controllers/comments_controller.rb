@@ -40,7 +40,7 @@ class CommentsController < ApplicationController
   private
 
   def load_commentable
-    parent_klasses = [AdvicePost]
+    parent_klasses = [AdvicePost, QuestionPost, NewsPost]
     klass = parent_klasses.detect { |c| params["#{c.name.underscore}_id"] }
     @commentable = klass.find(params["#{klass.name.underscore}_id"])
   end

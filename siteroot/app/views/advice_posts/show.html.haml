@@ -1,17 +1,1 @@
-- new_comment_message = 'Create new comment on post'
-
-%p#notice= notice
-
-= render partial: 'advice_post_display', locals: {advice_post: @advice_post, image_style: :original}
-= render partial: 'voting', locals: {votable: @advice_post, votable_name: 'post', vote_path_for_votable: create_votable_path_for_advice_post(@advice_post)}
-- if @comments then
-	%h4 Comments:
-	= render partial: 'comments/comments_on_object', locals: {comments: @comments, commentable: @advice_post, parent_id: nil, new_comment_message: new_comment_message}
-- else
-	%h4= new_comment_message
-	- if can? :create, Comment then
-		= render partial: 'comments/form', locals: {comment: @advice_post.comments.new, commentable: @advice_post, parent_id: nil}
-
-= link_to 'All posts', advice_posts_path
-
-
+= render partial: 'conversation_posts/show', locals: {post_klass: AdvicePost, post_url_helper: advice_posts_path}

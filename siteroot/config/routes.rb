@@ -12,14 +12,29 @@ Htcv2::Application.routes.draw do
   get 'press' => 'static#press'
 
 
+
+
+
+
   scope '/conversation' do
-    resources :advice_posts, only: [:index, :show, :create, :destroy], path: 'advice' do
+    resources :advice_posts, only: [:index, :show, :create, :destroy], path: 'advice' do 
       member { post :vote }
       resources :comments, only: [:create, :destroy] do
         member { post :vote }
       end
     end
-
+    resources :question_posts, only: [:index, :show, :create, :destroy], path: 'questions' do 
+      member { post :vote }
+      resources :comments, only: [:create, :destroy] do
+        member { post :vote }
+      end
+    end
+    resources :news_posts, only: [:index, :show, :create, :destroy], path: 'news' do 
+      member { post :vote }
+      resources :comments, only: [:create, :destroy] do
+        member { post :vote }
+      end
+    end
     root :to => 'advice_posts#index'
   end
 

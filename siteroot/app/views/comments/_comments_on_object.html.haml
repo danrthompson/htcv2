@@ -4,7 +4,7 @@
 	%p= comment.body
 	- if comment.parent_id then
 		%p= "Parent comment: #{comment.parent.body}"
-	= render partial: 'voting', locals: {votable: comment, votable_name: 'comment', vote_path_for_votable: create_votable_path_for_comment(commentable, comment)}
+	= render partial: 'shared/voting', locals: {votable: comment, votable_name: 'comment', vote_path_for_votable: create_votable_path_for_comment(commentable, comment)}
 	- if can? :delete, comment then
 		%p= link_to 'Delete Comment', [commentable, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
 	%br

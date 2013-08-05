@@ -11,23 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130804032959) do
-
-  create_table "advice_posts", :force => true do |t|
-    t.text     "body"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.integer  "user_id",            :null => false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.boolean  "image_processing"
-    t.text     "video_link"
-    t.text     "video_html"
-  end
-
-  add_index "advice_posts", ["user_id"], :name => "index_advice_posts_on_user_id"
+ActiveRecord::Schema.define(:version => 20130805175754) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -45,6 +29,23 @@ ActiveRecord::Schema.define(:version => 20130804032959) do
 
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "conversation_posts", :force => true do |t|
+    t.text     "body"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "user_id",            :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.boolean  "image_processing"
+    t.text     "video_link"
+    t.text     "video_html"
+    t.string   "type"
+  end
+
+  add_index "conversation_posts", ["user_id"], :name => "index_advice_posts_on_user_id"
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0, :null => false
