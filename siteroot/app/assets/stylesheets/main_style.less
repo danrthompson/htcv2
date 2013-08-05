@@ -224,6 +224,8 @@ ul {
 	margin: 0;
 	padding: 0;
 }
+
+
 ////////////////// CODE INPUT FROM TWITTER BOOTSTRAP//////////////////
 
 .form-control {
@@ -820,7 +822,12 @@ fieldset[disabled] .form-control {
 			height: auto;
 		}
 	}
+	
 	.column{
+
+		width: 32%;
+		margin-left: 2%;
+
 		li{
 			height: auto;
 		}
@@ -879,17 +886,47 @@ fieldset[disabled] .form-control {
 		}
 
 
-
+		p{
+			text-align: center;
+			margin-bottom: 15px;
+		}
 		.regular-weight{
 
 		}
 
 		.chunky{
+
+			p{
 			.teal;
+			font-weight: 400;
+			font-size: 18px;
+			color: @teal;
+			line-height: 22px;
+			opacity: 0.8;
+			}
 		}
 
 		.extra-chunky{
-
+			p {
+				font-weight: 200;
+				font-size: 18px;
+				color:@dark-gray;
+				line-height: 24px;
+				text-align: center;
+			}
+			
+		}
+		
+		.extra-chunky.no-media{
+			p{
+				font-size: 20px;
+				color: @black-gray;
+				text-align: center;
+				letter-spacing: 2px;
+				line-height: 28px;
+				margin: 20px auto;
+				font-weight: 400;
+			}
 		}
 
 	}
@@ -1557,4 +1594,9 @@ label.error{
 
 .conversation-page{
 	overflow: hidden;
+}
+
+.column.first_col{
+	margin-left: 0;
+	padding-left: 0;
 }
