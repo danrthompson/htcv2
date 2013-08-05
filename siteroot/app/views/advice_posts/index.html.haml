@@ -28,7 +28,12 @@
 / 	= render partial: 'form', locals: {advice_post: AdvicePost.new}
 
 
-.post-convo-form
+.post-convo-form.full-width-textfield
+	%fieldset 
+		%textarea.form-control.float-left{:name => "", :cols => "30", :rows => "8"} 	
+		%button.btn.btn-white.float-right{:type => "submit"} Share Some Advice
+
+
 
 .post-entry.convo-entry
 	.three-column-wrapper.services 
