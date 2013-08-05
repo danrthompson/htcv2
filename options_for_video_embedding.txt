@@ -1,0 +1,10 @@
+custom code
+	maybe take a look at youtube_addy
+	matthooks/vimeo
+
+dejan/auto_html
+	vimeo, youtube, and more
+nathanbertram/safe_video_embed
+	youtube and vimeo
+intridea/opengraph
+	opengraph... supports rotten tomatoes for example

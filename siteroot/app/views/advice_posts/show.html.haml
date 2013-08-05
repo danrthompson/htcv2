@@ -1,24 +1,32 @@
+- new_comment_message = 'Create new comment on post'
+
 %p#notice= notice
 
-%h4= "Title: #{@advice_post.title}"
-%p= "Body: #{@advice_post.post_text}"
-- if @advice_post.image?
-	%p Image:
-	= image_tag @advice_post.image.url(:original)
+= render partial: 'advice_post_display', locals: {advice_post: @advice_post, image_style: :original}
+= render partial: 'voting', locals: {advice_post: @advice_post}
 - if @comments then
 	%h4 Comments:
-	- @comments.each do |comment|
-		%p= comment.body
-		%p= link_to 'Delete Comment', [@advice_post, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
-		%br
-		- if comment.has_children? then
-			- comment.children.each do |child_comment|
-				%p= child_comment.body
-				%p= link_to 'Delete Comment', [@advice_post, child_comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
-		%h6 Create new comment on comment
-		= render partial: 'comments/form', locals: {comment: @advice_post.comments.new, commentable: @advice_post, parent_id: comment.id}
+	= render partial: 'comments/comments_on_object', locals: {comments: @comments, commentable: @advice_post, parent_id: nil, new_comment_message: new_comment_message}
+- else
+	%h4= new_comment_message
+	= render partial: 'comments/form', locals: {comment: @advice_post.comments.new, commentable: @advice_post, parent_id: nil}
 
-%h4 Create new comment on Advice
-= render partial: 'comments/form', locals: {comment: @advice_post.comments.new, commentable: @advice_post, parent_id: nil}
+
+-# 	%h4 Comments:
+-# 	- @comments.each do |comment|
+-# 		%p= comment.body
+-# 		%p= link_to 'Delete Comment', [@advice_post, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
+-# 		%br
+-# 		- if comment.has_children? then
+-# 			- comment.children.each do |child_comment|
+-# 				%p= child_comment.body
+-# 				%p= link_to 'Delete Comment', [@advice_post, child_comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
+-# 		%h6 Create new comment on comment
+-# 		= render partial: 'comments/form', locals: {comment: @advice_post.comments.new, commentable: @advice_post, parent_id: comment.id}
+
+-# %h4 Create new comment on Advice
+-# = render partial: 'comments/form', locals: {comment: @advice_post.comments.new, commentable: @advice_post, parent_id: nil}
 
 = link_to 'All posts', advice_posts_path
+
+

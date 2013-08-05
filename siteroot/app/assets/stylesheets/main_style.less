@@ -69,6 +69,11 @@
 	margin: @margin;
 	padding: @padding;
 }
+
+.mp(@margin: 0px){
+	margin: @margin;
+	padding: @margin;
+}
 ////////////////////////////////////////
 
 
@@ -201,6 +206,15 @@ ul {
 .caption a:hover{
 	color: @middle-gray;
 	cursor: pointer;
+}
+
+.overflow-hidden{
+	overflow: hidden;
+}
+
+.no-margin{
+	margin: 0;
+	padding: 0;
 }
 ////////////////// CODE INPUT FROM TWITTER BOOTSTRAP//////////////////
 
@@ -420,6 +434,8 @@ fieldset[disabled] .form-control {
 		margin: auto;
 		margin-top: 40px;
 		margin-bottom: 10px;
+
+
 	}
 }
 
@@ -1044,7 +1060,8 @@ padding-top: 100px;
 		.rounded-corners(15px);
 		width: 80%;
 		margin: auto;
-		padding: 20px 0px 30px 40px;
+		// padding: 20px 0px 30px 40px;
+		padding: 20px 40px;
 		margin-bottom:50px;
 
 	
@@ -1054,9 +1071,12 @@ padding-top: 100px;
 	.divider{
 		margin-top: 50px;
 	}
-	
-	.column, .credit-card-wrapper{
 
+	.no-margin{
+			margin-top: 0;
+		}	
+	// .column, .credit-card-wrapper{
+	.column, .credit-card-wrapper{
 		width: 80%;
 		margin: 0 10%;
 
@@ -1121,6 +1141,19 @@ padding-top: 100px;
 		margin-bottom: 70px;
 		overflow: hidden;
 	}
+
+	.bottom-divider, .top-divider{
+		margin: auto;
+		margin-top: 20px;
+		margin-bottom: 30px;
+		border-bottom: 1px solid @stroke-color;
+	}
+
+	.top-divider{
+		margin-bottom:15px;
+	}
+
+
 }
 
 #payment{
@@ -1182,8 +1215,6 @@ padding-top: 100px;
 	p{
 		.margin-padding(0);
 	}
-
-
 }
 
 
@@ -1236,5 +1267,130 @@ padding-top: 100px;
 
 #errorExplanation h2{
 		font-size: 24px;
+}
+
+.inner{
+	overflow: hidden;
+}
+.error{
+	color: #D17676;overflow: hidden;
+	font-size: 14px;
+
+	.form-control{
+		margin-bottom: 0px;
+	}
+}
+
+input.form-control{
+	.error{
+	margin-bottom: 0px;
+	}
+}
+
+label.error{
+	margin-bottom: 20px;
+}
+
+
+.order-details{
+
+	margin: auto;
+	text-align: center;
+	margin-bottom: 20px;
+
+	fieldset{
+		padding: 0;
+	}
+	.order-details-col{
+		width:30%;
+		float:left;
+		text-align: left;
+		margin: 0;
+		padding: 0;
+		margin-left:5%;
+	}
+
+	.details-first-col{
+			margin-left:0;
+	}
+
+	h6{
+		font-size: 16px;
+		text-transform: uppercase;
+		margin-top: 5px;
+		margin-bottom: 10px;
+		margin-left: 0;
+
+		a{
+			font-size: 12px;
+			color: @teal;
+		}
+	}
+
+	.vcard{
+		margin: auto;
+		color: @middle-gray;
+		text-transform: uppercase;
+		font-size: 13px;
+		line-height: 18px;
+	}
+
+	h4{
+		color:@black-gray;
+		text-transform: uppercase;
+		font-size: 30px;
+		margin: 15px 0;
+	}
+
+	.order_item_description{
+		width: 90%;
+		text-align: left;
+	}
+
+	.total{
+		text-align: right;
+		padding-left: 20px;	
+	}
+
+	th{
+		text-align: left;
+		padding: 0 20px;
+	}
+
+	.order-item{
+		padding-left: 0px;
+	}
+
+	.price{
+		padding-left: 130px;
+		text-align: center;
+	}
+
+	.qty{
+
+	}
+
+	thead{
+		width: 100%;
+		overflow: hidden;
+	}
+	.total{
+		text-align: right;
+	}
+
+	#subtotal{
+		td{
+			margin-top: 50px;
+			padding-top: 15px;
+			border-top: 1px solid @stroke-color;
+		}
+	}
+
+	tbody{
+		overflow: hidden;
+	}
+
+	tfoot{
+	}
 }
 

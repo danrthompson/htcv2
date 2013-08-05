@@ -1,7 +1,7 @@
 class AdvicePostsController < ApplicationController
 
   def index
-    @advice_posts = AdvicePost.all
+    @advice_posts = AdvicePost.find_with_reputation(:votes, :all, order: "votes desc")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,5 +44,12 @@ class AdvicePostsController < ApplicationController
       format.html { redirect_to advice_posts_url }
       format.json { head :no_content }
     end
+  end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @advice_post = AdvicePost.find(params[:id])
+    @advice_post.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting"
   end
 end
