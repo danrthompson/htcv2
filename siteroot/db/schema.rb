@@ -833,7 +833,6 @@ ActiveRecord::Schema.define(:version => 20130805175754) do
     t.datetime "reset_password_sent_at"
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
-    t.string   "spree_api_key",          :limit => 48
     t.datetime "remember_created_at"
   end
 
