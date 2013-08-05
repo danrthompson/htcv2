@@ -38,6 +38,8 @@
 
         - if current_user then
           = link_to 'sign_out', destroy_user_session_path, :method => :delete
+
+        = flash_messages
         = yield
         -# #navigation
 

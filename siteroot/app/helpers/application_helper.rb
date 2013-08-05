@@ -3,6 +3,10 @@ module ApplicationHelper
     Struct.new(:name, :email).new(htcv2_config[:author][:name], htcv2_config[:author][:email])
   end
 
+  def flash_messages
+    nil
+  end
+
 
   # def format_comment_error(error)
   #   {
