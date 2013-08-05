@@ -446,6 +446,7 @@ DEPENDENCIES
   haml
   haml-rails
   jquery-rails (= 2.2.1)
+  kaminari
   less-rails
   lesstile (~> 1.1.0)
   nokogiri (~> 1.5.0)
