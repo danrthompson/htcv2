@@ -7,6 +7,10 @@ Htcv2::Application.routes.draw do
 
   get "tools/services"
 
+  get 'about_us' => 'static#about_us'
+  get 'contact_us' => 'static#contact_us'
+  get 'press' => 'static#press'
+
 
   scope '/conversation' do
     resources :advice_posts, only: [:index, :show, :create, :destroy], path: 'advice' do
