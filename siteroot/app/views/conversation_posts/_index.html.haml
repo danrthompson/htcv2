@@ -9,8 +9,8 @@
 - if can? :create, post_klass then
 	= render partial: 'conversation_posts/create_form', locals: {conversation_post: post_klass.new, share_message: share_message}
 
-- if @posts then
-	%a.fancybox{rel: "group", href: polymorphic_path(@posts.first), "data-fancybox-type" => "iframe"} Test
+
+%a.fancybox{rel: "group", href: "\#message_lightbox"} Activate Messages Lightbox
 
 .post-entry.convo-entry
 	.three-column-wrapper.services 
@@ -107,9 +107,16 @@
 -# 			- if can? :destroy, post then
 -# 				= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
+.dont-show#message_lightbox
+	%p stuff to go in lightbox
+
+
 :javascript
 	$(document).ready(function() {
 		$(".fancybox").fancybox();
 	});
+
+
+
 
 
