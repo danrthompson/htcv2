@@ -1148,18 +1148,38 @@ fieldset[disabled] .form-control {
 	
 		label{
 			text-transform: uppercase;
+			margin-left: 5px;
 			
 		}
 
 		input[type="file"]{
 			position: relative;
 			top: -2px;
+			width: 180px;
+			left: 2px;
 		}
 
 		input{
-			
+
+		}
+		
+
+		.text-field{
+			.rounded-corners(15px);
+			height: 25px;
+			border: 1px solid @stroke-color;
+			position: relative;
+			top: -2px;
+			left: 5px;
+			padding-left:45px;
 		}
 
+		.text-field:focus{
+			border-color: rgba(82, 168, 236, 0.8);
+ 			outline: 0;
+  			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+        	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+		}
 		.upload-file-wrapper{
 			// position:relative;
 			

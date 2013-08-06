@@ -14,10 +14,10 @@
 			-# .field
 			= f.label "ADD AN IMAGE"
 
-			= f.file_field :image, html: {class: "button"}
+			= f.file_field :image, {class: "try-this"}
 			-# .field
-			= f.label "Or Add"
-			= f.text_field :video_link
+			= f.label "Or Add A Video"
+			= f.text_field :video_link, {class: "text-field"}
 			-# .actions
 			-#= f.submit share_message, html: { class: "btn btn-white float-right" }
 
