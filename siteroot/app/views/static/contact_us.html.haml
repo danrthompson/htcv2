@@ -1,1 +1,13 @@
-%p contact us!
+- content_for :head do
+	= stylesheet_link_tag    "main_style"
+
+.contact-us-page
+	%h1.center-align DROPUSALINE
+	.emails-list
+		.email-entry
+			%h4.float-left General Questions:
+			%a.float-right{:href => "mailto:"}preguntas@harnessthecrowd.com 
+		.email-entry
+			%h4.float-left Press Inquiries:
+			%a.float-right{:href => "mailto:"} weloveyou@harnessthecrowd.com 
+	
