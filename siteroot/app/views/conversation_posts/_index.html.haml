@@ -108,10 +108,19 @@
 -# 				= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 .dont-show#message_lightbox
-	%p stuff to go in lightbox
-	.lightbox-test
-		%h1 BIG
+	.lightbox-content-wrapper
+		/ There Is No Project Title That Appears in the Lightbox
+		
+		/ This Is the Main Piece of Media
+		.lightbox-main-media
+			%iframe{:frameborder => "0", :height => "360", :src => "http://www.kickstarter.com/projects/445602678/the-handleband/widget/video.html", :width => "480"}
+		
+		/ This Is The Description
+		%p This is the product description. Buet. Etiam porta sem malesuada magna mollis euismod. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
 
+		.divider
+
+		%textarea.form-control{:rows => "3"}
 
 :javascript
 	$(document).ready(function() {
