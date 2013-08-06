@@ -8,13 +8,13 @@
 	%fieldset.new-conversation
 		.top-half
 			-# .field
-			= f.text_area :body, html: { :cols => "30", :rows => "8", class: "form-control float-left" }
+			= f.text_area :body, :cols => "30", :rows => "8", class: "form-control float-left"
 			%button.btn.btn-white.float-right{:type => "submit", name: "commit"}= share_message
 		.bottom-half
 			-# .field
 			= f.label "ADD AN IMAGE"
 
-			= f.file_field :image, {class: "try-this"}
+			= f.file_field :image, class: "button"
 			-# .field
 			= f.label "Or Add A Video"
 			= f.text_field :video_link, {class: "text-field"}

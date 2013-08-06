@@ -1,13 +1,12 @@
-/ - content_for :head do
-/ 	= stylesheet_link_tag    "main_style"
-
+- content_for :head do
+	= stylesheet_link_tag    "main_style"
 
 
 - new_comment_message = "Create new comment on #{post_klass.friendly_name.downcase}"
 
 %p#notice= notice
 
-/ = render partial: 'conversation_posts/display', locals: {conversation_post: @post, image_style: :original}
+= render partial: 'conversation_posts/display', locals: {conversation_post: @post, image_style: :original}
 = render partial: 'shared/voting', locals: {votable: @post, votable_name: 'post', vote_path_for_votable: create_votable_path_for_conversation_post(@post)}
 - if @comments then
 	%h4 Comments:

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130805175754) do
+ActiveRecord::Schema.define(:version => 20130806182515) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(:version => 20130805175754) do
 
   create_table "conversation_posts", :force => true do |t|
     t.text     "body"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-    t.integer  "user_id",            :default => 0, :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "user_id",            :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -185,7 +185,6 @@ ActiveRecord::Schema.define(:version => 20130805175754) do
   end
 
   create_table "services", :force => true do |t|
-    t.string   "category"
     t.boolean  "featured"
     t.integer  "rank"
     t.integer  "featured_rank"
@@ -193,8 +192,9 @@ ActiveRecord::Schema.define(:version => 20130805175754) do
     t.string   "subtitle"
     t.text     "description"
     t.text     "out_link"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "service_category_id"
   end
 
   create_table "sessions", :force => true do |t|
@@ -833,6 +833,7 @@ ActiveRecord::Schema.define(:version => 20130805175754) do
     t.datetime "reset_password_sent_at"
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
+    t.string   "spree_api_key",          :limit => 48
     t.datetime "remember_created_at"
   end
 
