@@ -8,7 +8,7 @@ class Ability
         post.published_at && post.published_at < Time.now
     end
     can [:create, :read], [Comment, AdvicePost, QuestionPost, NewsPost]
-    can :read, [Resource, ResourceCategory, ResourceSubcategory, Service, ServiceCategory]
+    can :read, [Resource, ResourceCategory, Service, ServiceCategory]
     if user.is_a? User then
         if user.administrator then
             can :manage, :all
