@@ -82,6 +82,13 @@
 	border-top: 5px solid @arrow-box-color;
 	border-bottom: 5px solid @arrow-box-color;
 }
+
+.focus-glow{
+	border-color: rgba(82, 168, 236, 0.8);
+ 			outline: 0;
+  			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+        	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
 ////////////////////////////////////////
 
 
@@ -1105,6 +1112,12 @@ fieldset[disabled] .form-control {
 		color: @middle-gray;
 		font-family:@main-font;
 		border: 1px solid @light-gray;
+		padding-left:10px;
+		padding-top:5px;
+	}
+
+	textarea:focus{
+		.focus-glow;
 	}
 
 	.btn{
@@ -1164,6 +1177,7 @@ fieldset[disabled] .form-control {
 		}
 		
 
+
 		.text-field{
 			.rounded-corners(15px);
 			height: 25px;
@@ -1175,10 +1189,7 @@ fieldset[disabled] .form-control {
 		}
 
 		.text-field:focus{
-			border-color: rgba(82, 168, 236, 0.8);
- 			outline: 0;
-  			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-        	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+			.focus-glow;
 		}
 		.upload-file-wrapper{
 			// position:relative;
