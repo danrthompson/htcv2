@@ -82,6 +82,13 @@
 	border-top: 5px solid @arrow-box-color;
 	border-bottom: 5px solid @arrow-box-color;
 }
+
+.focus-glow{
+	border-color: rgba(82, 168, 236, 0.8);
+ 			outline: 0;
+  			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+        	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
 ////////////////////////////////////////
 
 
@@ -1105,6 +1112,12 @@ fieldset[disabled] .form-control {
 		color: @middle-gray;
 		font-family:@main-font;
 		border: 1px solid @light-gray;
+		padding-left:10px;
+		padding-top:5px;
+	}
+
+	textarea:focus{
+		.focus-glow;
 	}
 
 	.btn{
@@ -1140,26 +1153,59 @@ fieldset[disabled] .form-control {
 	padding-left: 0;
 }
 
+fieldset.new-conversation{
+	padding-bottom: 10px;
+}
+
 .new-conversation{
+	overflow: hidden;
+
+	.top-half{
+		height: 25px;
+		padding-bottom: 5px;
+
+		textarea{
+			height:22px;
+			width:75%;
+		}
+	}
 	.bottom-half{
-		margin-left: 20px;
-		margin-top: 10px;
-		margin-bottom: 5px;
+		margin-left: 05px;
+		margin-top: 20px;
 	
 		label{
 			text-transform: uppercase;
+			margin-left: 5px;
 			
 		}
 
 		input[type="file"]{
 			position: relative;
 			top: -2px;
+			width: 180px;
+			left: -10px;
 		}
 
 		input{
-			
+
+		}
+		
+
+
+		.text-field{
+			.rounded-corners(15px);
+			height: 25px;
+			border: 1px solid @stroke-color;
+			position: relative;
+			top: -2px;
+			left: 5px;
+			padding-left:15px;
+			padding-right:20px;
 		}
 
+		.text-field:focus{
+			.focus-glow;
+		}
 		.upload-file-wrapper{
 			// position:relative;
 			
@@ -1922,5 +1968,9 @@ fieldset.thanks-page{
 
 }
 
+
+.lightbox-test{
+	width:500xp;
+}
 
 
