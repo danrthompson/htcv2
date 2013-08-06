@@ -6,7 +6,7 @@
 	.about-us-wrapper.extra-padding.no-heading
 		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem.
 
-%a.fancybox{rel: "group", href: "\#message_lightbox"} Test
+%a.fancybox{rel: "group", href: "\#message_lightbox"} Activate Messages Lightbox
 
 .post-entry
 	.three-column-wrapper.services 
@@ -87,6 +87,8 @@
 		= f.text_field :email
 		= f.label "Inquiry type"
 		= f.select(:inquiry_type, options_for_select([['Price inquiry', :price], ['Other options...', :other]], :price))
+		= f.label :Message
+		= f.text_area :message
 		= f.submit "Submit"
 
 
