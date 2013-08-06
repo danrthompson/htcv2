@@ -15,4 +15,5 @@
 //= require jquery_ujs
 //= require common
 //= require live-comment-preview
+//= require jquery.fancybox.pack
 //= require_self

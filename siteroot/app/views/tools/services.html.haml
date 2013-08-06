@@ -1,11 +1,12 @@
-- content_for :head do
-	= stylesheet_link_tag    "main_style"
+= render 'shared/head'
 
 = render 'tools/shared/service_subnav'
 
 - content_for :intro_text do
 	.about-us-wrapper.extra-padding.no-heading
 		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem.
+
+%a.fancybox{rel: "group", href: "\#message_lightbox"} Test
 
 .post-entry
 	.three-column-wrapper.services 
@@ -79,3 +80,19 @@
 							Get In Contact
 
 					%a{:href => ""} VISIT THEIR WEBSITE
+
+.dont-show#message_lightbox
+	= form_for :message, url: "/test" do |f|
+		= f.label :Email
+		= f.text_field :email
+		= f.label "Inquiry type"
+		= f.select(:inquiry_type, options_for_select([['Price inquiry', :price], ['Other options...', :other]], :price))
+		= f.submit "Submit"
+
+
+:javascript
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
+
+
