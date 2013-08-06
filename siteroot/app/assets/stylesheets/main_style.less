@@ -1038,6 +1038,7 @@ fieldset[disabled] .form-control {
 	}
 	textarea{
 		width: 75%;
+		max-width: 75%;
 		height: 20px;
 		.rounded-corners(15px);
 		font-weight: 400;
@@ -1626,9 +1627,13 @@ padding-top: 100px;
 	overflow: hidden;
 }
 .error{
-	color: #D17676;overflow: hidden;
+	color: #D17676;
+	overflow: hidden;
 	font-size: 14px;
-
+	text-align: center;
+	margin-top: 30px;
+	font-weight: 800;
+	text-transform: uppercase;
 	.form-control{
 		margin-bottom: 0px;
 	}
@@ -1747,16 +1752,65 @@ label.error{
 	}
 }
 
-.confirm-title{
+
+.thanks-page{
 	margin-bottom: 0;
 }
 
+.thank-you-wrapper{
+	width: 60%;
+	margin: auto;
+	margin-bottom: 50px;
+}
+
+
+.thanks-page{
+
+	legend{
+		padding: 0 20px;
+		color: @light-gray;
+	}
+	p{
+		margin: auto;
+		line-height: 32px;
+		margin-bottom: 50px;
+	}
+
+	p.center-align{
+		margin-bottom:20px;
+	}
+
+	.blue-button{
+		.rounded-corners(10px);
+	}
+
+	.blue-button:hover{
+		color: white;
+	}
+
+	h3{
+		color: @light-gray;
+		opacity: 0.5;
+	}
+
+}
+
+.back-to-store-button{
+	margin: auto;
+
+}
+h2.thanks-page{
+	color: @light-gray;
+	margin-bottom: 40px;
+}
+
+
 .huge-smile{
 	font-size: 200px;
-	margin-bottom: 0;
+	margin-bottom: 70px;
 	font-weight: 600;
-	margin-left: 41%;
-	margin-top: 0;
+	margin-left: 38%;
+	margin-top: 50px;
 	overflow: hidden;
 	.smile-mouth{
 		display: inline-block;
@@ -1766,6 +1820,11 @@ label.error{
 	}
 }
 
+
+fieldset.thanks-page{
+	margin: 30px;
+
+}
 
 
 
