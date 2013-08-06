@@ -1,6 +1,6 @@
 - content_for :page_title do
 	= posts_title(@tag)
-= render partial: 'shared/blog/head', layout: 'shared/head'
+= render partial: 'shared/conversation/head', layout: 'shared/head'
 = render 'tools/shared/conversation_subnav'
 
 
@@ -9,7 +9,7 @@
 - if can? :create, post_klass then
 	= render partial: 'conversation_posts/create_form', locals: {conversation_post: post_klass.new, share_message: share_message}
 
-
+%a.fancybox{rel: "group", href: polymorphic_path(@posts.first), "data-fancybox-type" => "iframe"} Test
 
 .post-entry.convo-entry
 	.three-column-wrapper.services 
@@ -106,6 +106,9 @@
 -# 			- if can? :destroy, post then
 -# 				= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-
+:javascript
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
 
 
