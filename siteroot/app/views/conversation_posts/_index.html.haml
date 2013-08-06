@@ -5,11 +5,9 @@
 
 
 
-/ HTML CODE from Service Page
-.post-convo-form.full-width-textfield
-	%fieldset 
-		%textarea.form-control.float-left{:name => "", :cols => "30", :rows => "8"} 	
-		%button.btn.btn-white.float-right{:type => "submit"} Share Some Advice
+
+- if can? :create, post_klass then
+	= render partial: 'conversation_posts/create_form', locals: {conversation_post: post_klass.new, share_message: share_message}
 
 
 
@@ -108,9 +106,6 @@
 -# 			- if can? :destroy, post then
 -# 				= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
--# %br
 
--# %h1= "New #{post_klass.friendly_name.downcase}"
--# - if can? :create, post_klass then
--# 	= render partial: 'conversation_posts/create_form', locals: {conversation_post: post_klass.new}
+
 
