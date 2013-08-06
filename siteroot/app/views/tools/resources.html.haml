@@ -1,61 +1,25 @@
-- content_for :head do
-	= stylesheet_link_tag    "main_style"
+= render 'shared/head'
 
-= render 'tools/shared/subnav'
+= render 'tools/shared/resource_subnav'
 - content_for :intro_text do
 	.about-us-wrapper.extra-padding.no-heading
 		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem.
 .post-entry
-	.resources_subsection
-		%h2 Make Your Project Represent Something Bigger
-		/ %img{:src => "http://www.handleband.com/images/gallery/gallery_1.jpg", :alt => ""}/ 
-		.resource_entry
-			.resource_title_wrapper
-				%a{:href => ""}
-					%h3 The Crowdfunding Bible
-				.resource-action-items
-					%h4
-						%a{:href => ""}Share
-						|
-						%a{:href => ""}Visit
-			%p Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-
-		.resource_entry
-			.resource_title_wrapper
-				%a{:href => ""} 
-					%h3 The Crowdfunding Bible
-				.resource-action-items
-					%h4
-						%a{:href => ""}Share
-						|
-						%a{:href => ""}Visit
-			%p Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-		%br/ 
-		.divider
-
-		.resources_subsection
-		%h2 This is A Second Title
-		/ %img{:src => "http://www.handleband.com/images/gallery/gallery_1.jpg", :alt => ""}/ 
-		.resource_entry
-			.resource_title_wrapper
-				%a{:href => ""} 
-					%h3 The Crowdfunding Bible
-				.resource-action-items
-					%h4
-						%a{:href => ""}Share
-						|
-						%a{:href => ""}Visit
-			%p Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-
-		.resource_entry
-			.resource_title_wrapper
-				%a{:href => ""} 
-					%h3 The Crowdfunding Bible
-				.resource-action-items
-					%h4
-						%a{:href => ""}Share
-						|
-						%a{:href => ""}Visit
-			%p Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-		%br/ 
-		.divider
+	- if @selected_category and @selected_category.resource_categories then
+		- @selected_category.resource_categories.order('rank asc').each do |subcat|
+			.resources_subsection
+				%h2= subcat.title
+				- if subcat and subcat.resources then
+					- subcat.resources.order('rank asc').each do |resource|
+						.resource_entry
+							.resource_title_wrapper
+								%a{:href => resource.out_link}
+									%h3= resource.title
+								.resource-action-items
+									%h4
+										%a{:href => ""}Share
+										|
+										%a{:href => ""}Visit
+							%p= resource.description
+			%br
+			.divider

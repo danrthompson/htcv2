@@ -1,6 +1,13 @@
 class ToolsController < ApplicationController
   def resources
-  	@resources = Resource.all
+  	@resource_categories = ResourceCategory.where(resource_category_id: nil).order('rank asc')
+  	if params[:resource_category] then
+  		@selected_category = ResourceCategory.where(resource_category_id: nil).find_by_title(params[:resource_category])
+  		if @selected_category then
+  			return
+  		end
+  	end
+  	@selected_category = @resource_categories.first
   end
 
   def services

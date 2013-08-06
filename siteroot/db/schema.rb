@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806195013) do
+ActiveRecord::Schema.define(:version => 20130806220336) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -111,27 +111,22 @@ ActiveRecord::Schema.define(:version => 20130806195013) do
 
   create_table "resource_categories", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "resource_subcategories", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.integer  "resource_category_id"
+    t.integer  "rank"
   end
 
   create_table "resources", :force => true do |t|
-    t.string   "category"
-    t.string   "subcategory"
     t.boolean  "featured"
     t.integer  "rank"
     t.integer  "featured_rank"
     t.string   "title"
     t.text     "description"
     t.text     "out_link"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.integer  "resource_category_id"
   end
 
   create_table "rs_evaluations", :force => true do |t|
