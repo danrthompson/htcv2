@@ -1,3 +1,7 @@
+- content_for :head do
+  = stylesheet_link_tag    "main_style"
+
+
 %h2 Sign in - test customization
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   %div
