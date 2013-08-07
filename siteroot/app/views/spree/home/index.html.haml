@@ -6,7 +6,9 @@
 	.about-us-wrapper.extra-padding
 		%h1 People Are Amazing
 		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing.
-
+- get_taxonomies.each do |taxonomy|
+	-# taxonomy.root.name
+	= taxons_tree(taxonomy.root, @taxon, 3||Spree::Config[:max_level_in_taxons_menu] || 1)
 .three-column-wrapper
 	.column.first_col
 		%ul 
