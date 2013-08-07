@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130807180038) do
+ActiveRecord::Schema.define(:version => 20130807211824) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(:version => 20130807180038) do
 
   create_table "conversation_posts", :force => true do |t|
     t.text     "body"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-    t.integer  "user_id",            :default => 0, :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "user_id",            :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -181,7 +181,6 @@ ActiveRecord::Schema.define(:version => 20130807180038) do
   end
 
   create_table "service_leads", :force => true do |t|
-    t.string   "inquiry_type"
     t.text     "message"
     t.string   "email"
     t.string   "user_name"
@@ -189,8 +188,10 @@ ActiveRecord::Schema.define(:version => 20130807180038) do
     t.integer  "user_id"
     t.boolean  "featured_page"
     t.integer  "service_rank"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "inquiry_type_part_1"
+    t.string   "inquiry_type_part_2"
   end
 
   create_table "services", :force => true do |t|
@@ -847,6 +848,7 @@ ActiveRecord::Schema.define(:version => 20130807180038) do
     t.datetime "reset_password_sent_at"
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
+    t.string   "spree_api_key",          :limit => 48
     t.datetime "remember_created_at"
   end
 
