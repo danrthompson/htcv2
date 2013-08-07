@@ -1953,17 +1953,14 @@ fieldset.thanks-page{
 	overflow:hidden;
 }
 
-.conversation-comments{
-	width: 600px;
-	text-align: center;
-	margin: auto;
-}
+
 .lightbox-content-wrapper{
 	width:900px;
 	text-align: center;
 	padding-top: 20px;
 	text-align: center;
 	color: @black-gray;
+	padding-bottom:50px;
 	
 
 
@@ -2021,8 +2018,41 @@ fieldset.thanks-page{
 	}
 }
 
+
+	.post-reply-wrapper{
+		width: 550px;
+		overflow:hidden;
+		margin-bottom: 20px;
+		height: 50px;
+		position:relative;
+		right:-9px;
+		top: 10px;
+
+		textarea{
+			height:16px;
+		}
+
+		.blue-button{
+			height: 30px;
+		}
+	}
+
+
+.conversation-comments{
+	width: 600px;
+	text-align: center;
+	margin: auto;
+
+	.divider{
+		width: 85%;
+		margin-bottom: 15px;
+		margin-top: 5px;
+		// border:none;
+	}
+}
+
 .comment_title_wrapper{
-		width: 600px;
+		width: 100%;
 		margin: auto;
 		overflow: hidden;
 		text-transform: uppercase;
@@ -2059,14 +2089,44 @@ fieldset.thanks-page{
 .comment-text{
 	width: 540px;
 	float:right;
+
+	p{
+		width: 100%;
+		padding-bottom: 10px;
+	}
 }
 
 .comment-rating{
 	width: 50px;
 	overflow:hidden;
-	height:60px;
+	height:110px;
+	margin-top: 30px;
 }
 
+
+.reply-entry{
+	margin-left: 20px;
+	margin-top:0px;
+
+	.comment-text{
+		width: 470px;
+
+
+		p{
+			font-size: 14px;
+		}
+
+		h3{
+			font-size: 16px;
+			margin-top: 20px;
+			color: @light-gray;
+		}	
+	}
+
+	.comment-rating{
+		margin-left: 20px;
+	}
+}
 
 // .arrow-stacked{
 // 	background-color: pink;
@@ -2126,5 +2186,15 @@ a.arrow-stacked{
 	border-right: 20px solid #0a7b8d;
 	position:relative;
 	top: 20px;
+	border-top: 25px;
+	border-bottom: 25px;
 
+}
+
+a.bottom-stacked-arrow{
+	background-color: @dark-gray;
+	border-color: @dark-gray;
+	position:relative;
+	top: 25px;
+	background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-down.png');
 }
