@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
 
   has_many :advice_posts
   has_many :comments
+  has_many :service_leads
 end
