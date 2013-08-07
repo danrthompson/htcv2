@@ -194,6 +194,16 @@ fieldset{
 	text-transform: uppercase;
 }
 
+.width-60{
+	width: 60%;
+	margin: auto;
+}
+
+.width-30{
+	width: 30%;
+	margin: auto;
+}
+
 .width-80{
 	width: 80%;
 	margin: auto;
@@ -2198,3 +2208,127 @@ a.bottom-stacked-arrow{
 	top: 25px;
 	background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-down.png');
 }
+
+.services-box#message_lightbox{
+	width:800px;
+	text-align: center;
+	overflow: hidden;
+	margin-left:-10px;
+
+	h2{
+		text-transform: uppercase;
+		font-size: 34px;
+	}
+
+
+	textarea{
+		height: 120px;
+		.rounded-corners(3px);
+
+	}
+
+	.message-details-wrapper{
+		margin-top: 25px;
+		width: 672px;
+		overflow: hidden;
+	}
+
+
+	#service-name, #service-email{
+		overflow: hidden;
+
+		p{
+			float:left;
+			margin-top: 4px;
+			text-transform: uppercase;
+			color: @middle-gray;
+		}
+		textfield, input[type="text"]{
+			width: 65%;
+			float:right;
+			height: 15px;
+			.rounded-corners(3px);
+		}
+	}
+
+	#service-email{
+		width: 50%;
+		p{
+			margin-left: 30px;
+		}
+		textfield, input[type="text"]{
+			width: 190px;
+		}
+	}
+
+	#service-name{
+		width: 50%;
+		margin:auto;
+		span{
+			font-size: 12px;
+		}
+
+		textfield, input[type="text"]{
+			width: 170px;
+			margin-right: 10px;
+		}
+	}
+}
+
+.service-message-wrapper{
+	width: 650px;
+	margin: auto;
+}
+
+.service-action-wrapper{
+	margin-left: 15px;
+	width:100%;
+	margin-bottom: 15px;
+	margin-top: 32px;
+	overflow: hidden;
+	
+	p{
+		font-size: 24px;
+	}
+
+	#service-request{
+		width: 200px;
+	}
+
+	#service-reason{
+		width: 260px;
+	}
+
+	select{
+		margin-left:15px;
+		margin-top:17px;
+		.rounded-corners(2px);
+		background-color: white;
+	}
+}
+
+
+.bottom-service-buttons{
+	width: 670px;
+	overflow: hidden;
+	padding-bottom:30px;
+	.divider{
+		margin-top: 55px;
+	}
+	.blue-button{
+		a{ 
+			color:white;
+			font-weight: 500;
+		}
+	}
+	.button{
+				.rounded-corners(2px);
+		a{
+			color: white;
+		}
+
+		margin-top: 10px;
+	}
+
+}
+
