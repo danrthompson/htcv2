@@ -3,8 +3,8 @@ Htcv2::Application.routes.draw do
 
   devise_for :users
 
+  get 'tools' => 'tools#resources'
   get "tools/resources"
-
   get "tools/services"
 
   get 'about_us' => 'static#about_us'
