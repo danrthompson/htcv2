@@ -15,11 +15,13 @@ class ToolsController < ApplicationController
   	if params[:service_category] then
   		@selected_category = ServiceCategory.find_by_title(params[:service_category])
   		if @selected_category then
+        @featured = false
   			@services = @selected_category.services.order("rank asc")
   			return
   		end
   	end
-  	@selected_category = @service_categories.first
-  	@services = @selected_category.services.order("rank asc")
+  	@selected_category = nil
+    @featured = true
+  	@services = Service.where(featured: true).order("featured_rank asc")
   end
 end

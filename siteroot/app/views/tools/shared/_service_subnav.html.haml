@@ -11,6 +11,12 @@
 			%a{:href => ""} SUGGEST A SERVICE
 	.sub_nav_bottom
 		%ul.sub_nav.bottom_half
+			- if @featured then
+				%li.current-selection
+					%a{href: tools_services_path(service_category: "Featured")} Featured Services
+			- else
+				%li
+					%a{href: tools_services_path(service_category: "Featured")} Featured Services
 			- @service_categories.each do |serv_cat|
 				- if serv_cat == @selected_category then
 					%li.current-selection 
