@@ -44,6 +44,6 @@ end
 
       
 
-inquiry_type:string message:text email:string user_name:string service_id:integer featured_page:boolean
+# inquiry_type:string message:text email:string user_name:string service_id:integer featured_page:boolean
 
-user_id:integer  service_rank:integer
+# user_id:integer  service_rank:integer
