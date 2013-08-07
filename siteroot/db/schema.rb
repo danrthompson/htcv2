@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806220336) do
+ActiveRecord::Schema.define(:version => 20130807180038) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -180,6 +180,19 @@ ActiveRecord::Schema.define(:version => 20130806220336) do
     t.integer  "rank"
   end
 
+  create_table "service_leads", :force => true do |t|
+    t.string   "inquiry_type"
+    t.text     "message"
+    t.string   "email"
+    t.string   "user_name"
+    t.integer  "service_id"
+    t.integer  "user_id"
+    t.boolean  "featured_page"
+    t.integer  "service_rank"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "services", :force => true do |t|
     t.boolean  "featured"
     t.integer  "rank"
@@ -191,6 +204,11 @@ ActiveRecord::Schema.define(:version => 20130806220336) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.integer  "service_category_id"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.boolean  "logo_processing"
   end
 
   create_table "sessions", :force => true do |t|

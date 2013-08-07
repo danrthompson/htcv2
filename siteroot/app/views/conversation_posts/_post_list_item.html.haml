@@ -1,0 +1,19 @@
+%li
+	- if post.image? then
+		%img{:src => post.image.url(:thumb), :alt => ""}
+	- elsif post.video_html then
+		= post.video_html.html_safe
+	%p
+		%a{:href => polymorphic_path(post)}
+			= post.title
+	.bottom-action-items
+		.float-left
+			- if can? :vote, post then
+				= link_to "", vote_path_for_votable.call("up"), method: "post", class: "vote-arrow up-arrow"
+				= link_to "", vote_path_for_votable.call("down"), method: "post", class: "vote-arrow down-arrow"
+			- else
+				%a.vote-arrow.up-arrow{:href => new_user_session_path}
+				%a.vote-arrow.down-arrow{:href => new_user_session_path} 
+		.float-right
+			%a{:href => polymorphic_path(post)}
+				%h4 add something

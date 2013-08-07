@@ -1,0 +1,19 @@
+- content_for :sub_nav do
+	- question_html_klass, news_html_klass, advice_html_klass = nil
+	- if post_klass == AdvicePost then 
+		- advice_html_klass = 'current-selection'
+	- elsif post_klass == QuestionPost then
+		- question_html_klass = 'current-selection'
+	- elsif post_klass == NewsPost then
+		- news_html_klass = 'current-selection'
+	.sub_nav_top
+		%ul.sub_nav.top_half
+			%li{class: question_html_klass}
+				%a{:href => question_posts_path} 
+					%h2 Questions
+			%li{class: advice_html_klass}
+				%a{:href => advice_posts_path} 
+					%h2 Advice
+			%li{class: news_html_klass}
+				%a{:href => news_posts_path} 
+					%h2 News
