@@ -1006,30 +1006,6 @@ fieldset[disabled] .form-control {
 			overflow: hidden;
 		}
 
-		.vote-arrow{
-			width:25px;
-			height: 10px;
-			background-size:contain;
-			background-repeat: no-repeat;
-			background-position: center center;
-			margin: 5px 0 0px 0;
-			opacity: .3;
-		}
-
-		.vote-arrow:hover{
-			opacity: 1;
-		}
-
-		a.up-arrow{
-			background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-up.png');
-			.arrow-padding(@teal);
-		}
-
-		a.down-arrow{
-			background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-down.png');
-			.arrow-padding(@middle-gray);
-			margin-left: 5px;
-		}
 
 		h4{
 			margin-top: 10px;
@@ -1972,6 +1948,16 @@ fieldset.thanks-page{
 #message_lightbox{
 }
 
+
+.conversation-comments, .comment-entry, .comment-text, .comment_title_wrapper{
+	overflow:hidden;
+}
+
+.conversation-comments{
+	width: 600px;
+	text-align: center;
+	margin: auto;
+}
 .lightbox-content-wrapper{
 	width:900px;
 	text-align: center;
@@ -1995,6 +1981,7 @@ fieldset.thanks-page{
 		width: 600px;
 		margin: auto;
 		padding-bottom: 25px;
+		overflow: hidden;
 	}
 
 	.divider{
@@ -2002,6 +1989,142 @@ fieldset.thanks-page{
 		width: 60%;
 	}
 
+	textarea{
+		width: 70%;
+		height: 30px;
+		.rounded-corners(15px);
+		margin: auto;
+		float:left;
+	}
+
+	.post-comment-wrapper{
+		margin: auto;
+		width: 610px;
+		overflow:hidden;
+		margin-bottom: 20px;
+	}
+
+	.blue-button{
+		width: 22%;
+		.rounded-corners(8px);
+		margin-top: 10px;
+		position: relative;
+		top: -7px;
+		height: 44px;
+		padding: 6px;
+		margin-right:10px;
+	}
+
+	.comment_entry{
+		overflow: hidden;
+		height: 30px;
+	}
+}
+
+.comment_title_wrapper{
+		width: 600px;
+		margin: auto;
+		overflow: hidden;
+		text-transform: uppercase;
+		padding-bottom: 2px;
+		h3{
+			font-size: 20px;
+			float:left;
+			margin-bottom: 0;
+		}
+
+		.comment-action-items{
+			float:right;
+			
+			margin-top: 3px;
+			h4{
+				padding: 0;
+				margin-bottom: 0;
+			}
+
+			a{
+				font-weight: 800;
+				color: @dark-gray;
+				opacity: 0.5;
+				letter-spacing: 1px;
+			}
+
+			a:hover{
+				color: @teal;
+				opacity: 1;
+			}
+		}
+}
+
+.comment-text{
+	width: 540px;
+	float:right;
+}
+
+.comment-rating{
+	width: 50px;
+	overflow:hidden;
+	height:60px;
 }
 
 
+// .arrow-stacked{
+// 	background-color: pink;
+// 	width:50px;
+// 	height:25px;
+// 	padding: 2px 10px 0px 10px;
+// 	background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-down.png');
+// 	background-size:contain;
+// 	background-repeat:no-repeat;
+// 	border: 5px solid pink;
+// }
+
+
+.arrow-stacked{
+	background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-down.png');
+overflow: hidden;
+padding: 0px 0px 0px 8px;
+background-size: contain;
+background-repeat: no-repeat;
+border: 15px solid pink;
+position: relative;
+border-bottom: 0px;
+top: 9px;
+background-color: pink;
+}
+
+// .vote-arrow{
+// 	width:25px;
+// 	height: 10px;
+// 	background-size:contain;
+// 	background-repeat: no-repeat;
+// 	background-position: center center;
+// 	margin: 5px 0 0px 0;
+// 	opacity: .3;
+// }
+
+// .vote-arrow:hover{
+// 	opacity: 1;
+// }
+
+// a.up-arrow{
+// 	background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-up.png');
+// 	.arrow-padding(@teal);
+// }
+
+// a.down-arrow{
+// 	background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-down.png');
+// 	.arrow-padding(@middle-gray);
+// 	margin-left: 5px;
+// }
+
+// a.arrow-stacked{
+// 	width: 50px;
+// 		background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-up.png');
+
+// 	border-left: 20px solid #0a7b8d;
+// 	border-right: 20px solid #0a7b8d;
+// 	position:relative;
+// 	top: 20px;
+
+// }

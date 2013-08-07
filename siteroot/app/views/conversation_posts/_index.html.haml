@@ -62,7 +62,29 @@
 
 		.divider
 
-		%textarea.form-control{:rows => "3"}
+		.post-comment-wrapper
+			%textarea.form-control{:rows => "3"}
+			%button.button.blue-button.float-right Share Your Thoughts
+
+		.divider
+
+		.conversation-comments
+			.comment-entry
+				.comment-text
+					.comment_title_wrapper.float-left
+						%a{:href => ""} 
+							%h3 This is a commenter's name
+						/ .comment-action-items.float-right
+						/ 	%h4
+						/ 		%a{:href => ""}Share
+						/ 		|
+						/ 		%a{:href => ""}Visit
+					%p Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+				.comment-rating.float-left
+					%a.vote-arrow.arrow-stacked.up-arrow{:href => "http://www.google.com"} .
+					
+		
+
 
 :javascript
 	$(document).ready(function() {
