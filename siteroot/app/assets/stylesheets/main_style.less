@@ -172,6 +172,9 @@ fieldset{
 	display: none;
 }
 
+.right-align{
+	text-align: right;
+}
 .left-align{
 	text-align: left;
 }
@@ -251,8 +254,8 @@ fieldset{
 
 .form-control {
   display: block;
-  width: 100%;
-  height: 38px;
+  width: 50%;
+  height: 15px;
   padding: 8px 12px;
   font-size: 14px;
   line-height: 1.428571429;
@@ -1954,6 +1957,7 @@ fieldset.thanks-page{
 
 }
 
+//////////// COMMENTS LIGHTBOX ////////////
 
 #message_lightbox{
 }
@@ -2209,6 +2213,10 @@ a.bottom-stacked-arrow{
 	background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-down.png');
 }
 
+
+
+////////// SERVICES POPUP ///////////
+
 .services-box#message_lightbox{
 	width:800px;
 	text-align: center;
@@ -2332,3 +2340,72 @@ a.bottom-stacked-arrow{
 
 }
 
+////////////////// SIGN IN PAGE ///////////////
+
+.sign-in-page{
+	padding-top:100px;
+	min-height: 600px;
+	h2{
+		text-align: center;
+		text-transform: uppercase;
+	}
+	.form-control{
+		width:100%;
+	}
+	.form-block{
+		width: 400px;
+		margin:auto;
+	}
+	.field-row{
+		margin-top: 20px;
+		text-align: left;
+
+		label{
+			font-size: 20px;
+			padding-bottom: 15px;
+		}
+
+		input{
+			margin-top:5px;
+		}
+	}
+
+	.center-align{
+		margin-top:20px;
+	
+		.pass-options{
+			float:left;
+			margin-top:50px;
+			display: inline-block;
+			width:120%;
+			margin-left: -5%;
+
+			a{
+				float:left;
+				font-size: 12px;
+				color: @teal;
+				padding: 0 10px;
+			}
+
+			a.left-padding{
+				padding-left:10px;
+			}
+
+		}
+	
+		.more-narrow{
+			float: right;
+			.float-left{
+				margin-top: 8px;
+				color: @middle-gray;
+			}
+		}
+
+		.more-narrow{
+			width: 60%;
+			margin: auto;
+			margin-right:-7%;
+		}
+	}
+
+}
