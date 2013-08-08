@@ -6,110 +6,30 @@
 	.about-us-wrapper.extra-padding
 		%h1 People Are Amazing
 		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing.
-- get_taxonomies.each do |taxonomy|
-	-# taxonomy.root.name
-	-# = taxons_tree(taxonomy.root, @taxon, 3||Spree::Config[:max_level_in_taxons_menu] || 1)
-	= taxons_tree(taxonomy.root, @taxon, 1)
+- paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+- paginated_products ||= @products
+- if @products.empty?
+	= Spree.t(:no_products_found)
+- elsif params.key?(:keywords)
+	%h6.search-results-title= Spree.t(:search_results, :keywords => h(params[:keywords]))
+- num_products = @products.length
 .three-column-wrapper
-	.column.first_col
-		%ul 
-			%li
-				%img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2013/04/ostrichpillow-2.jpg", :alt => ""}/ 
-				%a{:href => ""}  
-					.store_overlay 
-						%a{:href => ""} 
-							%h3 Pig Benis
-						%p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-						.deets_wrapper
-							%a.product_button.deets{:href => ""}  Check It Out
-							%a.product_button.getone{:href => ""}  Get One
+	- if num_products > 0
+		.column.first_col
+			%ul
+				- (0..num_products - 1).step(3).each do |index|
+					= render partial: 'spree/shared_custom/product_card', locals: {product: @products[index]}
+	- if num_products > 1 then
+		.column.second_col
+			%ul
+				- (1..num_products - 1).step(3).each do |index|
+					= render partial: 'spree/shared_custom/product_card', locals: {product: @products[index]}
+	- if num_products > 2 then
+		.column.third_col
+			%ul
+				- (2..num_products - 1).step(3).each do |index|
+					= render partial: 'spree/shared_custom/product_card', locals: {product: @products[index]}
 
-			%li 
-				%img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/11/nibbles-2.jpg", :alt => ""}/ 
-				%a{:href => ""}  
-					.store_overlay 
-						%a{:href => ""} 
-							%h3 Pig Benis
-						%p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.orbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-						.deets_wrapper
-							%a.product_button.product_button_centered{:href => ""}  Check It Out
-			%li 
-				.store_overlay 
-					%h3 
-					%p 
-					%h4 
-				%img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/12/iguaneye-5.jpg", :alt => ""}/ 
-			%li 
-				.store_overlay 
-					%h3 
-					%p 
-					%h4
-				%img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/10/porthole-3_1.jpg", :alt => ""}/  
-			%li 
-				.store_overlay 
-					%h3 
-					%p 
-					%h4
-				%img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/12/memoto-5.png", :alt => ""}/  
-	.column.second_col
-		%ul 
-			%li 
-				%img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/12/iguaneye-5.jpg", :alt => ""}/ 
-				%a{:href => ""}  
-					.store_overlay 
-						%a{:href => ""} 
-							%h3 Long Rod
-						%p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.orbi leo.
-						.deets_wrapper
-							%a.product_button.product_button_centered{:href => ""}  Check It Out
+- if paginated_products.respond_to?(:num_pages)
+	= paginate paginated_products
 
-			%li 
-				.store_overlay 
-					%h3 
-					%p 
-					%h4
-				%img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/10/porthole-3_1.jpg", :alt => ""}/  
-			%li 
-				.store_overlay 
-					%h3 
-					%p 
-					%h4
-				%img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/12/memoto-5.png", :alt => ""}/  
-	.column.third_col
-		%ul 
-			%li 
-				.store_overlay 
-					%h3 
-					%p 
-					%h4
-				%img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/10/porthole-3_1.jpg", :alt => ""}/  
-			%li 
-				.store_overlay 
-					%h3 
-					%p 
-					%h4
-				%img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/12/memoto-5.png", :alt => ""}/  
-			%li 
-				.store_overlay 
-					%h3 
-					%p 
-					%h4 
-				%img{:src => "http://c406421.r21.cf1.rackcdn.com/wp-content/uploads/2012/12/iguaneye-5.jpg", :alt => ""}/ 
-
-.container
-	/ = render :partial => 'spree/shared/header'
-	#wrapper.row{"data-hook" => ""}
-		= breadcrumbs(@taxon)
-		= render :partial => 'spree/shared/sidebar' if content_for? :sidebar
-
-		#content{:class => "columns #{!content_for?(:sidebar) ? "sixteen" : "twelve"}", "data-hook" => ""}
-			= flash_messages
-			= yield
-	= render :partial => 'spree/shared/footer'
-= render :partial => 'spree/shared/google_analytics'
-
--# - content_for :sidebar do
--#   %div{"data-hook" => "homepage_sidebar_navigation"}
--#     = render :partial => 'spree/shared/taxonomies'
-%div{"data-hook" => "homepage_products"}
-	= render :partial => 'spree/shared/products', :locals => { :products => @products }

@@ -1,24 +1,21 @@
+- max_level = 1
+- current_children_taxons = nil
 - content_for :sub_nav do
 	.sub_nav_top
 		%ul.sub_nav.top_half
-			%li 
-				%a{:href => ""} 
-					%h2 Film
-			%li.current-selection
-				%a{:href => ""} 
-					%h2 Products
-			%li.right-stroke 
-				%a{:href => ""} 
-					%h2 Music
+			- get_taxonomies.first.root.children.map do |taxon|
+				- css_class = (@taxon && @taxon.self_and_ancestors.include?(taxon)) ? 'current-selection' : nil
+				- if css_class then
+					- current_children_taxons = taxon.children
+				%li{class: css_class}
+					%a{href: seo_url(taxon)}
+						%h2= taxon.name
 		%h3.float-right.suggest.product-suggest
 			%a{:href => ""} SUGGEST A PROJECT
-	.sub_nav_bottom
-		%ul.sub_nav.bottom_half
-			%li 
-				%a{:href => ""} Technology
-			%li.current-selection
-				%a{:href => ""} Publishing
-			%li.right-stroke 
-				%a{:href => ""} Fashion
-			%li.right-stroke 
-				%a{:href => ""} Surprise
+	- if current_children_taxons then
+		.sub_nav_bottom
+			%ul.sub_nav.bottom_half
+				- current_children_taxons.map do |taxon|
+					- css_class = (@taxon && @taxon.self_and_ancestors.include?(taxon)) ? 'current-selection' : nil
+					%li{class: css_class}
+						%a{:href => seo_url(taxon)}= taxon.name
