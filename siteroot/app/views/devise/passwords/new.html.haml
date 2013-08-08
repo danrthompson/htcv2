@@ -1,9 +1,21 @@
-%h2 Forgot your password?
-= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
-  = devise_error_messages!
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, :autofocus => true
-  %div= f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+- content_for :head do
+	= stylesheet_link_tag    "main_style"
+
+
+.reset-password-page
+	%h2.teal  Forgot your password?
+	.form-block
+		= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+			= devise_error_messages!
+			%div.field-row
+
+				%br/ 
+				= f.label :'What is your account email?'
+				%br/
+				= f.email_field :email, class:'form-control', :autofocus => true
+			.center-align
+				.more-narrow
+					%div= f.submit "Resettit",  class:'button blue-button float-right'
+				.pass-options.extra-width
+					= render "devise/shared/links"
+
