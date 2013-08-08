@@ -2223,6 +2223,7 @@ a.bottom-stacked-arrow{
 	overflow: hidden;
 	margin-left:-10px;
 
+
 	h2{
 		text-transform: uppercase;
 		font-size: 34px;
@@ -2231,13 +2232,14 @@ a.bottom-stacked-arrow{
 
 	textarea{
 		height: 120px;
+		width:96%;
 		.rounded-corners(3px);
 
 	}
 
 	.message-details-wrapper{
 		margin-top: 25px;
-		width: 672px;
+		width: 650px;
 		overflow: hidden;
 	}
 
@@ -2262,7 +2264,7 @@ a.bottom-stacked-arrow{
 	#service-email{
 		width: 50%;
 		p{
-			margin-left: 30px;
+			margin-left: 15px;
 		}
 		textfield, input[type="text"]{
 			width: 190px;
@@ -2278,7 +2280,6 @@ a.bottom-stacked-arrow{
 
 		textfield, input[type="text"]{
 			width: 170px;
-			margin-right: 10px;
 		}
 	}
 }
@@ -2289,7 +2290,7 @@ a.bottom-stacked-arrow{
 }
 
 .service-action-wrapper{
-	margin-left: 15px;
+	// margin-left: 15px;
 	width:100%;
 	margin-bottom: 15px;
 	margin-top: 32px;
@@ -2300,16 +2301,17 @@ a.bottom-stacked-arrow{
 	}
 
 	#service-request{
-		width: 200px;
+		width: 220px;
 	}
 
 	#service-reason{
-		width: 260px;
+		width: 265px;
 	}
 
 	select{
 		margin-left:15px;
 		margin-top:17px;
+		height:40px;
 		.rounded-corners(2px);
 		background-color: white;
 	}
@@ -2342,7 +2344,7 @@ a.bottom-stacked-arrow{
 
 ////////////////// SIGN IN PAGE ///////////////
 
-.sign-in-page{
+.sign-in-page, .sign-up-page, .reset-password-page, .default-form-page{
 	padding-top:100px;
 	min-height: 600px;
 	h2{
@@ -2393,6 +2395,11 @@ a.bottom-stacked-arrow{
 
 		}
 	
+		.pass-options.extra-width{
+			width: 150%;
+			text-align: center;
+		}
+
 		.more-narrow{
 			float: right;
 			.float-left{
@@ -2408,4 +2415,30 @@ a.bottom-stacked-arrow{
 		}
 	}
 
+	#error_explanation{
+		h2{
+			font-weight: 800;
+			color: @teal;
+			font-size: 18px;
+			padding:20px;
+			background-color: @hover-teal;
+			margin: 20px;
+			.rounded-corners(10px);
+		}
+	}
+
+}
+
+
+.reset-password-page{
+	h2{
+		padding-left: 20px;
+	}
+}
+
+.default-form-page{
+	input{
+		width:93%;
+
+	}
 }
