@@ -1,10 +1,10 @@
 module UrlHelper
   def post_path(post, options = {})
-    suffix = options[:anchor] ? "##{options[:anchor]}" : ""
+    suffix = options[:anchor] ? "\##{options[:anchor]}" : ""
     path = post.published_at.strftime("/%Y/%m/%d/") + post.slug + suffix
     # path = "#{Rails.configuration.action_controller.relative_url_root}#{path}"
     path = "/#{Rails.application.config.blog_suburl}#{path}"
-    path = URI.join(htcv2_config[:url], path) if options[:only_path] == false
+    path = URI.join(ENV["APP_BASE_URL"], path) if options[:only_path] == false
     path
   end
 

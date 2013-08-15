@@ -1,9 +1,9 @@
 %li 
 	
 	- if this_service.logo? then
-		%img{:src => this_service.logo(:thumb), :alt => ""}
+		%img{:src => this_service.logo(:thumb), :alt => "#{this_service.title} Logo"}
 	- else
-		%img{:src => "https://d1wgd08o7gfznj.cloudfront.net/assets/logo-title-f6dc287199cb99c0a025d2ff47e4f5e6.png", :alt => ""}
+		%img{:src => "https://d1wgd08o7gfznj.cloudfront.net/assets/logo-title-f6dc287199cb99c0a025d2ff47e4f5e6.png", :alt => "#{this_service.title} Logo"}
 	%a{:href => this_service.out_link} 
 		%h3= this_service.title
 	%p= this_service.description

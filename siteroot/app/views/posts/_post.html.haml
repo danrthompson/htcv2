@@ -1,11 +1,12 @@
-
+- full_url_to_post = post_path(post, {only_path: false})
+- relative_url_to_post = post_path(post)
 
 %h1= link_to_post(post)
 
 - if post.image?
 	.blog_post_main_image
 		/ This link needs to be implemented
-		%a{:href => "http://www.google.com"} 
+		%a{:href => relative_url_to_post} 
 			%img.center_img{src: post.image_url}
 
 / This is The Main Paragraph Text
@@ -13,7 +14,7 @@
 	= raw(post.body_html)
 
 / This Is The Content At The End Of The Post
-.entry-meta
+.entry-meta.HTC-parent-of-floats{style: "overflow: visible;"}
 	%ul
 		%li.date
 			#{format_post_date(post.published_at) if post.published?}
@@ -25,7 +26,10 @@
 
 
 		%li.action-item
-			%a{:href => "http://www.google.com"} Share 
-			%a{:href => "http://www.google.com"} Read More 
+			%a{href: "https://www.facebook.com/sharer/sharer.php?u=#{full_url_to_post}", target: "_blank"} Share on Facebook
+			%a{href: "http://twitter.com/home/?status=#{post.title} #{full_url_to_post} via @#{ENV['TWITTER_HANDLE']}", target: "_blank"} tweet
+			%script{type: "IN/Share", "data-url" => full_url_to_post}
+			%a{:href => relative_url_to_post} Read More
+
 
 .divider
