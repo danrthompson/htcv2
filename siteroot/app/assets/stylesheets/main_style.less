@@ -330,11 +330,12 @@ fieldset[disabled] .form-control {
 .nav li{
     display:inline;
     color: pink;
+    float: right;
 }
 
 .nav a{
     display:inline-block;
-    padding:0px 15px;
+    padding:0px 25px;
     padding-top:20px;
 	text-transform: uppercase;
 }
@@ -381,6 +382,8 @@ fieldset[disabled] .form-control {
 		text-transform: uppercase;
 		padding: 5px 15px;
 }
+
+
 //////// ABOUT US WRAPPER////
 .about-us-wrapper{
 	.container-width;
@@ -394,6 +397,12 @@ fieldset[disabled] .form-control {
 
 	p{
 		margin: 10px 0 15px 0;
+	}
+
+	.small-description{
+		font-size: 16px;
+		text-align: justify;
+		margin: 15px 0 10px 0;
 	}
 }
 
@@ -496,6 +505,14 @@ fieldset[disabled] .form-control {
 
 			a:hover{
 				color:@black-gray;
+			}
+
+			a.share-btn{
+				color: @light-gray;
+			}
+
+			a.share-btn:hover{
+				color: @teal;
 			}
 		}
 	}
@@ -2452,3 +2469,43 @@ a.bottom-stacked-arrow{
    clear: both;
 }
 
+
+
+// Suggest a Tool Popup
+
+.service-message-wrapper{
+	width: 80%;
+
+	p{
+		font-size: 15px;
+		line-height: 18px;
+		color: @middle-gray;
+
+	}
+
+	.field-label{
+		float: left;
+		margin-bottom: 8px;
+		margin-top: 8px;
+	}
+
+	.service-action-wrapper{
+		width: 50%;
+		margin:auto;
+		margin-top: 20px;
+		overflow: visible;
+		textarea{
+			height: 50px;
+		}
+		
+		textfield, .message-box{
+			width: 95%;
+		}
+	}
+
+	.message-details-wrapper#service-name{
+		p {
+			text-transform: none;
+		}
+	}
+}
