@@ -1,4 +1,4 @@
-%li
+%li.convo-post
 	- if post.image? then
 		%img{:src => post.image.url(:thumb), :alt => ""}
 	- elsif post.video_html then
@@ -6,6 +6,14 @@
 	%p
 		%a{:href => polymorphic_path(post)}
 			= post.title
+	%p.posted-by-whome		
+		- if post.user then
+			= "Posted by: #{post.user.username}"
+		- else
+			Posted by an anonymous user
+
+	.divider
+
 	.bottom-action-items
 		.float-left
 			- if can? :vote, post then
@@ -17,7 +25,3 @@
 		.float-right
 			%a{:href => polymorphic_path(post)}
 				%h4 add something
-	- if post.user then
-		= "Posted by: #{post.user.username}"
-	- else
-		Posted by an anonymous user
