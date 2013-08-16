@@ -179,17 +179,20 @@ service_category_list = [{"id"=>"1", "title"=>"Campaign Management", "rank"=>"1"
 {"id"=>"5", "title"=>"Manufacturing", "rank"=>"5"},
 {"id"=>"6", "title"=>"Fulfillment", "rank"=>"6"}]
 
-service_list = [
-	{id: 1, featured: true, rank: 1, featured_rank: 1, title: 'test service 1', description: 'test service description 1', out_link: 'http://test_service_1.com', service_category_id: 1},
-	{id: 2, featured: false, rank: 2, featured_rank: nil, title: 'test service 2', description: 'test service description 2', out_link: 'http://test_service_2.com', service_category_id: 1},
-	{id: 3, featured: true, rank: 3, featured_rank: 2, title: 'test service 3', description: 'test service description 3', out_link: 'http://test_service_3.com', service_category_id: 1},
-	{id: 4, featured: false, rank: 2, featured_rank: nil, title: 'test service 4', description: 'test service description 4', out_link: 'http://test_service_4.com', service_category_id: 2},
-	{id: 5, featured: true, rank: 1, featured_rank: 3, title: 'test service 5', description: 'test service description 5', out_link: 'http://test_service_5.com', service_category_id: 2},
-	{id: 6, featured: true, rank: 1, featured_rank: 5, title: 'test service 6', description: 'test service description 6', out_link: 'http://test_service_6.com', service_category_id: 3},
-	{id: 7, featured: true, rank: 2, featured_rank: 4, title: 'test service 7', description: 'test service description 7', out_link: 'http://test_service_7.com', service_category_id: 3},
-	{id: 8, featured: false, rank: 4, featured_rank: nil, title: 'test service 8', description: 'test service description 8', out_link: 'http://test_service_8.com', service_category_id: 3},
-	{id: 9, featured: false, rank: 3, featured_rank: nil, title: 'test service 9', description: 'test service description 9', out_link: 'http://test_service_9.com', service_category_id: 3}
-]
+service_list = [{"id"=>"1", "featured"=>"1", "rank"=>"1", "featured_rank"=>"1", "title"=>"Feedback Manufacturing", "description"=>"Design analysis, part sourcing, contract manufacturing, and project management services from experienced crowdfunding partners. Your full supply chain solution, based in China.", "out_link"=>"http://feedbackmanufacturing.com/", "service_category_id"=>"4"},
+{"id"=>"2", "featured"=>"1", "rank"=>"2", "featured_rank"=>"2", "title"=>"Metzger Associates", "description"=>"Metzger Associates assists clients in traditional public, media, and analyst relations as well as blogger relations, social media management, website development, and search engine optimization.", "out_link"=>"http://www.metzger.com/", "service_category_id"=>"3"},
+{"id"=>"3", "featured"=>nil, "rank"=>"1", "featured_rank"=>nil, "title"=>"Acutrack", "description"=>"Over 20 years experience in production, logistics, and fulfillment for clients of all shapes and sizes, including serveral successful Kickstarter projects.", "out_link"=>"http://acutrack.com/", "service_category_id"=>"5"},
+{"id"=>"4", "featured"=>nil, "rank"=>"1", "featured_rank"=>nil, "title"=>"BackerKit", "description"=>"A new pledge management tool for project creators, it's automated to manage all your pledges, add-ons, last minute shipping changes, and more. So stop stressing about messages in your mailbox. We got your back.", "out_link"=>"https://backerkit.com/", "service_category_id"=>"1"},
+{"id"=>"5", "featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Celery", "description"=>"With Celery, you can accept pre-orders whenever you're ready, making it the easiest way to collect credit cards now and charge them later.", "out_link"=>"https://www.trycelery.com/", "service_category_id"=>"1"},
+{"id"=>"6", "featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Outgrow.Me", "description"=>"The first marketplace for successfully funded Kickstarter and Indiegogo projects. Reach new audiences with ease using their e-commerce platform.", "out_link"=>"http://outgrow.me/", "service_category_id"=>"1"},
+{"id"=>"7", "featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"FulfillRite", "description"=>"E-commerce fulfillment made easy. Featuring integrations with popular payment platforms, and orders made before 12PM EST ship out same day.", "out_link"=>"http://fulfillrite.com/", "service_category_id"=>"5"},
+{"id"=>"8", "featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Morpho MFG", "description"=>"From idea development to industrial/mechanical design to sourcing and manufacturing, Morpho MFG provides full-service expertise to help you create brilliant products.", "out_link"=>"http://morphomfg.com/", "service_category_id"=>"4"}]
+
+ResourceCategory.delete_all
+Resource.delete_all
+ServiceCategory.delete_all
+Service.delete_all
+
 
 resource_category_list.each do |params|
   ResourceCategory.create(params)

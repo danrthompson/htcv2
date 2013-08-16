@@ -19,7 +19,7 @@
 									%h4
 										= render partial: 'shared/social_sharing/share_facebook_link', locals: {url_to_share: resource.out_link, button_text: "Share resource on Facebook"}
 										= render partial: 'shared/social_sharing/tweet_link', locals: {tweet_text: "#{resource.title} #{resource.out_link}", button_text: "Tweet"}
-										%script{type: "IN/Share", "data-url" => resource.out_link}
+										= render partial: 'shared/social_sharing/share_linkedin', locals: {share_title: resource.title, share_summary: resource.description, share_source: ENV["APP_BASE_URL"], share_url: resource.out_link, button_text: "Share on LinkedIn"}
 										|
 										%a{:href => resource.out_link}Visit
 							%p= resource.description

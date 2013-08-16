@@ -1,0 +1,17 @@
+- title_section = (share_title) ? "&title=#{share_title}" : ""
+- summary_section = (share_summary) ? "&summary=#{share_summary}" : ""
+- source_section = (share_source) ? "&source=#{share_source}" : ""
+
+%a{href: "http://www.linkedin.com/shareArticle?mini=true&url=#{share_url}#{title_section}#{summary_section}#{source_section}", target: "_blank"}= button_text
+
+
+
+-# http://www.linkedin.com/shareArticle?mini=true&url={articleUrl}&title={articleTitle}&summary={articleSummary}&source={articleSource}
+
+-# articleUrl= The permanent link to the article. Must be URL encoded
+
+-# title= The title of the article. Must be URL encoded
+
+-# source= The source of the article. Must be URL encoded. Example: Wired Magazine
+
+-# summary= A brief summary of the article. Must be URL encoded. Longer titles will be truncated gracefully with ellipses
