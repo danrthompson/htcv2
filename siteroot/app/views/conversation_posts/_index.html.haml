@@ -49,16 +49,22 @@
 -# 			- if can? :destroy, post then
 -# 				= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
+- test_post = AdvicePost.find(164)
+
 .dont-show#message_lightbox
 	.lightbox-content-wrapper
 		/ There Is No Project Title That Appears in the Lightbox
 		
 		/ This Is the Main Piece of Media
 		.lightbox-main-media
-			%iframe{:frameborder => "0", :height => "360", :src => "http://www.kickstarter.com/projects/445602678/the-handleband/widget/video.html", :width => "480"}
+			- if test_post.image?
+				= image_tag test_post.image.url(:original)
+			- elsif test_post.video_html then
+				= test_post.video_html.html_safe
+
 		
 		/ This Is The Description
-		%p This is the product description. Buet. Etiam porta sem malesuada magna mollis euismod. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+		%p= test_post.body
 
 		.divider
 
