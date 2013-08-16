@@ -7,6 +7,7 @@ Htcv2::Application.routes.draw do
   get "tools/resources"
   get "tools/services"
   post 'tools/create_service_lead'
+  post 'tools/create_tool_suggestion'
 
   get 'about_us' => 'static#about_us'
   get 'contact_us' => 'static#contact_us'
@@ -44,7 +45,7 @@ Htcv2::Application.routes.draw do
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
   #
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
-  
+
   # mount Spree::Core::Engine, :at => '/store'
         
 

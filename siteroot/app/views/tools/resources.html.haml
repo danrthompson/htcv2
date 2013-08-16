@@ -25,3 +25,10 @@
 							%p= resource.description
 			%br
 			.divider
+
+= render partial: 'tools/shared/suggest_a_tool', locals: {tool_is_service: false}
+
+:javascript
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});

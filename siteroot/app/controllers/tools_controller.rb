@@ -36,4 +36,16 @@ class ToolsController < ApplicationController
     end
     redirect_to :back, notice: "Please include all required information."
   end
+
+  def create_tool_suggestion
+    if params[:tool_suggestion] then
+      tool_suggestion = ToolSuggestion.new(params[:tool_suggestion])
+      tool_suggestion.user_id = (current_user ? current_user.id : nil)
+      tool_suggestion.save
+      if tool_suggestion.valid? then
+        redirect_to :back, notice: "Thanks for sharing! We'll take a look at your submission and incorporate it into the site soon!" and return
+      end
+    end
+    redirect_to :back, notice: "Please include all required information."
+  end
 end

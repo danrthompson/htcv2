@@ -1,0 +1,34 @@
+- if tool_is_service then
+	- box_id = "suggest_a_service"
+	- tool_type = "Service"
+- else
+	- box_id = "suggest_a_resource"
+	- tool_type = "Resource"
+.dont-show.suggest_tool.services-box.message_lightbox{id: box_id}
+	.service-message-wrapper
+		%h2= "Suggest a #{tool_type}"
+		.divider
+		= form_for ToolSuggestion.new, url: {controller: :tools, action: :create_tool_suggestion} do |f|
+			= f.hidden_field :tool_type, value: tool_type
+			.service-action-wrapper
+				= f.label "#{tool_type} name, url, basic info:"
+				= f.text_area :tool_name, size: "30x10", class: "form-control"
+				%br
+				= f.label "Message:"
+				= f.text_area :message, size: "30x10", class: "form-control"
+
+			.message-details-wrapper
+				#service-name.float-left
+					%p
+						Your Name
+					= f.text_field :user_name, class: "form-control"
+				#service-email.float-right
+					%p & Email
+					= f.email_field :email, class: "form-control"
+
+			.bottom-service-buttons
+				.divider
+				.float-left.button.gray-button
+					%a{:href => "javascript: $.fancybox.close();"} Never Mind
+				= f.submit :Send, class: "float-right button blue-button"
+

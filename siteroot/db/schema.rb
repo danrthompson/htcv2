@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130816052422) do
+ActiveRecord::Schema.define(:version => 20130816054226) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -903,6 +903,17 @@ ActiveRecord::Schema.define(:version => 20130816052422) do
   end
 
   add_index "tags", ["name"], :name => "index_tags_on_name"
+
+  create_table "tool_suggestions", :force => true do |t|
+    t.string   "email"
+    t.string   "user_name"
+    t.text     "message"
+    t.text     "tool_name"
+    t.integer  "user_id"
+    t.string   "tool_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "undo_items", :force => true do |t|
     t.string   "type",       :null => false
