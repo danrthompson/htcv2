@@ -17,9 +17,18 @@
 									%h3= resource.title
 								.resource-action-items
 									%h4
-										%a{:href => ""}Share
+										= render partial: 'shared/social_sharing/share_facebook_link', locals: {url_to_share: resource.out_link, button_text: "Share resource on Facebook"}
+										= render partial: 'shared/social_sharing/tweet_link', locals: {tweet_text: "#{resource.title} #{resource.out_link}", button_text: "Tweet"}
+										%script{type: "IN/Share", "data-url" => resource.out_link}
 										|
 										%a{:href => resource.out_link}Visit
 							%p= resource.description
 			%br
 			.divider
+
+= render partial: 'tools/shared/suggest_a_tool', locals: {tool_is_service: false}
+
+:javascript
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});

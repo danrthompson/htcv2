@@ -11,7 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery-1.10.2.min
-//= require jquery.mousewheel-3.0.6.pack
 //= require jquery_ujs
 //= require common
 //= require live-comment-preview

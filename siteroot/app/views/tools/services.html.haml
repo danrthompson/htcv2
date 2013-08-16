@@ -6,8 +6,6 @@
 	.about-us-wrapper.extra-padding.no-heading
 		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem.
 
-%a.fancybox{rel: "group", href: "\#message_lightbox"} Activate Messages Lightbox
-
 - num_services = @services.length
 
 .post-entry
@@ -28,50 +26,10 @@
 					- (2..num_services - 1).step(3).each do |index|
 						= render partial: 'service_listing', locals: {this_service: @services[index]}
 
-.dont-show#message_lightbox.services-box
-	.service-message-wrapper
-		%h2 Send A Message To <span class="teal">Service Title</span>
-		.divider
-		.service-action-wrapper
-			%p.float-left I would like
-			%select.form-control#service-request.float-left{:name => ""}
-				%option{:value => ""}to receive a quote
-				%option{:value => ""} Second Option
-				%option{:value => ""} Third Option
-				%option{:value => ""}  Fourth Option
-			%select.form-control#service-reason.float-left{:name => ""}
-				%option{:value => ""}for a campaign I'm planning.
-				%option{:value => ""} Second Option
-				%option{:value => ""} Third Option
-				%option{:value => ""}  Fourth Option
+- @services.each do |this_service|
+	= render partial: 'message_service', locals: {this_service: this_service}
 
-		%textarea.form-control{:name => "", :cols => "30", :rows => "10"} 
-
-		.message-details-wrapper
-			#service-name.float-left
-				%p
-					Your Name
-				%input{type:'text', class:"form-control"}
-			#service-email.float-right
-				%p & Email
-				%input{type:'text', class:"form-control"}
-
-		.bottom-service-buttons
-			.divider
-			.float-left.button.gray-button
-				%a{:href => ""} Never Mind
-			.float-right.button.blue-button
-				%a{:href => ""} Send  
-
-		/ = form_for :message, url: "/test" do |f|
-		/ 	= f.label :Email
-		/ 	= f.text_field :email, class: 'form-control'
-		/ 	= f.label "Inquiry type"
-		/ 	= f.select(:inquiry_type, options_for_select([['Price inquiry', :price], ['Other options...', :other]], :price), class: 'form-control')
-		/ 	= f.label :Message
-		/ 	= f.text_area :message, class: 'form-control'
-		/ 	= f.submit "Submit"
-
+= render partial: 'tools/shared/suggest_a_tool', locals: {tool_is_service: true}
 
 :javascript
 	$(document).ready(function() {

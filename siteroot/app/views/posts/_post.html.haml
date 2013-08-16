@@ -1,19 +1,23 @@
-
+- full_url_to_post = post_path(post, {only_path: false})
+- relative_url_to_post = post_path(post)
 
 %h1= link_to_post(post)
 
 - if post.image?
 	.blog_post_main_image
 		/ This link needs to be implemented
-		%a{:href => "http://www.google.com"} 
+		%a{:href => relative_url_to_post} 
 			%img.center_img{src: post.image_url}
 
 / This is The Main Paragraph Text
 .entry-description
-	= raw(post.body_html)
+	- if preview then
+		= raw(post.preview_html)
+	- else
+		= raw(post.body_html)
 
 / This Is The Content At The End Of The Post
-.entry-meta
+.entry-meta.HTC-parent-of-floats{style: "overflow: visible;"}
 	%ul
 		%li.date
 			#{format_post_date(post.published_at) if post.published?}
@@ -25,7 +29,11 @@
 
 
 		%li.action-item
-			%a{:href => "http://www.google.com"} Share 
-			%a{:href => "http://www.google.com"} Read More 
+			= render partial: 'shared/social_sharing/share_facebook_link', locals: {url_to_share: full_url_to_post, button_text: "Share on Facebook"}
+			= render partial: 'shared/social_sharing/tweet_link', locals: {tweet_text: "#{post.title} #{full_url_to_post}", button_text: "Tweet"}
+			%script{type: "IN/Share", "data-url" => full_url_to_post}
+			- if preview then
+				%a{:href => relative_url_to_post} Read More
+
 
 .divider

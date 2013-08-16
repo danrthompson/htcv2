@@ -1,0 +1,32 @@
+.dont-show.services-box.message_lightbox{id: "message_lightbox_#{this_service.id}"}
+	.service-message-wrapper
+		%h2
+			Send A Message To <span class='teal'>
+			= this_service.title
+			</span>
+		.divider
+		= form_for ServiceLead.new, url: {controller: :tools, action: :create_service_lead} do |f|
+			= f.hidden_field :service_id, value: this_service.id
+			= f.hidden_field :featured_page, value: (@featured == true) ? 1 : nil
+			.service-action-wrapper
+				%p.float-left I would like
+				= f.select :inquiry_type_part_1, ServiceLead.inquiry_type_1_options, {}, {class: "form-control float-left", id: "service-request"}
+				= f.select :inquiry_type_part_2, ServiceLead.inquiry_type_2_options, {}, {class: "form-control float-left", id: "service-reason"}
+
+			= f.text_area :message, size: "30x10", class: "form-control"
+
+			.message-details-wrapper
+				#service-name.float-left
+					%p
+						Your Name
+					= f.text_field :user_name, class: "form-control"
+				#service-email.float-right
+					%p & Email
+					= f.email_field :email, class: "form-control"
+
+			.bottom-service-buttons
+				.divider
+				.float-left.button.gray-button
+					%a{:href => "javascript: $.fancybox.close();"} Never Mind
+				= f.submit :Send, class: "float-right button blue-button"
+

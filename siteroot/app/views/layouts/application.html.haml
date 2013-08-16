@@ -1,5 +1,5 @@
 !!!
-%html{:dir => "ltr", :lang => "en-US"}
+%html{:dir => "ltr", :lang => "en-US", "xmlns:fb" => "http://ogp.me/ns/fb#"}
   %head
     %meta{:charset => "utf-8"}/
     %title= html_title yield(:page_title)
@@ -9,13 +9,16 @@
     / Gives Head
     = yield(:head)
   %body
+    -# linked in js
+    %script{src: "//platform.linkedin.com/in.js", type: "text/javascript"}
+      lang: en_US
     %p.notice= notice
     %p.alert= alert
     .page_container
       .content
         %ul.nav
           %li#nav-logo
-            %a{:href => ""}
+            %a{:href => "/"}
               %img{src: "https://s3.amazonaws.com/HarnessTheCrowd/HTC-LOGO-SIDE-TRANSPARENT.png"}
           %li 
             %a{:href => "/blog"} Headlines
@@ -23,10 +26,10 @@
             %a{:href => "/conversation"} Conversation
           %li 
             %a{:href => "/tools"} Campaign Tools
-          %li.marketplace-link 
-            %a{:href => "/store"}
-              Marketplace
-              / %img#mktplace-heart{:src => "https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/mktplace-heart.png", :alt => ""}/ 
+          -# %li.marketplace-link 
+          -#   %a{:href => "/store"}
+          -#     Marketplace
+          -#     / %img#mktplace-heart{:src => "https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/mktplace-heart.png", :alt => ""}/ 
 
         = yield(:sub_nav)
 
@@ -65,11 +68,12 @@
           -#     %h2
           -#       %label{:for => "q"} Search
           -#     %input#q{:name => "q", :type => "text", :value => ""}/
-          -#     %input{:name => "sitesearch", :type => "hidden", :value => htcv2_config[:url]}/
+          -#     %input{:name => "sitesearch", :type => "hidden", :value => ENV["APP_BASE_URL"]}/
         -# #footer
         -#   = htcv2_config[:title]
         -#   © #{htcv2_config[:author, :name]}. Valid
         -#   %a{:href => "http://validator.w3.org/check?uri=referer"} HTML5
-        -#   and #{link_to "ATOM", "http://feedvalidator.org/check.cgi?url=#{htcv2_config[:url]}/posts.atom"}. Powered by
+        -#   and #{link_to "ATOM", "http://feedvalidator.org/check.cgi?url=#{ENV["APP_BASE_URL"]}/posts.atom"}. Powered by
         -#   = succeed "." do
         -#     %a{:href => "http://www.htcv2blog.com", :title => "A Ruby on Rails blogging app for the fashionable developer"} Htcv2
+

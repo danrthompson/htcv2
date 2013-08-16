@@ -25,10 +25,10 @@
 		/ 	MAKE A POST HAPPEN. FOR EACH POST GENERATRE POST
 		- @posts.each do |post|
 			.post{:id => dom_id(post)}
-				= render post
+				= render partial: 'post', locals: {post: post, preview: true}
 		
-		- if more_content?
-			= render 'shared/blog/archives_link'
-	.more-posts-wrapper
-		%a{:href => ""} 
-			%h2.teal More Posts
+	-# 	- if more_content?
+	-# 		= render 'shared/blog/archives_link'
+	-# .more-posts-wrapper
+	-# 	%a{:href => ""} 
+	-# 		%h2.teal More Posts

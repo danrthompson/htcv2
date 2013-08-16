@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130807211824) do
+ActiveRecord::Schema.define(:version => 20130816061855) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(:version => 20130807211824) do
     t.datetime "updated_at"
     t.datetime "edited_at",                                 :null => false
     t.string   "image"
+    t.text     "preview_text"
+    t.text     "preview_html"
   end
 
   add_index "posts", ["published_at"], :name => "index_posts_on_published_at"
@@ -904,6 +906,17 @@ ActiveRecord::Schema.define(:version => 20130807211824) do
 
   add_index "tags", ["name"], :name => "index_tags_on_name"
 
+  create_table "tool_suggestions", :force => true do |t|
+    t.string   "email"
+    t.string   "user_name"
+    t.text     "message"
+    t.text     "tool_name"
+    t.integer  "user_id"
+    t.string   "tool_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "undo_items", :force => true do |t|
     t.string   "type",       :null => false
     t.datetime "created_at", :null => false
@@ -934,6 +947,7 @@ ActiveRecord::Schema.define(:version => 20130807211824) do
     t.boolean  "administrator"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "username",               :default => "", :null => false
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
