@@ -8,12 +8,20 @@
 %br/ 
 %br/ 
 .post-entry
+	- if @selected_category and @selected_category.resources.any? then
+		.resources_subsection
+			- @selected_category.resources.order('rank asc').each do |resource|
+				= render partial: 'resource_listing', locals: {resource: resource}
+		%br
+		.divider
+
 	- if @selected_category and @selected_category.resource_categories then
 		- @selected_category.resource_categories.order('rank asc').each do |subcat|
 			.resources_subsection
 				%h2= subcat.title
 				- if subcat and subcat.resources then
 					- subcat.resources.order('rank asc').each do |resource|
+<<<<<<< HEAD
 						.resource_entry
 							.resource_title_wrapper
 								%a{:href => resource.out_link}
@@ -29,6 +37,11 @@
 										%a.full-opacity{:href => resource.out_link}Visit
 							%p= resource.description
 			.divider.extra-bottom-margin
+=======
+						= render partial: 'resource_listing', locals: {resource: resource}
+			%br
+			.divider
+>>>>>>> f130dfcdc7b9385f98d5bff5c12f366e2790309d
 
 = render partial: 'tools/shared/suggest_a_tool', locals: {tool_is_service: false}
 
