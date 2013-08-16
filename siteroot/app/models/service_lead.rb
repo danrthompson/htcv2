@@ -6,10 +6,17 @@ class ServiceLead < ActiveRecord::Base
     message: "That was not a valid email." }
 
   validate :service_real_and_add_rank
-  before_save :add_user_id
 
   belongs_to :service
   belongs_to :user
+
+  def self.inquiry_type_1_options
+    [["To receive a quote", 1], ["Second Option", 2], ["Third Option", 3], ["Fourth Option", 4]]
+  end
+
+  def self.inquiry_type_2_options
+    [["For a campaign I'm planning", 1], ["Second Option", 2], ["Third Option", 3], ["Fourth Option", 4]]
+  end
 
   private
 
@@ -22,7 +29,4 @@ class ServiceLead < ActiveRecord::Base
 		end
   end
 
-  def add_user_id
-  	self.user_id = (current_user ? current_user.id : nil)
-  end
 end

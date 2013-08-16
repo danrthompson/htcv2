@@ -27,9 +27,11 @@ class ToolsController < ApplicationController
 
   def create_service_lead
     if params[:service_lead] then
-      service_lead = ServiceLead.create(params[:service_lead])
+      service_lead = ServiceLead.new(params[:service_lead])
+      service_lead.user_id = (current_user ? current_user.id : nil)
+      service_lead.save
       if service_lead.valid? then
-        redirect_to :back, notice: "Thanks for reaching out! Your message will be forwarded along, and you should hear back soon."
+        redirect_to :back, notice: "Thanks for reaching out! Your message will be forwarded along, and you should hear back soon." and return
       end
     end
     redirect_to :back, notice: "Please include all required information."
