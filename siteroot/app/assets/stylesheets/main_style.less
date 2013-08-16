@@ -164,6 +164,10 @@ fieldset{
 	opacity: 0.5;
 }
 
+
+.full-opacity{
+	opacity: 1;
+}
 .right-stroke{
 		border-right: 1px solid @stroke-color;
 }
@@ -421,6 +425,10 @@ fieldset[disabled] .form-control {
 
 }
 
+.divider.massive-bottom-margin{
+	margin-bottom: 100px;
+}
+
 
 ///////// BLOG POST CONTENT ////////
 
@@ -618,10 +626,15 @@ fieldset[disabled] .form-control {
 	// .top-bottom-border;
 	border-bottom: 1px solid @stroke-color;
 	padding: 17px;
+	overflow-x: scroll;
+	width: 97%;
 }
 
 .sub_nav.bottom_half{
 	
+	width: 2000px;
+	height: 20px;
+	text-align: left;
 	li{
 		padding: 2px 15px;
 		background-color: white;
@@ -889,6 +902,12 @@ fieldset[disabled] .form-control {
 	}
 }
 
+.convo-post{
+	.divider{
+		margin-top: 0;
+	}
+}
+
 .contact-us-page{
 	padding-top: 40px;
 	overflow: hidden;
@@ -939,9 +958,15 @@ fieldset[disabled] .form-control {
 		text-transform: uppercase;
 
 		h3{
-			font-size: 22px;
+			font-size: 19px;
 			float:left;
 			margin-bottom: 0;
+			margin-top: 30px;
+			width: 580px;
+			text-align: left;
+			text-overflow: ellipsis;
+				white-space: nowrap;
+			overflow: hidden;
 		}
 
 		.resource-action-items{
@@ -951,9 +976,14 @@ fieldset[disabled] .form-control {
 			h4{
 				padding: 0;
 				margin-bottom: 0;
+				font-weight: 400;
+				color: @teal;
+				opacity: 0.5;
 			}
 
 			a{
+				margin-left: 5px;
+				margin-right: 5px;
 				font-weight: 800;
 				color: @dark-gray;
 				opacity: 0.5;
@@ -964,6 +994,16 @@ fieldset[disabled] .form-control {
 				color: @teal;
 				opacity: 1;
 			}
+
+			.share-btn{
+				opacity: 1;
+			}
+
+			.full-opacity{
+				color: @black-gray;
+
+			}
+
 		}
 	}
 
@@ -1030,6 +1070,14 @@ fieldset[disabled] .form-control {
 
 			}
 		}
+		p.posted-by-whome{
+			font-weight: 800;
+			text-transform: uppercase;
+			text-align: right;
+			font-size: 12px;
+			margin-top: 25px;
+		}
+
 		
 	
 		.bottom-action-items{
@@ -1275,6 +1323,7 @@ fieldset.new-conversation{
 	margin-top: 1px;
 	margin-top: -30px;
 	font-weight: 200;
+	margin-bottom: 8px;
 }
 
 .product-suggest{
@@ -2171,6 +2220,7 @@ fieldset.thanks-page{
 // }
 
 
+
 .arrow-stacked{
 	background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-down.png');
 	overflow: hidden;
@@ -2230,6 +2280,9 @@ a.bottom-stacked-arrow{
 	background-image: url('https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/arrow-down.png');
 }
 
+a.voted-arrow{
+	opacity: 0.8;
+}
 
 
 ////////// SERVICES POPUP ///////////
@@ -2460,6 +2513,9 @@ a.bottom-stacked-arrow{
 	}
 }
 
+
+
+
 // CSS added by DT
 
 .HTC-parent-of-floats:after { 
@@ -2509,3 +2565,7 @@ a.bottom-stacked-arrow{
 		}
 	}
 }
+
+-webkit-box-shadow: 0px 0px 14px rgba(43, 248, 255, 0.72);
+-moz-box-shadow:    0px 0px 14px rgba(43, 248, 255, 0.72);
+box-shadow:         0px 0px 14px rgba(43, 248, 255, 0.72);
