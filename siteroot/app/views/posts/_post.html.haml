@@ -11,7 +11,10 @@
 
 / This is The Main Paragraph Text
 .entry-description
-	= raw(post.body_html)
+	- if preview then
+		= raw(post.preview_html)
+	- else
+		= raw(post.body_html)
 
 / This Is The Content At The End Of The Post
 .entry-meta.HTC-parent-of-floats{style: "overflow: visible;"}

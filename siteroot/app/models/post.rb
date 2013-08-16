@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :title, :slug, :body, :body_html, :active, :approved_comments_count, :cached_tag_list, :published_at, :image, :published_at_natural, :tag_list
+  attr_accessible :title, :slug, :body, :body_html, :active, :approved_comments_count, :cached_tag_list, :published_at, :image, :published_at_natural, :tag_list, :preview_text, :preview_html
   DEFAULT_LIMIT = 15
 
   acts_as_taggable
@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   before_validation       :set_dates
   before_save             :apply_filter
 
-  validates               :title, :slug, :body, :presence => true
+  validates               :title, :slug, :body, :preview_text, :presence => true
 
   validate                :validate_published_at_natural
 
@@ -103,6 +103,7 @@ class Post < ActiveRecord::Base
 
   def apply_filter
     self.body_html = Htcv2Formatter.format_as_xhtml(self.body)
+    self.preview_html = Htcv2Formatter.format_as_xhtml(self.preview_text)
   end
 
   def set_dates

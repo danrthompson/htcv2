@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130816054226) do
+ActiveRecord::Schema.define(:version => 20130816061855) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(:version => 20130816054226) do
     t.datetime "updated_at"
     t.datetime "edited_at",                                 :null => false
     t.string   "image"
+    t.text     "preview_text"
+    t.text     "preview_html"
   end
 
   add_index "posts", ["published_at"], :name => "index_posts_on_published_at"
