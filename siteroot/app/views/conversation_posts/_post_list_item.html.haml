@@ -17,3 +17,7 @@
 		.float-right
 			%a{:href => polymorphic_path(post)}
 				%h4 add something
+	- if post.user then
+		= "Posted by: #{post.user.username}"
+	- else
+		Posted by an anonymous user
