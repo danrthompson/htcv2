@@ -29,8 +29,8 @@
 
 
 		%li.action-item
-			= render partial: 'shared/social_sharing/share_facebook_link', locals: {url_to_share: full_url_to_post, button_text: "Share on Facebook"}
-			= render partial: 'shared/social_sharing/tweet_link', locals: {tweet_text: "#{post.title} #{full_url_to_post}", button_text: "Tweet"}
+			= render partial: 'shared/social_sharing/share_facebook_link', locals: {url_to_share: full_url_to_post, button_text: "Facebook"}
+			= render partial: 'shared/social_sharing/tweet_link', locals: {tweet_text: "#{post.title} #{full_url_to_post}", button_text: "Tweet"}, class: "share-btn"
 			= render partial: 'shared/social_sharing/share_linkedin', locals: {share_title: post.title, share_summary: nil, share_source: ENV["APP_BASE_URL"], share_url: full_url_to_post, button_text: "Share on LinkedIn"}
 			- if preview then
 				%a{:href => relative_url_to_post} Read More
