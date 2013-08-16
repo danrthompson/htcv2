@@ -21,27 +21,9 @@
 				%h2= subcat.title
 				- if subcat and subcat.resources then
 					- subcat.resources.order('rank asc').each do |resource|
-<<<<<<< HEAD
-						.resource_entry
-							.resource_title_wrapper
-								%a{:href => resource.out_link}
-									%h3= resource.title
-								.resource-action-items
-									%h4
-										= render partial: 'shared/social_sharing/share_facebook_link', locals: {url_to_share: resource.out_link, button_text: "FB"}
-										|
-										= render partial: 'shared/social_sharing/tweet_link', locals: {tweet_text: "#{resource.title} #{resource.out_link}", button_text: "TW"}
-										|
-										= render partial: 'shared/social_sharing/share_linkedin', locals: {share_title: resource.title, share_summary: resource.description, share_source: ENV["APP_BASE_URL"], share_url: resource.out_link, button_text: "Li"}
-										|
-										%a.full-opacity{:href => resource.out_link}Visit
-							%p= resource.description
-			.divider.extra-bottom-margin
-=======
+
 						= render partial: 'resource_listing', locals: {resource: resource}
-			%br
-			.divider
->>>>>>> f130dfcdc7b9385f98d5bff5c12f366e2790309d
+			.divider.extra-bottom-margin
 
 = render partial: 'tools/shared/suggest_a_tool', locals: {tool_is_service: false}
 
