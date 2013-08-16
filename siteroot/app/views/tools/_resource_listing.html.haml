@@ -1,0 +1,12 @@
+.resource_entry
+	.resource_title_wrapper
+		%a{:href => resource.out_link}
+			%h3= resource.title
+		.resource-action-items
+			%h4
+				= render partial: 'shared/social_sharing/share_facebook_link', locals: {url_to_share: resource.out_link, button_text: "Share resource on Facebook"}
+				= render partial: 'shared/social_sharing/tweet_link', locals: {tweet_text: "#{resource.title} #{resource.out_link}", button_text: "Tweet"}
+				= render partial: 'shared/social_sharing/share_linkedin', locals: {share_title: resource.title, share_summary: resource.description, share_source: ENV["APP_BASE_URL"], share_url: resource.out_link, button_text: "Share on LinkedIn"}
+				|
+				%a{:href => resource.out_link}Visit
+	%p= resource.description

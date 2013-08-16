@@ -5,24 +5,20 @@
 	.about-us-wrapper.extra-padding.no-heading
 		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem.
 .post-entry
+	- if @selected_category and @selected_category.resources.any? then
+		.resources_subsection
+			- @selected_category.resources.order('rank asc').each do |resource|
+				= render partial: 'resource_listing', locals: {resource: resource}
+		%br
+		.divider
+
 	- if @selected_category and @selected_category.resource_categories then
 		- @selected_category.resource_categories.order('rank asc').each do |subcat|
 			.resources_subsection
 				%h2= subcat.title
 				- if subcat and subcat.resources then
 					- subcat.resources.order('rank asc').each do |resource|
-						.resource_entry
-							.resource_title_wrapper
-								%a{:href => resource.out_link}
-									%h3= resource.title
-								.resource-action-items
-									%h4
-										= render partial: 'shared/social_sharing/share_facebook_link', locals: {url_to_share: resource.out_link, button_text: "Share resource on Facebook"}
-										= render partial: 'shared/social_sharing/tweet_link', locals: {tweet_text: "#{resource.title} #{resource.out_link}", button_text: "Tweet"}
-										= render partial: 'shared/social_sharing/share_linkedin', locals: {share_title: resource.title, share_summary: resource.description, share_source: ENV["APP_BASE_URL"], share_url: resource.out_link, button_text: "Share on LinkedIn"}
-										|
-										%a{:href => resource.out_link}Visit
-							%p= resource.description
+						= render partial: 'resource_listing', locals: {resource: resource}
 			%br
 			.divider
 
