@@ -24,7 +24,7 @@ Htcv2::Application.configure do
   config.action_mailer.default_url_options = { :host => 'harnessthecrowd.com' }
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
@@ -61,7 +61,9 @@ Htcv2::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( search.js )
+  config.assets.precompile += %w( admin.css main_style.css conversation.css humanmsg.css jquery.fancybox-thumbs.css jquery.fancybox-buttons.css jquery.fancybox.css login.css tools.css *.js )
+
+# admin/actions.js admin/common.js admin/dashboard.js admin/edit-preview.js admin/shortcut.js jquery.fancybox.js jquery.fancybox-buttons.js jquery.fancybox-media.js jquery.fancybox-thumbs.js modernizr.custom.js
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
