@@ -12,6 +12,8 @@
 
 %a.fancybox{rel: "group", href: "\#message_lightbox"} Activate Messages Lightbox
 
+%a{class: "various fancybox.ajax", "data-fancybox-type" => "ajax", href: "/tools/ajax_test"} Ajax Fancybox
+
 - num_posts = @posts.length
 
 .post-entry.convo-entry
@@ -49,7 +51,7 @@
 -# 			- if can? :destroy, post then
 -# 				= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-- test_post = AdvicePost.find(164)
+- test_post = AdvicePost.find(165)
 
 .dont-show#message_lightbox
 	.lightbox-content-wrapper
@@ -72,52 +74,32 @@
 			= render partial: 'conversation_comment_form', locals: {comment: test_post.comments.new}
 
 		.divider
+		- if test_post.root_comments.any? then
+			.conversation-comments
+				- test_post.root_comments.each do |comment|
+					= render partial: 'comment_on_conversation', locals: {comment: comment}
 
-		.conversation-comments
-			= render partial: 'comment_on_conversation', locals: {comment: test_post.root_comments.first}
-
-			.comment-entry
-				.comment-text
-					.comment_title_wrapper.float-left
-						%a{:href => ""} 
-							%h3 This is a commenter's name
-						.comment-action-items.float-right
-							%h4
-								%a{:href => ""}Reply
-								/ |
-								/ %a{:href => ""}Visit
-					%p Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-				.comment-rating.float-left
-					%a.vote-arrow.arrow-stacked.up-arrow{:href => "http://www.google.com"} .
-					%a.vote-arrow.arrow-stacked.up-arrow.bottom-stacked-arrow{:href => "http://www.google.com"} .
-				.post-reply-wrapper
-					%textarea.form-control{:rows => "3"}
-					%button.button.blue-button.float-right Post Reply
-			.divider
-
-			.comment-entry
-				.comment-text
-					.comment_title_wrapper.float-left
-						%a{:href => ""} 
-							%h3 This is a commenter's name
-						.comment-action-items.float-right
-							%h4
-								%a{:href => ""}Reply
-								/ |
-								/ %a{:href => ""}Visit
-					%p Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-				.comment-rating.float-left
-					%a.vote-arrow.arrow-stacked.up-arrow{:href => "http://www.google.com"} .
-					%a.vote-arrow.arrow-stacked.up-arrow.bottom-stacked-arrow{:href => "http://www.google.com"} .
-				.post-reply-wrapper
-					%textarea.form-control{:rows => "3"}
-					%button.button.blue-button.float-right Post Reply
 
 
 
 :javascript
 	$(document).ready(function() {
 		$(".fancybox").fancybox();
+	});
+
+:javascript
+	$(document).ready(function() {
+		$(".various").fancybox({
+			maxWidth	: 800,
+			maxHeight	: 600,
+			fitToView	: false,
+			width		: '70%',
+			height		: '70%',
+			autoSize	: false,
+			closeClick	: false,
+			openEffect	: 'none',
+			closeEffect	: 'none'
+		});
 	});
 
 

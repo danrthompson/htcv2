@@ -1,0 +1,26 @@
+- test_post = AdvicePost.find(165)
+
+.lightbox-content-wrapper
+	/ There Is No Project Title That Appears in the Lightbox
+	
+	/ This Is the Main Piece of Media
+	.lightbox-main-media
+		- if test_post.image?
+			= image_tag test_post.image.url(:original)
+		- elsif test_post.video_html then
+			= test_post.video_html.html_safe
+
+	
+	/ This Is The Description
+	%p= test_post.body
+
+	.divider
+
+	.post-comment-wrapper
+		= render partial: 'conversation_posts/conversation_comment_form', locals: {comment: test_post.comments.new}
+
+	.divider
+	- if test_post.root_comments.any? then
+		.conversation-comments
+			- test_post.root_comments.each do |comment|
+				= render partial: 'conversation_posts/comment_on_conversation', locals: {comment: comment}
