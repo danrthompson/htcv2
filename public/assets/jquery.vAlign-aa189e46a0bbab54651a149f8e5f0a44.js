@@ -1,0 +1,1 @@
+!function(e){e.fn.vAlign=function(){return this.each(function(){var t=e(this).height(),i=e(this).parent().height(),n=Math.ceil((i-t)/2);e(this).css("margin-top",n)})}}(jQuery);

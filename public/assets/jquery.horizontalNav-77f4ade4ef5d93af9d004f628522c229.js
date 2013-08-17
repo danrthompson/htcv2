@@ -1,0 +1,8 @@
+/**
+ * jQuery Horizontal Navigation 1.0
+ * https://github.com/sebnitu/horizontalNav
+ *
+ * By Sebastian Nitu - Copyright 2012 - All rights reserved
+ * Author URL: http://sebnitu.com
+ */
+!function(e){e.fn.horizontalNav=function(t){var i=e.extend({},e.fn.horizontalNav.defaults,t);return this.each(function(){function t(e){return e.innerWidth()-(parseInt(e.css("padding-left"))+parseInt(e.css("padding-right")))}function n(t,i){i=i||100;var n;e(window).resize(function(){clearTimeout(n),n=setTimeout(function(){t()},i)})}function s(){if(1!=r.tableDisplay||e.browser.msie&&parseInt(e.browser.version,10)<=7){l.css({"float":"left"}),c.css({"float":"left",width:"auto"}),d.css({"padding-left":0,"padding-right":0});var i=t(l),n=l.outerWidth(!0),s=n-i,a=t(o),p=a-s-i,f=Math.floor(p/u);c.each(function(){var i=t(e(this));e(this).css({width:i+f+"px"})});var g=t(h)+(a-s-t(l));(e.browser.mozilla||e.browser.msie)&&(g-=1),h.css({width:g+"px"})}else l.css({display:"table","float":"none",width:"100%"}),c.css({display:"table-cell","float":"none"})}var a=e(this),r=e.meta?e.extend({},i,a.data()):i;if(a.is("ul"))var o=a.parent();else var o=a;o.css({zoom:"1"}).append('<div class="clearHorizontalNav">'),e(".clearHorizontalNav").css({display:"block",overflow:"hidden",visibility:"hidden",width:0,height:0,clear:"both"});var l=a.is("ul")?a:o.find("> ul"),c=l.find("> li"),h=c.last(),u=c.size(),d=c.find("> a");r.responsive===!0&&(1!=r.tableDisplay||e.browser.msie&&parseInt(e.browser.version,10)<=7)&&n(s,r.responsiveDelay),s()})},e.fn.horizontalNav.defaults={responsive:!0,responsiveDelay:100,tableDisplay:!0}}(jQuery);
