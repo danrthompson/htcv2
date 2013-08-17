@@ -22,7 +22,7 @@ class ConversationPostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: "#{post_klass.friendly_name} was successfully created." }
+        format.html { redirect_to post_url_helper, notice: "#{post_klass.friendly_name} was successfully created." }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { redirect_to post_url_helper, notice: @post.errors.full_messages.first }

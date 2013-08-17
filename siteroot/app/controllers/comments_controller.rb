@@ -8,10 +8,10 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @commentable, notice: 'Comment was successfully created.'}
+        format.html { redirect_to @commentable.class, notice: 'Comment was successfully created.'}
         format.json { render json: @comment, status: :created, location: @comment }
       else
-        format.html { redirect_to @commentable, notice: @comment.errors.full_messages.first }
+        format.html { redirect_to @commentable.class, notice: @comment.errors.full_messages.first }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to @commentable }
+      format.html { redirect_to @commentable.class }
       format.json { head :no_content }
     end
   end

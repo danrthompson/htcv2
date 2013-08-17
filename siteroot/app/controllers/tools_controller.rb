@@ -49,7 +49,4 @@ class ToolsController < ApplicationController
     redirect_to :back, notice: "Please include all required information."
   end
 
-  def ajax_test
-    render layout: false
-  end
 end
