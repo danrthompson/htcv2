@@ -188,6 +188,8 @@ service_list = [{"id"=>"1", "featured"=>"1", "rank"=>"1", "featured_rank"=>"1", 
 {"id"=>"7", "featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"FulfillRite", "description"=>"E-commerce fulfillment made easy. Featuring integrations with popular payment platforms, and orders made before 12PM EST ship out same day.", "out_link"=>"http://fulfillrite.com/", "service_category_id"=>"5"},
 {"id"=>"8", "featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Morpho MFG", "description"=>"From idea development to industrial/mechanical design to sourcing and manufacturing, Morpho MFG provides full-service expertise to help you create brilliant products.", "out_link"=>"http://morphomfg.com/", "service_category_id"=>"4"}]
 
+service_logos = [[1, 'feedback_manufacturing.jpg'], [2, 'metzger.jpg'], [3, 'acutrack.jpg'], [4, 'backerkit.jpg'], [5, 'celery.jpg'], [6, 'outgrow_me.jpg'], [7, 'fulfillrite.jpg'], [8, 'morpho_mfg.jpg']]
+
 ResourceCategory.delete_all
 Resource.delete_all
 ServiceCategory.delete_all
@@ -206,6 +208,8 @@ end
 service_list.each do |params|
   Service.create(params)
 end
-
-
-
+service_logos.each do |id, filename|
+  this_service = Service.find(id)
+  this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
+  this_service.save
+end
