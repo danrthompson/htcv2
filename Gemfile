@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# ruby '2.0.0'
+
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
@@ -23,6 +25,7 @@ gem "auto_html"
 gem 'activerecord-reputation-system', require: 'reputation_system'
 gem 'kaminari'
 gem 'thin'
+gem 'workless'
 
 # Gems used only for assets and not required
 # in production environments by default.
