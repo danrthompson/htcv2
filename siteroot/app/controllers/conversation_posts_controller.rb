@@ -12,10 +12,7 @@ class ConversationPostsController < ApplicationController
   def show
     @post = post_klass.find(params[:id])
     @comments = @post.root_comments.find_with_reputation(:votes, :all, {order: 'votes desc'})
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
+    render layout: false
   end
 
   def create

@@ -10,10 +10,6 @@
 	= render partial: 'conversation_posts/create_form', locals: {conversation_post: post_klass.new, share_message: share_message}
 
 
-%a.fancybox{rel: "group", href: "\#message_lightbox"} Activate Messages Lightbox
-
-%a{class: "various fancybox.ajax", "data-fancybox-type" => "ajax", href: "/tools/ajax_test"} Ajax Fancybox
-
 - num_posts = @posts.length
 
 .post-entry.convo-entry
@@ -51,41 +47,7 @@
 -# 			- if can? :destroy, post then
 -# 				= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-- test_post = AdvicePost.find(165)
 
-.dont-show#message_lightbox
-	.lightbox-content-wrapper
-		/ There Is No Project Title That Appears in the Lightbox
-		
-		/ This Is the Main Piece of Media
-		.lightbox-main-media
-			- if test_post.image?
-				= image_tag test_post.image.url(:original)
-			- elsif test_post.video_html then
-				= test_post.video_html.html_safe
-
-		
-		/ This Is The Description
-		%p= test_post.body
-
-		.divider
-
-		.post-comment-wrapper
-			= render partial: 'conversation_comment_form', locals: {comment: test_post.comments.new}
-
-		.divider
-		- if test_post.root_comments.any? then
-			.conversation-comments
-				- test_post.root_comments.each do |comment|
-					= render partial: 'comment_on_conversation', locals: {comment: comment}
-
-
-
-
-:javascript
-	$(document).ready(function() {
-		$(".fancybox").fancybox();
-	});
 
 :javascript
 	$(document).ready(function() {

@@ -1,0 +1,22 @@
+- content_for :head do
+	= stylesheet_link_tag    "main_style"
+
+
+- new_comment_message = "Create new comment on #{post_klass.friendly_name.downcase}"
+
+
+%p#notice= notice
+
+= render partial: 'conversation_posts/display', locals: {conversation_post: @post, image_style: :original}
+= render partial: 'shared/voting', locals: {votable: @post, votable_name: 'post', vote_path_for_votable: create_votable_path_for_conversation_post(@post)}
+- if @comments then
+	%h4 Comments:
+	= render partial: 'comments/comments_on_object', locals: {comments: @comments, commentable: @post, parent_id: nil, new_comment_message: new_comment_message}
+- else
+	%h4= new_comment_message
+	- if can? :create, Comment then
+		= render partial: 'comments/form', locals: {comment: @post.comments.new, commentable: @post, parent_id: nil}
+
+= link_to "All #{post_klass.friendly_name}", post_url_helper
+
+

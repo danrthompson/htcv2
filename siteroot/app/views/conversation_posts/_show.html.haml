@@ -1,22 +1,24 @@
-- content_for :head do
-	= stylesheet_link_tag    "main_style"
+.lightbox-content-wrapper
+	/ There Is No Project Title That Appears in the Lightbox
+	
+	/ This Is the Main Piece of Media
+	.lightbox-main-media
+		- if @post.image?
+			= image_tag @post.image.url(:original)
+		- elsif @post.video_html then
+			= @post.video_html.html_safe
 
+	
+	/ This Is The Description
+	%p= @post.body
 
-- new_comment_message = "Create new comment on #{post_klass.friendly_name.downcase}"
+	.divider
 
+	.post-comment-wrapper
+		= render partial: 'conversation_posts/conversation_comment_form', locals: {comment: @post.comments.new}
 
-%p#notice= notice
-
-= render partial: 'conversation_posts/display', locals: {conversation_post: @post, image_style: :original}
-= render partial: 'shared/voting', locals: {votable: @post, votable_name: 'post', vote_path_for_votable: create_votable_path_for_conversation_post(@post)}
-- if @comments then
-	%h4 Comments:
-	= render partial: 'comments/comments_on_object', locals: {comments: @comments, commentable: @post, parent_id: nil, new_comment_message: new_comment_message}
-- else
-	%h4= new_comment_message
-	- if can? :create, Comment then
-		= render partial: 'comments/form', locals: {comment: @post.comments.new, commentable: @post, parent_id: nil}
-
-= link_to "All #{post_klass.friendly_name}", post_url_helper
-
-
+	.divider
+	- if @comments then
+		.conversation-comments
+			- @comments.each do |comment|
+				= render partial: 'conversation_posts/comment_on_conversation', locals: {comment: comment}
