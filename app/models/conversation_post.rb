@@ -10,7 +10,7 @@ class ConversationPost < ActiveRecord::Base
 
   acts_as_commentable
   has_many :comments, as: :commentable, dependent: :destroy
-  has_attached_file :image, path: '/:class/:attachment/:id_partition/:style/:hash.:extension', styles: {
+  has_attached_file :image, path: "/#{ENV['S3_PATH_PREFIX']}:class/:attachment/:id_partition/:style/:hash.:extension", styles: {
   	thumb: '150x100',
   	original: '450x300'
   }

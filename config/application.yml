@@ -10,5 +10,7 @@ APP_BASE_URL: http://harnessthecrowd.com
 TWITTER_HANDLE: harnessthecrowd
 development:
   APP_BASE_URL: http://test.com
+  S3_PATH_PREFIX: development_assets/
+  PAPERCLIP_DEFAULT_PATH: /development_assets/:id-:hash:extension
 test:
   APP_BASE_URL: http://test.com
