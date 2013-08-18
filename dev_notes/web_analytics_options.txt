@@ -1,0 +1,92 @@
+lets use
+google analytics
+mixpanel
+
+data analysis:
+	http://chartio.com
+	https://ducksboard.com/services-integrations/
+	http://www.geckoboard.com/widget-directory/
+
+charts:
+	chartbeat
+	gosquared
+	https://ducksboard.com/services-integrations/
+	http://www.geckoboard.com/widget-directory/
+
+analytics (done):
+	clicky
+	google analytics
+
+event tracking (done):
+	mixpanel
+	kissmetrics
+
+AB testing:
+	optimizely
+
+chat with users:
+	olark
+	livechat
+	intercom
+
+user feedback:
+	uservoice
+	get sagtisfaction
+
+crazyegg
+clicktale
+foxmetrics
+heap
+
+
+keen io
+klaviyo
+librato
+leadlander
+localytics
+marketo
+omniture
+outbound
+pardot
+pingdom
+perfect audience
+qualaroo
+quantcast
+salesforce
+usercycle
+snapengage
+sentry
+userfox
+vero
+webhooks
+woopra
+totango
+hubspot
+bugsnag
+bugherd
+bitdeli
+adroll
+customer.io
+amplitude
+comscore
+crittercism
+countly
+flurry
+errorception
+gauges
+helpscout
+
+
+segment.io
+google-analytics-rails (https://github.com/bgarret/google-analytics-rails, http://rubydoc.info/github/bgarret/google-analytics-rails)
+manual ga (http://aihuiong.com/post/452550136/google-analytics-and-rails-in-3-steps-and-less-than-5, http://innov8d.com/blog/posts/google-analytics-and-rails-revisted)
+doubleclick
+https://github.com/Nix-wie-weg/ga_events (https://www.ruby-toolbox.com/projects/ga_events)
+https://github.com/mobalean/event_tracker
+be sure to not track our views (http://technicalpickles.com/posts/rails-plugin-for-google-analytics-and-artificial-inflation/)
+
+dev account for ga as well
+how to add ga to all links / events?
+
+
+http://contrast.ie/blog/the-future-of-analytics-products/
