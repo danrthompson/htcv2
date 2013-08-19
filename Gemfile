@@ -26,6 +26,7 @@ gem 'activerecord-reputation-system', require: 'reputation_system'
 gem 'kaminari'
 gem 'thin'
 gem 'workless'
+gem 'activeadmin'
 
 # Gems used only for assets and not required
 # in production environments by default.
