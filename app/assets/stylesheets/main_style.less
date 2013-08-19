@@ -328,7 +328,7 @@ fieldset[disabled] .form-control {
     height:80px;
     padding-bottom: 0px;
     border-bottom: 1px solid @stroke-color;
-	padding: 30px 0px 10px 0;
+	padding: 30px 0px 5px 0;
 
 
 }
@@ -370,9 +370,104 @@ fieldset[disabled] .form-control {
 	opacity: 0.4;
 }
 
+
+#login-btn{
+	position: relative;
+	top: -20px;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 600;
+	opacity:0.3;
+}
+
+#login-btn:hover{
+	opacity: 1;
+
+}
 // ^^^ END NAV MENU
 
+// Start Footer
 
+.footer{
+	margin-top: 120px;
+	padding-top: 10px;
+	height: 60px;
+	ul{
+		padding:0 20px;
+	}
+	li {
+		text-transform: uppercase;
+		display: inline;
+		padding: 10px 2px;
+		font-weight: 400;
+
+		.social-link {
+			background-color: black;
+			padding: 2px 7px;
+			color: white;
+			border-radius: 10px;
+			font-size: 13px;
+			font-weight: 600;
+			opacity: 0.2;	
+
+		}
+
+		.social-link:hover{
+			opacity: 1;
+			background-color: @teal;
+		}
+
+		
+	}
+
+	li.crowdfund-title{
+		margin-top: 20px;
+
+	}
+
+
+	a{
+		font-weight: 400px;
+	}
+
+
+}
+
+
+.footer-list.float-right{
+		margin-top: 10px;
+		color:@light-gray;
+		a{
+			font-size:14px;
+			font-weight: 400;
+			color: @light-gray;
+		}
+
+		a:hover{
+			color:@teal;
+			opacity: 1;
+		}
+	}
+
+.crowdfund-title{
+	position: relative;
+	top: 4px;
+	opacity: 0.5;
+}
+
+.crowdfund-title-bold{
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.hub-title-thin{
+	font-size: 22px;
+	font-weight:200;
+}
+
+.pipe{
+	opacity: 0.3;
+}
 // Buttons
 
 
@@ -451,7 +546,7 @@ fieldset[disabled] .form-control {
 			text-transform: uppercase;
 			color: @black-gray;
 			font-weight:800;
-			font-size: 78px;
+			font-size: 68px;
 			letter-spacing: 1px;
 			line-height:70px;
 		}
@@ -525,6 +620,14 @@ fieldset[disabled] .form-control {
 			a.share-btn:hover{
 				color: @teal;
 			}
+
+			p{
+				display: inline;
+				margin-left: 10px;
+				margin-right: -5px;
+				font-weight: 600;
+				opacity: 0.3;
+			}
 		}
 	}
 
@@ -586,8 +689,8 @@ fieldset[disabled] .form-control {
 }
 
 .sub_nav_top{
-
-	.suggest{
+	width:94%;
+		.suggest{
 		a {
 			opacity: 0.5;
 			font-weight: 800;
@@ -603,7 +706,7 @@ fieldset[disabled] .form-control {
     height:80px;
     padding-bottom: 0px;
     border-bottom: 1px solid @stroke-color;
-
+	padding-left: 100px;
 	ul {
 		height: 70px;
 	}
@@ -1327,6 +1430,11 @@ fieldset.new-conversation{
 	margin-top: -30px;
 	font-weight: 200;
 	margin-bottom: 8px;
+}
+
+.float-right.suggest{
+	position:relative;
+	left:50px;
 }
 
 .product-suggest{

@@ -1,82 +1,104 @@
 !!!
 %html{:dir => "ltr", :lang => "en-US"}
-  %head
-    %meta{:charset => "utf-8"}
-    %title= html_title yield(:page_title)
-    = csrf_meta_tag
-    = favicon_link_tag image_path('favicon.ico')
-    = javascript_include_tag 'application'
-    / Gives Head
-    = yield(:head)
-    :javascript
-      var analytics=analytics||[];(function(){var e=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group"],t=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var n=0;n<e.length;n++)analytics[e[n]]=t(e[n])})(),analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)};
-      analytics.load("lokefups21");
-  %body
-    %p.notice= notice
-    %p.alert= alert
-    .page_container
-      .content
-        %ul.nav
-          %li#nav-logo
-            %a{:href => "/"}
-              %img{src: "https://s3.amazonaws.com/HarnessTheCrowd/HTC-LOGO-SIDE-TRANSPARENT.png"}
-          %li 
-            %a{:href => "/tools"} Campaign Tools
-          %li 
-            %a{:href => "/conversation"} Conversations
+	%head
+		%meta{:charset => "utf-8"}
+		%title= html_title yield(:page_title)
+		= csrf_meta_tag
+		= favicon_link_tag image_path('favicon.ico')
+		= javascript_include_tag 'application'
+		/ Gives Head
+		= yield(:head)
+		:javascript
+			var analytics=analytics||[];(function(){var e=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group"],t=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var n=0;n<e.length;n++)analytics[e[n]]=t(e[n])})(),analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)};
+			analytics.load("lokefups21");
+	%body
+		%p.notice= notice
+		%p.alert= alert
+		.page_container
+			.content
+				%ul.nav
+					%li#nav-logo
+						%a{:href => "/"}
+							%img{src: "https://s3.amazonaws.com/HarnessTheCrowd/HTC-LOGO-SIDE-TRANSPARENT.png"}
+					%li 
+						%a{:href => "/tools"} Campaign Tools
+					%li 
+						%a{:href => "/conversation"} Conversations
 
-          %li 
-            %a{:href => "/blog"} Headlines
-          -# %li.marketplace-link 
-          -#   %a{:href => "/store"}
-          -#     Marketplace
-          -#     / %img#mktplace-heart{:src => "https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/mktplace-heart.png", :alt => ""}/ 
+					%li 
+						%a{:href => "/blog"} Headlines
+					-# %li.marketplace-link 
+					-#   %a{:href => "/store"}
+					-#     Marketplace
+					-#     / %img#mktplace-heart{:src => "https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/mktplace-heart.png", :alt => ""}/ 
+				%a#login-btn.float-right{:href => ""}Login/Sign Up >
+				= yield(:sub_nav)
 
-        = yield(:sub_nav)
-
-        = yield(:intro_text)
-
-
-        / May Delete because page title is unnecessary
-        / %h1#page_heading
-        /   %a{:href => root_url}= htcv2_config[:title]
-        .divider
-
-        - if current_user then
-          = link_to 'sign_out', destroy_user_session_path, :method => :delete
-
-        = flash_messages
-        = yield
-        -# #navigation
+				= yield(:intro_text)
 
 
+				/ May Delete because page title is unnecessary
+				/ %h1#page_heading
+				/   %a{:href => root_url}= htcv2_config[:title]
+				.divider
 
-        .footer
-          -# %h2 Pages
-          -# %ul
-          -#   - page_links_for_navigation.each do |link|
-          -#     %li= link_to(link.name, link.url)
+				- if current_user then
+					= link_to 'sign_out', destroy_user_session_path, :method => :delete
 
-          / / THESE TAGS ARE ONLY APPLICABLE TO THE BLOG
-          / - unless category_links_for_navigation.empty?
-          /   %h2 Tags
-          /   %ul
-          /     - category_links_for_navigation.each do |link|
-          /       %li= link_to(link.name, link.url)
+				= flash_messages
+				= yield
+				-# #navigation
 
-          -# %form#sform{:action => "http://www.google.com/search", :method => "get"}
-          -#   %div
-          -#     %h2
-          -#       %label{:for => "q"} Search
-          -#     %input#q{:name => "q", :type => "text", :value => ""}/
-          -#     %input{:name => "sitesearch", :type => "hidden", :value => ENV["APP_BASE_URL"]}/
-        -# #footer
-        -#   = htcv2_config[:title]
-        -#   © #{htcv2_config[:author, :name]}. Valid
-        -#   %a{:href => "http://validator.w3.org/check?uri=referer"} HTML5
-        -#   and #{link_to "ATOM", "http://feedvalidator.org/check.cgi?url=#{ENV["APP_BASE_URL"]}/posts.atom"}. Powered by
-        -#   = succeed "." do
-        -#     %a{:href => "http://www.htcv2blog.com", :title => "A Ruby on Rails blogging app for the fashionable developer"} Htcv2
-    -# - if current_user then
-    -#   %script{type: "text/javascript"}= "analytics.identify('#{current_user.id}');"
+
+
+				.footer
+					%ul.footer-list.float-left
+						%li.footer-elem
+							%a.social-link{:href => ""} FB
+						%li.footer-elem.pipe &#124
+						%li.footer-elem 
+							%a.social-link{:href => ""} TW
+						%li.footer-elem.pipe &#124
+						%li.footer-elem 
+							%a.social-link{:href => ""} LI
+						%li.footer-elem.pipe &#124
+						%li.fotter-elem.crowdfund-title <span class="crowdfund-title-bold">Crowdfund</span><span class="hub-title-thin">Hub</span>
+					
+					%ul.footer-list.float-right 
+						%li.footer-elem
+							%a{:href => ""} Contact Us
+						%li.footer-elem &#124
+						%li.footer-elem 
+							%a{:href => ""} Press
+						%li.footer-elem &#124
+						%li.footer-elem 
+							%a{:href => ""} About HTC
+
+					-# %h2 Pages
+					-# %ul
+					-#   - page_links_for_navigation.each do |link|
+					-#     %li= link_to(link.name, link.url)
+
+					/ / THESE TAGS ARE ONLY APPLICABLE TO THE BLOG
+					/ - unless category_links_for_navigation.empty?
+					/   %h2 Tags
+					/   %ul
+					/     - category_links_for_navigation.each do |link|
+					/       %li= link_to(link.name, link.url)
+
+					-# %form#sform{:action => "http://www.google.com/search", :method => "get"}
+					-#   %div
+					-#     %h2
+					-#       %label{:for => "q"} Search
+					-#     %input#q{:name => "q", :type => "text", :value => ""}/
+					-#     %input{:name => "sitesearch", :type => "hidden", :value => ENV["APP_BASE_URL"]}/
+				-# #footer
+				-#   = htcv2_config[:title]
+				-#   © #{htcv2_config[:author, :name]}. Valid
+				-#   %a{:href => "http://validator.w3.org/check?uri=referer"} HTML5
+				-#   and #{link_to "ATOM", "http://feedvalidator.org/check.cgi?url=#{ENV["APP_BASE_URL"]}/posts.atom"}. Powered by
+				-#   = succeed "." do
+				-#     %a{:href => "http://www.htcv2blog.com", :title => "A Ruby on Rails blogging app for the fashionable developer"} Htcv2
+		-# - if current_user then
+		-#   %script{type: "text/javascript"}= "analytics.identify('#{current_user.id}');"
 
