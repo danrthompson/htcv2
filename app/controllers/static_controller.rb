@@ -14,4 +14,8 @@ class StaticController < ApplicationController
 	def homepage
 
 	end
+
+	def error_page
+
+	end
 end
