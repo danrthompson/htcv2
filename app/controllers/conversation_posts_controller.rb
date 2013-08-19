@@ -12,7 +12,7 @@ class ConversationPostsController < ApplicationController
   def show
     @post = post_klass.find(params[:id])
     @comments = @post.root_comments.find_with_reputation(:votes, :all, {order: 'votes desc'})
-    render layout: false
+    render layout: 'ajax'
   end
 
   def create

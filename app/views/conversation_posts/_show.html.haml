@@ -1,7 +1,9 @@
+- content_for :head do
+	= javascript_include_tag "conversation"
 .lightbox-content-wrapper
-	/ There Is No Project Title That Appears in the Lightbox
+	-# / There Is No Project Title That Appears in the Lightbox
 	
-	/ This Is the Main Piece of Media
+	-# / This Is the Main Piece of Media
 	.lightbox-main-media
 		- if @post.image?
 			= image_tag @post.image.url(:original)
@@ -9,16 +11,15 @@
 			= @post.video_html.html_safe
 
 	
-	/ This Is The Description
+	-# / This Is The Description
 	%p= @post.body
 
 	.divider
 
-	.post-comment-wrapper
+	.post-comment-wrapper.conversation-post-comment-form
 		= render partial: 'conversation_posts/conversation_comment_form', locals: {comment: @post.comments.new}
 
 	.divider
-	- if @comments then
-		.conversation-comments
-			- @comments.each do |comment|
-				= render partial: 'conversation_posts/comment_on_conversation', locals: {comment: comment}
+	.conversation-comments
+		- @comments.each do |comment|
+			= render partial: 'conversation_posts/comment_on_conversation', locals: {comment: comment}

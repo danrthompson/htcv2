@@ -6,14 +6,18 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new(params[:comment])
     @comment.user_id = current_user ? current_user.id : -1
 
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @commentable.class, notice: 'Comment was successfully created.'}
-        format.json { render json: @comment, status: :created, location: @comment }
+    if @comment.save
+      if @comment.parent_id then
+        render 'comments/_comment_on_comment', locals: {comment: @comment}, layout: false
       else
-        format.html { redirect_to @commentable.class, notice: @comment.errors.full_messages.first }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        render 'conversation_posts/_comment_on_conversation', locals: {comment: @comment}, layout: false
       end
+      
+      # format.html { redirect_to @commentable.class, notice: 'Comment was successfully created.'}
+      # format.json { render json: @comment, status: :created, location: @comment }
+    else
+      redirect_to @commentable.class, notice: @comment.errors.full_messages.first
+      # format.json { render json: @comment.errors, status: :unprocessable_entity }
     end
   end
 
