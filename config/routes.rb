@@ -12,6 +12,7 @@ Htcv2::Application.routes.draw do
   get 'about_us' => 'static#about_us'
   get 'contact_us' => 'static#contact_us'
   get 'press' => 'static#press'
+  get 'static/error_page'
 
 
 
@@ -87,7 +88,7 @@ Htcv2::Application.routes.draw do
 
   end
 
-  root to: 'posts#index'
+  root to: 'static#homepage'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

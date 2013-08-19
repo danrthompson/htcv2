@@ -16,12 +16,13 @@
 
 	.bottom-action-items
 		.float-left
-			- if can? :vote, post then
-				= link_to "", vote_path_for_votable.call("up"), method: "post", class: "vote-arrow up-arrow"
-				= link_to "", vote_path_for_votable.call("down"), method: "post", class: "vote-arrow down-arrow"
-			- else
-				%a.vote-arrow.up-arrow{:href => new_user_session_path}
-				%a.vote-arrow.down-arrow{:href => new_user_session_path} 
+			= render partial: 'comments/vote_on_comment', locals: {votable: post, vote_path_for_votable: create_votable_path_for_conversation_post(post), all_arrows: 'vote-arrow', voted_arrow: 'voted-arrow', top_arrow: 'up-arrow', bottom_arrow: 'down-arrow'}
+			-# - if can? :vote, post then
+			-# 	= link_to "", vote_path_for_votable.call("up"), method: "post", class: "vote-arrow up-arrow"
+			-# 	= link_to "", vote_path_for_votable.call("down"), method: "post", class: "vote-arrow down-arrow"
+			-# - else
+			-# 	%a.vote-arrow.up-arrow{:href => new_user_session_path}
+			-# 	%a.vote-arrow.down-arrow{:href => new_user_session_path} 
 		.float-right
 			%a{class: "various fancybox.ajax", "data-fancybox-type" => "ajax", href: polymorphic_path(post)}
 				%h4 add something
