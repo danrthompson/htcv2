@@ -10,4 +10,8 @@ class StaticController < ApplicationController
 	def press
 
 	end
+
+	def homepage
+
+	end
 end

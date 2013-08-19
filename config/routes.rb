@@ -87,7 +87,7 @@ Htcv2::Application.routes.draw do
 
   end
 
-  root to: 'posts#index'
+  root to: 'static#homepage'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
