@@ -7,8 +7,9 @@
 	%a{:href => this_service.out_link} 
 		%h3= this_service.title
 	%p= this_service.description
-	%a.extra-top-margin.fancybox{href: "\#message_lightbox_#{this_service.id}"} 
-		%h4
-			%img.message-icon.float-left{:src => "https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/icon-mail.png", :alt => ""}/
-			Get In Contact
-	%a{:href => this_service.out_link} VISIT THEIR WEBSITE
+	.service-action-wrapper
+		%a.extra-top-margin.fancybox{href: "\#message_lightbox_#{this_service.id}"} 
+			%h4
+				%img.message-icon.float-left{:src => "https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/icon-mail.png", :alt => ""}/
+				Get In Contact
+		%a{:href => this_service.out_link} VISIT THEIR WEBSITE
