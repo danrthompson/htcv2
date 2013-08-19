@@ -22,4 +22,4 @@
 	.divider
 	.conversation-comments
 		- @comments.each do |comment|
-			= render partial: 'conversation_posts/comment_on_conversation', locals: {comment: comment}
+			= render partial: 'conversation_posts/comment_on_conversation', locals: {comment: comment, ajax: false}

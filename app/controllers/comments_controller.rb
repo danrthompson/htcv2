@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       if @comment.parent_id then
         render 'comments/_comment_on_comment', locals: {comment: @comment}, layout: false
       else
-        render 'conversation_posts/_comment_on_conversation', locals: {comment: @comment}, layout: false
+        render 'conversation_posts/_comment_on_conversation', locals: {comment: @comment, ajax: true}, layout: false
       end
       
       # format.html { redirect_to @commentable.class, notice: 'Comment was successfully created.'}

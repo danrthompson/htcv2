@@ -2,10 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+
 jQuery ->
-	# Create a comment
-	$(".conversation-post-comment-form")
-		.on "ajax:beforeSend", (evt, xhr, settings) ->
+	$('.conversation-post-comment-form')
+		.on 'ajax:beforeSend', (evt, xhr, settings) ->
 			$(this).find('textarea')
 				.addClass('uneditable-input')
 				.attr('disabled', 'disabled');
@@ -16,11 +16,9 @@ jQuery ->
 				.val('');
 			$(this).siblings(".conversation-comments:first").prepend($(xhr.responseText)).hide().fadeIn('slow')
 
-
 jQuery ->
-	# Create a comment
-	$(".conversation-post-comment-on-comment-form")
-		.on "ajax:beforeSend", (evt, xhr, settings) ->
+	$('.conversation-post-comment-on-comment-form')
+		.on 'ajax:beforeSend', (evt, xhr, settings) ->
 			$(this).find('textarea')
 				.addClass('uneditable-input')
 				.attr('disabled', 'disabled');
