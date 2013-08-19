@@ -1,14 +1,15 @@
-.comment-rating.float-left
-	- if can? :vote, votable then
-		- vote_value = current_user ? votable.current_user_vote_value(current_user) : 0
-		- if vote_value == 1 then
-			= link_to ".", vote_path_for_votable.call("up"), method: "post", class: 'vote-arrow arrow-stacked up-arrow voted-arrow'
-		- else
-			= link_to ".", vote_path_for_votable.call("up"), method: "post", class: 'vote-arrow arrow-stacked up-arrow'
-		- if vote_value == -1 then
-			= link_to ".", vote_path_for_votable.call("down"), method: "post", class: 'vote-arrow arrow-stacked up-arrow bottom-stacked-arrow voted-arrow'
-		- else
-			= link_to ".", vote_path_for_votable.call("down"), method: "post", class: 'vote-arrow arrow-stacked up-arrow bottom-stacked-arrow'
+- if can? :vote, votable then
+	- vote_value = current_user ? votable.current_user_vote_value(current_user) : 0
+	- if vote_value == 1 then
+		= link_to ".", vote_path_for_votable.call("up"), method: "post", class: "#{all_arrows} #{voted_arrow} #{top_arrow}"
 	- else
-		= link_to ".", new_user_session_path, method: "post", class: 'vote-arrow arrow-stacked up-arrow'
-		= link_to ".", new_user_session_path, method: "post", class: 'vote-arrow arrow-stacked up-arrow bottom-stacked-arrow'
+		= link_to ".", vote_path_for_votable.call("up"), method: "post", class: "#{all_arrows} #{top_arrow}"
+	- if vote_value == -1 then
+		= link_to ".", vote_path_for_votable.call("down"), method: "post", class: "#{all_arrows} #{voted_arrow} #{bottom_arrow}"
+	- else
+		= link_to ".", vote_path_for_votable.call("down"), method: "post", class: "#{all_arrows} #{bottom_arrow}"
+- else
+	= link_to ".", new_user_session_path, method: "post", class: "#{all_arrows} #{top_arrow}"
+	= link_to ".", new_user_session_path, method: "post", class: "#{all_arrows} #{bottom_arrow}"
+
+
