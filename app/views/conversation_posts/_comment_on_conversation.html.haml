@@ -17,6 +17,6 @@
 	- comment.children.each do |child|
 		= render partial: 'comments/comment_on_comment', locals: {comment: child}
 
-	= render partial: 'comments/comment_on_comment_form', locals: {comment: commentable.comments.new, parent_id: comment.id}
+	= render partial: 'comments/comment_on_comment_form', locals: {comment: commentable.comments.new, parent_id: comment.id, ajax: ajax}
 
 .divider

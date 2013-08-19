@@ -2,13 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+
 jQuery ->
-	$(document)
-		.on 'ajax:beforeSend', '.conversation-post-comment-form', (evt, xhr, settings) ->
+	$('.conversation-post-comment-form')
+		.on 'ajax:beforeSend', (evt, xhr, settings) ->
 			$(this).find('textarea')
 				.addClass('uneditable-input')
 				.attr('disabled', 'disabled');
-		.on "ajax:success", '.conversation-post-comment-form', (evt, data, status, xhr) ->
+		.on "ajax:success", (evt, data, status, xhr) ->
 			$(this).find('textarea')
 				.removeClass('uneditable-input')
 				.removeAttr('disabled', 'disabled')
@@ -16,12 +17,12 @@ jQuery ->
 			$(this).siblings(".conversation-comments:first").prepend($(xhr.responseText)).hide().fadeIn('slow')
 
 jQuery ->
-	$(document)
-		.on 'ajax:beforeSend', '.conversation-post-comment-on-comment-form', (evt, xhr, settings) ->
+	$('.conversation-post-comment-on-comment-form')
+		.on 'ajax:beforeSend', (evt, xhr, settings) ->
 			$(this).find('textarea')
 				.addClass('uneditable-input')
 				.attr('disabled', 'disabled');
-		.on "ajax:success", '.conversation-post-comment-on-comment-form', (evt, data, status, xhr) ->
+		.on "ajax:success", (evt, data, status, xhr) ->
 			$(this).find('textarea')
 				.removeClass('uneditable-input')
 				.removeAttr('disabled', 'disabled')
