@@ -1,7 +1,11 @@
 - commentable = comment.commentable
 .comment-entry
+
+
 	.comment-text.main-comment
+
 		.comment_title_wrapper.float-left
+
 			- if comment.user then
 				%h3= comment.user.username
 			- else
@@ -9,6 +13,9 @@
 			.comment-action-items.float-right
 				%h4
 					%a{:href => ""}Reply
+					&#124;
+					%a{:href => ""} Delete
+
 		%p= comment.body
 
 	.comment-rating.float-left

@@ -5,7 +5,7 @@
 		= post.video_html.html_safe
 
 	/ Only show this if the user has permission to delete the post
-	.delete-service-wrapper
+	.delete-entry-wrapper
 		%a{:href => ""} X 
 
 	%p
@@ -30,4 +30,4 @@
 			-# 	%a.vote-arrow.down-arrow{:href => new_user_session_path} 
 		.float-right
 			%a{class: "various fancybox.ajax", "data-fancybox-type" => "ajax", href: polymorphic_path(post)}
-				%h4 Add Commnet
+				%h4 Add Comment
