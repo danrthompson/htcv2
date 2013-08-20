@@ -48,10 +48,25 @@
 
 
 .dont-show.fancybox-test#user-sign-up-box
-	%p Lightbox content
+	#sign-up-wrapper
+		%h2 
+			%a{:href => ""}
+				Sign In 
+				%span 
+					or 
+			%a{:href => ""} 
+				Sign Up
+				%br/ 
+			
+		%br/ 
+		%br/
 
-
-
+		/ .divider
+		%h2
+			%a.smaller{:href => ""}
+				%span Or if you prefer,
+				post anonymously.
+		
 :javascript
 	$(document).ready(function() {
 		$(".various").fancybox({
