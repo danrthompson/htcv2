@@ -24,6 +24,10 @@
 
 ////////////////////////////////////////
 
+.temp-wrapper{
+	overflow: hidden;
+	height: 900px;
+}
 
 ///////////// MIXINS ///////////////
 
@@ -1061,11 +1065,7 @@ fieldset[disabled] .form-control {
 
 }
 
-.service-action-wrapper{
-	position: absolute;
-	height: 75px;
-	bottom: -10px;
-}
+
 
 .about-us-page{
 
@@ -1338,9 +1338,14 @@ fieldset[disabled] .form-control {
 				font-weight: 400;
 			}
 		}
-
 	}
 }
+
+	.service-action-wrapper.service-entry{
+	position: absolute;
+	height: 75px;
+	bottom: -10px;
+		}
 
 .posted-by-whome-wrapper{
 	width: 600px;
@@ -2534,6 +2539,11 @@ a.voted-arrow{
 		margin-top: 25px;
 		width: 650px;
 		overflow: hidden;
+
+		p{
+			margin-right: 10px;
+			padding-top:5px;
+		}
 	}
 
 
@@ -2545,12 +2555,17 @@ a.voted-arrow{
 			margin-top: 4px;
 			text-transform: uppercase;
 			color: @middle-gray;
+
 		}
 		textfield, input[type="text"]{
-			width: 65%;
-			float:right;
+			// width: 80%;
+			// float:right;
 			height: 15px;
 			.rounded-corners(3px);
+		}
+
+		.form-control{
+			width: 60%;
 		}
 	}
 
@@ -2580,6 +2595,21 @@ a.voted-arrow{
 .service-message-wrapper{
 	width: 650px;
 	margin: auto;
+}
+
+.service-message-wrapper.video{
+	width: 500px;
+
+	p{
+		font-size: 16px;
+		line-height: 24px;
+	}
+}
+
+.service-action-wrapper.suggest, .service-action-wrapper.video{
+	width: 70%;
+	margin: auto;
+	color: @black-gray;
 }
 
 .service-action-wrapper{
@@ -2622,6 +2652,7 @@ a.voted-arrow{
 		a{ 
 			color:white;
 			font-weight: 500;
+
 		}
 	}
 	.button{
@@ -2634,6 +2665,19 @@ a.voted-arrow{
 	}
 
 }
+
+.bottom-service-buttons.video{
+	width: 140%;
+	margin-left: -20%;
+	text-align: center;
+
+	.blue-button{
+		font-size: 17px;
+		position: relative;
+		top: 20px;
+	}
+}
+
 
 ////////////////// SIGN IN PAGE ///////////////
 
@@ -2769,10 +2813,18 @@ a.voted-arrow{
 	}
 
 	.service-action-wrapper{
-		width: 50%;
+		// width: 50%;
+		// position: inline;
 		margin:auto;
 		margin-top: 20px;
 		overflow: visible;
+		height: 80px;
+
+		p{
+			margin-top: 28px;
+			text-transform:uppercase;
+			font-size: 16px;
+		}
 		textarea{
 			height: 50px;
 		}
