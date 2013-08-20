@@ -11,7 +11,6 @@
 					%a{:href => ""}Reply
 		%p= comment.body
 
-
 	.comment-rating.float-left
 		= render partial: 'comments/vote_on_comment', locals: {votable: comment, vote_path_for_votable: create_votable_path_for_comment(commentable, comment), all_arrows: 'vote-arrow arrow-stacked up-arrow', voted_arrow: 'voted-arrow', top_arrow: '', bottom_arrow: 'bottom-stacked-arrow'}
 
@@ -19,5 +18,5 @@
 		= render partial: 'comments/comment_on_comment', locals: {comment: child}
 
 	= render partial: 'comments/comment_on_comment_form', locals: {comment: commentable.comments.new, parent_id: comment.id, ajax: ajax}
-
+	
 .divider

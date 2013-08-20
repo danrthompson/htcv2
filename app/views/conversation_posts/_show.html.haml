@@ -9,10 +9,22 @@
 			= image_tag @post.image.url(:original)
 		- elsif @post.video_html then
 			= @post.video_html.html_safe
+		- else
+			%h1.lightbox-background-title THOUGHTS, IDEAS, AND INSIGHTS
 
+	.posted-by-whome-wrapper
+		- if @post.user then
+			%h4.teal
+				Posted By 
+				= @post.user.username
+		- else
+			%h3.left-align.teal
+				Posted By
+				Batman
 	
 	-# / This Is The Description
 	%p= @post.body
+
 
 	.divider
 
