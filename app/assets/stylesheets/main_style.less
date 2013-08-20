@@ -24,6 +24,10 @@
 
 ////////////////////////////////////////
 
+.temp-wrapper{
+	overflow: hidden;
+	height: 900px;
+}
 
 ///////////// MIXINS ///////////////
 
@@ -2551,7 +2555,7 @@ a.voted-arrow{
 			margin-top: 4px;
 			text-transform: uppercase;
 			color: @middle-gray;
-			
+
 		}
 		textfield, input[type="text"]{
 			// width: 80%;
@@ -2591,6 +2595,21 @@ a.voted-arrow{
 .service-message-wrapper{
 	width: 650px;
 	margin: auto;
+}
+
+.service-message-wrapper.video{
+	width: 500px;
+
+	p{
+		font-size: 16px;
+		line-height: 24px;
+	}
+}
+
+.service-action-wrapper.suggest, .service-action-wrapper.video{
+	width: 70%;
+	margin: auto;
+	color: @black-gray;
 }
 
 .service-action-wrapper{
@@ -2633,6 +2652,7 @@ a.voted-arrow{
 		a{ 
 			color:white;
 			font-weight: 500;
+
 		}
 	}
 	.button{
@@ -2645,6 +2665,19 @@ a.voted-arrow{
 	}
 
 }
+
+.bottom-service-buttons.video{
+	width: 140%;
+	margin-left: -20%;
+	text-align: center;
+
+	.blue-button{
+		font-size: 17px;
+		position: relative;
+		top: 20px;
+	}
+}
+
 
 ////////////////// SIGN IN PAGE ///////////////
 

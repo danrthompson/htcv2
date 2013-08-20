@@ -8,6 +8,31 @@
 
 - num_services = @services.length
 
+.temp-wrapper
+	.service-message-wrapper.video
+		%h2.teal.center-align Let's Make A Movie
+		.divider
+		%p.video
+			It's tough work to make a video. Luckily, there are thousands of people to help. If you describe your project, we can try to find someone in your area to give you a hand. 
+		.divider
+
+		.service-action-wrapper.video
+			%p Please enter your email
+			%input.form-control.message-box{:type => "text"}
+			%p What is your city and state?
+			%input.form-control.message-box{:type => "text"}
+			%p When would you like to start?
+			%input.form-control.message-box{:type => "text"}
+			%p Please describe your project
+			%textarea.form-control.message-box{:name => "", :cols => "30", :rows => "10"} 
+			.bottom-service-buttons.video
+				.divider
+				%a.button.blue-button{:href => ""} Let's Do It!
+
+
+
+
+
 .post-entry
 	.three-column-wrapper.services
 		- if num_services > 0 then
