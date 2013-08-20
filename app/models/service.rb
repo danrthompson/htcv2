@@ -3,7 +3,7 @@ class Service < ActiveRecord::Base
 
   has_attached_file :logo, path: "/#{ENV['S3_PATH_PREFIX']}:class/:attachment/:id_partition/:style/:basename.:extension", styles: {thumb: '250x60'}
 
-  process_in_background :logo, processing_image_url: "https://s3.amazonaws.com/HarnessTheCrowd/admin_uploads/processing-img.png"
+  process_in_background :logo, processing_image_url: "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/processing-img.png"
 
 
   belongs_to :service_category

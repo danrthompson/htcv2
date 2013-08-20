@@ -1,6 +1,7 @@
 Htcv2::Application.routes.draw do
 
 
+
   devise_for :users
 
   get 'tools' => 'tools#resources'
@@ -89,6 +90,9 @@ Htcv2::Application.routes.draw do
   end
 
   root to: 'static#homepage'
+
+  ActiveAdmin.routes(self)
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
