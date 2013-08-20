@@ -4,6 +4,10 @@
 	- elsif post.video_html then
 		= post.video_html.html_safe
 
+	/ Only show this if the user has permission to delete the post
+	.delete-service-wrapper
+		%a{:href => ""} X 
+
 	%p
 		%a{class: "various fancybox.ajax", "data-fancybox-type" => "ajax", href: polymorphic_path(post)}
 			= post.title
