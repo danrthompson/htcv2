@@ -3,8 +3,7 @@
 = render partial: 'shared/conversation/head', layout: 'shared/head'
 = render partial: 'conversation_posts/conversation_subnav', locals: {post_klass: post_klass}
 
-
-
+%a{href: '#user-sign-up-box', class: 'fancybox-test'} Open lightbox
 
 - if can? :create, post_klass then
 	= render partial: 'conversation_posts/create_form', locals: {conversation_post: post_klass.new, share_message: share_message}
@@ -48,10 +47,29 @@
 -# 				= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
+.dont-show.fancybox-test#user-sign-up-box
+	%p Lightbox content
+
+
 
 :javascript
 	$(document).ready(function() {
 		$(".various").fancybox({
+			maxWidth	: 800,
+			maxHeight	: 600,
+			fitToView	: false,
+			width		: '70%',
+			height		: '70%',
+			autoSize	: false,
+			closeClick	: false,
+			openEffect	: 'none',
+			closeEffect	: 'none'
+		});
+	});
+
+:javascript
+	$(document).ready(function() {
+		$(".fancybox-test").fancybox({
 			maxWidth	: 800,
 			maxHeight	: 600,
 			fitToView	: false,

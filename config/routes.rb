@@ -4,7 +4,7 @@ Htcv2::Application.routes.draw do
 
   devise_for :users
 
-  get 'tools' => 'tools#resources'
+  get 'tools' => 'tools#services'
   get "tools/resources"
   get "tools/services"
   post 'tools/create_service_lead'
