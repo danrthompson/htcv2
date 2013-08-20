@@ -23,7 +23,7 @@ module Htcv2
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
 
-      # Devise::DeviseController.layout "application" 
+      Devise::DeviseController.layout "application" 
     end
 
 

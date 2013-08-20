@@ -8,7 +8,11 @@ PAPERCLIP_HASH_SECRET: c61b3a0150cce67fb5c8d760ae17edcffb16ad2910d5a8472768f04c9
 PAPERCLIP_DEFAULT_PATH: /htc/:id-:hash:extension
 APP_BASE_URL: http://harnessthecrowd.com
 TWITTER_HANDLE: harnessthecrowd
+SEGMENT_IO_SECRET: om2n5r549czkqyanvqjj
+SEGMENT_IO_API: lokefups21
 development:
+  SEGMENT_IO_SECRET: 7aes1iqvskkcll48cefp
+  SEGMENT_IO_API: thoar7zv41
   APP_BASE_URL: http://test.com
   S3_PATH_PREFIX: development_assets/
   PAPERCLIP_DEFAULT_PATH: /development_assets/:id-:hash:extension
