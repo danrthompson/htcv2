@@ -9,6 +9,7 @@ Htcv2::Application.routes.draw do
   get "tools/services"
   post 'tools/create_service_lead'
   post 'tools/create_tool_suggestion'
+  get 'service/:id' => 'tools#this_service'
 
   get 'about_us' => 'static#about_us'
   get 'contact_us' => 'static#contact_us'

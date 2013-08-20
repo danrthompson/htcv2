@@ -49,4 +49,8 @@ class ToolsController < ApplicationController
     redirect_to :back, notice: "Please include all required information."
   end
 
+  def this_service
+    this_service = Service.find(params[:id])
+  end
+
 end
