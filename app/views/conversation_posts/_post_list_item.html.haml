@@ -11,7 +11,7 @@
 		- if post.user then
 			= "Posted by: #{post.user.username}"
 		- else
-			Posted by an anonymous user
+			/ Posted by an anonymous user
 
 	.divider
 
@@ -26,4 +26,4 @@
 			-# 	%a.vote-arrow.down-arrow{:href => new_user_session_path} 
 		.float-right
 			%a{class: "various fancybox.ajax", "data-fancybox-type" => "ajax", href: polymorphic_path(post)}
-				%h4 add something
+				%h4 Add Commnet
