@@ -1,8 +1,29 @@
 class ConversationPost < ActiveRecord::Base
   @@anonymous_names = [
-    'anon name 1 (Anonymous User)',
-    'anon name 2 (Anonymous User)',
-    'anon name 3 (Anonymous User)'
+    "Nancy Drew",
+    "Clark Kent",
+    "Tony Stark",
+    "Bruce Wayne",
+    "Ameer Ikah",
+    "Elle Phont",
+    "Les Moore",
+    "Lily Pond",
+    "Lou Pole",
+    "Marsha Mellow",
+    "Mike Raffone",
+    "Paige Turner",
+    "Polly Ester",
+    "Russell Sprout",
+    "Sonny Day",
+    "Viola Solo",
+    "Warren Peace",
+    "Armand Hammer",
+    "Anne Teak",
+    "Anna Graham",
+    "Brighton Early",
+    "Corey Ander",
+    "Douglas Furr",
+    "Duane Pipe"
   ]
 
   has_reputation :votes, source: :user, aggregated_by: :sum
@@ -48,7 +69,7 @@ class ConversationPost < ActiveRecord::Base
     if self.user then
       user.username
     else
-      @@anonymous_names.sample
+      "#{@@anonymous_names.sample} (Anonymous)"
     end
   end
 

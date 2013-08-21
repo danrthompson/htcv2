@@ -1,6 +1,7 @@
 %li.convo-post
 	- if post.image? then
-		%img{:src => post.image.url(:thumb), :alt => ""}
+		%a{class: "various fancybox.ajax image-link-to-post", "data-fancybox-type" => "ajax", href: polymorphic_path(post)}
+			%img{:src => post.image.url(:thumb), :alt => ""}
 	- elsif post.video_html then
 		= post.video_html.html_safe
 

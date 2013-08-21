@@ -9,7 +9,7 @@
 			%h3= comment.author
 			.comment-action-items.float-right
 				%h4
-					%a{:href => ""}Reply
+					-# %a{:href => ""}Reply
 					- if can? :delete, comment then
 						&#124;
 						= link_to 'Delete', [commentable, comment], method: "delete", data: {confirm: "Delete this comment?"}

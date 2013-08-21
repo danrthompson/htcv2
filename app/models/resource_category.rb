@@ -1,5 +1,7 @@
 class ResourceCategory < ActiveRecord::Base
-  attr_accessible :title, :rank
+  attr_accessible :title, :rank, :image
+
+  has_attached_file :image, path: "/#{ENV['S3_PATH_PREFIX']}:class/:attachment/:id_partition/:style/:basename.:extension"
 
   has_many :resource_categories
   has_many :resources

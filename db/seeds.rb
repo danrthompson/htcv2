@@ -177,6 +177,35 @@ conversation_posts_list = [{"body"=>"Its never too early to start marketing your
 
 blog_post_images = [[1, 'CROWDFUNDING-GROWTH.png'], [2, 'Making_the_Video.png']]
 
+resource_category_images = [
+  [3, 'about-crowdfunding.jpg'],
+  [22, 'after-the-campaign.jpg'],
+  [2, 'booklist.png'],
+  [10, 'campaign-preparation.png'],
+  [1, 'featured-resources.png'],
+  [7, 'idea-development.png'],
+  [14, 'making-the-video.png'],
+  [18, 'marketing-and-outreach.png']
+]
+
+conversation_post_images = [
+  [19, 'calculate-costs.jpg'],
+  [7, 'calendar.jpg'],
+  [29, 'crowdbrewed.jpg'],
+  [15, 'html.jpg'],
+  [17, 'iphone-video.png'],
+  [18, 'kickstarter-indiegogo.png'],
+  [5, 'pitch.jpg'],
+  [26, 'rewards-or-equity.jpg'],
+  [23, 'rural-home.jpg'],
+  [12, 'sharing-icons.jpg'],
+  [10, 'shot-glasses.jpeg'],
+  [2, 'show-ambition.jpg'],
+  [30, 'spike-lee.jpg'],
+  [3, 'stand-out.jpg'],
+  [28, 'ubuntu-edge-indiegogo.jpg'],
+  [11, 'video-structure.png']
+]
 
 
 
@@ -228,7 +257,16 @@ blog_post_images = [[1, 'CROWDFUNDING-GROWTH.png'], [2, 'Making_the_Video.png']]
 #   post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "BlogPostImages/#{filename}"), 'r')
 #   post.save
 # end
-
+# resource_category_images.each do |id, filename|
+#   resource_cat = ResourceCategory.find(id)
+#   resource_cat.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ResourceCatImages/#{filename}"), 'r')
+#   resource_cat.save
+# end
+conversation_post_images.each do |id, filename|
+  conv_post = ConversationPost.find(id)
+  conv_post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ConversationPostImages/#{filename}"), 'r')
+  conv_post.save
+end
 
 
 
