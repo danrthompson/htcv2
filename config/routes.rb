@@ -15,7 +15,10 @@ Htcv2::Application.routes.draw do
   get 'about_us' => 'static#about_us'
   get 'contact_us' => 'static#contact_us'
   get 'press' => 'static#press'
-  get 'static/error_page'
+
+  get "/404", :to => "static#error_page"
+  get "/422", :to => "static#error_page"
+  get "/500", :to => "static#error_page"
 
 
 
