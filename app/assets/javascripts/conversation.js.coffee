@@ -45,6 +45,6 @@ jQuery ->
 jQuery ->
 	$("#post-conversation-anonymously")
 		.on 'click', (e) ->
-			$("#new_advice_post").submit()
+			$("#conversation-post-create-form").submit()
 
 
