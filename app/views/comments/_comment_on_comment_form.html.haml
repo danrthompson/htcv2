@@ -10,14 +10,3 @@
 		= f.text_area :body, class: "form-control", rows: "3"
 		-# %button.button.blue-button.float-right{name: "commit", type: "submit", value: "Share Your Thoughts"} Post Reply
 		= f.button "Post Reply", :class => "button blue-button float-right", :disable_with => "Submitting…"
-
-- if ajax
-	:javascript
-		jQuery(function() {
-		  return $('.conversation-post-comment-on-comment-form').on('ajax:beforeSend', function(evt, xhr, settings) {
-		    return $(this).find('textarea').addClass('uneditable-input').attr('disabled', 'disabled');
-		  }).on("ajax:success", function(evt, data, status, xhr) {
-		    $(this).find('textarea').removeClass('uneditable-input').removeAttr('disabled', 'disabled').val('');
-		    return $(xhr.responseText).insertBefore($(this));
-		  });
-		});
