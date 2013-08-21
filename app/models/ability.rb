@@ -11,9 +11,10 @@ class Ability
             can :manage, :all
             can :access, :admin_area
         else
-            can :read, Post do |post|
-                post.published_at && post.published_at < Time.now
-            end
+            # can :read, Post do |post|
+            #     post.published_at && post.published_at < Time.now
+            # end
+            can :read, Post
             can [:create, :read], [Comment, AdvicePost, QuestionPost, NewsPost]
             can :read, [Resource, ResourceCategory, Service, ServiceCategory]
             # logged in user, not administrator
@@ -21,6 +22,7 @@ class Ability
             can :vote, [Comment, AdvicePost]
         end 
     else
+        can :read, Post
         can [:create, :read], [Comment, AdvicePost, QuestionPost, NewsPost]
         can :read, [Resource, ResourceCategory, Service, ServiceCategory]
     end
