@@ -1,0 +1,1 @@
+!function(){$(function(){return $("#new_image_link").click(function(e){return e.preventDefault(),$(".no-objects-found").hide(),$(this).hide(),$.ajax({type:"GET",url:this.href,data:{authenticity_token:AUTH_TOKEN},success:function(e){return $("#images").html(e)}})})})}.call(this);
