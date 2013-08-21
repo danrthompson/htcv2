@@ -1,6 +1,23 @@
+chartbeat 10 / month (30 days free)
+heap 0.01 / unique (60 days free)
+librato free or not too expensive i think
+
+keen.io 40 / month (free until 50000 events)
+
+
+
 lets use
 google analytics
 mixpanel
+
+hittail
+marketo
+optimizely
+pingdom
+quantcast
+sentry
+http://visualwebsiteoptimizer.com/
+woopra
 
 data analysis:
 	http://chartio.com

@@ -86,10 +86,6 @@ GEM
     akami (1.2.0)
       gyoku (>= 0.4.0)
       nokogiri (>= 1.4.0)
-    analytics-ruby (0.3.3)
-      faraday (>= 0.8, < 0.10)
-      faraday_middleware (>= 0.8, < 0.10)
-      multi_json (~> 1.0)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (3.0.2)
@@ -182,6 +178,7 @@ GEM
       devise (>= 2.1.0)
     diff-lcs (1.2.4)
     erubis (2.7.0)
+    escape (0.0.4)
     eventmachine (1.0.3)
     exception_notification (2.5.2)
       actionmailer (>= 3.0.4)
@@ -190,10 +187,6 @@ GEM
       multi_json (~> 1.0)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
-    faraday (0.8.8)
-      multipart-post (~> 1.2.0)
-    faraday_middleware (0.9.0)
-      faraday (>= 0.7.4, < 0.9)
     fastercsv (1.5.5)
     fattr (2.2.1)
     ffaker (1.16.2)
@@ -267,12 +260,15 @@ GEM
       activesupport (~> 3.1)
       polyamorous (~> 0.5.0)
     mime-types (1.23)
+    mixpanel (4.0.4)
+      escape
+      json
+      rack
     money (5.1.1)
       i18n (~> 0.6.0)
     multi_json (1.7.7)
     multi_test (0.0.2)
     multi_xml (0.5.4)
-    multipart-post (1.2.0)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.6.8)
@@ -481,7 +477,6 @@ DEPENDENCIES
   activeadmin
   activerecord-reputation-system
   acts_as_commentable_with_threading
-  analytics-ruby
   auto_html
   awesome_print
   aws-sdk
@@ -509,6 +504,7 @@ DEPENDENCIES
   kaminari
   less-rails
   lesstile (~> 1.1.0)
+  mixpanel
   nokogiri (~> 1.5.0)
   open_id_authentication
   paperclip

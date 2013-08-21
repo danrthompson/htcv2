@@ -50,8 +50,15 @@ class ToolsController < ApplicationController
   end
 
   def this_service
+
+    tracker = Mixpanel::Tracker.new ENV["MIXPANEL_ID"], { :env => request.env }
+
+
     this_service = Service.find(params[:id])
-    
+    rank = (params[:featured] and this_service.featured) ? this_service.featured_rank : this_service.rank
+    tracker.track 'Clicked on service', {service_name: this_service.title, featured: params[:featured], rank: rank, place_of_click: params[:location].to_i}
+
+    redirect_to this_service.out_link
   end
 
 end
