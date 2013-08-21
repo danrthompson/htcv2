@@ -4,18 +4,15 @@
 	- elsif post.video_html then
 		= post.video_html.html_safe
 
-	/ Only show this if the user has permission to delete the post
-	.delete-entry-wrapper
-		%a{:href => ""} X 
+	- if can? :delete, post then
+		.delete-entry-wrapper
+			= link_to "X", post, method: :delete, data: {confirm: 'Delete this post?'}
 
 	%p
 		%a{class: "various fancybox.ajax", "data-fancybox-type" => "ajax", href: polymorphic_path(post)}
 			= post.title
 	%p.posted-by-whome		
-		- if post.user then
-			= "Posted by: #{post.user.username}"
-		- else
-			/ Posted by an anonymous user
+		= post.author
 
 	.divider
 

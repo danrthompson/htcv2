@@ -6,15 +6,13 @@
 
 		.comment_title_wrapper.float-left
 
-			- if comment.user then
-				%h3= comment.user.username
-			- else
-				%h3 Anonymous comment
+			%h3= comment.author
 			.comment-action-items.float-right
 				%h4
 					%a{:href => ""}Reply
-					&#124;
-					%a{:href => ""} Delete
+					- if can? :delete, comment then
+						&#124;
+						= link_to 'Delete', [commentable, comment], method: "delete", data: {confirm: "Delete this comment?"}
 
 		%p= comment.body
 

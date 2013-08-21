@@ -1,10 +1,7 @@
 .reply-entry
 	.comment-text
 		.comment_title_wrapper.float-left
-			- if comment.user then
-				%h3= comment.user.username
-			- else
-				%h3 Anonymous comment
+			%h3= comment.author
 		%p= comment.body
 
 	.comment-rating.float-left

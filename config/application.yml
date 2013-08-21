@@ -8,11 +8,15 @@ PAPERCLIP_HASH_SECRET: c61b3a0150cce67fb5c8d760ae17edcffb16ad2910d5a8472768f04c9
 PAPERCLIP_DEFAULT_PATH: /htc/:id-:hash:extension
 APP_BASE_URL: http://harnessthecrowd.com
 TWITTER_HANDLE: harnessthecrowd
-SEGMENT_IO_SECRET: om2n5r549czkqyanvqjj
-SEGMENT_IO_API: lokefups21
+MIXPANEL_ID: f71ec3d94b8bc4f3b39f8f0b01e7cd66
+GA_ID: UA-42341030-1
+GA_DOMAIN: harnessthecrowd.com
+HEAP_ID: 3430147041
 development:
-  SEGMENT_IO_SECRET: 7aes1iqvskkcll48cefp
-  SEGMENT_IO_API: thoar7zv41
+  HEAP_ID: 4182550274
+  GA_ID: UA-42341030-2
+  GA_DOMAIN: localhost:3000
+  MIXPANEL_ID: a43c7c77f9a0ba3897cb2e8b3a778c7f
   APP_BASE_URL: http://test.com
   S3_PATH_PREFIX: development_assets/
   PAPERCLIP_DEFAULT_PATH: /development_assets/:id-:hash:extension

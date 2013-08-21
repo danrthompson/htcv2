@@ -1,1 +1,0 @@
-Analytics.init(secret: ENV["SEGMENT_IO_SECRET"])

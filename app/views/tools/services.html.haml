@@ -6,55 +6,59 @@
 	.about-us-wrapper.extra-padding.no-heading
 		%p Running a campaign can be tough work, but luckily there are dozens of groups to help make the process easier. Here are a few crowdfunding friendly services that can help you reach your goal. Explore & enjoy!
 
-- num_services = @services.length
 
-.temp-wrapper
-	.service-message-wrapper.video
-		%h2.teal.center-align Let's Make A Movie
-		.divider
-		%p.video
-			It's tough work to make a video. Luckily, there are thousands of people to help. If you describe your project, we can try to find someone in your area to give you a hand. 
-		.divider
+- if @video then
 
-		.service-action-wrapper.video
-			%p Please enter your email
-			%input.form-control.message-box{:type => "text"}
-			%p What is your city and state?
-			%input.form-control.message-box{:type => "text"}
-			%p When would you like to start?
-			%input.form-control.message-box{:type => "text"}
-			%p Please describe your project
-			%textarea.form-control.message-box{:name => "", :cols => "30", :rows => "10"} 
-			.bottom-service-buttons.video
-				.divider
-				%a.button.blue-button{:href => ""} Let's Do It!
+	.temp-wrapper
+		.service-message-wrapper.video
+			%h2.teal.center-align Let's Make A Movie
+			.divider
+			%p.video
+				It's tough work to make a video. Luckily, there are thousands of people to help. If you describe your project, we can try to find someone in your area to give you a hand. 
+			.divider
+			= form_for VideoRequest.new, url: {controller: :tools, action: :create_video_request} do |f|
+				.service-action-wrapper.video
+					%p Please enter your email
+					= f.email_field :email, class: "form-control message-box"
+					%p What is your city and state?
+					= f.text_field :location, class: "form-control message-box"
+					%p When would you like to start?
+					= f.text_field :timeline, class: "form-control message-box"
+					%p What is your rough budget for this video? (optional)
+					= f.text_field :budget, class: "form-control message-box"
+					%p Please describe your project (optional)
+					= f.text_area :message, size: '30x10', class: "form-control message-box"
+					.bottom-service-buttons.video
+						.divider
+						= f.submit "Let's Do It!", class: "button blue-button"
+
+- else
+
+	- num_services = @services.length
 
 
+	.post-entry
+		.three-column-wrapper.services
+			- if num_services > 0 then
+				.column.first_col
+					%ul 
+						- (0..num_services - 1).step(3).each do |index|
+							= render partial: 'service_listing', locals: {this_service: @services[index]}
+			- if num_services > 1 then
+				.column.second_col
+					%ul 
+						- (1..num_services - 1).step(3).each do |index|
+							= render partial: 'service_listing', locals: {this_service: @services[index]}
+			- if num_services > 2 then
+				.column.third_col
+					%ul 
+						- (2..num_services - 1).step(3).each do |index|
+							= render partial: 'service_listing', locals: {this_service: @services[index]}
 
+	- @services.each do |this_service|
+		= render partial: 'message_service', locals: {this_service: this_service}
 
-
-.post-entry
-	.three-column-wrapper.services
-		- if num_services > 0 then
-			.column.first_col
-				%ul 
-					- (0..num_services - 1).step(3).each do |index|
-						= render partial: 'service_listing', locals: {this_service: @services[index]}
-		- if num_services > 1 then
-			.column.second_col
-				%ul 
-					- (1..num_services - 1).step(3).each do |index|
-						= render partial: 'service_listing', locals: {this_service: @services[index]}
-		- if num_services > 2 then
-			.column.third_col
-				%ul 
-					- (2..num_services - 1).step(3).each do |index|
-						= render partial: 'service_listing', locals: {this_service: @services[index]}
-
-- @services.each do |this_service|
-	= render partial: 'message_service', locals: {this_service: this_service}
-
-= render partial: 'tools/shared/suggest_a_tool', locals: {tool_is_service: true}
+	= render partial: 'tools/shared/suggest_a_tool', locals: {tool_is_service: true}
 
 :javascript
 	$(document).ready(function() {
