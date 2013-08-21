@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#country").change(function(){var e=$("#new_state_link a").attr("href"),t=$("#country option:selected").attr("value"),i=e.replace(/countries\/(\d+)/,"countries/"+t);$("#new_state_link a").attr("href",i)})});

@@ -257,11 +257,11 @@ conversation_post_images = [
 #   post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "BlogPostImages/#{filename}"), 'r')
 #   post.save
 # end
-# resource_category_images.each do |id, filename|
-#   resource_cat = ResourceCategory.find(id)
-#   resource_cat.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ResourceCatImages/#{filename}"), 'r')
-#   resource_cat.save
-# end
+resource_category_images.each do |id, filename|
+  resource_cat = ResourceCategory.find(id)
+  resource_cat.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ResourceCatImages/#{filename}"), 'r')
+  resource_cat.save
+end
 conversation_post_images.each do |id, filename|
   conv_post = ConversationPost.find(id)
   conv_post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ConversationPostImages/#{filename}"), 'r')
