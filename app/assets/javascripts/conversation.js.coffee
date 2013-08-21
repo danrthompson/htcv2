@@ -15,6 +15,11 @@ jQuery ->
 				.removeAttr('disabled', 'disabled')
 				.val('');
 			$(this).siblings(".conversation-comments:first").prepend($(xhr.responseText)).hide().fadeIn('slow')
+		.on "ajax:error", '.conversation-post-comment-form', (e, xhr, status, error) ->
+			$(this).find('textarea')
+				.removeClass('uneditable-input')
+				.removeAttr('disabled', 'disabled');
+			$(this).append($('<p>' + xhr.responseText + '</p>'))
 
 jQuery ->
 	$(document)
