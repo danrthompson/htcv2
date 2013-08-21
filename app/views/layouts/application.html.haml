@@ -44,8 +44,12 @@
 					-# %li.marketplace-link 
 					-#   %a{:href => "/store"}
 					-#     Marketplace
-					-#     / %img#mktplace-heart{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/mktplace-heart.png", :alt => ""}/ 
-				%a#login-btn.float-right{:href => ""}Login/Sign Up >
+					-#     / %img#mktplace-heart{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/mktplace-heart.png", :alt => ""}/
+				- if current_user then
+					= link_to 'Sign Out >', destroy_user_session_path, :method => :delete, class: "float-right", id: "login-btn"
+				- else
+					= link_to 'Login/Sign Up >', new_user_session_path, class: "float-right", id: "login-btn"
+
 				= yield(:sub_nav)
 
 				= yield(:intro_text)
@@ -56,8 +60,6 @@
 				/   %a{:href => root_url}= htcv2_config[:title]
 				.divider
 
-				- if current_user then
-					= link_to 'sign_out', destroy_user_session_path, :method => :delete
 
 				= flash_messages
 				= yield
