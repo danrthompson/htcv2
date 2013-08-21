@@ -1,5 +1,10 @@
 class Comment < ActiveRecord::Base
   @@max_nesting = 1
+  @@anonymous_names = [
+    'anon name 1 (Anonymous User)',
+    'anon name 2 (Anonymous User)',
+    'anon name 3 (Anonymous User)'
+  ]
 
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
 
@@ -68,6 +73,14 @@ class Comment < ActiveRecord::Base
   # given the commentable class name and id
   def self.find_commentable(commentable_str, commentable_id)
     commentable_str.constantize.find(commentable_id)
+  end
+
+  def author
+    if self.user then
+      user.username
+    else
+      @@anonymous_names.sample
+    end
   end
 
 

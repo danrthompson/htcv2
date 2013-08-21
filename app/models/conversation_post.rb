@@ -1,4 +1,10 @@
 class ConversationPost < ActiveRecord::Base
+  @@anonymous_names = [
+    'anon name 1 (Anonymous User)',
+    'anon name 2 (Anonymous User)',
+    'anon name 3 (Anonymous User)'
+  ]
+
   has_reputation :votes, source: :user, aggregated_by: :sum
   
 
@@ -36,6 +42,14 @@ class ConversationPost < ActiveRecord::Base
 
   def self.friendly_name
     'Conversation Post'
+  end
+
+  def author
+    if self.user then
+      user.username
+    else
+      @@anonymous_names.sample
+    end
   end
 
   protected
