@@ -3,7 +3,7 @@
 = render partial: 'shared/conversation/head', layout: 'shared/head'
 = render partial: 'conversation_posts/conversation_subnav', locals: {post_klass: post_klass}
 
-%a{href: '#user-sign-up-box', class: 'fancybox-test'} Open lightbox
+%a.fancybox-test.dont-show#hidden-link-open-user-sign-up-box{href: '#user-sign-up-box'} Open lightbox
 
 - if can? :create, post_klass then
 	= render partial: 'conversation_posts/create_form', locals: {conversation_post: post_klass.new, share_message: share_message}
@@ -47,14 +47,14 @@
 -# 				= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
-.dont-show.fancybox-test#user-sign-up-box
+.dont-show#user-sign-up-box
 	#sign-up-wrapper
 		%h2 
-			%a{:href => ""}
+			%a{:href => new_user_session_path}
 				Sign In 
 				%span 
 					or 
-			%a{:href => ""} 
+			%a{:href => new_user_registration_path} 
 				Sign Up
 				%br/ 
 			
@@ -63,7 +63,7 @@
 
 		/ .divider
 		%h2
-			%a.smaller{:href => ""}
+			%a.smaller#post-conversation-anonymously{:href => "javascript:void();"}
 				%span Or if you prefer,
 				post anonymously.
 		

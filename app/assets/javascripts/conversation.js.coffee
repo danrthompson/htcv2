@@ -35,3 +35,16 @@ jQuery ->
 		.on "ajax:success", '.vote_link', (evt, data, status, xhr) ->
 			$(this).siblings().removeClass('voted-arrow')
 			$(this).addClass('voted-arrow')
+
+jQuery ->
+	$("#create_conv_post_form_button")
+		.on 'click', (e) ->
+			e.preventDefault()
+			$("#hidden-link-open-user-sign-up-box").click()
+
+jQuery ->
+	$("#post-conversation-anonymously")
+		.on 'click', (e) ->
+			$("#new_advice_post").submit()
+
+
