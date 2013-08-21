@@ -1,1 +1,0 @@
-$(function(){var e=$("#gtwy-type").attr("value");$("div#gateway-settings-warning").hide(),$("#gtwy-type").change(function(){$("#gtwy-type").attr("value")==e?($("div.gateway-settings").show(),$("div#gateway-settings-warning").hide()):($("div.gateway-settings").hide(),$("div#gateway-settings-warning").show())})});
