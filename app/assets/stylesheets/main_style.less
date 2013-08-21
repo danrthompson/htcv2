@@ -545,6 +545,9 @@ fieldset[disabled] .form-control {
 
 	.blog_post_main_image{
 
+		iframe{
+			margin: auto;
+		}
 	}
 
 
@@ -590,6 +593,10 @@ fieldset[disabled] .form-control {
 
 }
 
+.post-entry#homepage{
+	width: 100%;
+}
+
 .side-scroll{
 	position:relative;
 	top: -20px;
@@ -601,6 +608,57 @@ fieldset[disabled] .form-control {
 	.mp(0);
 	opacity: 0.3;
 }
+
+
+////////// HGROUP side bars ///////////
+
+hgroup.secondary {
+	position: fixed;
+	left: 0;
+	bottom: 30px;
+	color: #fff;
+	padding: 0;
+	margin: 0;
+	text-transform: uppercase;
+	width: auto;
+
+	h3, h4, a{
+		background: @light-gray;
+		width: 165px;
+		height: 30px;
+		font-size: 16px;
+		line-height: 32px;
+		font-weight: 800;
+		padding: 10px 20px 10px 30px;
+		color: white;
+		margin-bottom: 100px;
+		opacity: 0.5;
+	}
+
+	h3:hover, h4:hover{
+		background-color: @teal;
+	}
+
+	a:hover{
+		background-color: @teal;
+		opacity: 1;
+	}
+}
+ 
+
+// hgroup.secondary h3,
+// hgroup.secondary h4,
+// hgroup.secondary a{
+// 	color: #fff !important; 
+// 	background: #787878;
+// 	padding: 10px 10px;
+// 	font-weight:500;
+// }
+
+
+
+
+
 ///////// BLOG POST CONTENT ////////
 
 .post{
@@ -1111,7 +1169,7 @@ fieldset[disabled] .form-control {
 .contact-us-page{
 	padding-top: 40px;
 	overflow: hidden;
-
+	width: 100%;
 	.email-entry{
 		width: 55%;
 		margin: auto;
@@ -2410,11 +2468,10 @@ fieldset.thanks-page{
 	}
 
 .lightbox-background-title{
-	position:absolute;
-	top: -10px;
+	margin-top: -10px;
 	opacity: 0.05;
 	font-size: 40px;
-	left: 40px;
+	
 }
 
 .conversation-comments{
