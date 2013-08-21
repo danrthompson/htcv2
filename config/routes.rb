@@ -8,6 +8,7 @@ Htcv2::Application.routes.draw do
   get "tools/resources"
   get "tools/services"
   post 'tools/create_service_lead'
+  post 'tools/create_video_request'
   post 'tools/create_tool_suggestion'
   get 'service/:id/:featured/:location' => 'tools#this_service'
 

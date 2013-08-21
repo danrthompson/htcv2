@@ -13,12 +13,18 @@ class ToolsController < ApplicationController
   def services
   	@service_categories = ServiceCategory.order("rank asc")
   	if params[:service_category] then
-  		@selected_category = ServiceCategory.find_by_title(params[:service_category])
-  		if @selected_category then
+      if params[:service_category] == "Video" then
+        @video = true
         @featured = false
-  			@services = @selected_category.services.order("rank asc")
-  			return
-  		end
+        return
+      else
+    		@selected_category = ServiceCategory.find_by_title(params[:service_category])
+    		if @selected_category then
+          @featured = false
+    			@services = @selected_category.services.order("rank asc")
+    			return
+    		end
+      end
   	end
   	@selected_category = nil
     @featured = true
@@ -59,6 +65,18 @@ class ToolsController < ApplicationController
     tracker.track 'Clicked on service', {service_name: this_service.title, featured: params[:featured], rank: rank, place_of_click: params[:location].to_i}
 
     redirect_to this_service.out_link
+  end
+
+  def create_video_request
+    vid_request = VideoRequest.create(params[:video_request])
+    if vid_request.valid? then
+      if current_user then
+        vid_request.user_id = current_user.id
+        vid_request.save
+      end
+      redirect_to :back, notice: "Thanks for your request! Someone will be in touch soon." and return
+    end
+    redirect_to :back, notice: "Error saving your request, please include all fields."
   end
 
 end
