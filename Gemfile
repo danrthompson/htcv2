@@ -26,6 +26,11 @@ gem 'activerecord-reputation-system', require: 'reputation_system'
 gem 'kaminari'
 gem 'thin'
 gem 'workless'
+<<<<<<< HEAD
+=======
+gem 'activeadmin'
+gem 'mixpanel'
+>>>>>>> 47a3e63549686c041521d749b14dfda58754b463
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -94,4 +99,8 @@ end
 
 gem 'spree', '2.0.3'
 gem 'spree_gateway', :git => 'https://github.com/spree/spree_gateway.git', :branch => '2-0-stable'
+<<<<<<< HEAD
 gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git', :branch => '2-0-stable'
+=======
+gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git', :branch => '2-0-stable'
+>>>>>>> 47a3e63549686c041521d749b14dfda58754b463

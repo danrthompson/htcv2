@@ -1,0 +1,16 @@
+- content_for :head do
+	= stylesheet_link_tag    "main_style"
+
+
+.thank-you-wrapper
+	%h2.teal.huge-smile
+		%span.smile-eyes :
+		%span.smile-mouth P
+
+	%h2.center-align.gray.thanks-page
+		Technical Troubles
+	
+	%p 
+		Oops! It looks like something went wrong. Sorry for the inconvenience. If you think this is a bug, it would be great if you'd send us an email so we can fix it. Just
+		%a.teal{:href => "mailto:bugs@harnessthecrowd.com"} click here!
+		Thanks!
