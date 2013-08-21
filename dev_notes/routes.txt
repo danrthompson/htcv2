@@ -1,0 +1,113 @@
+new_user_session GET    /users/sign_in(.:format)                                           devise/sessions#new
+user_session POST   /users/sign_in(.:format)                                           devise/sessions#create
+destroy_user_session DELETE /users/sign_out(.:format)                                          devise/sessions#destroy
+user_password POST   /users/password(.:format)                                          devise/passwords#create
+new_user_password GET    /users/password/new(.:format)                                      devise/passwords#new
+edit_user_password GET    /users/password/edit(.:format)                                     devise/passwords#edit
+PUT    /users/password(.:format)                                          devise/passwords#update
+cancel_user_registration GET    /users/cancel(.:format)                                            devise/registrations#cancel
+user_registration POST   /users(.:format)                                                   devise/registrations#create
+new_user_registration GET    /users/sign_up(.:format)                                           devise/registrations#new
+edit_user_registration GET    /users/edit(.:format)                                              devise/registrations#edit
+PUT    /users(.:format)                                                   devise/registrations#update
+DELETE /users(.:format)                                                   devise/registrations#destroy
+user_unlock POST   /users/unlock(.:format)                                            devise/unlocks#create
+new_user_unlock GET    /users/unlock/new(.:format)                                        devise/unlocks#new
+GET    /users/unlock(.:format)                                            devise/unlocks#show
+tools GET    /tools(.:format)                                                   tools#services
+tools_resources GET    /tools/resources(.:format)                                         tools#resources
+tools_services GET    /tools/services(.:format)                                          tools#services
+tools_create_service_lead POST   /tools/create_service_lead(.:format)                               tools#create_service_lead
+tools_create_video_request POST   /tools/create_video_request(.:format)                              tools#create_video_request
+tools_create_tool_suggestion POST   /tools/create_tool_suggestion(.:format)                            tools#create_tool_suggestion
+GET    /service/:id/:featured/:location(.:format)                         tools#this_service
+about_us GET    /about_us(.:format)                                                static#about_us
+contact_us GET    /contact_us(.:format)                                              static#contact_us
+press GET    /press(.:format)                                                   static#press
+GET    /404(.:format)                                                     static#error_page
+GET    /422(.:format)                                                     static#error_page
+GET    /500(.:format)                                                     static#error_page
+root        /                                                                  static#homepage
+active_admin_interface_root        /active_admin_interface(.:format)                                  active_admin_interface/dashboard#index
+root        /                                                                  dashboard#index
+batch_action_active_admin_interface_conversation_posts POST   /active_admin_interface/conversation_posts/batch_action(.:format)  active_admin_interface/conversation_posts#batch_action
+active_admin_interface_conversation_posts GET    /active_admin_interface/conversation_posts(.:format)               active_admin_interface/conversation_posts#index
+POST   /active_admin_interface/conversation_posts(.:format)               active_admin_interface/conversation_posts#create
+new_active_admin_interface_conversation_post GET    /active_admin_interface/conversation_posts/new(.:format)           active_admin_interface/conversation_posts#new
+edit_active_admin_interface_conversation_post GET    /active_admin_interface/conversation_posts/:id/edit(.:format)      active_admin_interface/conversation_posts#edit
+active_admin_interface_conversation_post GET    /active_admin_interface/conversation_posts/:id(.:format)           active_admin_interface/conversation_posts#show
+PUT    /active_admin_interface/conversation_posts/:id(.:format)           active_admin_interface/conversation_posts#update
+DELETE /active_admin_interface/conversation_posts/:id(.:format)           active_admin_interface/conversation_posts#destroy
+active_admin_interface_dashboard        /active_admin_interface/dashboard(.:format)                        active_admin_interface/dashboard#index
+batch_action_active_admin_interface_posts POST   /active_admin_interface/posts/batch_action(.:format)               active_admin_interface/posts#batch_action
+active_admin_interface_posts GET    /active_admin_interface/posts(.:format)                            active_admin_interface/posts#index
+POST   /active_admin_interface/posts(.:format)                            active_admin_interface/posts#create
+new_active_admin_interface_post GET    /active_admin_interface/posts/new(.:format)                        active_admin_interface/posts#new
+edit_active_admin_interface_post GET    /active_admin_interface/posts/:id/edit(.:format)                   active_admin_interface/posts#edit
+active_admin_interface_post GET    /active_admin_interface/posts/:id(.:format)                        active_admin_interface/posts#show
+PUT    /active_admin_interface/posts/:id(.:format)                        active_admin_interface/posts#update
+DELETE /active_admin_interface/posts/:id(.:format)                        active_admin_interface/posts#destroy
+batch_action_active_admin_interface_resource_categories POST   /active_admin_interface/resource_categories/batch_action(.:format) active_admin_interface/resource_categories#batch_action
+active_admin_interface_resource_categories GET    /active_admin_interface/resource_categories(.:format)              active_admin_interface/resource_categories#index
+POST   /active_admin_interface/resource_categories(.:format)              active_admin_interface/resource_categories#create
+new_active_admin_interface_resource_category GET    /active_admin_interface/resource_categories/new(.:format)          active_admin_interface/resource_categories#new
+edit_active_admin_interface_resource_category GET    /active_admin_interface/resource_categories/:id/edit(.:format)     active_admin_interface/resource_categories#edit
+active_admin_interface_resource_category GET    /active_admin_interface/resource_categories/:id(.:format)          active_admin_interface/resource_categories#show
+PUT    /active_admin_interface/resource_categories/:id(.:format)          active_admin_interface/resource_categories#update
+DELETE /active_admin_interface/resource_categories/:id(.:format)          active_admin_interface/resource_categories#destroy
+batch_action_active_admin_interface_resources POST   /active_admin_interface/resources/batch_action(.:format)           active_admin_interface/resources#batch_action
+active_admin_interface_resources GET    /active_admin_interface/resources(.:format)                        active_admin_interface/resources#index
+POST   /active_admin_interface/resources(.:format)                        active_admin_interface/resources#create
+new_active_admin_interface_resource GET    /active_admin_interface/resources/new(.:format)                    active_admin_interface/resources#new
+edit_active_admin_interface_resource GET    /active_admin_interface/resources/:id/edit(.:format)               active_admin_interface/resources#edit
+active_admin_interface_resource GET    /active_admin_interface/resources/:id(.:format)                    active_admin_interface/resources#show
+PUT    /active_admin_interface/resources/:id(.:format)                    active_admin_interface/resources#update
+DELETE /active_admin_interface/resources/:id(.:format)                    active_admin_interface/resources#destroy
+batch_action_active_admin_interface_service_categories POST   /active_admin_interface/service_categories/batch_action(.:format)  active_admin_interface/service_categories#batch_action
+active_admin_interface_service_categories GET    /active_admin_interface/service_categories(.:format)               active_admin_interface/service_categories#index
+POST   /active_admin_interface/service_categories(.:format)               active_admin_interface/service_categories#create
+new_active_admin_interface_service_category GET    /active_admin_interface/service_categories/new(.:format)           active_admin_interface/service_categories#new
+edit_active_admin_interface_service_category GET    /active_admin_interface/service_categories/:id/edit(.:format)      active_admin_interface/service_categories#edit
+active_admin_interface_service_category GET    /active_admin_interface/service_categories/:id(.:format)           active_admin_interface/service_categories#show
+PUT    /active_admin_interface/service_categories/:id(.:format)           active_admin_interface/service_categories#update
+DELETE /active_admin_interface/service_categories/:id(.:format)           active_admin_interface/service_categories#destroy
+batch_action_active_admin_interface_service_leads POST   /active_admin_interface/service_leads/batch_action(.:format)       active_admin_interface/service_leads#batch_action
+active_admin_interface_service_leads GET    /active_admin_interface/service_leads(.:format)                    active_admin_interface/service_leads#index
+POST   /active_admin_interface/service_leads(.:format)                    active_admin_interface/service_leads#create
+new_active_admin_interface_service_lead GET    /active_admin_interface/service_leads/new(.:format)                active_admin_interface/service_leads#new
+edit_active_admin_interface_service_lead GET    /active_admin_interface/service_leads/:id/edit(.:format)           active_admin_interface/service_leads#edit
+active_admin_interface_service_lead GET    /active_admin_interface/service_leads/:id(.:format)                active_admin_interface/service_leads#show
+PUT    /active_admin_interface/service_leads/:id(.:format)                active_admin_interface/service_leads#update
+DELETE /active_admin_interface/service_leads/:id(.:format)                active_admin_interface/service_leads#destroy
+batch_action_active_admin_interface_services POST   /active_admin_interface/services/batch_action(.:format)            active_admin_interface/services#batch_action
+active_admin_interface_services GET    /active_admin_interface/services(.:format)                         active_admin_interface/services#index
+POST   /active_admin_interface/services(.:format)                         active_admin_interface/services#create
+new_active_admin_interface_service GET    /active_admin_interface/services/new(.:format)                     active_admin_interface/services#new
+edit_active_admin_interface_service GET    /active_admin_interface/services/:id/edit(.:format)                active_admin_interface/services#edit
+active_admin_interface_service GET    /active_admin_interface/services/:id(.:format)                     active_admin_interface/services#show
+PUT    /active_admin_interface/services/:id(.:format)                     active_admin_interface/services#update
+DELETE /active_admin_interface/services/:id(.:format)                     active_admin_interface/services#destroy
+batch_action_active_admin_interface_tool_suggestions POST   /active_admin_interface/tool_suggestions/batch_action(.:format)    active_admin_interface/tool_suggestions#batch_action
+active_admin_interface_tool_suggestions GET    /active_admin_interface/tool_suggestions(.:format)                 active_admin_interface/tool_suggestions#index
+POST   /active_admin_interface/tool_suggestions(.:format)                 active_admin_interface/tool_suggestions#create
+new_active_admin_interface_tool_suggestion GET    /active_admin_interface/tool_suggestions/new(.:format)             active_admin_interface/tool_suggestions#new
+edit_active_admin_interface_tool_suggestion GET    /active_admin_interface/tool_suggestions/:id/edit(.:format)        active_admin_interface/tool_suggestions#edit
+active_admin_interface_tool_suggestion GET    /active_admin_interface/tool_suggestions/:id(.:format)             active_admin_interface/tool_suggestions#show
+PUT    /active_admin_interface/tool_suggestions/:id(.:format)             active_admin_interface/tool_suggestions#update
+DELETE /active_admin_interface/tool_suggestions/:id(.:format)             active_admin_interface/tool_suggestions#destroy
+batch_action_active_admin_interface_users POST   /active_admin_interface/users/batch_action(.:format)               active_admin_interface/users#batch_action
+active_admin_interface_users GET    /active_admin_interface/users(.:format)                            active_admin_interface/users#index
+POST   /active_admin_interface/users(.:format)                            active_admin_interface/users#create
+new_active_admin_interface_user GET    /active_admin_interface/users/new(.:format)                        active_admin_interface/users#new
+edit_active_admin_interface_user GET    /active_admin_interface/users/:id/edit(.:format)                   active_admin_interface/users#edit
+active_admin_interface_user GET    /active_admin_interface/users/:id(.:format)                        active_admin_interface/users#show
+PUT    /active_admin_interface/users/:id(.:format)                        active_admin_interface/users#update
+DELETE /active_admin_interface/users/:id(.:format)                        active_admin_interface/users#destroy
+batch_action_active_admin_interface_video_requests POST   /active_admin_interface/video_requests/batch_action(.:format)      active_admin_interface/video_requests#batch_action
+active_admin_interface_video_requests GET    /active_admin_interface/video_requests(.:format)                   active_admin_interface/video_requests#index
+POST   /active_admin_interface/video_requests(.:format)                   active_admin_interface/video_requests#create
+new_active_admin_interface_video_request GET    /active_admin_interface/video_requests/new(.:format)               active_admin_interface/video_requests#new
+edit_active_admin_interface_video_request GET    /active_admin_interface/video_requests/:id/edit(.:format)          active_admin_interface/video_requests#edit
+active_admin_interface_video_request GET    /active_admin_interface/video_requests/:id(.:format)               active_admin_interface/video_requests#show
+PUT    /active_admin_interface/video_requests/:id(.:format)               active_admin_interface/video_requests#update
+DELETE /active_admin_interface/video_requests/:id(.:format)               active_admin_interface/video_requests#destroy
