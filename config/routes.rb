@@ -13,6 +13,8 @@ Htcv2::Application.routes.draw do
   get 'contact_us' => 'static#contact_us'
   get 'press' => 'static#press'
 
+  get 'community' => 'new_features#community_page'
+
 
 
   root to: 'static#homepage'
