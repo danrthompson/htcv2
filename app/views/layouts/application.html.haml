@@ -48,7 +48,7 @@
 					= link_to 'Sign Out >', destroy_user_session_path, :method => :delete, class: "float-left login-btn"
 				- else
 					= link_to 'Login/Sign Up >', new_user_session_path, class: "float-left login-btn"
-				%a.float-right.login-btn{href: '/community'} Community Page
+				%a.float-right.login-btn{href: '/community'} Discussion Board >
 
 				= yield(:sub_nav)
 

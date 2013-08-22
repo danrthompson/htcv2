@@ -11,7 +11,6 @@ Htcv2::Application.routes.draw do
   post 'tools/create_tool_suggestion'
   get 'service/:id/:featured/:location' => 'tools#this_service'
 
-
   get 'about_us' => 'static#about_us'
   get 'contact_us' => 'static#contact_us'
   get 'press' => 'static#press'
