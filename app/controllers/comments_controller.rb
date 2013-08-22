@@ -33,18 +33,19 @@ class CommentsController < ApplicationController
     end
   end
 
-  def vote
-    authorize! :vote, Comment
-    value = params[:type] == "up" ? 1 : -1
-    @comment = Comment.find(params[:id])
-    @comment.add_or_update_evaluation(:votes, value, current_user)
-    redirect_to :back, notice: "Thank you for voting"
-  end
+  # def vote
+  #   authorize! :vote, Comment
+  #   value = params[:type] == "up" ? 1 : -1
+  #   @comment = Comment.find(params[:id])
+  #   @comment.add_or_update_evaluation(:votes, value, current_user)
+  #   redirect_to :back, notice: "Thank you for voting"
+  # end
 
   private
 
   def load_commentable
-    parent_klasses = [AdvicePost, QuestionPost, NewsPost]
+    # parent_klasses = [AdvicePost, QuestionPost, NewsPost]
+    parent_klasses = [CommunityPost]
     klass = parent_klasses.detect { |c| params["#{c.name.underscore}_id"] }
     @commentable = klass.find(params["#{klass.name.underscore}_id"])
   end
