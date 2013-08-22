@@ -23,7 +23,7 @@ $(function() {
     
     $('.twitter').on('click', function() {
         var loc = encodeURIComponent('http://www.harnessthecrowd.com'),
-                title = "Let's make more good ideas happen. If you've ever thought about crowdfunding, check out @harnessthecrowd     www.harnessthecrowd.com",
+                title = "Let's make more good ideas happen. If you've ever thought about crowdfunding, check out @harnessthecrowd",
                 w = 580, h = 300,
                 left = (screen.width/2)-(w/2),
                 top = (screen.height/2)-(h/2);
