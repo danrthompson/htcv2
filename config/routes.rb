@@ -6,7 +6,6 @@ Htcv2::Application.routes.draw do
   resources :feedbacks, only: [:create]
 
   get 'service/:id/:featured/:location' => 'services#this_service'
-  get '/community' => 'new_features#community_page'
 
   get 'about_us' => 'static#about_us'
   get 'contact_us' => 'static#contact_us'
@@ -29,6 +28,10 @@ Htcv2::Application.routes.draw do
     post 'create_tool_suggestion' => 'services#create_tool_suggestion'
 
     root to: 'services#index'
+  end
+
+  resources :community_posts, only: [:index, :create, :destroy], path: 'community' do 
+    resources :comments, only: [:create, :destroy]
   end
 
   # scope '/conversation' do

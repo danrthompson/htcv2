@@ -1,19 +1,20 @@
 class ConversationPostsController < ApplicationController
 
   def index
-    @posts = ConversationPost.where(type: post_klass.name).find_with_reputation(:votes, :all, order: "votes desc")
+    # @posts = ConversationPost.where(type: post_klass.name).find_with_reputation(:votes, :all, order: "votes desc")
+    @posts = ConversationPost.where(type: post_klass.name).order('created_at DESC')
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @posts }
-    end
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.json { render json: @posts }
+    # end
   end
 
-  def show
-    @post = post_klass.find(params[:id])
-    @comments = @post.root_comments.find_with_reputation(:votes, :all, {order: 'votes desc'})
-    render layout: false
-  end
+  # def show
+  #   @post = post_klass.find(params[:id])
+  #   @comments = @post.root_comments.find_with_reputation(:votes, :all, {order: 'votes desc'})
+  #   render layout: false
+  # end
 
   def create
     authorize! :create, post_klass
@@ -42,13 +43,13 @@ class ConversationPostsController < ApplicationController
     end
   end
 
-  def vote
-    authorize! :vote, post_klass
-    value = params[:type] == "up" ? 1 : -1
-    @post = post_klass.find(params[:id])
-    @post.add_or_update_evaluation(:votes, value, current_user)
-    redirect_to :back, notice: "Thank you for voting"
-  end
+  # def vote
+  #   authorize! :vote, post_klass
+  #   value = params[:type] == "up" ? 1 : -1
+  #   @post = post_klass.find(params[:id])
+  #   @post.add_or_update_evaluation(:votes, value, current_user)
+  #   redirect_to :back, notice: "Thank you for voting"
+  # end
 
   private
 

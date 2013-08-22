@@ -1,0 +1,30 @@
+= render 'shared/head'
+
+- content_for :intro_text do
+	/ .about-us-wrapper.extra-padding.no-heading
+	/ 	%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem.
+
+
+#discussion-board
+	.submit-form.submit-comment
+		= form_for CommunityPost.new do |f|
+			= f.text_area :body, class: "float-left form-control", id: "discussion-comment", size: '30x10'
+			%button.btn.gray-button.float-right.center-align{type: :submit} Share Your Thoughts
+	%br/ 
+
+	- @posts.each do |post|
+
+		.discussion-entry
+			.divider
+			%br/ 
+			%p= post.body
+			%h3.teal.float-right="- #{post.author}"
+			%ul.action-items.float-left
+				%li 
+					%a{:href => ""}Reply 
+				%li.pipe 
+					%a &#124
+				%li 
+					%a{:href => ""}Show Comments  
+		
+		
