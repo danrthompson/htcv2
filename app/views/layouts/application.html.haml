@@ -32,22 +32,24 @@
 						%a{:href => "/"}
 							%img{src: "https://s3.amazonaws.com/harnessthecrowd/HTC-LOGO-SIDE-TRANSPARENT.png"}
 					%li 
-						%a{:href => "/tools/resources"} Resources
-
+						%a{:href => "/newsletter"} Newsletter
+												
 					%li 
 						%a{:href => "/tools/services"} Services
 
 					%li 
-						%a{:href => "/newsletter"} Newsletter
+						%a{:href => "/tools/resources"} Resources
 
 					-# %li.marketplace-link 
 					-#   %a{:href => "/store"}
 					-#     Marketplace
 					-#     / %img#mktplace-heart{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/mktplace-heart.png", :alt => ""}/
+
 				- if current_user then
-					= link_to 'Sign Out >', destroy_user_session_path, :method => :delete, class: "float-right", id: "login-btn"
+					= link_to 'Sign Out >', destroy_user_session_path, :method => :delete, class: "float-left login-btn"
 				- else
-					= link_to 'Login/Sign Up >', new_user_session_path, class: "float-right", id: "login-btn"
+					= link_to 'Login/Sign Up >', new_user_session_path, class: "float-left login-btn"
+				%a.float-right.login-btn{href: '/community'} Community Page
 
 				= yield(:sub_nav)
 
