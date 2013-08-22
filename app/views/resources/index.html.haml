@@ -1,6 +1,6 @@
 = render 'shared/head'
 
-= render 'tools/shared/resource_subnav'
+= render 'resource_subnav'
 - content_for :intro_text do
 	.about-us-wrapper.extra-padding.no-heading
 		%p If you've never run a campaign before, getting started can seem like a daunting task. To make it a little easier, we've compiled the best links, tools, and resources to help you get a feel for the process. 
@@ -10,7 +10,7 @@
 .post-entry
 	- if @selected_category and @selected_category.image? then
 		%img{src: @selected_category.image.url(:original), style: "width: 600px;"}
-	= render partial: 'submit_tool_form', locals: {tool_type: "Resource"}
+	= render partial: 'shared/tools/submit_tool_form', locals: {tool_type: "Resource"}
 	- if @selected_category and @selected_category.resources.any? then
 		.resources_subsection
 			- @selected_category.resources.order('rank asc').each do |resource|
@@ -28,7 +28,7 @@
 						= render partial: 'resource_listing', locals: {resource: resource}
 			.divider.extra-bottom-margin
 
-= render partial: 'tools/shared/suggest_a_tool', locals: {tool_is_service: false}
+= render partial: 'shared/tools/suggest_a_tool', locals: {tool_is_service: false}
 
 :javascript
 	$(document).ready(function() {

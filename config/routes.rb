@@ -3,14 +3,10 @@ Htcv2::Application.routes.draw do
 
   devise_for :users
 
-  get 'tools' => 'tools#services'
-  get "tools/resources"
-  get "tools/services"
-  post 'tools/create_service_lead'
-  post 'tools/create_video_request'
-  post 'tools/create_tool_suggestion'
-  get 'service/:id/:featured/:location' => 'tools#this_service'
+  resources :feedbacks, only: [:create]
 
+  get 'service/:id/:featured/:location' => 'services#this_service'
+  get '/community' => 'new_features#community_page'
 
   get 'about_us' => 'static#about_us'
   get 'contact_us' => 'static#contact_us'
@@ -24,9 +20,16 @@ Htcv2::Application.routes.draw do
   root to: 'static#homepage'
   ActiveAdmin.routes(self)
 
+  scope '/tools' do
+    resources :services, only: [:index]
+    # resources :resources, only: [:index, :create]
+    resources :resources, only: [:index]
+    post 'services/create_service_lead'
+    post 'services/create_video_request'
+    post 'create_tool_suggestion' => 'services#create_tool_suggestion'
 
-
-
+    root to: 'services#index'
+  end
 
   # scope '/conversation' do
   #   resources :advice_posts, only: [:index, :show, :create, :destroy], path: 'advice' do 

@@ -2,10 +2,10 @@
 	.sub_nav_top
 		%ul.sub_nav.top_half
 			%li.current-selection 
-				%a{:href => tools_resources_path} 
+				%a{:href => resources_path} 
 					%h2 Resources
 			%li
-				%a{:href => tools_services_path} 
+				%a{:href => services_path} 
 					%h2 Services
 		%h3.float-left.suggest
 			%a.fancybox{:href => "\#suggest_a_resource"} SUGGEST A RESOURCE
@@ -14,8 +14,8 @@
 			- @resource_categories.each do |resource_cat|
 				- if resource_cat == @selected_category then
 					%li.current-selection 
-						%a{href: tools_resources_path(resource_category: resource_cat.title)}= resource_cat.title
+						%a{href: resources_path(resource_category: resource_cat.title)}= resource_cat.title
 				- else
 					%li
-						%a{href: tools_resources_path(resource_category: resource_cat.title)}= resource_cat.title
+						%a{href: resources_path(resource_category: resource_cat.title)}= resource_cat.title
 	%p.side-scroll.float-right SCROLL FOR MORE >

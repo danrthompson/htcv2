@@ -5,7 +5,7 @@
 			= this_service.title
 			</span>
 		.divider
-		= form_for ServiceLead.new, url: {controller: :tools, action: :create_service_lead} do |f|
+		= form_for ServiceLead.new, url: '/tools/services/create_service_lead' do |f|
 			= f.hidden_field :service_id, value: this_service.id
 			= f.hidden_field :featured_page, value: (@featured == true) ? 1 : nil
 			.service-action-wrapper
