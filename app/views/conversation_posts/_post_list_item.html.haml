@@ -1,31 +1,27 @@
 %li.convo-post
 	- if post.image? then
-		%a{class: "various fancybox.ajax image-link-to-post", "data-fancybox-type" => "ajax", href: polymorphic_path(post)}
-			%img{:src => post.image.url(:thumb), :alt => ""}
+		%img{:src => post.image.url(:thumb), :alt => ""}
 	- elsif post.video_html then
 		= post.video_html.html_safe
-
-	- if can? :delete, post then
-		.delete-entry-wrapper
-			= link_to "X", post, method: :delete, data: {confirm: 'Delete this post?'}
-
 	%p
 		%a{class: "various fancybox.ajax", "data-fancybox-type" => "ajax", href: polymorphic_path(post)}
 			= post.title
 	%p.posted-by-whome		
-		= post.author
+		- if post.user then
+			= "Posted by: #{post.user.username}"
+		- else
+			Posted by an anonymous user
 
 	.divider
 
 	.bottom-action-items
 		.float-left
-			= render partial: 'comments/vote_on_comment', locals: {votable: post, vote_path_for_votable: create_votable_path_for_conversation_post(post), all_arrows: 'vote-arrow', voted_arrow: 'voted-arrow', top_arrow: 'up-arrow', bottom_arrow: 'down-arrow'}
-			-# - if can? :vote, post then
-			-# 	= link_to "", vote_path_for_votable.call("up"), method: "post", class: "vote-arrow up-arrow"
-			-# 	= link_to "", vote_path_for_votable.call("down"), method: "post", class: "vote-arrow down-arrow"
-			-# - else
-			-# 	%a.vote-arrow.up-arrow{:href => new_user_session_path}
-			-# 	%a.vote-arrow.down-arrow{:href => new_user_session_path} 
+			- if can? :vote, post then
+				= link_to "", vote_path_for_votable.call("up"), method: "post", class: "vote-arrow up-arrow"
+				= link_to "", vote_path_for_votable.call("down"), method: "post", class: "vote-arrow down-arrow"
+			- else
+				%a.vote-arrow.up-arrow{:href => new_user_session_path}
+				%a.vote-arrow.down-arrow{:href => new_user_session_path} 
 		.float-right
 			%a{class: "various fancybox.ajax", "data-fancybox-type" => "ajax", href: polymorphic_path(post)}
-				%h4 Add Comment
+				%h4 add something

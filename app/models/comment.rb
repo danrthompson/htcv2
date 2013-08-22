@@ -1,33 +1,6 @@
 class Comment < ActiveRecord::Base
   @@max_nesting = 1
 
-  @@anonymous_names = [
-    "Nancy Drew",
-    "Clark Kent",
-    "Tony Stark",
-    "Bruce Wayne",
-    "Ameer Ikah",
-    "Elle Phont",
-    "Les Moore",
-    "Lily Pond",
-    "Lou Pole",
-    "Marsha Mellow",
-    "Mike Raffone",
-    "Paige Turner",
-    "Polly Ester",
-    "Russell Sprout",
-    "Sonny Day",
-    "Viola Solo",
-    "Warren Peace",
-    "Armand Hammer",
-    "Anne Teak",
-    "Anna Graham",
-    "Brighton Early",
-    "Corey Ander",
-    "Douglas Furr",
-    "Duane Pipe"
-  ]
-
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
 
   has_reputation :votes, source: :user, aggregated_by: :sum
@@ -95,14 +68,6 @@ class Comment < ActiveRecord::Base
   # given the commentable class name and id
   def self.find_commentable(commentable_str, commentable_id)
     commentable_str.constantize.find(commentable_id)
-  end
-
-  def author
-    if self.user then
-      user.username
-    else
-      "#{@@anonymous_names.sample} (Anonymous)"
-    end
   end
 
 

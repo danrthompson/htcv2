@@ -13,18 +13,12 @@ class ToolsController < ApplicationController
   def services
   	@service_categories = ServiceCategory.order("rank asc")
   	if params[:service_category] then
-      if params[:service_category] == "Video" then
-        @video = true
+  		@selected_category = ServiceCategory.find_by_title(params[:service_category])
+  		if @selected_category then
         @featured = false
-        return
-      else
-    		@selected_category = ServiceCategory.find_by_title(params[:service_category])
-    		if @selected_category then
-          @featured = false
-    			@services = @selected_category.services.order("rank asc")
-    			return
-    		end
-      end
+  			@services = @selected_category.services.order("rank asc")
+  			return
+  		end
   	end
   	@selected_category = nil
     @featured = true
@@ -53,30 +47,6 @@ class ToolsController < ApplicationController
       end
     end
     redirect_to :back, notice: "Please include all required information."
-  end
-
-  def this_service
-
-    tracker = Mixpanel::Tracker.new ENV["MIXPANEL_ID"], { :env => request.env }
-
-
-    this_service = Service.find(params[:id])
-    rank = (params[:featured] and this_service.featured) ? this_service.featured_rank : this_service.rank
-    tracker.track 'Clicked on service', {service_name: this_service.title, featured: params[:featured], rank: rank, place_of_click: params[:location].to_i}
-
-    redirect_to this_service.out_link
-  end
-
-  def create_video_request
-    vid_request = VideoRequest.create(params[:video_request])
-    if vid_request.valid? then
-      if current_user then
-        vid_request.user_id = current_user.id
-        vid_request.save
-      end
-      redirect_to :back, notice: "Thanks for your request! Someone will be in touch soon." and return
-    end
-    redirect_to :back, notice: "Error saving your request, please include all fields."
   end
 
 end

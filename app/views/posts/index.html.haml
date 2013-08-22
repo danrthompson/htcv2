@@ -2,9 +2,9 @@
 	= posts_title(@tag)
 = render partial: 'shared/blog/head', layout: 'shared/head'
 - content_for :intro_text do
-	/ .about-us-wrapper
-	/ 	/ %h1 What We're About
-	/ 	%p.small-description Crowdfunding is about people coming together ot make good ideas a reality. We designed this site to make that process easier. Its a place to keep up with new trends, find crowdfunding tools, or just engage with like minded people. We hope you like it!
+	.about-us-wrapper
+		/ %h1 What We're About
+		%p.small-description Crowdfunding is about people coming together ot make good ideas a reality. We designed this site to make that process easier. Its a place to keep up with new trends, find crowdfunding tools, or just engage with like minded people. We hope you like it!
 
 / ADMIN SIGN IN OPTION
 / - if administrator_signed_in?

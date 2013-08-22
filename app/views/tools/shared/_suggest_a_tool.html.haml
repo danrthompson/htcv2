@@ -13,7 +13,7 @@
 		.divider
 		= form_for ToolSuggestion.new, url: {controller: :tools, action: :create_tool_suggestion} do |f|
 			= f.hidden_field :tool_type, value: tool_type
-			.service-action-wrapper.suggest
+			.service-action-wrapper
 				= f.label "#{tool_type} name, url, basic info:", class: "field-label"
 				= f.text_field :tool_name, size: "30x10", class: "form-control message-box"
 				%br

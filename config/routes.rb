@@ -1,24 +1,17 @@
 Htcv2::Application.routes.draw do
 
 
-
   devise_for :users
 
-  get 'tools' => 'tools#services'
+  get 'tools' => 'tools#resources'
   get "tools/resources"
   get "tools/services"
   post 'tools/create_service_lead'
-  post 'tools/create_video_request'
   post 'tools/create_tool_suggestion'
-  get 'service/:id/:featured/:location' => 'tools#this_service'
 
   get 'about_us' => 'static#about_us'
   get 'contact_us' => 'static#contact_us'
   get 'press' => 'static#press'
-
-  get "/404", :to => "static#error_page"
-  get "/422", :to => "static#error_page"
-  get "/500", :to => "static#error_page"
 
 
 
@@ -94,10 +87,7 @@ Htcv2::Application.routes.draw do
 
   # end
 
-  root to: 'static#homepage'
-
-  ActiveAdmin.routes(self)
-
+  root to: 'posts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
