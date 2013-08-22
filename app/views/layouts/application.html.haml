@@ -66,7 +66,7 @@
 
 				%hgroup.secondary
 					%a.teal{:href => "/help_out"} Share the <3
-					%a{:href => "/help_out"} Feedback
+					%a#newsletter-fancybox-link{:href => '#feedback-form-fancybox'} Feedback
 
 					-# %br/ 
 					-# %br/ 
@@ -115,3 +115,12 @@
 					.clear.center-align
 						%input#mc-embedded-subscribe.button.blue-button{:name => "subscribe", :type => "submit", :value => "Let's Do It!"}
 					= javascript_include_tag 'mailchimp_script'
+		.dont-show#feedback-form-fancybox
+			= form_for Feedback.new, remote: true do |f|
+				%p We'd love to hear your feedback, positive or negative:
+				= f.text_area :message
+				%br
+				%p Feel free to put in your email if you want us to message you back, but it's not required.
+				= f.email_field :email
+				%br
+				= f.submit "Send feedback"
