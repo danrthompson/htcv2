@@ -449,6 +449,89 @@ fieldset[disabled] .form-control {
 	}
 }
 
+
+#discussion-board{
+	width:800px;
+	margin: auto;
+}
+
+.submit-form.submit-comment{
+	overflow: hidden;
+	padding-top: 20px;
+	margin-top: 50px;
+	height:80px;
+	width: 800px;
+	margin: auto;
+
+	textarea{
+		width: 75%;
+		margin-top: 20px;
+		height: 25px;
+		overflow: hidden;
+	}
+
+	.btn{
+		width: 18%;
+		background-color: white;
+		border: 1px solid @stroke-color;
+		color: @dark-gray;
+		overflow: hidden;
+		margin: 20px 0 20px 0;
+	}
+
+	.btn:hover{
+		background-color: @teal;
+		color: white;
+	}
+}
+
+.discussion-entry{
+	margin-top: 20px;
+	overflow: hidden;
+
+	h3{
+		margin-top: 20px;
+		height:20px;
+	}
+
+	p{
+		margin-bottom: 0;
+	}
+
+	ul{
+		display: none;
+	}
+}
+
+
+.discussion-entry:hover{
+	ul{
+		display: inline;
+		margin-top: 20px;
+		li{
+			display: inline;
+		padding: 10px 2px;
+			a{
+				font-weight: 600;
+				color: @light-gray;
+				opacity: 0.75;
+			}
+
+			a:hover{
+				color: @teal;
+				opacity: 1;
+			}
+		}
+
+		li.pipe{
+				a:hover{
+					color: @light-gray;
+				}
+			}
+	}
+}
+
+
 // ^^^ END NAV MENU
 
 // Start Footer
