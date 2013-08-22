@@ -35,7 +35,7 @@
 						%a{:href => "/"}
 							%img{src: "https://s3.amazonaws.com/harnessthecrowd/HTC-LOGO-SIDE-TRANSPARENT.png"}
 					%li 
-						%a#newsletter-fancybox-link{:href => '#newsletter-sign-up-fancybox'}  Newsletter
+						%a#newsletter-fancybox-link{:href => '#newsletter-sign-up-fancybox'} Newsletter
 												
 					%li 
 						%a{:href => "/tools/services"} Helpful Services
@@ -47,7 +47,7 @@
 				- if current_user then
 					= link_to 'Sign Out >', destroy_user_session_path, :method => :delete, class: "float-left login-btn"
 				- else
-					= link_to 'Login/Sign Up >', new_user_session_path, class: "float-left login-btn"
+					= link_to 'Community Login >', new_user_session_path, class: "float-left login-btn"
 				%a.float-right.login-btn{href: '/community'} Discussion Board >
 
 				= yield(:sub_nav)
@@ -65,10 +65,12 @@
 				= yield
 
 				%hgroup.secondary
-					%a{:href => "/help_out"} Help Out
-					%br/ 
-					%br/ 
-					%a#newsletter-fancybox-link{:href => '#feedback-form-fancybox'} Feedback
+					%a.teal{:href => "/help_out"} Share the <3
+					%a{:href => "/help_out"} Feedback
+
+					-# %br/ 
+					-# %br/ 
+					-# %a{:href => ""} Newsletter
 					
 
 				.footer
@@ -113,12 +115,3 @@
 					.clear.center-align
 						%input#mc-embedded-subscribe.button.blue-button{:name => "subscribe", :type => "submit", :value => "Let's Do It!"}
 					= javascript_include_tag 'mailchimp_script'
-		.dont-show#feedback-form-fancybox
-			= form_for Feedback.new, remote: true do |f|
-				%p We'd love to hear your feedback, positive or negative:
-				= f.text_area :message
-				%br
-				%p Feel free to put in your email if you want us to message you back, but it's not required.
-				= f.email_field :email
-				%br
-				= f.submit "Send feedback"
