@@ -2,8 +2,8 @@ class ResourcesController < ApplicationController
 
 	def index
 		@resource_categories = ResourceCategory.where(resource_category_id: nil).order('rank asc')
-		if params[:resource_category] then
-			@selected_category = ResourceCategory.where(resource_category_id: nil).find_by_title(params[:resource_category])
+		if params[:seo_url] then
+			@selected_category = ResourceCategory.where(resource_category_id: nil).find_by_seo_url(params[:seo_url])
 			if @selected_category then
 				return
 			end

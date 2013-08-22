@@ -207,6 +207,32 @@ conversation_post_images = [
   [11, 'video-structure.png']
 ]
 
+resource_cat_seo_urls = [
+  [1, 'featured'],
+  [2, 'booklist'],
+  [3, 'about-crowdfunding'],
+  [7, 'idea-development'],
+  [10, 'campaign-preparation'],
+  [14, 'making-the-video'],
+  [18, 'marketing-and-outreach'],
+  [22, 'after-the-campaign']
+]
+
+service_cat_seo_urls = [
+  [1, 'campaign-management'],
+  [3, 'marketing-and-pr'],
+  [2, 'video'],
+  [5, 'manufacturing'],
+  [6, 'fulfillment'],
+  [4, 'website-design-development']
+]
+
+
+
+
+
+
+
 
 
 # actual seed scripts
@@ -257,16 +283,26 @@ conversation_post_images = [
 #   post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "BlogPostImages/#{filename}"), 'r')
 #   post.save
 # end
-resource_category_images.each do |id, filename|
-  resource_cat = ResourceCategory.find(id)
-  resource_cat.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ResourceCatImages/#{filename}"), 'r')
-  resource_cat.save
-end
+# resource_category_images.each do |id, filename|
+#   resource_cat = ResourceCategory.find(id)
+#   resource_cat.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ResourceCatImages/#{filename}"), 'r')
+#   resource_cat.save
+# end
 # conversation_post_images.each do |id, filename|
 #   conv_post = ConversationPost.find(id)
 #   conv_post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ConversationPostImages/#{filename}"), 'r')
 #   conv_post.save
 # end
+resource_cat_seo_urls.each do |id, seo_url|
+  cat = ResourceCategory.find(id)
+  cat.seo_url = seo_url
+  cat.save
+end
+service_cat_seo_urls.each do |id, seo_url|
+  cat = ServiceCategory.find(id)
+  cat.seo_url = seo_url
+  cat.save
+end
 
 
 

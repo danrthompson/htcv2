@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130822051927) do
+ActiveRecord::Schema.define(:version => 20130822220822) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -121,14 +121,15 @@ ActiveRecord::Schema.define(:version => 20130822051927) do
 
   create_table "resource_categories", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.integer  "resource_category_id"
     t.integer  "rank"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "seo_url",              :default => "", :null => false
   end
 
   create_table "resources", :force => true do |t|
@@ -189,9 +190,10 @@ ActiveRecord::Schema.define(:version => 20130822051927) do
 
   create_table "service_categories", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.integer  "rank"
+    t.string   "seo_url",    :default => "", :null => false
   end
 
   create_table "service_leads", :force => true do |t|

@@ -16,7 +16,7 @@
 			%p.video
 				It's tough work to make a video. Luckily, there are thousands of people to help. If you describe your project, we can try to find someone in your area to give you a hand. 
 			.divider
-			= form_for VideoRequest.new, url: '/tools/services/create_video_request' do |f|
+			= form_for VideoRequest.new, url: '/campaign-tools/services/create_video_request' do |f|
 				.service-action-wrapper.video
 					%p Please enter your email
 					= f.email_field :email, class: "form-control message-box"

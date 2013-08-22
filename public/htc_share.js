@@ -32,7 +32,7 @@ $(function() {
     });
     
     $('.play').on('click', function() {
-        window.location.href = "http://www.harnessthecrowd.com/tools/services";
+        window.location.href = "http://www.harnessthecrowd.com/campaign-tools/services";
     });
     
 });

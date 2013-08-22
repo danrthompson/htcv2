@@ -1,3 +1,8 @@
+- content_for :page_title do
+	- if @featured then
+		= raw "Featured Services - Crowdfunding Services | "
+	- else
+		= raw "#{@selected_category.title} - Crowdfunding Services | "
 - content_for :sub_nav do
 	.sub_nav_top
 		%ul.sub_nav.top_half
@@ -13,15 +18,15 @@
 		%ul.sub_nav.bottom_half
 			- if @featured then
 				%li.current-selection
-					%a{href: services_path(service_category: "Featured")} Featured Services
+					%a{href: services_path(seo_url: "featured")} Featured Services
 			- else
 				%li
-					%a{href: services_path(service_category: "Featured")} Featured Services
+					%a{href: services_path(seo_url: "featured")} Featured Services
 			- @service_categories.each do |serv_cat|
 				- if serv_cat == @selected_category then
 					%li.current-selection 
-						%a{href: services_path(service_category: serv_cat.title)}= serv_cat.title
+						%a{href: services_path(seo_url: serv_cat.seo_url)}= serv_cat.title
 				- else
 					%li
-						%a{href: services_path(service_category: serv_cat.title)}= serv_cat.title
+						%a{href: services_path(seo_url: serv_cat.seo_url)}= serv_cat.title
 	%p.side-scroll.float-right SCROLL FOR MORE >
