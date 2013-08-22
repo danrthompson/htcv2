@@ -1,4 +1,8 @@
-.discussion-entry-mini
+- if visible then
+	- comment_class = 'discussion-entry-mini'
+- else
+	- comment_class = 'discussion-entry-mini dont-show'
+%div{class: comment_class}
 	.divider
 	%br/ 
 	%p= comment.body

@@ -1,4 +1,4 @@
-= render 'shared/head'
+= render partial: 'head', layout: 'shared/head'
 
 - content_for :intro_text do
 	/ .about-us-wrapper.extra-padding.no-heading
@@ -21,26 +21,22 @@
 			%p= post.body
 			%h3.teal.float-right="- #{post.author}"
 			%ul.action-items.float-left
+				-# %li 
+				-# 	%a{:href => ""}Reply 
+				-# %li.pipe 
+				-# 	%a &#124
 				%li 
-					%a{:href => ""}Reply 
-				%li.pipe 
-					%a &#124
-				%li 
-					%a{:href => ""}Show Comments 
+					%a.show-comments-link{:href => "javascript: void();"}Show Comments 
 			%br/
 
 			- post.comments.each do |comment|
-				.discussion-entry-mini
-					.divider
-					%br/ 
-					%p= comment.body
-					%h3.teal.float-right= "- #{comment.author}"
+				= render partial: 'comments/comment_on_community_post', locals: {comment: comment, visible: false}
 
-			.discussion-entry-mini
+			.discussion-entry-mini.dont-show
 				.divider
 				.submit-form.submit-comment
-					= form_for [post, Comment.new] do |f|
+					= form_for [post, Comment.new], remote: true do |f|
 						= f.text_area :body, class: 'float-left form-control', id: "discussion-comment", size: '30x10'
-						%button.btn.gray-button.float-right.center-align{type: "submit"} Post Reply
+						= f.button "Post Reply", class: "btn gray-button float-right center-align"
 		
 		
