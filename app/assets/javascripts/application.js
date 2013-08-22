@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require common
 //= require jquery.fancybox.pack
+//= require htc
 //= require_self
