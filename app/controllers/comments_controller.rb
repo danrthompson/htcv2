@@ -7,11 +7,13 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user ? current_user.id : -1
 
     if @comment.save
-      if @comment.parent_id then
-        render 'comments/_comment_on_comment', locals: {comment: @comment}, layout: false
-      else
-        render 'conversation_posts/_comment_on_conversation', locals: {comment: @comment, ajax: true}, layout: false
-      end
+      # if @comment.parent_id then
+      #   render 'comments/_comment_on_comment', locals: {comment: @comment}, layout: false
+      # else
+      #   render 'conversation_posts/_comment_on_conversation', locals: {comment: @comment, ajax: true}, layout: false
+      # end
+
+      render 'comments/_comment_on_community_post', locals: {comment: @comment, visible: true}, layout: false      
       
       # format.html { redirect_to @commentable.class, notice: 'Comment was successfully created.'}
       # format.json { render json: @comment, status: :created, location: @comment }
