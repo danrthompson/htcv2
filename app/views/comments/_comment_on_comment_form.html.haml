@@ -1,5 +1,5 @@
-.post-reply-wrapper
-	= form_for [comment.commentable, comment] do |f|
+.post-reply-wrapper.conversation-post-comment-on-comment-form
+	= form_for [comment.commentable, comment], remote: true do |f|
 		= f.hidden_field :parent_id, value: parent_id
 		- if comment.errors.any?
 			#error_explanation
@@ -8,4 +8,5 @@
 					- comment.errors.full_messages.each do |msg|
 						%li= msg
 		= f.text_area :body, class: "form-control", rows: "3"
-		%button.button.blue-button.float-right{name: "commit", type: "submit", value: "Share Your Thoughts"} Post Reply
+		-# %button.button.blue-button.float-right{name: "commit", type: "submit", value: "Share Your Thoughts"} Post Reply
+		= f.button "Post Reply", :class => "button blue-button float-right", :disable_with => "Submitting…"

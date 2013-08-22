@@ -1,22 +1,27 @@
 - commentable = comment.commentable
 .comment-entry
+
+
 	.comment-text.main-comment
+
 		.comment_title_wrapper.float-left
-			- if comment.user then
-				%h3= comment.user.username
-			- else
-				%h3 Anonymous comment
+
+			%h3= comment.author
 			.comment-action-items.float-right
 				%h4
-					%a{:href => ""}Reply
+					-# %a{:href => ""}Reply
+					- if can? :delete, comment then
+						&#124;
+						= link_to 'Delete', [commentable, comment], method: "delete", data: {confirm: "Delete this comment?"}
+
 		%p= comment.body
 
-
-	= render partial: 'comments/vote_on_comment', locals: {votable: comment, vote_path_for_votable: create_votable_path_for_comment(commentable, comment)}
+	.comment-rating.float-left
+		= render partial: 'comments/vote_on_comment', locals: {votable: comment, vote_path_for_votable: create_votable_path_for_comment(commentable, comment), all_arrows: 'vote-arrow arrow-stacked up-arrow', voted_arrow: 'voted-arrow', top_arrow: '', bottom_arrow: 'bottom-stacked-arrow'}
 
 	- comment.children.each do |child|
 		= render partial: 'comments/comment_on_comment', locals: {comment: child}
 
-	= render partial: 'comments/comment_on_comment_form', locals: {comment: commentable.comments.new, parent_id: comment.id}
-
+	= render partial: 'comments/comment_on_comment_form', locals: {comment: commentable.comments.new, parent_id: comment.id, ajax: ajax}
+	
 .divider

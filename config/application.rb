@@ -27,6 +27,9 @@ module Htcv2
     end
 
 
+    config.exceptions_app = self.routes
+
+
     # for enki
     config.blog_suburl = 'blog'
 

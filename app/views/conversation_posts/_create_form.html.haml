@@ -1,4 +1,4 @@
-= form_for conversation_post, html: { multipart: true, class: "post-convo-form full-width-textfield" } do |f|
+= form_for conversation_post, html: { multipart: true, class: "post-convo-form full-width-textfield", id: "conversation-post-create-form" } do |f|
 	- if conversation_post.errors.any?
 		#error_explanation
 			%h2= "#{pluralize(conversation_post.errors.count, "error")} prohibited this post from being saved:"

@@ -3,11 +3,13 @@
 = render 'tools/shared/resource_subnav'
 - content_for :intro_text do
 	.about-us-wrapper.extra-padding.no-heading
-		%p Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.Cum sociis natoque penatibus et Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem.
+		%p If you've never run a campaign before, getting started can seem like a daunting task. To make it a little easier, we've compiled the best links, tools, and resources to help you get a feel for the process. 
 
-%br/ 
-%br/ 
+
+
 .post-entry
+	- if @selected_category and @selected_category.image? then
+		%img{src: @selected_category.image.url(:original), style: "width: 600px;"}
 	- if @selected_category and @selected_category.resources.any? then
 		.resources_subsection
 			- @selected_category.resources.order('rank asc').each do |resource|
