@@ -9,7 +9,14 @@
 		.top-half
 			-# .field
 			= f.text_area :body, :cols => "30", :rows => "8", class: "form-control float-left"
+<<<<<<< HEAD
 			%button.btn.btn-white.float-right{:type => "submit", name: "commit"}= share_message
+=======
+			- if current_user then
+				%button.btn.btn-white.float-right{type: "submit", name: "commit"}= share_message
+			- else
+				%button.btn.btn-white.float-right#create_conv_post_form_button{}= share_message
+>>>>>>> 6c9d20bb06852343350ea02c9d4f990090d201d0
 		.bottom-half
 			-# .field
 			= f.label "ADD AN IMAGE"

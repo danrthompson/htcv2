@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130816061855) do
+=======
+ActiveRecord::Schema.define(:version => 20130821064130) do
+>>>>>>> 6c9d20bb06852343350ea02c9d4f990090d201d0
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0

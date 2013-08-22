@@ -18,27 +18,27 @@ Htcv2::Application.routes.draw do
 
 
 
-  scope '/conversation' do
-    resources :advice_posts, only: [:index, :show, :create, :destroy], path: 'advice' do 
-      member { post :vote }
-      resources :comments, only: [:create, :destroy] do
-        member { post :vote }
-      end
-    end
-    resources :question_posts, only: [:index, :show, :create, :destroy], path: 'questions' do 
-      member { post :vote }
-      resources :comments, only: [:create, :destroy] do
-        member { post :vote }
-      end
-    end
-    resources :news_posts, only: [:index, :show, :create, :destroy], path: 'news' do 
-      member { post :vote }
-      resources :comments, only: [:create, :destroy] do
-        member { post :vote }
-      end
-    end
-    root :to => 'advice_posts#index'
-  end
+  # scope '/conversation' do
+  #   resources :advice_posts, only: [:index, :show, :create, :destroy], path: 'advice' do 
+  #     member { post :vote }
+  #     resources :comments, only: [:create, :destroy] do
+  #       member { post :vote }
+  #     end
+  #   end
+  #   resources :question_posts, only: [:index, :show, :create, :destroy], path: 'questions' do 
+  #     member { post :vote }
+  #     resources :comments, only: [:create, :destroy] do
+  #       member { post :vote }
+  #     end
+  #   end
+  #   resources :news_posts, only: [:index, :show, :create, :destroy], path: 'news' do 
+  #     member { post :vote }
+  #     resources :comments, only: [:create, :destroy] do
+  #       member { post :vote }
+  #     end
+  #   end
+  #   root :to => 'advice_posts#index'
+  # end
 
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
@@ -49,43 +49,43 @@ Htcv2::Application.routes.draw do
   # mount Spree::Core::Engine, :at => '/store'
         
 
-  scope '/blog' do
+  # scope '/blog' do
 
-    namespace :admin do
-      resource :session
+  #   namespace :admin do
+  #     resource :session
 
-      # resources :posts, :pages do
-      resources :posts do
-        post 'preview', :on => :collection
-      end
-      # resources :comments
-      resources :undo_items do
-        post 'undo', :on => :member
-      end
+  #     # resources :posts, :pages do
+  #     resources :posts do
+  #       post 'preview', :on => :collection
+  #     end
+  #     # resources :comments
+  #     resources :undo_items do
+  #       post 'undo', :on => :member
+  #     end
 
-      match 'health(/:action)' => 'health', :action => 'index', :as => :health
+  #     match 'health(/:action)' => 'health', :action => 'index', :as => :health
 
-      root :to => 'dashboard#show'
-    end
+  #     root :to => 'dashboard#show'
+  #   end
 
-    resources :archives, :only => [:index]
-    # resources :pages, :only => [:show]
+  #   resources :archives, :only => [:index]
+  #   # resources :pages, :only => [:show]
 
-    constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
-      # get ':year/:month/:day/:slug/comments'  => 'comments#index'
-      # post ':year/:month/:day/:slug/comments' => 'comments#create'
-      # get ':year/:month/:day/:slug/comments/new' => 'comments#new'
-      get ':year/:month/:day/:slug' => 'posts#show'
-    end
+  #   constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
+  #     # get ':year/:month/:day/:slug/comments'  => 'comments#index'
+  #     # post ':year/:month/:day/:slug/comments' => 'comments#create'
+  #     # get ':year/:month/:day/:slug/comments/new' => 'comments#new'
+  #     get ':year/:month/:day/:slug' => 'posts#show'
+  #   end
 
-    scope :to => 'posts#index' do
-      get 'posts.:format', :as => :formatted_posts
-      get '(:tag)', :as => :posts
-    end
+  #   scope :to => 'posts#index' do
+  #     get 'posts.:format', :as => :formatted_posts
+  #     get '(:tag)', :as => :posts
+  #   end
 
-    root :to => 'posts#index'
+  #   root :to => 'posts#index'
 
-  end
+  # end
 
   root to: 'posts#index'
 

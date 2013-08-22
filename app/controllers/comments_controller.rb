@@ -14,6 +14,15 @@ class CommentsController < ApplicationController
         format.html { redirect_to @commentable.class, notice: @comment.errors.full_messages.first }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
+<<<<<<< HEAD
+=======
+      
+      # format.html { redirect_to @commentable.class, notice: 'Comment was successfully created.'}
+      # format.json { render json: @comment, status: :created, location: @comment }
+    else
+      # redirect_to @commentable.class, notice: @comment.errors.full_messages.first
+      render text: @comment.errors.full_messages.first, status: :unprocessable_entity
+>>>>>>> 6c9d20bb06852343350ea02c9d4f990090d201d0
     end
   end
 
