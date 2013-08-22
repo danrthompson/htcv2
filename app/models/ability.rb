@@ -14,16 +14,19 @@ class Ability
             # can :read, Post do |post|
             #     post.published_at && post.published_at < Time.now
             # end
-            can :read, Post
-            can [:create, :read], [Comment, AdvicePost, QuestionPost, NewsPost]
+            # can :read, Post
+            # can [:create, :read], [Comment, AdvicePost, QuestionPost, NewsPost]
+            can [:create, :read], [Comment, CommunityPost]
             can :read, [Resource, ResourceCategory, Service, ServiceCategory]
             # logged in user, not administrator
-            can :manage, [Comment, AdvicePost], user_id: user.id
-            can :vote, [Comment, AdvicePost]
+            # can :manage, [Comment, AdvicePost, QuestionPost, NewsPost], user_id: user.id
+            # can :vote, [Comment, AdvicePost, QuestionPost, NewsPost]
+            can :manage, [Comment, CommunityPost], user_id: user.id
         end 
     else
-        can :read, Post
-        can [:create, :read], [Comment, AdvicePost, QuestionPost, NewsPost]
+        # can :read, Post
+        # can [:create, :read], [Comment, AdvicePost, QuestionPost, NewsPost]
+        can [:create, :read], [Comment, CommunityPost]
         can :read, [Resource, ResourceCategory, Service, ServiceCategory]
     end
 
