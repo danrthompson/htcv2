@@ -10,6 +10,7 @@
 .post-entry
 	- if @selected_category and @selected_category.image? then
 		%img{src: @selected_category.image.url(:original), style: "width: 600px;"}
+	= render partial: 'submit_tool_form', locals: {tool_type: "Resource"}
 	- if @selected_category and @selected_category.resources.any? then
 		.resources_subsection
 			- @selected_category.resources.order('rank asc').each do |resource|
