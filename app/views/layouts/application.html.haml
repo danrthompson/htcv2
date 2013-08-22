@@ -48,7 +48,7 @@
 					= link_to 'Sign Out >', destroy_user_session_path, :method => :delete, class: "float-left login-btn"
 				- else
 					= link_to 'Login/Sign Up >', new_user_session_path, class: "float-left login-btn"
-				%a.float-right.login-btn{href: '/community'} Community Page
+				%a.float-right.login-btn{href: '/community'} Discussion Board >
 
 				= yield(:sub_nav)
 
@@ -95,17 +95,23 @@
 							%a{:href => "/about_us"} About HTC
 
 		.dont-show#newsletter-sign-up-fancybox
-			#mc_embed_signup
+			#mc_embed_signup#newsletter-wrapper
 				%form#mc-embedded-subscribe-form.validate{:action => "http://harnessthecrowd.us7.list-manage.com/subscribe/post?u=2a019debb3c7760c3ab83a635&id=d1cde921c0", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
-					%h2 Subscribe to our mailing list
+					
+					%h2.teal.center-align#newsletter-title Keep In Touch
+					.divider
+					%p We've got a lot cool features we're working on. Sign up and we'll notify you before they go live. We'll be very respectful about the messages we send out.
+					.divider
+					%br/ 
 					.mc-field-group
-						%label{:for => "mce-EMAIL"} Email Address
-						%input#mce-EMAIL.required.email{:name => "EMAIL", :type => "email", :value => ""}/
+						/ %h3.gray.uppercase.center-align Let's Do It!
+						/ %label.center-align{:for => "mce-EMAIL"} Let's Do It!
+						%input#mce-EMAIL.required.email.form-control{:name => "EMAIL", :type => "email", :value => "your email goes here..."}/
 					#mce-responses.clear
 						#mce-error-response.response{:style => "display:none"}
 						#mce-success-response.response{:style => "display:none"}
-					.clear
-						%input#mc-embedded-subscribe.button{:name => "subscribe", :type => "submit", :value => "Subscribe"}
+					.clear.center-align
+						%input#mc-embedded-subscribe.button.blue-button{:name => "subscribe", :type => "submit", :value => "Let's Do It!"}
 					= javascript_include_tag 'mailchimp_script'
 		.dont-show#feedback-form-fancybox
 			= form_for Feedback.new, remote: true do |f|
