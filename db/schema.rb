@@ -13,21 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130822051927) do
 
-  create_table "active_admin_comments", :force => true do |t|
-    t.string   "resource_id",   :null => false
-    t.string   "resource_type", :null => false
-    t.integer  "author_id"
-    t.string   "author_type"
-    t.text     "body"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.string   "namespace"
-  end
-
-  add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
-
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
     t.string   "commentable_type", :default => ""
@@ -47,9 +32,9 @@ ActiveRecord::Schema.define(:version => 20130822051927) do
 
   create_table "conversation_posts", :force => true do |t|
     t.text     "body"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.integer  "user_id",            :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.integer  "user_id",            :default => 0, :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -877,7 +862,6 @@ ActiveRecord::Schema.define(:version => 20130822051927) do
     t.datetime "reset_password_sent_at"
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
-    t.string   "spree_api_key",          :limit => 48
     t.datetime "remember_created_at"
   end
 

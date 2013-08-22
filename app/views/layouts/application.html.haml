@@ -115,12 +115,16 @@
 					.clear.center-align
 						%input#mc-embedded-subscribe.button.blue-button{:name => "subscribe", :type => "submit", :value => "Let's Do It!"}
 					= javascript_include_tag 'mailchimp_script'
-		.dont-show#feedback-form-fancybox
-			= form_for Feedback.new, remote: true do |f|
-				%p We'd love to hear your feedback, positive or negative:
-				= f.text_area :message
-				%br
-				%p Feel free to put in your email if you want us to message you back, but it's not required.
-				= f.email_field :email
-				%br
-				= f.submit "Send feedback"
+		.dont-show#feedback-form-fancybox.center-align
+			#feedback-form-wrapper
+				%h2.teal.uppercase We want to hear from you!
+				.divider
+				= form_for Feedback.new, remote: true do |f|
+					%p.center-align Tell us what you're thinking! We'd love to hear your thoughts, feedback, and ideas!
+					= f.text_area :message, class: "form-control"
+					%br
+					%p.center-align If you'd like us to to message you back, please provide your email. (It's not required).
+					= f.email_field :email, class: "form-control width-45"
+					= f.submit "Send feedback", class: "btn blue-button"
+					%br/ 
+					%br/ 
