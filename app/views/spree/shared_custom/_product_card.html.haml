@@ -1,9 +1,0 @@
-%li
-	= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url'
-	%a{:href => polymorphic_path(product)}  
-		.store_overlay 
-			%a{:href => polymorphic_path(product)} 
-				%h3= product.name
-			%p= product.description
-			.deets_wrapper
-				%a.product_button.product_button_centered{:href => polymorphic_path(product)}  Details

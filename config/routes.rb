@@ -15,7 +15,7 @@ Htcv2::Application.routes.draw do
 
 
 
-
+  root to: 'static#homepage'
 
 
   # scope '/conversation' do
@@ -87,7 +87,6 @@ Htcv2::Application.routes.draw do
 
   # end
 
-  root to: 'posts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
