@@ -9,3 +9,4 @@ jQuery ->
 		closeClick: false
 		openEffect: "none"
 		closeEffect: "none"
+

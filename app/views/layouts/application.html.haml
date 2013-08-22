@@ -7,6 +7,8 @@
 		= favicon_link_tag image_path('favicon.ico')
 		= javascript_include_tag 'application'
 		/ Gives Head
+		= stylesheet_link_tag "main_style"
+		= stylesheet_link_tag "jquery.fancybox"
 		= yield(:head)
 
 		:javascript
