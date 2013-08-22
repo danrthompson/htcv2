@@ -30,7 +30,7 @@ Htcv2::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -61,7 +61,7 @@ Htcv2::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( admin.css main_style.css conversation.css humanmsg.css jquery.fancybox-thumbs.css jquery.fancybox-buttons.css jquery.fancybox.css login.css tools.css *.js active_admin.js conversation.js active_admin.css )
+  config.assets.precompile += %w( main_style.css jquery.fancybox-thumbs.css jquery.fancybox-buttons.css jquery.fancybox.css active_admin.css active_admin.js community_post.js mailchimp_script.js )
 
 # admin/actions.js admin/common.js admin/dashboard.js admin/edit-preview.js admin/shortcut.js jquery.fancybox.js jquery.fancybox-buttons.js jquery.fancybox-media.js jquery.fancybox-thumbs.js modernizr.custom.js
 
