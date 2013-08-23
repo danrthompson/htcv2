@@ -246,9 +246,23 @@ second_set_of_service_logos_to_add = [
   ['Nebo', 'nebo.jpg']
 ]
 
-
-
-
+logos_to_refresh = [
+  ["Feedback Manufacturing", 'feedback_manufacturing.png'],
+  ["Metzger Associates", 'metzger.jpg'],
+  ["FulfillRite", 'fulfillrite.jpg'],
+  ["Acutrack", 'acutrack.jpg'],
+  ["BackerKit", 'backerkit.jpg'],
+  ["Celery", 'celery.jpg'],
+  ["Outgrow.Me", 'outgrow_me.jpg'],
+  ["Morpho MFG", 'morpho_mfg.jpg'],
+  ['PassageMaker Sourcing Solutions', 'passagemaker.jpg'],
+  ['Simple Global', 'simple_global.png'],
+  ['Blaze PR', 'blaze.jpeg'],
+  ['TinyMill', 'tinymill.png'],
+  ['Agency 2.0', 'agency20.png'],
+  ['Quirky Bird', 'quirkybird.png'],
+  ['Nebo', 'nebo.jpg']
+]
 
 
 # actual seed scripts
@@ -319,10 +333,15 @@ second_set_of_service_logos_to_add = [
 #   cat.seo_url = seo_url
 #   cat.save
 # end
-second_set_of_services_to_add.each do |params|
-  Service.create(params)
-end
-second_set_of_service_logos_to_add.each do |title, filename|
+# second_set_of_services_to_add.each do |params|
+#   Service.create(params)
+# end
+# second_set_of_service_logos_to_add.each do |title, filename|
+#   this_service = Service.find_by_title(title)
+#   this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
+#   this_service.save
+# end
+logos_to_refresh.each do |title, filename|
   this_service = Service.find_by_title(title)
   this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
   this_service.save
