@@ -2,7 +2,7 @@
 %html{:dir => "ltr", :lang => "en-US"}
 	%head
 		%meta{:charset => "utf-8"}
-		%title= html_title yield(:page_title)
+		%title= "#{yield(:page_title)}Harness the Crowd"
 		= csrf_meta_tag
 		= favicon_link_tag image_path('favicon.ico')
 		= javascript_include_tag 'application'
@@ -38,10 +38,10 @@
 						%a#newsletter-fancybox-link{:href => '#newsletter-sign-up-fancybox'} Newsletter
 												
 					%li 
-						%a{:href => "/tools/services"} Helpful Services
+						%a{:href => "/campaign-tools/services"} Helpful Services
 
 					%li 
-						%a{:href => "/tools/resources"} Useful Resources
+						%a{:href => "/campaign-tools/resources"} Useful Resources
 
 
 				- if current_user then
@@ -88,13 +88,13 @@
 					
 					%ul.footer-list.float-right 
 						%li.footer-elem
-							%a{:href => "/contact_us"} Contact Us
+							%a{:href => "/contact-us"} Contact Us
 						%li.footer-elem &#124
 						%li.footer-elem 
 							%a{:href => "/press"} Press
 						%li.footer-elem &#124
 						%li.footer-elem 
-							%a{:href => "/about_us"} About HTC
+							%a{:href => "/about-us"} About HTC
 
 		.dont-show#newsletter-sign-up-fancybox
 			#mc_embed_signup#newsletter-wrapper

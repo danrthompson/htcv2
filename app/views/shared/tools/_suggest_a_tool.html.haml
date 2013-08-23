@@ -11,7 +11,7 @@
 		%p 
 			We've done a lot of research to find the best tools for crowdfunders. If there are resources you think we should add to the list, please let us know! Thanks!
 		.divider
-		= form_for ToolSuggestion.new, url: '/tools/create_tool_suggestion' do |f|
+		= form_for ToolSuggestion.new, url: '/campaign-tools/create_tool_suggestion' do |f|
 			= f.hidden_field :tool_type, value: tool_type
 			.service-action-wrapper.suggest
 				= f.label "#{tool_type} name, url, basic info:", class: "field-label"

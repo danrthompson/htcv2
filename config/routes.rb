@@ -7,8 +7,8 @@ Htcv2::Application.routes.draw do
 
   get 'service/:id/:featured/:location' => 'services#this_service'
 
-  get 'about_us' => 'static#about_us'
-  get 'contact_us' => 'static#contact_us'
+  get 'about-us' => 'static#about_us'
+  get 'contact-us' => 'static#contact_us'
   get 'press' => 'static#press'
 
   get "/404", :to => "static#error_page"
@@ -19,10 +19,12 @@ Htcv2::Application.routes.draw do
   root to: 'static#homepage'
   ActiveAdmin.routes(self)
 
-  scope '/tools' do
-    resources :services, only: [:index]
+  scope '/campaign-tools' do
+    # resources :services, only: [:index]
     # resources :resources, only: [:index, :create]
-    resources :resources, only: [:index]
+    # resources :resources, only: [:index]
+    get 'resources(/:seo_url)', to: 'resources#index', as: 'resources'
+    get 'services(/:seo_url)', to: 'services#index', as: 'services'
     post 'services/create_service_lead'
     post 'services/create_video_request'
     post 'create_tool_suggestion' => 'services#create_tool_suggestion'

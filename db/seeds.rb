@@ -14,7 +14,7 @@ Resource.attr_accessible :resource_category_id, :id
 Service.attr_accessible :service_category_id, :id
 ServiceCategory.attr_accessible :id
 ConversationPost.attr_accessible :id, :user_id, :type
-Post.attr_accessible :id
+# Post.attr_accessible :id
 
 resource_category_list = [{"title"=>"Featured Resources",
   "resource_category_id"=>nil,
@@ -207,6 +207,48 @@ conversation_post_images = [
   [11, 'video-structure.png']
 ]
 
+resource_cat_seo_urls = [
+  [1, 'featured'],
+  [2, 'booklist'],
+  [3, 'about-crowdfunding'],
+  [7, 'idea-development'],
+  [10, 'campaign-preparation'],
+  [14, 'making-the-video'],
+  [18, 'marketing-and-outreach'],
+  [22, 'after-the-campaign']
+]
+
+service_cat_seo_urls = [
+  [1, 'campaign-management'],
+  [3, 'marketing-and-pr'],
+  [2, 'video'],
+  [5, 'manufacturing'],
+  [6, 'fulfillment'],
+  [4, 'website-design-development']
+]
+
+second_set_of_services_to_add = [{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"PassageMaker Sourcing Solutions", "description"=>"Manufacturing and final assemply solutions provided by an American-owned company in China. Dedicated to protecting your IP and providing excellent service.", "out_link"=>"http://www.psschina.com/", "service_category_id"=>"5"},
+{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Simple Global", "description"=>"Sell your products to the world with merchandising and fulfillment services to help increase sales and lower delivery costs. The choice is simple - Simple Global.", "out_link"=>"http://www.simpleglobal.com/", "service_category_id"=>"6"},
+{"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Blaze PR", "description"=>"Reach new markets and achieve success with Blaze PR's unique approach to public relations, strategic planning, and interactive marketing.", "out_link"=>"http://blazepr.com/", "service_category_id"=>"3"},
+{"featured"=>nil, "rank"=>"1", "featured_rank"=>nil, "title"=>"TinyMill", "description"=>"Beautiful, functional, and standards-based website design and development to help you reach your target audience online.", "out_link"=>"http://www.tinymill.com/", "service_category_id"=>"4"},
+{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Agency 2.0", "description"=>"Campaign strategy, marketing, and public relations services for crowdfunding platforms like Kickstarter.", "out_link"=>"http://agency20.com/", "service_category_id"=>"3"},
+{"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Quirky Bird", "description"=>"Strikingly unconventional website and graphic design and development services, specliaizing in eCommerce sites.", "out_link"=>"http://quirky-bird.com/", "service_category_id"=>"4"},
+{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Nebo", "description"=>"Award winning interactive services includuding web design, user experience, development, integrations, SEO and more.", "out_link"=>"http://www.neboagency.com/", "service_category_id"=>"4"}]
+
+
+second_set_of_service_logos_to_add = [
+  ['PassageMaker Sourcing Solutions', 'passagemaker.jpg'],
+  ['Simple Global', 'simple_global.png'],
+  ['Blaze PR', 'blaze.jpeg'],
+  ['TinyMill', 'tinymill.png'],
+  ['Agency 2.0', 'agency20.png'],
+  ['Quirky Bird', 'quirkybird.png'],
+  ['Nebo', 'nebo.jpg']
+]
+
+
+
+
 
 
 # actual seed scripts
@@ -257,18 +299,34 @@ conversation_post_images = [
 #   post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "BlogPostImages/#{filename}"), 'r')
 #   post.save
 # end
-resource_category_images.each do |id, filename|
-  resource_cat = ResourceCategory.find(id)
-  resource_cat.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ResourceCatImages/#{filename}"), 'r')
-  resource_cat.save
+# resource_category_images.each do |id, filename|
+#   resource_cat = ResourceCategory.find(id)
+#   resource_cat.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ResourceCatImages/#{filename}"), 'r')
+#   resource_cat.save
+# end
+# conversation_post_images.each do |id, filename|
+#   conv_post = ConversationPost.find(id)
+#   conv_post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ConversationPostImages/#{filename}"), 'r')
+#   conv_post.save
+# end
+# resource_cat_seo_urls.each do |id, seo_url|
+#   cat = ResourceCategory.find(id)
+#   cat.seo_url = seo_url
+#   cat.save
+# end
+# service_cat_seo_urls.each do |id, seo_url|
+#   cat = ServiceCategory.find(id)
+#   cat.seo_url = seo_url
+#   cat.save
+# end
+second_set_of_services_to_add.each do |params|
+  Service.create(params)
 end
-conversation_post_images.each do |id, filename|
-  conv_post = ConversationPost.find(id)
-  conv_post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ConversationPostImages/#{filename}"), 'r')
-  conv_post.save
+second_set_of_service_logos_to_add.each do |title, filename|
+  this_service = Service.find_by_title(title)
+  this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
+  this_service.save
 end
-
-
 
 
 

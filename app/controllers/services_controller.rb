@@ -2,13 +2,14 @@ class ServicesController < ApplicationController
 
 	def index
 		@service_categories = ServiceCategory.order("rank asc")
-		if params[:service_category] then
-	    if params[:service_category] == "Video" then
+		if params[:seo_url] then
+	    if params[:seo_url] == "video" then
 	      @video = true
 	      @featured = false
+        @selected_category = ServiceCategory.find_by_seo_url(params[:seo_url])
 	      return
 	    else
-	  		@selected_category = ServiceCategory.find_by_title(params[:service_category])
+	  		@selected_category = ServiceCategory.find_by_seo_url(params[:seo_url])
 	  		if @selected_category then
 	        @featured = false
 	  			@services = @selected_category.services.order("rank asc")
