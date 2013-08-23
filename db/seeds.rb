@@ -227,8 +227,24 @@ service_cat_seo_urls = [
   [4, 'website-design-development']
 ]
 
+second_set_of_services_to_add = [{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"PassageMaker Sourcing Solutions", "description"=>"Manufacturing and final assemply solutions provided by an American-owned company in China. Dedicated to protecting your IP and providing excellent service.", "out_link"=>"http://www.psschina.com/", "service_category_id"=>"5"},
+{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Simple Global", "description"=>"Sell your products to the world with merchandising and fulfillment services to help increase sales and lower delivery costs. The choice is simple - Simple Global.", "out_link"=>"http://www.simpleglobal.com/", "service_category_id"=>"6"},
+{"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Blaze PR", "description"=>"Reach new markets and achieve success with Blaze PR's unique approach to public relations, strategic planning, and interactive marketing.", "out_link"=>"http://blazepr.com/", "service_category_id"=>"3"},
+{"featured"=>nil, "rank"=>"1", "featured_rank"=>nil, "title"=>"TinyMill", "description"=>"Beautiful, functional, and standards-based website design and development to help you reach your target audience online.", "out_link"=>"http://www.tinymill.com/", "service_category_id"=>"4"},
+# {"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Agency 2.0", "description"=>"Campaign strategy, marketing, and public relations services for crowdfunding platforms like Kickstarter.", "out_link"=>"http://agency20.com/", "service_category_id"=>"3"},
+{"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Quirky Bird", "description"=>"Strikingly unconventional website and graphic design and development services, specliaizing in eCommerce sites.", "out_link"=>"http://quirky-bird.com/", "service_category_id"=>"4"}
+# {"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Nebo", "description"=>"Award winning interactive services includuding web design, user experience, development, integrations, SEO and more.", "out_link"=>"http://www.neboagency.com/", "service_category_id"=>"4"}]
 
 
+second_set_of_service_logos_to_add = [
+  ['PassageMaker Sourcing Solutions', 'passagemaker.jpg'],
+  ['Simple Global', 'simple_global.png'],
+  ['Blaze PR', 'blaze.jpeg'],
+  ['TinyMill', 'tinymill.png'],
+  # ['Agency 2.0', 'agency20.png'],
+  ['Quirky Bird', 'quirkybird.png']
+  # ['Nebo', 'nebo.png']
+]
 
 
 
@@ -293,18 +309,24 @@ service_cat_seo_urls = [
 #   conv_post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ConversationPostImages/#{filename}"), 'r')
 #   conv_post.save
 # end
-resource_cat_seo_urls.each do |id, seo_url|
-  cat = ResourceCategory.find(id)
-  cat.seo_url = seo_url
-  cat.save
+# resource_cat_seo_urls.each do |id, seo_url|
+#   cat = ResourceCategory.find(id)
+#   cat.seo_url = seo_url
+#   cat.save
+# end
+# service_cat_seo_urls.each do |id, seo_url|
+#   cat = ServiceCategory.find(id)
+#   cat.seo_url = seo_url
+#   cat.save
+# end
+second_set_of_services_to_add.each do |params|
+  Service.create(params)
 end
-service_cat_seo_urls.each do |id, seo_url|
-  cat = ServiceCategory.find(id)
-  cat.seo_url = seo_url
-  cat.save
+second_set_of_service_logos_to_add.each do |title, filename|
+  this_service = Service.find_by_title(title)
+  this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
+  this_service.save
 end
-
-
 
 
 
