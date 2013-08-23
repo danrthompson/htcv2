@@ -231,9 +231,9 @@ second_set_of_services_to_add = [{"featured"=>nil, "rank"=>"3", "featured_rank"=
 {"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Simple Global", "description"=>"Sell your products to the world with merchandising and fulfillment services to help increase sales and lower delivery costs. The choice is simple - Simple Global.", "out_link"=>"http://www.simpleglobal.com/", "service_category_id"=>"6"},
 {"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Blaze PR", "description"=>"Reach new markets and achieve success with Blaze PR's unique approach to public relations, strategic planning, and interactive marketing.", "out_link"=>"http://blazepr.com/", "service_category_id"=>"3"},
 {"featured"=>nil, "rank"=>"1", "featured_rank"=>nil, "title"=>"TinyMill", "description"=>"Beautiful, functional, and standards-based website design and development to help you reach your target audience online.", "out_link"=>"http://www.tinymill.com/", "service_category_id"=>"4"},
-# {"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Agency 2.0", "description"=>"Campaign strategy, marketing, and public relations services for crowdfunding platforms like Kickstarter.", "out_link"=>"http://agency20.com/", "service_category_id"=>"3"},
+{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Agency 2.0", "description"=>"Campaign strategy, marketing, and public relations services for crowdfunding platforms like Kickstarter.", "out_link"=>"http://agency20.com/", "service_category_id"=>"3"},
 {"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Quirky Bird", "description"=>"Strikingly unconventional website and graphic design and development services, specliaizing in eCommerce sites.", "out_link"=>"http://quirky-bird.com/", "service_category_id"=>"4"}
-# {"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Nebo", "description"=>"Award winning interactive services includuding web design, user experience, development, integrations, SEO and more.", "out_link"=>"http://www.neboagency.com/", "service_category_id"=>"4"}]
+{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Nebo", "description"=>"Award winning interactive services includuding web design, user experience, development, integrations, SEO and more.", "out_link"=>"http://www.neboagency.com/", "service_category_id"=>"4"}]
 
 
 second_set_of_service_logos_to_add = [
@@ -241,9 +241,9 @@ second_set_of_service_logos_to_add = [
   ['Simple Global', 'simple_global.png'],
   ['Blaze PR', 'blaze.jpeg'],
   ['TinyMill', 'tinymill.png'],
-  # ['Agency 2.0', 'agency20.png'],
+  ['Agency 2.0', 'agency20.png'],
   ['Quirky Bird', 'quirkybird.png']
-  # ['Nebo', 'nebo.png']
+  ['Nebo', 'nebo.png']
 ]
 
 
