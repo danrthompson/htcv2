@@ -20,6 +20,7 @@
 				- else
 					%li
 						%a{href: resources_path(seo_url: resource_cat.seo_url)}= resource_cat.title
-	%p.side-scroll.float-right SCROLL FOR MORE >
+	%a.fancybox.side-scroll.float-right{:href => "\#suggest_a_service"} SUGGEST A SERVICE
+	/ %p.side-scroll.float-right SCROLL FOR MORE >
 	/ %h3.float-left.suggest
 	/ 	%a.fancybox{:href => "\#suggest_a_resource"} SUGGEST A RESOURCE
