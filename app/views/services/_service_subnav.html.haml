@@ -4,16 +4,6 @@
 	- else
 		= raw "#{@selected_category.title} - Crowdfunding Services | "
 - content_for :sub_nav do
-	.sub_nav_top
-		%ul.sub_nav.top_half
-			%li 
-				%a{:href => resources_path} 
-					%h2 Resources
-			%li.current-selection
-				%a{:href => services_path} 
-					%h2 Services
-		%h3.float-right.suggest
-			%a.fancybox{:href => "\#suggest_a_service"} SUGGEST A SERVICE
 	.sub_nav_bottom
 		%ul.sub_nav.bottom_half
 			- if @featured then
@@ -30,3 +20,5 @@
 					%li
 						%a{href: services_path(seo_url: serv_cat.seo_url)}= serv_cat.title
 	%p.side-scroll.float-right SCROLL FOR MORE >
+	/ %h3.right-align.suggest
+	/ 	%a.fancybox{:href => "\#suggest_a_service"} SUGGEST A SERVICE
