@@ -6,6 +6,7 @@ admin/new_button.png: 840b8934cb0e39db424b5880ed842953
 admin/silver_bg.gif: 00ef942264521900c74fe1ef6f3df226
 admin/submit_bg.gif: 6a2713770c17f957fc72103d4d2af41a
 admin/subnav_bg.gif: a6909a56fd9e9bae83cfd74edef043c0
+favicon.ico: 555ea4b95fa0f880ba8fee55fa76c0d8
 openid_icon.png: 33bf3175c4be42200243eaa3e3021799
 rails.png: a3386665c05a2d82f711a4aaa72d247c
 silk/arrow_undo.png: 2d56b7611b96bcd347c581df433173c5
@@ -42,7 +43,6 @@ credit_cards/icons/wirecard.png: f7b2e12224170def984c692a1ce90a61
 credit_cards/icons/worldpay.png: 9c87a7bf0b28fdbdde03d8f40c372985
 credit_cards/master_cid.jpg: 0f3f2d19bde43db82790adb1029f6d13
 credit_cards/visa_cid.gif: 7c00fa695632a74d80ab7be8e884d5c5
-favicon.ico: 5fbccb20523a601986b6311e1e11f38a
 icons/add-to-cart.png: 555e866ae24931d25ee113188fce41b7
 icons/checkout.png: aa44e0bb0e4e22e7249deda3a919c2ec
 icons/delete.png: b2f108651a7cd97bd8f5fe00eac9c1b6

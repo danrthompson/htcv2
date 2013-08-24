@@ -341,11 +341,11 @@ logos_to_refresh = [
 #   this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
 #   this_service.save
 # end
-logos_to_refresh.each do |title, filename|
-  this_service = Service.find_by_title(title)
-  this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
-  this_service.save
-end
+# logos_to_refresh.each do |title, filename|
+#   this_service = Service.find_by_title(title)
+#   this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
+#   this_service.save
+# end
 
 
 

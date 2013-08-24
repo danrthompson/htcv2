@@ -13,6 +13,8 @@ admin/submit_bg.gif: admin/submit_bg-6a2713770c17f957fc72103d4d2af41a.gif
 admin/submit_bg/index.gif: admin/submit_bg-6a2713770c17f957fc72103d4d2af41a.gif
 admin/subnav_bg.gif: admin/subnav_bg-a6909a56fd9e9bae83cfd74edef043c0.gif
 admin/subnav_bg/index.gif: admin/subnav_bg-a6909a56fd9e9bae83cfd74edef043c0.gif
+favicon.ico: favicon-555ea4b95fa0f880ba8fee55fa76c0d8.ico
+favicon/index.ico: favicon-555ea4b95fa0f880ba8fee55fa76c0d8.ico
 openid_icon.png: openid_icon-33bf3175c4be42200243eaa3e3021799.png
 openid_icon/index.png: openid_icon-33bf3175c4be42200243eaa3e3021799.png
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
@@ -85,8 +87,6 @@ credit_cards/master_cid.jpg: credit_cards/master_cid-0f3f2d19bde43db82790adb1029
 credit_cards/master_cid/index.jpg: credit_cards/master_cid-0f3f2d19bde43db82790adb1029f6d13.jpg
 credit_cards/visa_cid.gif: credit_cards/visa_cid-7c00fa695632a74d80ab7be8e884d5c5.gif
 credit_cards/visa_cid/index.gif: credit_cards/visa_cid-7c00fa695632a74d80ab7be8e884d5c5.gif
-favicon.ico: favicon-5fbccb20523a601986b6311e1e11f38a.ico
-favicon/index.ico: favicon-5fbccb20523a601986b6311e1e11f38a.ico
 icons/add-to-cart.png: icons/add-to-cart-555e866ae24931d25ee113188fce41b7.png
 icons/add-to-cart/index.png: icons/add-to-cart-555e866ae24931d25ee113188fce41b7.png
 icons/checkout.png: icons/checkout-aa44e0bb0e4e22e7249deda3a919c2ec.png
