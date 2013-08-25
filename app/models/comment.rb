@@ -30,7 +30,7 @@ class Comment < ActiveRecord::Base
 
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
 
-  has_reputation :votes, source: :user, aggregated_by: :sum
+  # has_reputation :votes, source: :user, aggregated_by: :sum
 
   validates :body, :user_id, :presence => true
   validate :comment_not_overnested
@@ -45,14 +45,14 @@ class Comment < ActiveRecord::Base
   # NOTE: Comments belong to a user
   belongs_to :user
 
-  def current_user_vote_value(user)
-    vote = self.evaluations.where(source_type: user.class.name, source_id: user.id).first
-    if vote then
-      vote.value
-    else
-      0
-    end
-  end
+  # def current_user_vote_value(user)
+  #   vote = self.evaluations.where(source_type: user.class.name, source_id: user.id).first
+  #   if vote then
+  #     vote.value
+  #   else
+  #     0
+  #   end
+  # end
 
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130822220822) do
+ActiveRecord::Schema.define(:version => 20130825224322) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -129,8 +129,10 @@ ActiveRecord::Schema.define(:version => 20130822220822) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "seo_url",              :default => "", :null => false
+    t.string   "seo_url",              :default => ""
   end
+
+  add_index "resource_categories", ["seo_url"], :name => "index_resource_categories_on_seo_url", :unique => true
 
   create_table "resources", :force => true do |t|
     t.boolean  "featured"
@@ -193,8 +195,10 @@ ActiveRecord::Schema.define(:version => 20130822220822) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "rank"
-    t.string   "seo_url",    :default => "", :null => false
+    t.string   "seo_url",    :default => ""
   end
+
+  add_index "service_categories", ["seo_url"], :name => "index_service_categories_on_seo_url", :unique => true
 
   create_table "service_leads", :force => true do |t|
     t.text     "message"
