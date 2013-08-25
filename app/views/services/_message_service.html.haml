@@ -9,17 +9,17 @@
 			= f.hidden_field :service_id, value: this_service.id
 			= f.hidden_field :featured_page, value: (@featured == true) ? 1 : nil
 			.service-action-wrapper
-				%p.float-left I would like
+				%p.float-left I would like to
 				= f.select :inquiry_type_part_1, ServiceLead.inquiry_type_1_options, {}, {class: "form-control float-left", id: "service-request"}
 				= f.select :inquiry_type_part_2, ServiceLead.inquiry_type_2_options, {}, {class: "form-control float-left", id: "service-reason"}
 
-			= f.text_area :message, size: "30x10", class: "form-control"
+			= f.text_area :message, size: "30x10", class: "form-control", placeholder: "(Optional message to service)"
 
 			.message-details-wrapper
 				#service-name.float-left
 					%p
 						Your Name
-					= f.text_field :user_name, class: "form-control"
+					= f.text_field :user_name, class: "form-control", placeholder: "(Optional)"
 				#service-email.float-right
 					%p & Email
 					= f.email_field :email, class: "form-control"
