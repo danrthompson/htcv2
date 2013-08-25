@@ -65,7 +65,7 @@
 				= yield
 
 				%hgroup.secondary
-					%a.teal{:href => "/help_out"} Share the <3
+					%a.teal{:href => "/help_out", target: "_blank"} Share the <3
 					%a#newsletter-fancybox-link{:href => '#feedback-form-fancybox'} Feedback
 
 					-# %br/ 
@@ -75,16 +75,17 @@
 
 				.footer
 					%ul.footer-list.float-left
-						%li.footer-elem
-							%a.social-link{:href => ""} FB
-						%li.footer-elem.pipe &#124
+						-# %li.footer-elem
+						-# 	%a.social-link{:href => ""} FB
+						-# %li.footer-elem.pipe &#124
 						%li.footer-elem 
-							%a.social-link{:href => ""} TW
+							%a.social-link{:href => "http://twitter.com/harnessthecrowd", target: "_blank"} TW
 						%li.footer-elem.pipe &#124
-						%li.footer-elem 
-							%a.social-link{:href => ""} LI
-						%li.footer-elem.pipe &#124
-						%li.fotter-elem.crowdfund-title <span class="hub-title-thin">Harness The </span><span class="crowdfund-title-bold">Crowd</span>
+						-# %li.footer-elem 
+						-# 	%a.social-link{href: ""} LI
+						-# %li.footer-elem.pipe &#124
+						%li.fotter-elem.crowdfund-title 
+							%a{href: "/"} <span class="hub-title-thin">Harness The </span><span class="crowdfund-title-bold">Crowd</span>
 					
 					%ul.footer-list.float-right 
 						%li.footer-elem

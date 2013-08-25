@@ -58,7 +58,7 @@
 	- @services.each do |this_service|
 		= render partial: 'message_service', locals: {this_service: this_service}
 
-	= render partial: 'shared/tools/suggest_a_tool', locals: {tool_is_service: true}
+= render partial: 'shared/tools/suggest_a_tool', locals: {tool_is_service: true}
 
 :javascript
 	$(document).ready(function() {
