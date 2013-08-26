@@ -4,5 +4,5 @@ class VideoRequest < ActiveRecord::Base
   validates :email, format: { with: Devise.email_regexp,
     message: "That was not a valid email." }
 
-    belongs_to :user
+  belongs_to :user
 end

@@ -7,22 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-
-
-ResourceCategory.attr_accessible :resource_category_id, :id
-Resource.attr_accessible :resource_category_id, :id
-Service.attr_accessible :service_category_id, :id
-ServiceCategory.attr_accessible :id
-ConversationPost.attr_accessible :id, :user_id, :type
-# Post.attr_accessible :id
-
 resource_category_list = [{"title"=>"Featured Resources",
   "resource_category_id"=>nil,
-  "rank"=>"1"},
- {"title"=>"Booklist", "resource_category_id"=>nil, "rank"=>"2"},
+  "rank"=>"1", "seo_url" => 'featured', "image" => 'featured-resources.png'},
+ {"title"=>"Booklist", "resource_category_id"=>nil, "rank"=>"2", "seo_url" => 'booklist', "image" => 'booklist.png'},
  {"title"=>"About Crowdfunding",
   "resource_category_id"=>nil,
-  "rank"=>"3"},
+  "rank"=>"3", "seo_url" => 'about-crowdfunding', "image" => 'about-crowdfunding.jpg'},
  {"title"=>"What is Crowdfunding?",
   "resource_category_id"=>"3",
   "rank"=>"1"},
@@ -34,16 +25,16 @@ resource_category_list = [{"title"=>"Featured Resources",
   "rank"=>"3"},
  {"title"=>"Idea Development",
   "resource_category_id"=>nil,
-  "rank"=>"4"},
+  "rank"=>"4", "seo_url" => 'idea-development', "image" => 'idea-development.png'},
  {"title"=>"Make Your Project Represent Something Bigger",
   "resource_category_id"=>"7",
   "rank"=>"1"},
  {"title"=>"Maker Your Project Stand Out",
   "resource_category_id"=>"7",
   "rank"=>"2"},
- {"title"=>"Campaign Preparation",
+ {"title"=>"Campaign Prep",
   "resource_category_id"=>nil,
-  "rank"=>"5"},
+  "rank"=>"5", "seo_url" => 'campaign-preparation', "image" => 'campaign-preparation.png'},
  {"title"=>"Core Traits of Effective Campaigns",
   "resource_category_id"=>"10",
   "rank"=>"1"},
@@ -55,7 +46,7 @@ resource_category_list = [{"title"=>"Featured Resources",
   "rank"=>"3"},
  {"title"=>"Making the Video",
   "resource_category_id"=>nil,
-  "rank"=>"6"},
+  "rank"=>"6", "seo_url" => 'making-the-video', "image" => 'making-the-video.png'},
  {"title"=>"How to Make a Crowdfunding Video",
   "resource_category_id"=>"14",
   "rank"=>"1"},
@@ -65,9 +56,9 @@ resource_category_list = [{"title"=>"Featured Resources",
  {"title"=>"Lighting and Audio",
   "resource_category_id"=>"14",
   "rank"=>"3"},
- {"title"=>"Marketing and Outreach",
+ {"title"=>"Marketing & Outreach",
   "resource_category_id"=>nil,
-  "rank"=>"7"},
+  "rank"=>"7", "seo_url" => 'marketing-and-outreach', "image" => 'marketing-and-outreach.png'},
  {"title"=>"How to Determine Your Audience",
   "resource_category_id"=>"18",
   "rank"=>"1"},
@@ -79,7 +70,7 @@ resource_category_list = [{"title"=>"Featured Resources",
   "rank"=>"3"},
  {"title"=>"After The Campaign",
   "resource_category_id"=>nil,
-  "rank"=>"8"},
+  "rank"=>"8", "seo_url" => 'after-the-campaign', "image" => 'after-the-campaign.jpg'},
  {"title"=>"Small Business Management",
   "resource_category_id"=>"22",
   "rank"=>"1"},
@@ -153,200 +144,74 @@ resource_list = [{"featured"=>nil, "rank"=>"1", "featured_rank"=>nil, "title"=>"
 {"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"More Money, More Problems - The Challenges of Managing Crowdfunding Success", "description"=>"Key considerations for how to manage your campaign once it has exceeded your expecatations and there are customers lined up to start using your products or services.", "out_link"=>"http://bit.ly/13QMBP0", "resource_category_id"=>"24"},
 {"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Does Disappointing Your Backers Keep You Up at Night?", "description"=>"Campaign management tool BackerKit explains why it can be useful to consider communication and CRM tools to help you manage your campaign after the fundraising period has ended.", "out_link"=>"http://bit.ly/15yPlzx", "resource_category_id"=>"24"}]
 
-service_category_list = [{"title"=>"Campaign Management", "rank"=>"1"},
-{"title"=>"Video", "rank"=>"2"},
-{"title"=>"Marketing / PR", "rank"=>"3"},
-{"title"=>"Website Design / Dev", "rank"=>"4"},
-{"title"=>"Manufacturing", "rank"=>"5"},
-{"title"=>"Fulfillment", "rank"=>"6"}]
+service_category_list = [{"title"=>"Campaign Management", "rank"=>"1", "seo_url" => "campaign-management"},
+{"title"=>"Video", "rank"=>"2", "seo_url" => "video"},
+{"title"=>"Marketing / PR", "rank"=>"3", "seo_url" => "marketing-and-pr"},
+{"title"=>"Website Design / Dev", "rank"=>"4", "seo_url" => "website-design-development"},
+{"title"=>"Manufacturing", "rank"=>"5", "seo_url" => "manufacturing"},
+{"title"=>"Fulfillment", "rank"=>"6", "seo_url" => "fulfillment"}]
 
-service_list = [{"featured"=>"1", "rank"=>"1", "featured_rank"=>"1", "title"=>"Feedback Manufacturing", "description"=>"Design analysis, part sourcing, contract manufacturing, and project management services from experienced crowdfunding partners. Your full supply chain solution, based in China.", "out_link"=>"http://feedbackmanufacturing.com/", "service_category_id"=>"5"},
-{"featured"=>"1", "rank"=>"1", "featured_rank"=>"2", "title"=>"Metzger Associates", "description"=>"Metzger Associates assists clients in traditional public, media, and analyst relations as well as blogger relations, social media management, website development, and search engine optimization.", "out_link"=>"http://www.metzger.com/", "service_category_id"=>"3"},
-{"featured"=>'1', "rank"=>"2", "featured_rank"=>'3', "title"=>"FulfillRite", "description"=>"E-commerce fulfillment made easy. Featuring integrations with popular payment platforms, and orders made before 12PM EST ship out same day.", "out_link"=>"http://fulfillrite.com/", "service_category_id"=>"6"},
-{"featured"=>nil, "rank"=>"1", "featured_rank"=>nil, "title"=>"Acutrack", "description"=>"Over 20 years experience in production, logistics, and fulfillment for clients of all shapes and sizes, including serveral successful Kickstarter projects.", "out_link"=>"http://acutrack.com/", "service_category_id"=>"6"},
-{"featured"=>nil, "rank"=>"1", "featured_rank"=>nil, "title"=>"BackerKit", "description"=>"A new pledge management tool for project creators, it's automated to manage all your pledges, add-ons, last minute shipping changes, and more. So stop stressing about messages in your mailbox. We got your back.", "out_link"=>"https://backerkit.com/", "service_category_id"=>"1"},
-{"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Celery", "description"=>"With Celery, you can accept pre-orders whenever you're ready, making it the easiest way to collect credit cards now and charge them later.", "out_link"=>"https://www.trycelery.com/", "service_category_id"=>"1"},
-{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Outgrow.Me", "description"=>"The first marketplace for successfully funded Kickstarter and Indiegogo projects. Reach new audiences with ease using their e-commerce platform.", "out_link"=>"http://outgrow.me/", "service_category_id"=>"1"},
-{"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Morpho MFG", "description"=>"From idea development to industrial/mechanical design to sourcing and manufacturing, Morpho MFG provides full-service expertise to help you create brilliant products.", "out_link"=>"http://morphomfg.com/", "service_category_id"=>"5"}]
-
-service_logos = [[1, 'feedback_manufacturing.jpg'], [2, 'metzger.jpg'], [3, 'fulfillrite.jpg'], [4, 'acutrack.jpg'], [5, 'backerkit.jpg'], [6, 'celery.jpg'], [7, 'outgrow_me.jpg'], [8, 'morpho_mfg.jpg']]
-
-posts_list = [{"title"=>"Crowdfunding Statistics & Industry Outlook", "body"=>"As platforms like Kickstarter and Indiegogo celebrate their fourth birthdays this year, much attention has been given to the crowdfunding industry in an attempt to predict how much it will grow in the coming years. Regardless of the metric you use - number of campaigns, amount of money raised, or quantity of headline-topping success stories, theres no denying that crowdfunding is emerging from infancy and maturing into one of the most well known ways for entrepreneurs from all walks of life to realize their ideas.\n\nGet a glimpse of the worldwide crowdfunding industry with these infographics.\n\n<img src='https://s3.amazonaws.com/harnessthecrowd/post_uploads/intro-graphic2.png' style='width:500px;' />\n<img src='https://s3.amazonaws.com/harnessthecrowd/post_uploads/intro-graphic3.png' style='width:500px;' />\n<img src='https://s3.amazonaws.com/harnessthecrowd/post_uploads/intro-graphic4.png' style='width:500px;' />\n", "preview_text"=>"As platforms like Kickstarter and Indiegogo celebrate their fourth birthdays this year, much attention has been given to the crowdfunding industry in an attempt to predict how much it will grow in the coming years. Get a glimpse of the worldwide crowdfunding industry with these infographics.", "published_at_natural"=>"8/12/13", "tag_list"=>"crowdfunding industry-outlook"}, {"title"=>"Proven Practices: Making the Video", "body"=>"By now youve probably seen close to a hundred of them. Short videos on Kickstarter or Indiegogo that are meant to captivate, spark interest, and inspire you to open up your wallet and throw a few bucks towards the next big thing. Some videos obviously employ professional production value, while others are shot with an iPhone in an afternoon. Having employed both approaches ourselves, wed like to outline a few key tenets that, regardless of budget, should help you create a campaign video worthy of your backers hard earned cash.\n\n<strong>Craft a Story</strong>\n\nAt the end of the day, your video is meant to persuade strangers to give you money. The best way to do this is by telling a captivating story and demonstrating a brilliant product. Describe how your idea developed, talk about that late night where you feverishly developed a prototype, and alert us to the void in humanity that youre hoping to fill. Make your story easily repeatable, as this is one of the key things that your backers will want to share with friends.\n\n<strong>Show Rather Than Tell</strong>\n\nChances are youve probably developed a prototype or two. Show us! Demonstrate multiple use cases of your product. Give us a sample of your new album or film. We understand that your concept might still be in development, but even the slightest preview of a working product can convince potential backers that youre serious and that their money isnt being put into a black hole.\n\n<strong>Keep it Short</strong>\n\nPeople have short attention spans. Theyre also busy. Its awesome that youre so passionate about your idea and you could easily talk about it or 45 minutes. The video is your forum to pitch, however, and you should follow suit accordingly. We recommend keeping videos under 3 minutes with a knockout first twenty seconds to captivate and awe. Learn how to describe your idea and your story clearly and concisely in five sentences or less.\n\n<strong>Be Yourself</strong>\n\nThanks to reality TV, we all know how easy it is to tell when someone is being authentic or when theyre half heartedly reading from a script. Your passion is contagious, and we want you to infect us. Prove to us that youre an expert and that you stay awake at night thinking about how to make your idea better. Dont be afraid to get personal and describe how your idea solves a problem thats near and dear to your heart. \n\n<strong>Call for Action!</strong>\n\nDont forget to tell people how they can contribute. Describe your rewards, discuss how they can pre-order via your website, and encourage them to share with friends. In short, make it as easy as possible for people to help you realize your idea.\n\nFor more information on making your video, including technical tips, structural recommendations, and a video checklist, be sure to check out our Resources-Video page and get a copy of our eBook! If youre looking for professional help with your crowdfunding video, fill out our quick form here and get started with a videographer in your area.\n", "preview_text"=>"By now you've probably seen close to a hundred of them. Short videos on Kickstarter or Indiegogo that are meant to captivate, spark interest, and inspire you to open up your wallet and throw a few bucks towards the next big thing. We've put together a quick overview of key principles that will help you achieve crowdfunding video success, regardless of timeline or budget.", "published_at_natural"=>"8/14/13", "tag_list"=>"how-to video making-the-video crowdfunding-video"}]
-
-conversation_posts_list = [{"body"=>"Its never too early to start marketing your product. Even before your prototype is finished, dont hesitate to reach out to key figures in the industry to seek feedback and collaboration for refining your idea.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Show your ambition. Potential backers are interested to hear the larger idea or deeper meaning behind your project. Not only does this craft a more engaging story, but also shows your dedication to the long-term success.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Embrace the uniqueness of your idea. If you have competitors or are entering a crowded arena, highlight what makes your project different and worthy of fundraising.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Crowdfunding is inherently transparent. By honestly sharing your successes and failures, you open yourself up to the support of the backer community. People want to feel connected to your project, and transparency is one of the best ways to support this feeling of togetherness.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Refine your pitch! Learn to describe your project in 5 sentences or less. Create a 3 slide presentation or one page document that you can forward to press so they can understand your vision quickly and easily.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Keep your campaign period short. Kickstarter statistics show that campaigns that last for 90 days are only half as likely to succeed as those that last for 30 days. This will help you maintain urgency and excitement about your project.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Be mindful of your campaign timing. Watch out for holidays, long weekends, and other times when your target audience might be less likely to spend time online.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Remember to include things like shipping costs when determining your fundraising goal. If you expect to attract an international audience, think about setting different rewards for shipping overseas.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Keep your video short! The majority of viewers will drop off after two or three minutes; consider this mark when writing your script and producing your visuals.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Take a shot of your favorite booze before being featured in your campaign video. It will help you relax and stay at ease in front of the camera.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"If youre struggling to come up with a plan for your video, try starting with the Person - Product - Person framework. Start with a quick introduction to your story, demonstrate your products use cases in action, and summarize with the details of your campaign and what your goals are.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Your project has an infinitely higher likelihood of achieving success if your backers feel inspired to share it with their networks. Make it easy for backers to Tweet, Like, email, and otherwise spread the word.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Pinpoint your target audience. Find out where they spend time online and seek them out. You are much more likely to reach critical mass using outbound marketing and PR tactics rather than waiting for people to come to you.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Customize your press releases and develop personal relationships with key bloggers and journalists. Its easy to spot a copied and pasted press template and much easier to get excited about something thats been tailored for a specific blog or publication audience.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Dont settle for a single page on Kickstarter or Indiegogo. Launch a product or project website where you can include more information, access to press materials, and an additional way to accept donations or pre-orders. Do a little SEO research and boost your site traffic.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Try to anticipate backers questions and stay one step ahead in your update communications. Things like color choices and timeline changes can be addressed proactively to prevent you from spending more time than you have responding to individual comments or questions.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Remember to make your backers feel special whenever possible. If you see an opportunity to shoot a video as your first batch comes off of the production line or snap a few photos of your fulfillment team drowning in boxes, capture the moment and share it with your community. Crowdfunding provides an unprecedented lens into your life as a creator and including backers means engaging them.", "user_id"=>-1, "video_link"=>nil, "type"=>"AdvicePost"}, {"body"=>"Should I choose Kickstarter, Indiegogo, or another platform for my crowdfunding project?", "user_id"=>-1, "video_link"=>nil, "type"=>"QuestionPost"}, {"body"=>"Ive completed an estimate for the total cost of my campaign, assuming a certain number of backers. How do I choose my fundraising goal, and what else do I need to take into account?", "user_id"=>-1, "video_link"=>nil, "type"=>"QuestionPost"}, {"body"=>"What are the best tips for learning how to write a press release for the first time?", "user_id"=>-1, "video_link"=>nil, "type"=>"QuestionPost"}, {"body"=>"Do I need a website for my project outside of the crowdfunding platform Im using?", "user_id"=>-1, "video_link"=>nil, "type"=>"QuestionPost"}, {"body"=>"How do I know if my idea is mature enough to crowdfund?", "user_id"=>-1, "video_link"=>nil, "type"=>"QuestionPost"}, {"body"=>"I live in a small town and am worried that my idea wont be successful because Im not close to a large metro area. Are there any tips for connecting with the city nearest to my home?", "user_id"=>-1, "video_link"=>nil, "type"=>"QuestionPost"}, {"body"=>"What is the easiest way to promote a campaign?", "user_id"=>-1, "video_link"=>nil, "type"=>"QuestionPost"}, {"body"=>"How can I get feedback on my idea before launching my campaign?", "user_id"=>-1, "video_link"=>nil, "type"=>"QuestionPost"}, {"body"=>"What the main differences between rewards-based crowdfunding and equity-based crowdfunding?", "user_id"=>-1, "video_link"=>nil, "type"=>"QuestionPost"}, {"body"=>"What are some of the biggest crowdfunding success stories?", "user_id"=>-1, "video_link"=>nil, "type"=>"QuestionPost"}, {"body"=>"Ubuntu sets crowdfund pledge record for Edge smartphone. http://www.bbc.co.uk/news/technology-23714549", "user_id"=>-1, "video_link"=>nil, "type"=>"NewsPost"}, {"body"=>"Crowdfunding meets craft beer with CrowdBrewed. http://www.usatoday.com/story/money/business/2013/08/13/crowdfunding-kickstarter-meets-craft-beer/2649139/", "user_id"=>-1, "video_link"=>nil, "type"=>"NewsPost"}, {"body"=>"Is Crowdfunding Changing the Game for Filmmakers? A Q&A With Spike Lee. http://www.huffingtonpost.com/joe-vogel/is-crowdfunding-changing-_b_3751494.html", "user_id"=>-1, "video_link"=>nil, "type"=>"NewsPost"}, {"body"=>"SEC Asks For Public Comment On Accredited Investor Definition. http://www.crowdfundinsider.com/2013/08/20782-sec-public-comment-accredited-investors/", "user_id"=>-1, "video_link"=>nil, "type"=>"NewsPost"}]
-
-blog_post_images = [[1, 'CROWDFUNDING-GROWTH.png'], [2, 'Making_the_Video.png']]
-
-resource_category_images = [
-  [3, 'about-crowdfunding.jpg'],
-  [22, 'after-the-campaign.jpg'],
-  [2, 'booklist.png'],
-  [10, 'campaign-preparation.png'],
-  [1, 'featured-resources.png'],
-  [7, 'idea-development.png'],
-  [14, 'making-the-video.png'],
-  [18, 'marketing-and-outreach.png']
-]
-
-conversation_post_images = [
-  [19, 'calculate-costs.jpg'],
-  [7, 'calendar.jpg'],
-  [29, 'crowdbrewed.jpg'],
-  [15, 'html.jpg'],
-  [17, 'iphone-video.png'],
-  [18, 'kickstarter-indiegogo.png'],
-  [5, 'pitch.jpg'],
-  [26, 'rewards-or-equity.jpg'],
-  [23, 'rural-home.jpg'],
-  [12, 'sharing-icons.jpg'],
-  [10, 'shot-glasses.jpeg'],
-  [2, 'show-ambition.jpg'],
-  [30, 'spike-lee.jpg'],
-  [3, 'stand-out.jpg'],
-  [28, 'ubuntu-edge-indiegogo.jpg'],
-  [11, 'video-structure.png']
-]
-
-resource_cat_seo_urls = [
-  [1, 'featured'],
-  [2, 'booklist'],
-  [3, 'about-crowdfunding'],
-  [7, 'idea-development'],
-  [10, 'campaign-preparation'],
-  [14, 'making-the-video'],
-  [18, 'marketing-and-outreach'],
-  [22, 'after-the-campaign']
-]
-
-service_cat_seo_urls = [
-  [1, 'campaign-management'],
-  [3, 'marketing-and-pr'],
-  [2, 'video'],
-  [5, 'manufacturing'],
-  [6, 'fulfillment'],
-  [4, 'website-design-development']
-]
-
-second_set_of_services_to_add = [{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"PassageMaker Sourcing Solutions", "description"=>"Manufacturing and final assemply solutions provided by an American-owned company in China. Dedicated to protecting your IP and providing excellent service.", "out_link"=>"http://www.psschina.com/", "service_category_id"=>"5"},
-{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Simple Global", "description"=>"Sell your products to the world with merchandising and fulfillment services to help increase sales and lower delivery costs. The choice is simple - Simple Global.", "out_link"=>"http://www.simpleglobal.com/", "service_category_id"=>"6"},
-{"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Blaze PR", "description"=>"Reach new markets and achieve success with Blaze PR's unique approach to public relations, strategic planning, and interactive marketing.", "out_link"=>"http://blazepr.com/", "service_category_id"=>"3"},
-{"featured"=>nil, "rank"=>"1", "featured_rank"=>nil, "title"=>"TinyMill", "description"=>"Beautiful, functional, and standards-based website design and development to help you reach your target audience online.", "out_link"=>"http://www.tinymill.com/", "service_category_id"=>"4"},
-{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Agency 2.0", "description"=>"Campaign strategy, marketing, and public relations services for crowdfunding platforms like Kickstarter.", "out_link"=>"http://agency20.com/", "service_category_id"=>"3"},
-{"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Quirky Bird", "description"=>"Strikingly unconventional website and graphic design and development services, specliaizing in eCommerce sites.", "out_link"=>"http://quirky-bird.com/", "service_category_id"=>"4"},
-{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Nebo", "description"=>"Award winning interactive services includuding web design, user experience, development, integrations, SEO and more.", "out_link"=>"http://www.neboagency.com/", "service_category_id"=>"4"}]
+service_list = [{"featured"=>"1", "rank"=>"1", "featured_rank"=>"1", "title"=>"Feedback Manufacturing", "description"=>"Design analysis, part sourcing, contract manufacturing, and project management services from experienced crowdfunding partners. Your full supply chain solution, based in China.", "out_link"=>"http://feedbackmanufacturing.com/", "service_category_id"=>"5", "logo" => "feedback_manufacturing.png"},
+{"featured"=>"1", "rank"=>"1", "featured_rank"=>"2", "title"=>"Metzger Associates", "description"=>"Metzger Associates assists clients in traditional public, media, and analyst relations as well as blogger relations, social media management, website development, and search engine optimization.", "out_link"=>"http://www.metzger.com/", "service_category_id"=>"3", "logo" => "metzger.jpg"},
+{"featured"=>'1', "rank"=>"2", "featured_rank"=>'3', "title"=>"FulfillRite", "description"=>"E-commerce fulfillment made easy. Featuring integrations with popular payment platforms, and orders made before 12PM EST ship out same day.", "out_link"=>"http://fulfillrite.com/", "service_category_id"=>"6", "logo" => "fulfillrite.jpg"},
+{"featured"=>nil, "rank"=>"1", "featured_rank"=>nil, "title"=>"Acutrack", "description"=>"Over 20 years experience in production, logistics, and fulfillment for clients of all shapes and sizes, including serveral successful Kickstarter projects.", "out_link"=>"http://acutrack.com/", "service_category_id"=>"6", "logo" => "acutrack.jpg"},
+{"featured"=>nil, "rank"=>"1", "featured_rank"=>nil, "title"=>"BackerKit", "description"=>"A new pledge management tool for project creators, it's automated to manage all your pledges, add-ons, last minute shipping changes, and more. So stop stressing about messages in your mailbox. We got your back.", "out_link"=>"https://backerkit.com/", "service_category_id"=>"1", "logo" => "backerkit.jpg"},
+{"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Celery", "description"=>"With Celery, you can accept pre-orders whenever you're ready, making it the easiest way to collect credit cards now and charge them later.", "out_link"=>"https://www.trycelery.com/", "service_category_id"=>"1", "logo" => "celery.jpg"},
+{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Outgrow.Me", "description"=>"The first marketplace for successfully funded Kickstarter and Indiegogo projects. Reach new audiences with ease using their e-commerce platform.", "out_link"=>"http://outgrow.me/", "service_category_id"=>"1", "logo" => "outgrow_me.jpg"},
+{"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Morpho MFG", "description"=>"From idea development to industrial/mechanical design to sourcing and manufacturing, Morpho MFG provides full-service expertise to help you create brilliant products.", "out_link"=>"http://morphomfg.com/", "service_category_id"=>"5", "logo" => "morpho_mfg.jpg"}, 
+{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"PassageMaker Sourcing Solutions", "description"=>"Manufacturing and final assemply solutions provided by an American-owned company in China. Dedicated to protecting your IP and providing excellent service.", "out_link"=>"http://www.psschina.com/", "service_category_id"=>"5", "logo" => "passagemaker.jpg"},
+{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Simple Global", "description"=>"Sell your products to the world with merchandising and fulfillment services to help increase sales and lower delivery costs. The choice is simple - Simple Global.", "out_link"=>"http://www.simpleglobal.com/", "service_category_id"=>"6", "logo" => "simple_global.png"},
+{"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Blaze PR", "description"=>"Reach new markets and achieve success with Blaze PR's unique approach to public relations, strategic planning, and interactive marketing.", "out_link"=>"http://blazepr.com/", "service_category_id"=>"3", "logo" => "blaze.jpeg"},
+{"featured"=>nil, "rank"=>"1", "featured_rank"=>nil, "title"=>"TinyMill", "description"=>"Beautiful, functional, and standards-based website design and development to help you reach your target audience online.", "out_link"=>"http://www.tinymill.com/", "service_category_id"=>"4", "logo" => "tinymill.png"},
+{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Agency 2.0", "description"=>"Campaign strategy, marketing, and public relations services for crowdfunding platforms like Kickstarter.", "out_link"=>"http://agency20.com/", "service_category_id"=>"3", "logo" => "agency20.png"},
+{"featured"=>nil, "rank"=>"2", "featured_rank"=>nil, "title"=>"Quirky Bird", "description"=>"Strikingly unconventional website and graphic design and development services, specliaizing in eCommerce sites.", "out_link"=>"http://quirky-bird.com/", "service_category_id"=>"4", "logo" => "quirkybird.png"},
+{"featured"=>nil, "rank"=>"3", "featured_rank"=>nil, "title"=>"Nebo", "description"=>"Award winning interactive services includuding web design, user experience, development, integrations, SEO and more.", "out_link"=>"http://www.neboagency.com/", "service_category_id"=>"4", "logo" => "nebo.jpg"}]
 
 
-second_set_of_service_logos_to_add = [
-  ['PassageMaker Sourcing Solutions', 'passagemaker.jpg'],
-  ['Simple Global', 'simple_global.png'],
-  ['Blaze PR', 'blaze.jpeg'],
-  ['TinyMill', 'tinymill.png'],
-  ['Agency 2.0', 'agency20.png'],
-  ['Quirky Bird', 'quirkybird.png'],
-  ['Nebo', 'nebo.jpg']
-]
-
-logos_to_refresh = [
-  ["Feedback Manufacturing", 'feedback_manufacturing.png'],
-  ["Metzger Associates", 'metzger.jpg'],
-  ["FulfillRite", 'fulfillrite.jpg'],
-  ["Acutrack", 'acutrack.jpg'],
-  ["BackerKit", 'backerkit.jpg'],
-  ["Celery", 'celery.jpg'],
-  ["Outgrow.Me", 'outgrow_me.jpg'],
-  ["Morpho MFG", 'morpho_mfg.jpg'],
-  ['PassageMaker Sourcing Solutions', 'passagemaker.jpg'],
-  ['Simple Global', 'simple_global.png'],
-  ['Blaze PR', 'blaze.jpeg'],
-  ['TinyMill', 'tinymill.png'],
-  ['Agency 2.0', 'agency20.png'],
-  ['Quirky Bird', 'quirkybird.png'],
-  ['Nebo', 'nebo.jpg']
-]
 
 
 # actual seed scripts
 
-# Spree::Core::Engine.load_seed if defined?(Spree::Core)
-# Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
-
+ResourceCategory.attr_accessible :id
+Resource.attr_accessible :id
+Service.attr_accessible :id
+ServiceCategory.attr_accessible :id
 
 ResourceCategory.delete_all
 Resource.delete_all
 ServiceCategory.delete_all
 Service.delete_all
-ConversationPost.delete_all
-# Post.delete_all
 
+ActiveRecord::Base.connection.tables.each do |t|
+  ActiveRecord::Base.connection.reset_pk_sequence!(t)
+end
 
-# resource_category_list.each_with_index do |params, index|
-#   params["id"] = (index+1).to_s
-#   ResourceCategory.create(params)
-# end
+resource_category_list.each_with_index do |params, index|
+  params["id"] = (index+1).to_s
+  image_filename = params["image"]
+  params["image"] = nil
+  res_cat = ResourceCategory.create(params)
+  if image_filename then
+    res_cat.update_attribute(:image, File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ResourceCatImages/#{image_filename}"), 'r'))
+  end
+end
+
 resource_list.each_with_index do |params, index|
   params["id"] = (index+1).to_s
   Resource.create(params)
 end
-# service_category_list.each_with_index do |params, index|
-#   params["id"] = (index+1).to_s
-#   ServiceCategory.create(params)
-# end
-# service_list.each_with_index do |params, index|
-#   params["id"] = (index+1).to_s
-#   Service.create(params)
-# end
-# posts_list.each_with_index do |params, index|
-#   params["id"] = (index+1).to_s
-#   Post.create(params)
-# end
-# conversation_posts_list.each_with_index do |params, index|
-#   params["id"] = (index+1).to_s
-#   ConversationPost.create(params)
-# end
-# service_logos.each do |id, filename|
-#   this_service = Service.find(id)
-#   this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
-#   this_service.save
-# end
-# blog_post_images.each do |id, filename|
-#   post = Post.find(id)
-#   post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "BlogPostImages/#{filename}"), 'r')
-#   post.save
-# end
 
-# resource_category_images.each do |id, filename|
-#   resource_cat = ResourceCategory.find(id)
-#   resource_cat.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ResourceCatImages/#{filename}"), 'r')
-#   resource_cat.save
-# end
-# conversation_post_images.each do |id, filename|
-#   conv_post = ConversationPost.find(id)
-#   conv_post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ConversationPostImages/#{filename}"), 'r')
-#   conv_post.save
-# end
-# resource_cat_seo_urls.each do |id, seo_url|
-#   cat = ResourceCategory.find(id)
-#   cat.seo_url = seo_url
-#   cat.save
-# end
-# service_cat_seo_urls.each do |id, seo_url|
-#   cat = ServiceCategory.find(id)
-#   cat.seo_url = seo_url
-#   cat.save
-# end
-# second_set_of_services_to_add.each do |params|
-#   Service.create(params)
-# end
-# second_set_of_service_logos_to_add.each do |title, filename|
-#   this_service = Service.find_by_title(title)
-#   this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
-#   this_service.save
-# end
-# logos_to_refresh.each do |title, filename|
-#   this_service = Service.find_by_title(title)
-#   this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
-#   this_service.save
-# end
+service_category_list.each_with_index do |params, index|
+  params["id"] = (index+1).to_s
+  ServiceCategory.create(params)
+end
 
-
-
+service_list.each_with_index do |params, index|
+  params["id"] = (index+1).to_s
+  logo_filename = params["logo"]
+  params["logo"] = nil
+  this_service = Service.create(params)
+  if logo_filename then
+    this_service.update_attribute(:logo, File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{logo_filename}"), 'r'))
+  end
+end

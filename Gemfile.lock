@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/james2m/seedbank.git
+  revision: c7a272751336f0d17103028f45b88eac62cbedd7
+  specs:
+    seedbank (0.3.0.pre2)
+
+GIT
   remote: https://github.com/spree/spree_auth_devise.git
   revision: 3a1aa02e73d3f6bcbb834a47366c41f6e5ca1049
   branch: 2-0-stable
@@ -516,6 +522,7 @@ DEPENDENCIES
   rspec-rails
   ruby-openid
   sass-rails (~> 3.2.6)
+  seedbank!
   sidekiq
   spree (= 2.0.3)
   spree_auth_devise!

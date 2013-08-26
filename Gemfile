@@ -28,6 +28,7 @@ gem 'thin'
 gem 'workless'
 gem 'activeadmin'
 gem 'mixpanel'
+gem 'seedbank', github: 'james2m/seedbank'
 
 # Gems used only for assets and not required
 # in production environments by default.
