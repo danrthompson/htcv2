@@ -4,7 +4,7 @@ class ResourceCategory < ActiveRecord::Base
 
 	validates :seo_url, uniqueness: true, allow_nil: true
 
-  validates :title, :rank, :image, presence: true
+  validates :title, :rank, presence: true
 
 
   has_attached_file :image, path: "/#{ENV['S3_PATH_PREFIX']}:class/:attachment/:id_partition/:style/:basename.:extension"
