@@ -7,3 +7,7 @@
 	%br/ 
 	%p= comment.body
 	%h3.teal.float-right= "- #{comment.author}"
+	- if can? :delete, comment then
+		%ul.action-items.float-left
+			%li 
+				= link_to "Delete", [comment.commentable, comment], method: :delete, data: {confirm: 'Delete this comment?'}

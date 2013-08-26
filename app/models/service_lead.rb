@@ -11,11 +11,22 @@ class ServiceLead < ActiveRecord::Base
   belongs_to :user
 
   def self.inquiry_type_1_options
-    [["To receive a quote", 1]]
+    [
+      ["Receive a quote"],
+      ["Get more information"],
+      ["Schedule a phone call"],
+      ["Get in touch"]
+    ]
   end
 
   def self.inquiry_type_2_options
-    [["For a campaign I'm planning", 1]]
+    [
+      ["For a campaign I'm planning"],
+      ["For a campaign I'm running"],
+      ["For a campaign I finished"],
+      ["For a project I'd like to do"],
+      ["For another reason (other)"]
+    ]
   end
 
   private

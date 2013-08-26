@@ -28,6 +28,9 @@
 				-# 	%a &#124
 				%li 
 					%a.show-comments-link{:href => "javascript: void();"}Show Comments 
+				- if can? :delete, post then
+					%li 
+						= link_to "Delete", post, method: :delete, data: {confirm: 'Delete this post?'}
 			%br/
 
 			- post.comments.each do |comment|

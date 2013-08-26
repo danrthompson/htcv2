@@ -313,39 +313,40 @@ end
 #   post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "BlogPostImages/#{filename}"), 'r')
 #   post.save
 # end
-resource_category_images.each do |id, filename|
-  resource_cat = ResourceCategory.find(id)
-  resource_cat.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ResourceCatImages/#{filename}"), 'r')
-  resource_cat.save
-end
-conversation_post_images.each do |id, filename|
-  conv_post = ConversationPost.find(id)
-  conv_post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ConversationPostImages/#{filename}"), 'r')
-  conv_post.save
-end
-resource_cat_seo_urls.each do |id, seo_url|
-  cat = ResourceCategory.find(id)
-  cat.seo_url = seo_url
-  cat.save
-end
-service_cat_seo_urls.each do |id, seo_url|
-  cat = ServiceCategory.find(id)
-  cat.seo_url = seo_url
-  cat.save
-end
-second_set_of_services_to_add.each do |params|
-  Service.create(params)
-end
-second_set_of_service_logos_to_add.each do |title, filename|
-  this_service = Service.find_by_title(title)
-  this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
-  this_service.save
-end
-logos_to_refresh.each do |title, filename|
-  this_service = Service.find_by_title(title)
-  this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
-  this_service.save
-end
+
+# resource_category_images.each do |id, filename|
+#   resource_cat = ResourceCategory.find(id)
+#   resource_cat.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ResourceCatImages/#{filename}"), 'r')
+#   resource_cat.save
+# end
+# conversation_post_images.each do |id, filename|
+#   conv_post = ConversationPost.find(id)
+#   conv_post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ConversationPostImages/#{filename}"), 'r')
+#   conv_post.save
+# end
+# resource_cat_seo_urls.each do |id, seo_url|
+#   cat = ResourceCategory.find(id)
+#   cat.seo_url = seo_url
+#   cat.save
+# end
+# service_cat_seo_urls.each do |id, seo_url|
+#   cat = ServiceCategory.find(id)
+#   cat.seo_url = seo_url
+#   cat.save
+# end
+# second_set_of_services_to_add.each do |params|
+#   Service.create(params)
+# end
+# second_set_of_service_logos_to_add.each do |title, filename|
+#   this_service = Service.find_by_title(title)
+#   this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
+#   this_service.save
+# end
+# logos_to_refresh.each do |title, filename|
+#   this_service = Service.find_by_title(title)
+#   this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
+#   this_service.save
+# end
 
 
 
