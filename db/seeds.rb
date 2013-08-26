@@ -271,48 +271,49 @@ logos_to_refresh = [
 # Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
 
 
-# ResourceCategory.delete_all
-# Resource.delete_all
-# ServiceCategory.delete_all
-# Service.delete_all
-# ConversationPost.delete_all
+ResourceCategory.delete_all
+Resource.delete_all
+ServiceCategory.delete_all
+Service.delete_all
+ConversationPost.delete_all
 # Post.delete_all
 
 
-# resource_category_list.each_with_index do |params, index|
-#   params["id"] = (index+1).to_s
-#   ResourceCategory.create(params)
-# end
-# resource_list.each_with_index do |params, index|
-#   params["id"] = (index+1).to_s
-#   Resource.create(params)
-# end
-# service_category_list.each_with_index do |params, index|
-#   params["id"] = (index+1).to_s
-#   ServiceCategory.create(params)
-# end
-# service_list.each_with_index do |params, index|
-#   params["id"] = (index+1).to_s
-#   Service.create(params)
-# end
+resource_category_list.each_with_index do |params, index|
+  params["id"] = (index+1).to_s
+  ResourceCategory.create(params)
+end
+resource_list.each_with_index do |params, index|
+  params["id"] = (index+1).to_s
+  Resource.create(params)
+end
+service_category_list.each_with_index do |params, index|
+  params["id"] = (index+1).to_s
+  ServiceCategory.create(params)
+end
+service_list.each_with_index do |params, index|
+  params["id"] = (index+1).to_s
+  Service.create(params)
+end
 # posts_list.each_with_index do |params, index|
 #   params["id"] = (index+1).to_s
 #   Post.create(params)
 # end
-# conversation_posts_list.each_with_index do |params, index|
-#   params["id"] = (index+1).to_s
-#   ConversationPost.create(params)
-# end
-# service_logos.each do |id, filename|
-#   this_service = Service.find(id)
-#   this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
-#   this_service.save
-# end
+conversation_posts_list.each_with_index do |params, index|
+  params["id"] = (index+1).to_s
+  ConversationPost.create(params)
+end
+service_logos.each do |id, filename|
+  this_service = Service.find(id)
+  this_service.logo = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ServiceLogoImages/#{filename}"), 'r')
+  this_service.save
+end
 # blog_post_images.each do |id, filename|
 #   post = Post.find(id)
 #   post.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "BlogPostImages/#{filename}"), 'r')
 #   post.save
 # end
+
 # resource_category_images.each do |id, filename|
 #   resource_cat = ResourceCategory.find(id)
 #   resource_cat.image = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "ResourceCatImages/#{filename}"), 'r')
