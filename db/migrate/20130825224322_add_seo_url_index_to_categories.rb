@@ -1,7 +1,7 @@
 class AddSeoUrlIndexToCategories < ActiveRecord::Migration
   def up
-  	change_column :resource_categories, :seo_url, :string, :null => true
-  	change_column :service_categories, :seo_url, :string, :null => true
+  	change_column :resource_categories, :seo_url, :string, :null => true, default: nil
+  	change_column :service_categories, :seo_url, :string, :null => true, default: nil
   	ResourceCategory.where(seo_url: "").each do |resource_cat|
   		resource_cat.update_attribute(:seo_url, nil)
   	end
