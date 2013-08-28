@@ -10,6 +10,7 @@ Htcv2::Application.routes.draw do
   get 'about-us' => 'static#about_us'
   get 'contact-us' => 'static#contact_us'
   get 'press' => 'static#press'
+  get 'resources(/:seo_url)', to: 'resources#index', as: 'resources'
 
   get "/404", :to => "static#error_page"
   get "/422", :to => "static#error_page"
