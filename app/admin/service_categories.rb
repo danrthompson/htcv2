@@ -21,6 +21,15 @@ ActiveAdmin.register ServiceCategory do
       row :updated_at
     end
   end
+
+  form do |f|
+    f.inputs do
+      f.input :title
+      f.input :rank
+      f.input :seo_url
+    end
+    f.actions
+  end
 end
 
 

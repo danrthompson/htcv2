@@ -1,4 +1,15 @@
 ActiveAdmin.register VideoRequest do
+  controller do 
+    with_role :active_admin
+
+    def update
+      if params[:video_request][:user].blank?
+        params[:video_request][:user] = -1
+      end
+      super
+    end
+
+  end
   index do
   	column "Id" do |video_request|
   		link_to video_request.id, active_admin_interface_video_request_path(video_request)
@@ -38,5 +49,17 @@ ActiveAdmin.register VideoRequest do
       row :created_at
       row :updated_at
     end
+  end
+
+  form do |f|
+    f.inputs do
+      f.input :message
+      f.input :location
+      f.input :budget
+      f.input :timeline
+      f.input :email
+      f.input :user
+    end
+    f.actions
   end
 end

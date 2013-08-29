@@ -1,4 +1,16 @@
 ActiveAdmin.register User do
+  controller do 
+  	with_role :active_admin
+
+    def update
+      if params[:user][:password].blank?
+        params[:user].delete("password")
+        params[:user].delete("password_confirmation")
+      end
+      super
+    end
+
+  end
 	index do
 		column "Id" do |user|
 			link_to user.id, active_admin_interface_user_path(user)
@@ -26,6 +38,18 @@ ActiveAdmin.register User do
 	    row :created_at
 	    row :updated_at
 	  end
+	end
+
+
+	form do |f|
+	  f.inputs do
+	    f.input :username
+	    f.input :email
+	    f.input :password
+	    f.input :password_confirmation
+	    f.input :administrator
+	  end
+	  f.actions
 	end
 end
 

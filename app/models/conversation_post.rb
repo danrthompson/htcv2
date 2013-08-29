@@ -32,6 +32,7 @@ class ConversationPost < ActiveRecord::Base
   # attr_accessible :body, :image, :video_link
 
   attr_accessible :body
+  attr_accessible :body, :user_id, as: :active_admin
 
 
   validates :body, :user_id, presence: true

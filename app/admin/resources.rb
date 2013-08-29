@@ -37,6 +37,16 @@ ActiveAdmin.register Resource do
 	    row :updated_at
 	  end
 	end
+	form do |f|
+	  f.inputs do
+	    f.input :title
+	    f.input :description
+	    f.input :rank
+	    f.input :resource_category
+	    f.input :out_link
+	  end
+	  f.actions
+	end
 
 end
 

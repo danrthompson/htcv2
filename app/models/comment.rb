@@ -1,4 +1,7 @@
 class Comment < ActiveRecord::Base
+  attr_accessible :body, :commentable
+  attr_accessible :body, :commentable, :user_id, as: [:active_admin]
+
   @@max_nesting = 1
 
   @@anonymous_names = [
@@ -29,6 +32,7 @@ class Comment < ActiveRecord::Base
   ]
 
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
+
 
   # has_reputation :votes, source: :user, aggregated_by: :sum
 

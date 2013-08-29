@@ -1,4 +1,13 @@
 ActiveAdmin.register ResourceCategory do
+  controller do 
+    def update
+      if params[:resource_category][:image].blank?
+        params[:resource_category].delete("image")
+      end
+      super
+    end
+
+  end
   index do
   	column "Id" do |resource_category|
   		link_to resource_category.id, active_admin_interface_resource_category_path(resource_category)
@@ -50,6 +59,17 @@ ActiveAdmin.register ResourceCategory do
       row :created_at
       row :updated_at
     end
+  end
+
+  form do |f|
+    f.inputs do
+      f.input :title
+      f.input :rank
+      f.input :seo_url
+      f.input :resource_category
+      f.input :image
+    end
+    f.actions
   end
 end
 

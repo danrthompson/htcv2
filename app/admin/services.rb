@@ -1,4 +1,13 @@
 ActiveAdmin.register Service do
+	controller do 
+	  def update
+	    if params[:service][:logo].blank?
+	      params[:service].delete("logo")
+	    end
+	    super
+	  end
+
+	end
 	index do
 		column "Id" do |service|
 			link_to service.id, active_admin_interface_service_path(service)
@@ -54,6 +63,20 @@ ActiveAdmin.register Service do
 	    row :created_at
 	    row :updated_at
 	  end
+	end
+
+	form do |f|
+	  f.inputs do
+	    f.input :title
+	    f.input :description
+	    f.input :rank
+	    f.input :featured
+	    f.input :featured_rank
+	    f.input :out_link
+	    f.input :service_category
+	    f.input :logo
+	  end
+	  f.actions
 	end
 end
 

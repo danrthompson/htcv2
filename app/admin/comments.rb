@@ -1,4 +1,15 @@
 ActiveAdmin.register Comment do
+  controller do 
+    with_role :active_admin
+
+    def update
+      if params[:comment][:user_id].blank?
+        params[:comment][:user_id] = -1
+      end
+      super
+    end
+
+  end
   index do
   	column "Id" do |comment|
   		link_to comment.id, active_admin_interface_comment_path(comment)
@@ -63,7 +74,7 @@ ActiveAdmin.register Comment do
   form do |f|
     f.inputs do
       f.input :body
-      f.input :commentable, as: :select, collection: CommunityPost.all
+      f.input :user
     end
     f.actions
   end

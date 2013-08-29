@@ -1,4 +1,15 @@
 ActiveAdmin.register ServiceLead do
+	controller do 
+	  with_role :active_admin
+
+	  def update
+	    if params[:service_lead][:user_id].blank?
+	      params[:service_lead][:user_id] = -1
+	    end
+	    super
+	  end
+
+	end
 	index do
 		column "Id" do |service_lead|
 			link_to service_lead.id, active_admin_interface_service_lead_path(service_lead)
@@ -56,6 +67,20 @@ ActiveAdmin.register ServiceLead do
   		row :created_at
   		row :updated_at
 	  end
+	end
+
+	form do |f|
+	  f.inputs do
+	    f.input :message
+	    f.input :inquiry_type_part_1
+	    f.input :inquiry_type_part_2
+	    f.input :email
+	    f.input :user_name
+	    f.input :featured_page
+	    f.input :service
+	    f.input :user
+	  end
+	  f.actions
 	end
 end
 

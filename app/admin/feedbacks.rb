@@ -1,4 +1,15 @@
 ActiveAdmin.register Feedback do
+  controller do 
+    with_role :active_admin
+
+    def update
+      if params[:feedback][:user_id].blank?
+        params[:feedback][:user_id] = -1
+      end
+      super
+    end
+
+  end
   index do
   	column "Id" do |feedback|
   		link_to feedback.id, active_admin_interface_feedback_path(feedback)
@@ -38,6 +49,7 @@ ActiveAdmin.register Feedback do
     f.inputs do
       f.input :message
       f.input :email
+      f.input :user
     end
     f.actions
   end

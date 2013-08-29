@@ -1,5 +1,6 @@
 class ServiceLead < ActiveRecord::Base
   attr_accessible :email, :featured_page, :inquiry_type_part_1, :inquiry_type_part_2, :message, :user_name, :service_id
+  attr_accessible :email, :featured_page, :inquiry_type_part_1, :inquiry_type_part_2, :message, :user_name, :service_id, :user_id, as: :active_admin
 
   validates :email, :inquiry_type_part_1, :inquiry_type_part_2, :service_id, presence: true
   validates :email, format: { with: Devise.email_regexp,
