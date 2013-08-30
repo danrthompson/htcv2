@@ -12,6 +12,7 @@
 @black-gray: #252525;
 @middle-gray: #929292;
 @light-gray: #C9C9C9;
+@black: black;
 
 @teal: #0a7b8d;
 @dark-teal: #086270;
@@ -262,6 +263,10 @@ fieldset{
 	text-transform: uppercase;
 }
 
+.fat{
+	font-weight: 400;
+}
+
 ////////////////// CODE INPUT FROM TWITTER BOOTSTRAP//////////////////
 
 .form-control {
@@ -351,6 +356,10 @@ fieldset[disabled] .form-control {
     padding-top:20px;
 	text-transform: uppercase;
 	font-size: 20px;
+
+	&:hover{
+		color: @black-gray;
+	}
 }
 
 #nav-logo{
@@ -674,7 +683,11 @@ fieldset[disabled] .form-control {
 
 //////// ABOUT US WRAPPER////
 .about-us-wrapper{
-	.container-width;
+	// .container-width;
+	width:105%;
+	margin: auto;
+	overflow: hidden;
+
 	padding: 0 0 10px 0;
 
 
@@ -702,10 +715,30 @@ fieldset[disabled] .form-control {
 		padding-bottom: 5px;
 		font-size: 16px;
 	}
+
+	.suggest-tool-wrapper p{
+		width: 410px;
+		float:right;
+		margin-top: -13px;
+		line-height: 20px;
+		font-size: 14px;
+
+		a{
+			font-weight: 600;
+			color: @teal;
+		}
+
+		a:hover{
+			color: @black-gray;
+
+		}
+
+	}
 }
 
-.about-us-wrapper.extra-padding{
+.about-us-wrapper.no-padding{
 	padding: 5px 0 10px 0;
+	margin-bottom: -15px;
 
 }
 
@@ -713,11 +746,61 @@ fieldset[disabled] .form-control {
 	margin-bottom: 100px;
 }
 
+.suggest-tool-wrapper{
+	// opacity: 0.2;
+	margin-top: 10px;
+	img, h2, p{
+		display: inline;
+		float:left;
+	}
+
+	img{
+		width: 25px;
+		height: 25px;
+	}
+
+	h2{
+		color: @black-gray;
+		font-size: 22px;
+		text-align: center;
+		.mp(0);
+		margin-top: 0px;
+		text-transform: uppercase;
+		margin-left: 10px;
+		opacity: 0.7;
+		letter-spacing: 0;
+		
+		&:hover{
+			opacity:1;
+		}
+
+	}
+	
+	p{
+		width: 500px;
+	}
+
+	.divider{
+		position: relative;
+		top: 9px;
+	width: 686px;
+left: 147px;
+		height: 5px;
+		border-top: 1px solid @stroke-color;
+
+	}
+
+}
+
 /////////// HOMEPAGE ///////////////
 
 #homepage{
+
+
 	h1{
-	
+		&#home-title{
+			font-size: 45px;
+		}
 		font-size: 85px;
 		width:100%;
 		font-weight: 800;
@@ -760,7 +843,10 @@ fieldset[disabled] .form-control {
 		.divider{
 			margin-top: 35px;
 			margin-bottom: 40px;
+
 		}
+
+
 		p{
 			color:@black-gray;
 			padding-bottom: 10px;
@@ -776,6 +862,7 @@ fieldset[disabled] .form-control {
 
 
 }
+
 
 .post-entry#homepage{
 	width: 100%;
@@ -982,7 +1069,10 @@ hgroup.secondary {
 		margin-top: 40px;
 		margin-bottom: 10px;
 
-
+		&.bottom-divider{
+			margin-top: 5px;
+			margin-bottom: 40px;
+		}
 	}
 }
 

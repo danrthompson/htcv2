@@ -35,7 +35,7 @@
 						%a{:href => "/"}
 							%img{src: "https://s3.amazonaws.com/harnessthecrowd/HTC-LOGO-SIDE-TRANSPARENT.png"}
 					%li 
-						%a#newsletter-fancybox-link{:href => '#newsletter-sign-up-fancybox'} Newsletter
+						%a#newsletter-fancybox-link.fat.teal{:href => '#newsletter-sign-up-fancybox'} Newsletter
 												
 					%li 
 						%a{:href => "/campaign-tools/services"} Helpful Services
@@ -58,7 +58,7 @@
 				/ May Delete because page title is unnecessary
 				/ %h1#page_heading
 				/   %a{:href => root_url}= htcv2_config[:title]
-				.divider
+				/ .divider
 
 
 				= flash_messages
