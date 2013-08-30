@@ -263,6 +263,10 @@ fieldset{
 	text-transform: uppercase;
 }
 
+.fat{
+	font-weight: 400;
+}
+
 ////////////////// CODE INPUT FROM TWITTER BOOTSTRAP//////////////////
 
 .form-control {
@@ -352,6 +356,10 @@ fieldset[disabled] .form-control {
     padding-top:20px;
 	text-transform: uppercase;
 	font-size: 20px;
+
+	&:hover{
+		color: @black-gray;
+	}
 }
 
 #nav-logo{
@@ -676,7 +684,7 @@ fieldset[disabled] .form-control {
 //////// ABOUT US WRAPPER////
 .about-us-wrapper{
 	// .container-width;
-	width:92%;
+	width:105%;
 	margin: auto;
 	overflow: hidden;
 
@@ -739,7 +747,7 @@ fieldset[disabled] .form-control {
 }
 
 .suggest-tool-wrapper{
-
+	// opacity: 0.2;
 	margin-top: 10px;
 	img, h2, p{
 		display: inline;
@@ -747,20 +755,39 @@ fieldset[disabled] .form-control {
 	}
 
 	img{
-		width: 40px;
-		height: 40px;
+		width: 25px;
+		height: 25px;
 	}
 
 	h2{
-		width:420px;
+		color: @black-gray;
+		font-size: 22px;
 		text-align: center;
 		.mp(0);
-		margin-top: 4px;
+		margin-top: 0px;
 		text-transform: uppercase;
+		margin-left: 10px;
+		opacity: 0.7;
+		letter-spacing: 0;
+		
+		&:hover{
+			opacity:1;
+		}
+
 	}
 	
 	p{
 		width: 500px;
+	}
+
+	.divider{
+		position: relative;
+		top: 9px;
+	width: 686px;
+left: 147px;
+		height: 5px;
+		border-top: 1px solid @stroke-color;
+
 	}
 
 }
@@ -945,7 +972,7 @@ hgroup.secondary {
 .post-entry{
 	.container-width;
 	text-align: center;
-	margin-top: 55px;
+	margin-top: 40px;
 	h1{
 		a{
 			text-transform: uppercase;
