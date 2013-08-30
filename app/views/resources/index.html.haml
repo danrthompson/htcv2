@@ -2,13 +2,14 @@
 
 = render 'resource_subnav'
 - content_for :intro_text do
-	.about-us-wrapper.extra-padding.no-heading
+	.about-us-wrapper.no-padding.no-heading
 		.suggest-tool-wrapper
 			%img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/we-wanna-hear.png", :alt => ""}/ 
-			%h2 Suggest A Resource
-			%p We’d love your help to make this the best set of tools possible. Drop us a line if there’s a tool or <a href="mailto:info@harnessthecrowd.com">resource you recommend</a>.
+			%a.fancybox{:href => "\#suggest_a_resource"}
+				%h2 Suggest A Resource
+			%p We’d love to make this the best set of tools possible. Let us know if there’s a <a class="fancybox" href="#suggest_a_resource">resource you recommend</a>.
 
-		%p If you've never run a campaign before, getting started can seem like a daunting task. To make it a little easier, we've compiled the best links, tools, and resources to help you get a feel for the process. 
+		/ %p If you've never run a campaign before, getting started can seem like a daunting task. To make it a little easier, we've compiled the best links, tools, and resources to help you get a feel for the process. 
 
 
 

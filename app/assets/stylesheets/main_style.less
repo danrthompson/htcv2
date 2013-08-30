@@ -675,7 +675,11 @@ fieldset[disabled] .form-control {
 
 //////// ABOUT US WRAPPER////
 .about-us-wrapper{
-	.container-width;
+	// .container-width;
+	width:92%;
+	margin: auto;
+	overflow: hidden;
+
 	padding: 0 0 10px 0;
 
 
@@ -703,15 +707,62 @@ fieldset[disabled] .form-control {
 		padding-bottom: 5px;
 		font-size: 16px;
 	}
+
+	.suggest-tool-wrapper p{
+		width: 410px;
+		float:right;
+		margin-top: -13px;
+		line-height: 20px;
+		font-size: 14px;
+
+		a{
+			font-weight: 600;
+			color: @teal;
+		}
+
+		a:hover{
+			color: @black-gray;
+
+		}
+
+	}
 }
 
-.about-us-wrapper.extra-padding{
+.about-us-wrapper.no-padding{
 	padding: 5px 0 10px 0;
+	margin-bottom: -15px;
 
 }
 
 .divider.massive-bottom-margin{
 	margin-bottom: 100px;
+}
+
+.suggest-tool-wrapper{
+
+	margin-top: 10px;
+	img, h2, p{
+		display: inline;
+		float:left;
+	}
+
+	img{
+		width: 40px;
+		height: 40px;
+	}
+
+	h2{
+		width:420px;
+		text-align: center;
+		.mp(0);
+		margin-top: 4px;
+		text-transform: uppercase;
+	}
+	
+	p{
+		width: 500px;
+	}
+
 }
 
 /////////// HOMEPAGE ///////////////
@@ -894,7 +945,7 @@ hgroup.secondary {
 .post-entry{
 	.container-width;
 	text-align: center;
-	margin-top: 40px;
+	margin-top: 55px;
 	h1{
 		a{
 			text-transform: uppercase;
