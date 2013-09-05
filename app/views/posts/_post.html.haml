@@ -38,6 +38,8 @@
 				%p|
 				%a{:href => relative_url_to_post} Read More
 
-%a.visit-campaign-link.teal.center-align{:href => ""}Visit The Campaign 
-.divider
+- if post.about_campaign and post.out_link then
+	%a.visit-campaign-link.teal.center-align{:href => post.out_link}Visit The Campaign
+- if preview then
+	.divider
 
