@@ -1,0 +1,30 @@
+- content_for :page_title do
+	= post_title @post
+.post-entry
+	= render partial: 'shared/blog/head', layout: 'shared/head'
+	= render partial: 'post', locals: {post: @post, preview: false}
+	-# %ol#comments.commentlist
+	-#   - @post.approved_comments.each do |comment|
+	-#     <li#{raw cycle(' class="alt"', '')} id="comment-#{comment.id}">
+	-#     \#{render comment}
+	-# = render 'shared/blog/archives_link'
+	-# %h2 Post a comment
+	-# - unless @comment.errors.empty?
+	-#   .errors
+	-#     %h3 Comment not added!
+	-#     %ul
+	-#       - @comment.errors.sort_by(&:first).each do |error|
+	-#         %li= format_comment_error(error)
+	-# %div
+	-#   = form_for [@post, @comment] do |form|
+	-#     %p
+	-#       = form.text_field 'author'
+	-#       = form.label :author
+	-#       %small
+	-#         Name or #{link_to 'OpenID', 'http://openidexplained.com/'} (required)
+	-#     %p
+	-#       = form.text_area 'body'
+	-#       %br/
+	-#       %small
+	-#         (#{link_to 'lesstile enabled', 'http://lesstile.rubyforge.org'} - surround code blocks with ---)
+	-#     %p= form.submit 'Add Comment'

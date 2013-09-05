@@ -68,43 +68,43 @@ Htcv2::Application.routes.draw do
   # mount Spree::Core::Engine, :at => '/store'
         
 
-  # scope '/blog' do
+  scope '/blog' do
 
-  #   namespace :admin do
-  #     resource :session
+    namespace :admin do
+      resource :session
 
-  #     # resources :posts, :pages do
-  #     resources :posts do
-  #       post 'preview', :on => :collection
-  #     end
-  #     # resources :comments
-  #     resources :undo_items do
-  #       post 'undo', :on => :member
-  #     end
+      # resources :posts, :pages do
+      resources :posts do
+        post 'preview', :on => :collection
+      end
+      # resources :comments
+      resources :undo_items do
+        post 'undo', :on => :member
+      end
 
-  #     match 'health(/:action)' => 'health', :action => 'index', :as => :health
+      match 'health(/:action)' => 'health', :action => 'index', :as => :health
 
-  #     root :to => 'dashboard#show'
-  #   end
+      root :to => 'dashboard#show'
+    end
 
-  #   resources :archives, :only => [:index]
-  #   # resources :pages, :only => [:show]
+    resources :archives, :only => [:index]
+    # resources :pages, :only => [:show]
 
-  #   constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
-  #     # get ':year/:month/:day/:slug/comments'  => 'comments#index'
-  #     # post ':year/:month/:day/:slug/comments' => 'comments#create'
-  #     # get ':year/:month/:day/:slug/comments/new' => 'comments#new'
-  #     get ':year/:month/:day/:slug' => 'posts#show'
-  #   end
+    constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
+      # get ':year/:month/:day/:slug/comments'  => 'comments#index'
+      # post ':year/:month/:day/:slug/comments' => 'comments#create'
+      # get ':year/:month/:day/:slug/comments/new' => 'comments#new'
+      get ':year/:month/:day/:slug' => 'posts#show'
+    end
 
-  #   scope :to => 'posts#index' do
-  #     get 'posts.:format', :as => :formatted_posts
-  #     get '(:tag)', :as => :posts
-  #   end
+    scope :to => 'posts#index' do
+      get 'posts.:format', :as => :formatted_posts
+      get '(:tag)', :as => :posts
+    end
 
-  #   root :to => 'posts#index'
+    root :to => 'posts#index'
 
-  # end
+  end
 
   # root to: 'posts#index'
 
