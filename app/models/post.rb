@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :title, :slug, :body, :body_html, :active, :approved_comments_count, :cached_tag_list, :published_at, :image, :published_at_natural, :tag_list, :preview_text, :preview_html, :video
+  attr_accessible :title, :slug, :body, :body_html, :active, :approved_comments_count, :cached_tag_list, :published_at, :image, :published_at_natural, :tag_list, :preview_text, :preview_html, :video, :about_campaign, :out_link
   DEFAULT_LIMIT = 15
 
   acts_as_taggable

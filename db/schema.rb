@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130905192307) do
+ActiveRecord::Schema.define(:version => 20130905193851) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -118,6 +118,8 @@ ActiveRecord::Schema.define(:version => 20130905192307) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "video"
+    t.boolean  "about_campaign"
+    t.string   "out_link"
   end
 
   add_index "posts", ["published_at"], :name => "index_posts_on_published_at"
