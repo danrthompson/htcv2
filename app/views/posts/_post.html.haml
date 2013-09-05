@@ -3,11 +3,13 @@
 
 %h1= link_to_post(post)
 
-- if post.image?
+- if post.image? or post.video?
 	.blog_post_main_image
-		/ This link needs to be implemented
-		%a{:href => relative_url_to_post} 
-			%img.center_img{src: post.image_url}
+		%a{:href => relative_url_to_post}
+			- if post.image? then
+				%img.center_img{src: post.image.url(:original)}
+			- else
+				%iframe{src: (raw post.video), frameborder: "0"}
 
 / This is The Main Paragraph Text
 .entry-description

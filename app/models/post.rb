@@ -1,10 +1,10 @@
 class Post < ActiveRecord::Base
-  attr_accessible :title, :slug, :body, :body_html, :active, :approved_comments_count, :cached_tag_list, :published_at, :image, :published_at_natural, :tag_list, :preview_text, :preview_html
+  attr_accessible :title, :slug, :body, :body_html, :active, :approved_comments_count, :cached_tag_list, :published_at, :image, :published_at_natural, :tag_list, :preview_text, :preview_html, :video
   DEFAULT_LIMIT = 15
 
   acts_as_taggable
 
-  # mount_uploader :image, ImageUploader
+  has_attached_file :image, path: "/#{ENV['S3_PATH_PREFIX']}:class/:attachment/:id_partition/:style/:basename.:extension", styles: {original: '800'}
 
   before_validation       :generate_slug
   before_validation       :set_dates
