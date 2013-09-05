@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable
 
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
 
   before_validation       :generate_slug
   before_validation       :set_dates

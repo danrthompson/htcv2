@@ -13,7 +13,6 @@
 //= require jquery-1.10.2.min
 //= require jquery_ujs
 //= require common
-//= require live-comment-preview
 //= require jquery.fancybox.pack
 //= require htc
 //= require_self

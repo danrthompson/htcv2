@@ -52,9 +52,7 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def new
-    @post = Post.new(key: params[:key])
-    @uploader = Post.new.image
-    @uploader.success_action_redirect = new_admin_post_url
+    @post = Post.new()
   end
 
   def preview
