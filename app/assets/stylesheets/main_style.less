@@ -970,7 +970,9 @@ hgroup.secondary {
 
 
 .post-entry{
-	.container-width;
+	width: 85%;
+	margin:auto;
+	// .container-width;
 	text-align: center;
 	margin-top: 40px;
 	h1{
@@ -978,10 +980,12 @@ hgroup.secondary {
 			text-transform: uppercase;
 			color: @black-gray;
 			font-weight:800;
-			font-size: 68px;
+			font-size: 55px;
 			letter-spacing: 1px;
-			line-height:70px;
+			line-height:60px;
 		}
+		margin-bottom: 10px;
+
 	}
 
 	.entry-description{
@@ -1073,6 +1077,20 @@ hgroup.secondary {
 			margin-top: 5px;
 			margin-bottom: 40px;
 		}
+	}
+}
+
+.visit-campaign-link{
+	font-weight: 600;
+	position: relative;
+	text-transform: uppercase;
+	top: -24px;
+	opacity: 0.8;
+
+	&:hover{
+		opacity: 1;
+		font-weight: 600;
+		color: @black-gray;
 	}
 }
 
