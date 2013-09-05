@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.atom { render :layout => false }
+      # format.atom { render :layout => false }
     end
   end
 

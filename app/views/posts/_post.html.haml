@@ -34,8 +34,8 @@
 			= render partial: 'shared/social_sharing/share_facebook_link', locals: {url_to_share: full_url_to_post, button_text: "FB"}
 			= render partial: 'shared/social_sharing/tweet_link', locals: {tweet_text: "#{post.title} #{full_url_to_post}", button_text: "TW"}, class: "share-btn"
 			= render partial: 'shared/social_sharing/share_linkedin', locals: {share_title: post.title, share_summary: nil, share_source: ENV["APP_BASE_URL"], share_url: full_url_to_post, button_text: "LI"}
-			%p|
 			- if preview then
+				%p|
 				%a{:href => relative_url_to_post} Read More
 
 

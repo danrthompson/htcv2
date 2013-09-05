@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 	'/community'
   end
 
+  def after_sign_out_path_for(resource)
+  '/'
+  end
+
   protected
 
 	def admin_auth_check!

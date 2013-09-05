@@ -87,7 +87,7 @@ Htcv2::Application.routes.draw do
       root :to => 'dashboard#show'
     end
 
-    resources :archives, :only => [:index]
+    # resources :archives, :only => [:index]
     # resources :pages, :only => [:show]
 
     constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
@@ -99,7 +99,7 @@ Htcv2::Application.routes.draw do
 
     scope :to => 'posts#index' do
       get 'posts.:format', :as => :formatted_posts
-      get '(:tag)', :as => :posts
+      # get '(:tag)', :as => :posts
     end
 
     root :to => 'posts#index'
