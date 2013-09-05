@@ -11,9 +11,9 @@ class Ability
             can :manage, :all
             can :access, :admin_area
         else
-            # can :read, Post do |post|
-            #     post.published_at && post.published_at < Time.now
-            # end
+            can :read, Post do |post|
+                post.published_at && post.published_at < Time.now
+            end
             # can :read, Post
             # can [:create, :read], [Comment, AdvicePost, QuestionPost, NewsPost]
             can [:create, :read], [Comment, CommunityPost]
@@ -24,6 +24,9 @@ class Ability
             can :manage, [Comment, CommunityPost], user_id: user.id
         end 
     else
+        can :read, Post do |post|
+            post.published_at && post.published_at < Time.now
+        end
         # can :read, Post
         # can [:create, :read], [Comment, AdvicePost, QuestionPost, NewsPost]
         can [:create, :read], [Comment, CommunityPost]
