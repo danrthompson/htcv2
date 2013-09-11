@@ -4,9 +4,11 @@ ActiveAdmin.register Service do
 	    if params[:service][:logo].blank?
 	      params[:service].delete("logo")
 	    end
+	    if params[:service][:seo_url].blank?
+	      params[:service].delete("seo_url")
+	    end
 	    super
 	  end
-
 	end
 	index do
 		column "Id" do |service|
@@ -14,6 +16,7 @@ ActiveAdmin.register Service do
 		end
 		column :title
 		column :description
+		column :seo_url
 		column :rank
 		column :featured
 		column :featured_rank
@@ -42,6 +45,7 @@ ActiveAdmin.register Service do
 	    row :id
 	    row :title
 	    row :description
+			row :seo_url
 	    row :rank
 	    row :featured
 	    row :featured_rank
@@ -69,6 +73,7 @@ ActiveAdmin.register Service do
 	  f.inputs do
 	    f.input :title
 	    f.input :description
+	    f.input :seo_url
 	    f.input :rank
 	    f.input :featured
 	    f.input :featured_rank

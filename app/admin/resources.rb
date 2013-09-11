@@ -1,4 +1,12 @@
 ActiveAdmin.register Resource do
+	controller do 
+	  def update
+	    if params[:resource][:seo_url].blank?
+	      params[:resource].delete("seo_url")
+	    end
+	    super
+	  end
+	end
 	index do
 		column "Id" do |resource|
 			link_to resource.id, active_admin_interface_resource_path(resource)
@@ -12,6 +20,7 @@ ActiveAdmin.register Resource do
 				"None"
 			end
 		end
+		column :seo_url
 		column :rank
 		column :out_link
 		column :created_at
@@ -31,6 +40,7 @@ ActiveAdmin.register Resource do
 	    		"None"
 	    	end
 	    end
+	    row :seo_url
 	    row :rank
 	    row :out_link
 	    row :created_at
@@ -41,6 +51,7 @@ ActiveAdmin.register Resource do
 	  f.inputs do
 	    f.input :title
 	    f.input :description
+	    f.input :seo_url
 	    f.input :rank
 	    f.input :resource_category
 	    f.input :out_link
