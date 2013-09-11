@@ -1,0 +1,17 @@
+- content_for :page_title do
+	= raw "About Us | "
+- content_for :head do
+	= stylesheet_link_tag    "main_style"
+
+.resource-entry-page
+	.top-content-wrapper
+		%h1.teal.width-45.float-left Crowdfunding Tips - How To Make Your Project Stand Out
+
+		/ %img.center_img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/garage.JPG", :alt => ""}/ 
+		%p.width-45.float-right With so many projects posted on crowdfunding sites, it can be hard to ensure that your product stands above the rest. This author elaborates on effective but crucial tips for how to stand out from the "crowd".
+
+	.resource-link-wrapper
+		%a.float-left{:href => "mailto:info@harnessthecrowd.com"}
+			%h4 << Marketing & PR Resources
+		%a.float-right{:href => "mailto:info@harnessthecrowd.com"}
+			%h4 Visit the Site >>

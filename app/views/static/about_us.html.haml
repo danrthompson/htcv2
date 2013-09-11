@@ -3,15 +3,20 @@
 - content_for :head do
 	= stylesheet_link_tag    "main_style"
 
-.resource-entry-page
+.service-entry-page
 	.top-content-wrapper
-		%h1.teal.width-45.float-left Crowdfunding Tips - How To Make Your Project Stand Out
+		.width-30.float-left
+			%img.center_img{:src => "http://s3.amazonaws.com/harnessthecrowd/development_assets/services/logos/000/000/005/thumb/backerkit.jpg?1377898602", :alt => ""}/
+			%h1.teal BackerKit
 
-		/ %img.center_img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/garage.JPG", :alt => ""}/ 
-		%p.width-45.float-right With so many projects posted on crowdfunding sites, it can be hard to ensure that your product stands above the rest. This author elaborates on effective but crucial tips for how to stand out from the "crowd".
+		
+		%p.width-60.float-right With Celery, you can accept pre-orders whenever you're ready, making it the easiest way to collect credit cards now and charge them later.
 
 	.resource-link-wrapper
 		%a.float-left{:href => "mailto:info@harnessthecrowd.com"}
-			%h4 << Marketing & PR Resources
+			%h4 << Marketing & PR Services
+
 		%a.float-right{:href => "mailto:info@harnessthecrowd.com"}
-			%h4 Visit the Site >>
+			%h4  &#124; Visit Their Site >>
+		%a.float-right#send-message-link{:href => "mailto:info@harnessthecrowd.com"}
+			%h4 Send Them A Message

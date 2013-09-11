@@ -1476,7 +1476,7 @@ hgroup.secondary {
 
 
 
-.about-us-page, .resource-entry-page{
+.about-us-page, .resource-entry-page, .service-entry-page{
 
 	a{
 		h4{
@@ -3316,7 +3316,7 @@ a.voted-arrow{
 
 // RESOURCE ENTRY
 
-.resource-entry-page{
+.resource-entry-page, .service-entry-page{
 	width:85%;
 	margin:auto;
 	margin-top: 50px;
@@ -3326,6 +3326,17 @@ a.voted-arrow{
 		width:100%;
 		overflow: hidden;
 		margin-bottom: 55px;
+
+		img{
+			width: 100%;
+			margin-top:0;
+			margin-bottom: 5px;
+		}
+
+		.width-30.float-left h1{
+			margin-top: 10px;
+			text-align: right;
+		}
 	}
 
 	.width-45.float-right{
@@ -3338,6 +3349,25 @@ a.voted-arrow{
 		overflow: hidden;
 		// text-align: right !important;
 	}
+}
 
+.service-entry-page{
+	padding-top: 100px;
+	width:70%;
+	margin: auto;
 
+	.width-60{
+		width: 65%;
+	}
+
+	#send-message-link{
+		margin-right: 5px;
+		color: @teal;
+	}
+
+	a {
+		h4{
+			font-weight: 400;
+		}
+	}
 }
