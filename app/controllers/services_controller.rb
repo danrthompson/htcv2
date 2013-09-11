@@ -20,8 +20,20 @@ class ServicesController < ApplicationController
 		@selected_category = nil
 	  @featured = true
 		@services = Service.where(featured: true).order("featured_rank asc")
-
 	end
+
+  def show
+    @service = Service.find_by_seo_url(params[:seo_url])
+    @service || (redirect_to services_path and return)
+    @service_categories = ServiceCategory.order("rank asc")
+    if @service.featured then
+      @selected_category = nil
+      @featured = true
+    else
+      @featured = false
+      @selected_category = @service.service_category
+    end
+  end
 
   def create_video_request
     vid_request = VideoRequest.create(params[:video_request])

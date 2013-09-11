@@ -1,6 +1,8 @@
 = render 'shared/head'
 
 = render 'resource_subnav'
+- content_for :page_title do
+	= raw "#{@selected_category.title} - Crowdfunding Resources | "
 - content_for :intro_text do
 	.about-us-wrapper.no-padding.no-heading
 		.suggest-tool-wrapper

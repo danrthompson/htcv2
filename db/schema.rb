@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130911172927) do
+ActiveRecord::Schema.define(:version => 20130911202021) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -142,16 +142,19 @@ ActiveRecord::Schema.define(:version => 20130911172927) do
   add_index "resource_categories", ["seo_url"], :name => "index_resource_categories_on_seo_url", :unique => true
 
   create_table "resources", :force => true do |t|
-    t.boolean  "featured"
     t.integer  "rank"
-    t.integer  "featured_rank"
     t.string   "title"
     t.text     "description"
     t.text     "out_link"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.integer  "resource_category_id"
+    t.text     "page_body"
+    t.text     "page_body_html"
+    t.string   "seo_url"
   end
+
+  add_index "resources", ["seo_url"], :name => "index_resources_on_seo_url", :unique => true
 
   create_table "rs_evaluations", :force => true do |t|
     t.string   "reputation_name"
@@ -226,7 +229,6 @@ ActiveRecord::Schema.define(:version => 20130911172927) do
     t.integer  "rank"
     t.integer  "featured_rank"
     t.string   "title"
-    t.string   "subtitle"
     t.text     "description"
     t.text     "out_link"
     t.datetime "created_at",          :null => false
@@ -237,7 +239,12 @@ ActiveRecord::Schema.define(:version => 20130911172927) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.boolean  "logo_processing"
+    t.text     "page_body"
+    t.text     "page_body_html"
+    t.string   "seo_url"
   end
+
+  add_index "services", ["seo_url"], :name => "index_services_on_seo_url", :unique => true
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

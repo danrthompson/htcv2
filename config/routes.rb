@@ -1,6 +1,5 @@
 Htcv2::Application.routes.draw do
 
-
   devise_for :users
 
   resources :feedbacks, only: [:create]
@@ -29,6 +28,10 @@ Htcv2::Application.routes.draw do
     # resources :resources, only: [:index]
     get 'resources(/:seo_url)', to: 'resources#index', as: 'resources'
     get 'services(/:seo_url)', to: 'services#index', as: 'services'
+    get 'resource', to: redirect('/campaign-tools/resources')
+    get 'service', to: redirect('/campaign-tools/services')
+    get 'resource/:seo_url', to: 'resources#show', as: 'resource'
+    get 'service/:seo_url', to: 'services#show', as: 'service'
     post 'services/create_service_lead'
     post 'services/create_video_request'
     post 'create_tool_suggestion' => 'services#create_tool_suggestion'
