@@ -8,6 +8,12 @@ module UrlHelper
     path
   end
 
+  def content_post_path(post, options = {})
+    path = "/pages/#{post.slug}"
+    path = URI.join(ENV["APP_BASE_URL"], path) if options[:only_path] == false
+    path
+  end
+
   # def post_comments_path(post, comment)
   #   post_path(post) + "/comments"
   # end

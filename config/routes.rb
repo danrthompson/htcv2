@@ -12,6 +12,9 @@ Htcv2::Application.routes.draw do
   get 'press' => 'static#press'
   get 'resources(/:seo_url)', to: 'resources#index', as: 'resources'
 
+  get 'pages', to: redirect('/blog')
+  get 'pages/:id', to: 'posts#show_content_page'
+
   get "/404", :to => "static#error_page"
   get "/422", :to => "static#error_page"
   get "/500", :to => "static#error_page"

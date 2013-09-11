@@ -9,7 +9,6 @@ ActiveAdmin.register ResourceCategory do
       end
       super
     end
-
   end
   index do
   	column "Id" do |resource_category|

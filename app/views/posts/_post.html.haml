@@ -1,5 +1,9 @@
-- full_url_to_post = post_path(post, {only_path: false})
-- relative_url_to_post = post_path(post)
+- if @content_page then
+	- full_url_to_post = content_post_path(post, {only_path: false})
+	- relative_url_to_post = content_post_path(post)
+- else
+	- full_url_to_post = post_path(post, {only_path: false})
+	- relative_url_to_post = post_path(post)
 
 %h1= link_to_post(post)
 
