@@ -1,6 +1,6 @@
 .resource_entry
 	.resource_title_wrapper
-		%a{:href => resource.out_link, target: '_blank'}
+		%a{:href => "/campaign-tools/resource/#{resource.seo_url}"}
 			%h3= resource.title
 		.resource-action-items
 			%h4
@@ -10,5 +10,5 @@
 				|
 				= render partial: 'shared/social_sharing/share_linkedin', locals: {share_title: resource.title, share_summary: resource.description, share_source: ENV["APP_BASE_URL"], share_url: resource.out_link, button_text: "Li"}
 				|
-				%a.full-opacity{:href => "/campaign-tools/resource/#{resource.seo_url}"} More Info
+				%a.full-opacity{:href => resource.out_link, target: '_blank'} Visit Resource
 	%p= resource.description

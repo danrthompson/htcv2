@@ -4,6 +4,7 @@ class Resource < ActiveRecord::Base
   belongs_to :resource_category
 
   validates :title, :rank, :out_link, presence: true
+  validates :seo_url, uniqueness: true, allow_nil: true
 
   before_save :generate_page_html
 

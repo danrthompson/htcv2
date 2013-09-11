@@ -15,43 +15,29 @@
 		/ %p Running a campaign can be tough work, but luckily there are dozens of groups to help make the process easier. Here are a few crowdfunding friendly services that can help you reach your goal. Explore & enjoy!
 
 
-.about-us-page
+.service-entry-page
 	.top-content-wrapper
-		%h1.teal WHO WE ARE
+		.width-30.float-left
+			- if @service.logo? then
+				%img.center_img{:src => @service.logo(:thumb), :alt => "#{@service.title} Logo"}/
+			%a{href: "/service/#{@service.id}/#{@featured ? 1 : 0}/3", target: '_blank'}
+				%h1.teal= @service.title
 
-		%img.center_img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/garage.JPG", :alt => ""}/ 
-		%p We like to think that everyone who supports crowdfunding is part of the Harness the Crowd team. That said, if you're jonesing to find the dev team who's been working full time to make this site run, you need look no further than downtown Boulder, Colorado. Look for a green garage on The Hill, and that's where you'll find us.
+		
+		%p.width-60.float-right= raw @service.page_body_html
 
-	.post-entry
-		.three-column-wrapper.services.about-entry 
-			.column.first_col
-				%ul 
-					%li 
-						%img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/danh-aboutus.png", :alt => ""}/ 
-						%a{:href => ""} 
-							%h3 DANIEL HAARBURGER
-						%p As an infant, Daniel was found in a small manger in the middle of the Siberian tundra, filled with servos and scrap metal. Though not old enough to speak or crawl, he could deftly operate a manual mill. Since then, Daniel studied engineering at Stanford and has completed two successful Kickstarter campaigns for the Wingstand and The Handleband.
+	.resource-link-wrapper
+		%a.float-left{:href => "/campaign-tools/services/#{@service.service_category.seo_url}"}
+			%h4= "<< #{@service.service_category.title}"
 
-			.column.second_col
-				%ul 
-					%li 
-						%img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/dant-aboutus.jpg", :alt => ""}/ 
-						%a{:href => ""} 
-							%h3 DAN THOMPSON
-						%p Dan is an aspiring l33t h4x05 (elite hacker): he is very familiar with the World Wide Web and punch cards, and once successfully installed Microsoft Vista on his mother's computer. He recently graduated from Stanford with a degree in computer science and has a background in finance and web development.
-			.column.third_col
-				%ul 
-					%li 
-						%img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/greg-aboutus.jpg", :alt => ""}/ 
-						%a{:href => ""} 
-							%h3 GREG LYON
-						%p Greg met The Dans in Boulder and jumped at the opportunity to work with them to build a better crowdfunding community when he found out they lived in The Banana Manor. With consulting and technology experience in both enterprise and startup settings, Greg is an expert at both scheduling and cancelling meetings.
-
-	%a.center-align{:href => "mailto:info@harnessthecrowd.com"}
-		%h4 WANT TO REACH US?  SHOOT US AN EMAIL 
-
+		%a.float-right{href: "/service/#{@service.id}/#{@featured ? 1 : 0}/4", target: '_blank'}
+			%h4  &#124; Visit Their Site >>
+		%a.fancybox.float-right#send-message-link{:href => "\#message_lightbox_#{@service.id}"}
+			%h4 Send Them A Message
 
 = render partial: 'shared/tools/suggest_a_tool', locals: {tool_is_service: true}
+
+= render partial: 'message_service', locals: {this_service: @service}
 
 :javascript
 	$(document).ready(function() {
