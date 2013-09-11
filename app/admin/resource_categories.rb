@@ -4,6 +4,9 @@ ActiveAdmin.register ResourceCategory do
       if params[:resource_category][:image].blank?
         params[:resource_category].delete("image")
       end
+      if params[:resource_category][:seo_url].blank?
+        params[:resource_category].delete("seo_url")
+      end
       super
     end
 
