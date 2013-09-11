@@ -1,4 +1,12 @@
 ActiveAdmin.register ServiceCategory do
+  controller do 
+    def update
+      if params[:service_category][:seo_url].blank?
+        params[:service_category].delete("seo_url")
+      end
+      super
+    end
+  end
   index do
   	column "Id" do |service_category|
   		link_to service_category.id, active_admin_interface_service_category_path(service_category)

@@ -1,5 +1,5 @@
 - content_for :page_title do
-	= post_title @post
+	= raw "#{@post.title} | Crowdfunding Blog | "
 .post-entry
 	= render partial: 'shared/blog/head', layout: 'shared/head'
 	= render partial: 'post', locals: {post: @post, preview: false}

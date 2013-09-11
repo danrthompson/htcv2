@@ -11,6 +11,13 @@ class ResourcesController < ApplicationController
 		@selected_category = @resource_categories.first
 	end
 
+	def show
+		@resource = Resource.find_by_seo_url(params[:seo_url])
+		@resource || (redirect_to resources_path and return)
+		@resource_categories = ResourceCategory.where(resource_category_id: nil).order('rank asc')
+		@selected_category = @resource.resource_category
+	end
+
 	# def create
 	#   authorize! :create, Resource
 	#   @post = post_klass.new(params[post_klass.name.underscore])

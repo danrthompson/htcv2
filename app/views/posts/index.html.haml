@@ -1,5 +1,5 @@
 - content_for :page_title do
-	= posts_title(@tag)
+	= raw "Crowdfunding Blog | "
 = render partial: 'shared/blog/head', layout: 'shared/head'
 - content_for :intro_text do
 	/ .about-us-wrapper

@@ -1,6 +1,5 @@
 Htcv2::Application.routes.draw do
 
-
   devise_for :users
 
   resources :feedbacks, only: [:create]
@@ -11,6 +10,9 @@ Htcv2::Application.routes.draw do
   get 'contact-us' => 'static#contact_us'
   get 'press' => 'static#press'
   get 'resources(/:seo_url)', to: 'resources#index', as: 'resources'
+
+  get 'pages', to: redirect('/blog')
+  get 'pages/:id', to: 'posts#show_content_page'
 
   get "/404", :to => "static#error_page"
   get "/422", :to => "static#error_page"
@@ -26,6 +28,10 @@ Htcv2::Application.routes.draw do
     # resources :resources, only: [:index]
     get 'resources(/:seo_url)', to: 'resources#index', as: 'resources'
     get 'services(/:seo_url)', to: 'services#index', as: 'services'
+    get 'resource', to: redirect('/campaign-tools/resources')
+    get 'service', to: redirect('/campaign-tools/services')
+    get 'resource/:seo_url', to: 'resources#show', as: 'resource'
+    get 'service/:seo_url', to: 'services#show', as: 'service'
     post 'services/create_service_lead'
     post 'services/create_video_request'
     post 'create_tool_suggestion' => 'services#create_tool_suggestion'
@@ -87,7 +93,7 @@ Htcv2::Application.routes.draw do
       root :to => 'dashboard#show'
     end
 
-    resources :archives, :only => [:index]
+    # resources :archives, :only => [:index]
     # resources :pages, :only => [:show]
 
     constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
@@ -99,7 +105,7 @@ Htcv2::Application.routes.draw do
 
     scope :to => 'posts#index' do
       get 'posts.:format', :as => :formatted_posts
-      get '(:tag)', :as => :posts
+      # get '(:tag)', :as => :posts
     end
 
     root :to => 'posts#index'

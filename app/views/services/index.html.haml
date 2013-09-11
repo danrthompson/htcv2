@@ -1,6 +1,11 @@
 = render 'shared/head'
 
 = render 'service_subnav'
+- content_for :page_title do
+	- if @featured then
+		= raw "Featured Services - Crowdfunding Services | "
+	- else
+		= raw "#{@selected_category.title} - Crowdfunding Services | "
 
 - content_for :intro_text do
 	.about-us-wrapper.no-padding.no-heading

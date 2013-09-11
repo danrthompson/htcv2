@@ -1,6 +1,8 @@
 = render 'shared/head'
 
 = render 'resource_subnav'
+- content_for :page_title do
+	= raw "#{@selected_category.title} - Crowdfunding Resources | "
 - content_for :intro_text do
 	.about-us-wrapper.no-padding.no-heading
 		%p.resource-description If you've never run a campaign before, getting started can seem like a daunting task. To make it a little easier, we've compiled the best links, tools, and resources to help you get a feel for the process.
@@ -10,9 +12,14 @@
 				%h2 Suggest A Resource
 			.divider
 
-			/ %p We’d love to make this the best set of tools possible. Let us know if there’s a <a class="fancybox" href="#suggest_a_resource">resource you recommend</a>.
+			-# %p We’d love to make this the best set of tools possible. Let us know if there’s a <a class="fancybox" href="#suggest_a_resource">resource you recommend</a>.
 
+<<<<<<< HEAD
 		
+=======
+		-# %p If you've never run a campaign before, getting started can seem like a daunting task. To make it a little easier, we've compiled the best links, tools, and resources to help you get a feel for the process. 
+
+>>>>>>> 46db945b5988a0698b33629058dc1c698597cee3
 
 
 .post-entry
