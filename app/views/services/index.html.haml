@@ -9,7 +9,7 @@
 
 - content_for :intro_text do
 	.about-us-wrapper.no-padding.no-heading
-		- if @selected_category.description then
+		- if @selected_category and @selected_category.description then
 			%p.resource-description= @selected_category.description
 		.suggest-tool-wrapper
 			%img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/we-wanna-hear.png", :alt => ""}/ 

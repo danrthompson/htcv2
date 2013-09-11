@@ -1,5 +1,5 @@
 class Service < ActiveRecord::Base
-  attr_accessible :description, :featured, :featured_rank, :out_link, :rank, :title, :logo, :service_category_id, :page_body
+  attr_accessible :description, :featured, :featured_rank, :out_link, :rank, :title, :logo, :service_category_id, :page_body, :seo_url
 
   belongs_to :service_category
   has_many :service_leads

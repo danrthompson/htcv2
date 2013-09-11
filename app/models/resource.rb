@@ -1,5 +1,5 @@
 class Resource < ActiveRecord::Base
-  attr_accessible :description, :out_link, :title, :rank, :resource_category_id, :page_body
+  attr_accessible :description, :out_link, :title, :rank, :resource_category_id, :page_body, :seo_url
 
   belongs_to :resource_category
 
