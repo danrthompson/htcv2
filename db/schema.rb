@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130911202021) do
+ActiveRecord::Schema.define(:version => 20130911223807) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(:version => 20130911202021) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "seo_url"
+    t.text     "description"
   end
 
   add_index "resource_categories", ["seo_url"], :name => "index_resource_categories_on_seo_url", :unique => true
@@ -202,10 +203,11 @@ ActiveRecord::Schema.define(:version => 20130911202021) do
 
   create_table "service_categories", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "rank"
     t.string   "seo_url"
+    t.text     "description"
   end
 
   add_index "service_categories", ["seo_url"], :name => "index_service_categories_on_seo_url", :unique => true

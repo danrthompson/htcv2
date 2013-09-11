@@ -7,6 +7,14 @@ class Resource < ActiveRecord::Base
 
   before_save :generate_page_html
 
+  def parent_resource_category
+    res_cat = self.resource_category
+    while res_cat.resource_category do
+      res_cat = res_cat.resource_category
+    end
+    res_cat
+  end
+
   private
 
   def generate_page_html

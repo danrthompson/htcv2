@@ -15,7 +15,7 @@ class ResourcesController < ApplicationController
 		@resource = Resource.find_by_seo_url(params[:seo_url])
 		@resource || (redirect_to resources_path and return)
 		@resource_categories = ResourceCategory.where(resource_category_id: nil).order('rank asc')
-		@selected_category = @resource.resource_category
+		@selected_category = @resource.parent_resource_category
 	end
 
 	# def create
