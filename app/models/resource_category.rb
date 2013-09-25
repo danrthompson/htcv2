@@ -1,5 +1,5 @@
 class ResourceCategory < ActiveRecord::Base
-  attr_accessible :title, :rank, :image, :resource_category_id, :seo_url
+  attr_accessible :title, :rank, :image, :resource_category_id, :seo_url, :description
 
 
 	validates :seo_url, uniqueness: true, allow_nil: true

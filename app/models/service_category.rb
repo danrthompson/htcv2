@@ -1,5 +1,5 @@
 class ServiceCategory < ActiveRecord::Base
-  attr_accessible :title, :rank, :seo_url
+  attr_accessible :title, :rank, :seo_url, :description
 
   validates :title, :rank, :seo_url, presence: true
   validates :seo_url, uniqueness: true

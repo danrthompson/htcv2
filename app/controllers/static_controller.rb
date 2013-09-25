@@ -18,4 +18,8 @@ class StaticController < ApplicationController
 	def error_page
 
 	end
+
+	def ebook_page
+
+	end
 end

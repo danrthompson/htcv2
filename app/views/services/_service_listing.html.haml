@@ -4,7 +4,7 @@
 	- else
 		-# this should never happen
 		%img{:src => "https://d1wgd08o7gfznj.cloudfront.net/assets/logo-title-f6dc287199cb99c0a025d2ff47e4f5e6.png", :alt => "#{this_service.title} Logo"}
-	%a{href: "/service/#{this_service.id}/#{@featured ? 1 : 0}/1", target: '_blank'}
+	%a{href: "/campaign-tools/service/#{this_service.seo_url}"}
 		%h3= this_service.title
 	%p= this_service.description
 	.service-action-wrapper.service-entry

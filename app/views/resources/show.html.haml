@@ -9,40 +9,19 @@
 			%a.fancybox{:href => "\#suggest_a_resource"}
 				%h2 Suggest A Resource
 			.divider
-.about-us-page
+
+.resource-entry-page
 	.top-content-wrapper
-		%h1.teal WHO WE ARE
+		%a{href: @resource.out_link, target: '_blank'}
+			%h1.teal.width-45.float-left= @resource.title
 
-		%img.center_img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/garage.JPG", :alt => ""}/ 
-		%p We like to think that everyone who supports crowdfunding is part of the Harness the Crowd team. That said, if you're jonesing to find the dev team who's been working full time to make this site run, you need look no further than downtown Boulder, Colorado. Look for a green garage on The Hill, and that's where you'll find us.
+		%p.width-45.float-right= raw @resource.page_body_html
 
-	.post-entry
-		.three-column-wrapper.services.about-entry 
-			.column.first_col
-				%ul 
-					%li 
-						%img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/danh-aboutus.png", :alt => ""}/ 
-						%a{:href => ""} 
-							%h3 DANIEL HAARBURGER
-						%p As an infant, Daniel was found in a small manger in the middle of the Siberian tundra, filled with servos and scrap metal. Though not old enough to speak or crawl, he could deftly operate a manual mill. Since then, Daniel studied engineering at Stanford and has completed two successful Kickstarter campaigns for the Wingstand and The Handleband.
-
-			.column.second_col
-				%ul 
-					%li 
-						%img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/dant-aboutus.jpg", :alt => ""}/ 
-						%a{:href => ""} 
-							%h3 DAN THOMPSON
-						%p Dan is an aspiring l33t h4x05 (elite hacker): he is very familiar with the World Wide Web and punch cards, and once successfully installed Microsoft Vista on his mother's computer. He recently graduated from Stanford with a degree in computer science and has a background in finance and web development.
-			.column.third_col
-				%ul 
-					%li 
-						%img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/greg-aboutus.jpg", :alt => ""}/ 
-						%a{:href => ""} 
-							%h3 GREG LYON
-						%p Greg met The Dans in Boulder and jumped at the opportunity to work with them to build a better crowdfunding community when he found out they lived in The Banana Manor. With consulting and technology experience in both enterprise and startup settings, Greg is an expert at both scheduling and cancelling meetings.
-
-	%a.center-align{:href => "mailto:info@harnessthecrowd.com"}
-		%h4 WANT TO REACH US?  SHOOT US AN EMAIL 
+	.resource-link-wrapper
+		%a.float-left{:href => "/campaign-tools/resources/#{@resource.parent_resource_category.seo_url}"}
+			%h4= "<< More Resources from #{@resource.parent_resource_category.title}"
+		%a.float-right{:href => @resource.out_link, target: '_blank'}
+			%h4 Visit the Site >>
 
 = render partial: 'shared/tools/suggest_a_tool', locals: {tool_is_service: false}
 
