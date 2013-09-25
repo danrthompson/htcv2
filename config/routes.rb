@@ -18,6 +18,8 @@ Htcv2::Application.routes.draw do
   get "/422", :to => "static#error_page"
   get "/500", :to => "static#error_page"
 
+  get "/ebook_page", to: "static#ebook_page"
+
 
   root to: 'static#homepage'
   ActiveAdmin.routes(self)
