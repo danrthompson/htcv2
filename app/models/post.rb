@@ -67,7 +67,7 @@ class Post < ActiveRecord::Base
     def find_by_permalink(year, month, day, slug, options = {})
       begin
         day = Time.parse([year, month, day].collect(&:to_i).join("-")).midnight
-        post = where(content_page:nil).find_all_by_slug(slug, options).detect do |post|
+        post = where(content_page:[nil,false]).find_all_by_slug(slug, options).detect do |post|
           [:year, :month, :day].all? {|time|
             post.published_at.send(time) == day.send(time)
           }
