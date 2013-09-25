@@ -227,6 +227,12 @@ fieldset{
 	margin: auto;
 }
 
+.width-50{
+	width: 50%;
+	margin: auto;
+}
+
+
 .rpadding-5{
 	padding-right: 5%;
 }
@@ -1472,6 +1478,12 @@ hgroup.secondary {
 		height: auto;
 	}
 
+}
+
+.about-us-page{
+	.services li img {
+		max-height: 250px;
+	}
 }
 
 
@@ -3351,18 +3363,14 @@ a.voted-arrow{
 	}
 }
 
+	width:70%;
 .service-entry-page{
 	padding-top: 100px;
-	width:70%;
 	margin: auto;
 
 	.width-30{
 		width: 35%;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> e1d200b32790f6de198e628e667bab78bbdea1a0
 	.width-60{
 		width: 60%;
 	}
@@ -3377,4 +3385,82 @@ a.voted-arrow{
 			font-weight: 400;
 		}
 	}
+}
+
+.ebook-entry{
+	overflow: hidden;
+
+	padding-top: 40px;
+	padding-bottom: 40px;
+	width:90%;
+	margin:auto;
+	h2{
+		.mp(0);
+	}
+
+	#ebook-thin{
+		font-weight: 200;
+		font-size: 24px;
+	}
+
+	p{
+		font-size: 16px;
+		font-weight: 200;
+		color: @dark-gray;
+		line-height: 24px;
+	}
+
+	.button-wrapper{
+		.gray-button{
+			margin-right: 10px;
+			.rounded-corners(5px);
+		}
+		.blue-button{
+			.rounded-corners(5px);
+			&:hover{
+				color: white;
+			}
+		}
+	}
+
+	
+}
+
+.ebook-details{
+
+	.img-pair{
+		width: 90%;
+		margin-left: 5%;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		overflow: hidden;
+		img{
+			width: 48%;
+			text-align: center;
+
+		}
+	}
+
+	img.page-sample{
+		width: 80%;
+		margin-left: 10%;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+}
+
+a.ebook-bottom-button.button.blue-button{
+	max-width:20%;
+	margin-left: 37%;
+	margin-top: 500px;
+	.rounded-corners(5px);
+	padding: 15px 20px;
+	font-size: 18px;
+	font-weight: 400px;
+	text-align: center;
+
+	&:hover{
+		color: white;
+	}
+
 }
