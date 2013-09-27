@@ -6,7 +6,7 @@
 		= csrf_meta_tag
 		= favicon_link_tag image_path('favicon.ico')
 		= javascript_include_tag 'application'
-		/ Gives Head
+		-# / Gives Head
 		= stylesheet_link_tag "main_style"
 		= stylesheet_link_tag "jquery.fancybox"
 		= yield(:head)
@@ -58,10 +58,10 @@
 				= yield(:intro_text)
 
 
-				/ May Delete because page title is unnecessary
-				/ %h1#page_heading
-				/   %a{:href => root_url}= htcv2_config[:title]
-				/ .divider
+				-# / May Delete because page title is unnecessary
+				-# / %h1#page_heading
+				-# /   %a{:href => root_url}= htcv2_config[:title]
+				-# / .divider
 
 
 				= flash_messages
@@ -110,8 +110,8 @@
 					.divider
 					%br/ 
 					.mc-field-group
-						/ %h3.gray.uppercase.center-align Let's Do It!
-						/ %label.center-align{:for => "mce-EMAIL"} Let's Do It!
+						-# / %h3.gray.uppercase.center-align Let's Do It!
+						-# / %label.center-align{:for => "mce-EMAIL"} Let's Do It!
 						%input#mce-EMAIL.required.email.form-control{:name => "EMAIL", :type => "email", :value => "your email goes here..."}/
 					#mce-responses.clear
 						#mce-error-response.response{:style => "display:none"}
