@@ -1,0 +1,46 @@
+- content_for :page_title do
+  Store
+= render partial: 'spree/shared/head', layout: 'shared/head'
+.post-entry.product-profile.extra-wide
+  %div{"data-hook" => "product_show", :itemscope => "", :itemtype => "http://schema.org/Product"}
+    - @body_id = 'product-details'
+    
+    .main-media-wrapper
+      / Images & Data
+      .columns.six.alpha{"data-hook" => "product_left_part"}
+        .row{"data-hook" => "product_left_part_wrap"}
+          #product-images{"data-hook" => "product_images"} 
+            / Main Image
+            / #main-image{"data-hook" => ""}
+            /   = render :partial => 'image'
+
+              
+          /   #thumbnails{"data-hook" => ""}
+          /     = render :partial => 'thumbnails'
+          / %div{"data-hook" => "product_properties"}
+          /   = render :partial => 'properties'
+          / %div{"data-hook" => "promotions"}
+          /   = render :partial => 'promotions'
+          %iframe.main-video{:frameborder => "0", :height => "390", :src => "http://www.kickstarter.com/projects/445602678/the-handleband/widget/video.html", :width => "568"}
+
+          .sub-images
+            %img.no-margin{:src => "http://cdn.shopify.com/s/files/1/0068/5452/products/ocdock-2_large.jpg?1138", :alt => ""}/ 
+            %img{:src => "http://cdn.shopify.com/s/files/1/0068/5452/products/ocdock-2_large.jpg?1138", :alt => ""}/ 
+            %img{:src => "http://cdn.shopify.com/s/files/1/0068/5452/products/ocdock-2_large.jpg?1138", :alt => ""}/ 
+          
+
+    .product-info-wrapper
+      / Description and Action Items
+      / .columns.ten.omega{"data-hook" => "product_right_part"}
+      /   .row{"data-hook" => "product_right_part_wrap"}
+      #product-description{"data-hook" => "product_description"}
+        / Product Title
+        %h1.product-title{:itemprop => "name"}= accurate_title
+
+        / Product Descriptoin
+        .product-description{"data-hook" => "description", :itemprop => "description"}
+          = product_description(@product) rescue Spree.t(:product_has_no_description)
+        #cart-form{"data-hook" => "cart_form"}
+          = render :partial => 'cart_form'
+      / = render :partial => 'taxons'
+
