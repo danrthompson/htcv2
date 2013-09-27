@@ -19,9 +19,11 @@ class Resource < ActiveRecord::Base
   private
 
   def generate_page_html
-  	if self.page_body then
+    if self.page_body then
 	  	self.page_body_html = Htcv2Formatter.format_as_xhtml(self.page_body)
-	  end
+    else
+      self.page_body_html = nil
+    end
   end
 
 
