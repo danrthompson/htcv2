@@ -36,9 +36,6 @@
 							%img{src: "https://s3.amazonaws.com/harnessthecrowd/HTC-LOGO-SIDE-TRANSPARENT.png"}
 					%li 
 						%a#newsletter-fancybox-link.fat.teal{:href => '#newsletter-sign-up-fancybox'} Newsletter
-
-					%li 
-						%a{:href => "/blog"} Blog
 												
 					%li 
 						%a{:href => "/campaign-tools/services"} Services
@@ -46,11 +43,8 @@
 					%li 
 						%a{:href => "/campaign-tools/resources"} Resources
 
+				= yield(:nav_left_sublink)
 
-				- if current_user then
-					= link_to 'Sign Out >', destroy_user_session_path, :method => :delete, class: "float-left login-btn"
-				- else
-					= link_to 'Community Login >', new_user_session_path, class: "float-left login-btn"
 				%a.float-right.login-btn{href: '/community'} Discussion Board >
 
 				= yield(:sub_nav)

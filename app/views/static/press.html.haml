@@ -1,7 +1,6 @@
 - content_for :page_title do
 	= raw "Press | "
-- content_for :head do
-	= stylesheet_link_tag    "main_style"
+= render 'shared/head'
 
 .about-us-page.press-page
 	.top-content-wrapper
