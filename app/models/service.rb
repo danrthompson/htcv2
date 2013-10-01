@@ -14,7 +14,11 @@ class Service < ActiveRecord::Base
   private
 
   def generate_page_html
-  	self.page_body_html = Htcv2Formatter.format_as_xhtml(self.page_body)
+    if self.page_body then
+      self.page_body_html = Htcv2Formatter.format_as_xhtml(self.page_body)
+    else
+      self.page_body_html = nil
+    end
   end
 
 end

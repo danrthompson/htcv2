@@ -1,1 +1,7 @@
-= javascript_include_tag "community_post"
+- content_for :head do
+	= javascript_include_tag "community_post"
+- content_for :nav_left_sublink do
+	- if current_user then
+		= link_to 'Sign Out >', destroy_user_session_path, :method => :delete, class: "float-left login-btn"
+	- else
+		= link_to 'Community Login >', new_user_session_path, class: "float-left login-btn"

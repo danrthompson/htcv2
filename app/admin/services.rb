@@ -64,6 +64,8 @@ ActiveAdmin.register Service do
 	        "None"
 	      end
 	    end
+	    row :page_body
+	    row :page_body_html
 	    row :created_at
 	    row :updated_at
 	  end
@@ -80,6 +82,7 @@ ActiveAdmin.register Service do
 	    f.input :out_link
 	    f.input :service_category
 	    f.input :logo
+	    f.input :page_body
 	  end
 	  f.actions
 	end

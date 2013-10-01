@@ -1,12 +1,12 @@
 - content_for :sub_nav do
-	/ .sub_nav_top
-	/ 	%ul.sub_nav.top_half
-	/ 		%li.current-selection 
-	/ 			%a{:href => resources_path} 
-	/ 				%h2 Resources
-	/ 		%li
-	/ 			%a{:href => services_path} 
-	/ 				%h2 Services
+	-# / .sub_nav_top
+	-# / 	%ul.sub_nav.top_half
+	-# / 		%li.current-selection 
+	-# / 			%a{:href => resources_path} 
+	-# / 				%h2 Resources
+	-# / 		%li
+	-# / 			%a{:href => services_path} 
+	-# / 				%h2 Services
 	
 	.sub_nav_bottom
 		%ul.sub_nav.bottom_half
@@ -18,4 +18,4 @@
 				- else
 					%li
 						%a{href: resources_path(seo_url: resource_cat.seo_url)}= resource_cat.title
-	/ %a.fancybox.side-scroll.float-right{:href => "\#suggest_a_resource"} SUGGEST A RESOURCE
+	-# / %a.fancybox.side-scroll.float-right{:href => "\#suggest_a_resource"} SUGGEST A RESOURCE

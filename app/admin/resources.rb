@@ -43,6 +43,8 @@ ActiveAdmin.register Resource do
 	    row :seo_url
 	    row :rank
 	    row :out_link
+	    row :page_body
+	    row :page_body_html
 	    row :created_at
 	    row :updated_at
 	  end
@@ -55,6 +57,7 @@ ActiveAdmin.register Resource do
 	    f.input :rank
 	    f.input :resource_category
 	    f.input :out_link
+	    f.input :page_body
 	  end
 	  f.actions
 	end

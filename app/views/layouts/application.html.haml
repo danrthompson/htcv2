@@ -6,7 +6,7 @@
 		= csrf_meta_tag
 		= favicon_link_tag image_path('favicon.ico')
 		= javascript_include_tag 'application'
-		/ Gives Head
+		-# / Gives Head
 		= stylesheet_link_tag "main_style"
 		= stylesheet_link_tag "jquery.fancybox"
 		= yield(:head)
@@ -39,9 +39,6 @@
 							%img{src: "https://s3.amazonaws.com/harnessthecrowd/HTC-LOGO-SIDE-TRANSPARENT.png"}
 					%li 
 						%a#newsletter-fancybox-link.fat.teal{:href => '#newsletter-sign-up-fancybox'} Newsletter
-
-					%li 
-						%a{:href => "/blog"} Blog
 												
 					%li 
 						%a{:href => "/campaign-tools/services"} Services
@@ -49,11 +46,8 @@
 					%li 
 						%a{:href => "/campaign-tools/resources"} Resources
 
+				= yield(:nav_left_sublink)
 
-				- if current_user then
-					= link_to 'Sign Out >', destroy_user_session_path, :method => :delete, class: "float-left login-btn"
-				- else
-					= link_to 'Community Login >', new_user_session_path, class: "float-left login-btn"
 				%a.float-right.login-btn{href: '/community'} Discussion Board >
 
 				= yield(:sub_nav)
@@ -61,10 +55,10 @@
 				= yield(:intro_text)
 
 
-				/ May Delete because page title is unnecessary
-				/ %h1#page_heading
-				/   %a{:href => root_url}= htcv2_config[:title]
-				/ .divider
+				-# / May Delete because page title is unnecessary
+				-# / %h1#page_heading
+				-# /   %a{:href => root_url}= htcv2_config[:title]
+				-# / .divider
 
 
 				= flash_messages
@@ -113,8 +107,8 @@
 					.divider
 					%br/ 
 					.mc-field-group
-						/ %h3.gray.uppercase.center-align Let's Do It!
-						/ %label.center-align{:for => "mce-EMAIL"} Let's Do It!
+						-# / %h3.gray.uppercase.center-align Let's Do It!
+						-# / %label.center-align{:for => "mce-EMAIL"} Let's Do It!
 						%input#mce-EMAIL.required.email.form-control{:name => "EMAIL", :type => "email", :value => "your email goes here..."}/
 					#mce-responses.clear
 						#mce-error-response.response{:style => "display:none"}

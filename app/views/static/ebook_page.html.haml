@@ -1,7 +1,6 @@
 - content_for :page_title do
 	= raw "Ebook | "
-- content_for :head do
-	= stylesheet_link_tag    "main_style"
+= render 'shared/head'
 
 
 
@@ -17,9 +16,9 @@
 		%p Harness the Crowd provides a roadmap that explains what to do, when to do it, and how to be successful. 
 		.button-wrapper
 
-			%a.float-left.button.gray-button{:href => ""} Preview!
+			%a.float-left.button.gray-button{:href => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/htc-preview.pdf", target: '_blank'} Preview!
 
-			%a.float-left.button.blue-button{:href => ""} Get It!
+			%a.float-left.button.blue-button.dpdcart.iframe{:href => "https://harnessthecrowd.dpdcart.com/cart/add?product_id=64900&amp;method_id=66768", target: '_top'} Get It!
 	%br/ 
 .bottom-divider.divider.width-60
 	%br/ 
@@ -50,5 +49,9 @@
 
 %br/ 
 %br/ 
-%a.ebook-bottom-button.button.blue-button{:href => ""}Purchase the Ebook 
+%a.ebook-bottom-button.button.blue-button.dpdcart.iframe{:href => "https://harnessthecrowd.dpdcart.com/cart/add?product_id=64900&amp;method_id=66768", target: '_top'}Get the Ebook 
 %br/ 
+
+
+<script type="text/javascript" src="https://getdpd.com/js/cart.js"></script>
+
