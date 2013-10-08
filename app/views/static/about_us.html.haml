@@ -1,13 +1,43 @@
 - content_for :page_title do
 	= raw "About Us | "
 = render 'shared/head'
+.post-entry#homepage
+	.divider
+	%h1.teal#home-title A Place To Share & Discover Crowdfunding Tools
+	.bottom-divider.divider
+	.blog_post_main_image
+		%a{:href => ""} 
+			%iframe#homepage-main-video{:allowfullscreen => "", :frameborder => "0", :mozallowfullscreen => "", :src => "http://player.vimeo.com/video/72777118", :webkitallowfullscreen => ""}
+
+	%br/ 
+	%br/ 
+	.divider
+	%br/ 
+
+	.entry-description
+		%h2.all-caps		
+			People Can Do Incredible Things
+			%br/ 
+			When United By Good Ideas
+		%p 
+			<a href="http://en.wikipedia.org/wiki/Crowdfunding">Crowdfunding</a> is redefining the way we bring our ideas to life. <span>Our goal is to make the process just a little easier</span>.  
+		%p 
+			With resources to learn about the industry, tools to run your own campaign, and a meeting place to get thoughts and feedback, <span>Harness the Crowd is an incredible tool for people trying to realize their ideas.</span>
+			If you're thinking about launching a project, know someone who plans to crowdfund, or just <span> want to help good ideas succeed</span>, take a look at the site, share some advice, or pass the link to a friend. 
+		%p 
+			<span class="important">We're really excited to make this happen, and hope to have you onboard.</span> 
+		.divider.half-opacity
+		%br/ 
+
+	
+		%img.center_img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/garage.JPG", :alt => ""}/ 
+		%h2.all-caps		
+			The BoCo Team
+		%p We like to think that everyone who supports crowdfunding is part of the Harness the Crowd team. That said, if you're jonesing to find the dev team who's been working full time to make this site run, you need look no further than downtown Boulder, Colorado. Look for a green garage on The Hill, and that's where you'll find us.
+	
 
 .about-us-page
-	.top-content-wrapper
-		%h1.teal WHO WE ARE
 
-		%img.center_img{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/garage.JPG", :alt => ""}/ 
-		%p We like to think that everyone who supports crowdfunding is part of the Harness the Crowd team. That said, if you're jonesing to find the dev team who's been working full time to make this site run, you need look no further than downtown Boulder, Colorado. Look for a green garage on The Hill, and that's where you'll find us.
 
 	.post-entry
 		.three-column-wrapper.services.about-entry 
