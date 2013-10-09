@@ -159,6 +159,18 @@ fieldset{
 
 ///////////// UNIVERSAL CLASSES ////////
 
+.background-color-blue{
+	background-color: @teal;
+}
+
+.background-color-light-teal{
+	background-color: white;
+}
+
+.background-color-white{
+	background-color: white 0.5;
+}
+
 .teal {
 	color: @teal;
 }
@@ -219,6 +231,11 @@ fieldset{
 
 .width-80{
 	width: 80%;
+	margin: auto;
+}
+
+.width-70{
+	width: 70%;
 	margin: auto;
 }
 
@@ -396,7 +413,7 @@ fieldset[disabled] .form-control {
 
 .login-btn{
 	position: relative;
-	top: -20px;
+	top: -22px;
 	text-transform: uppercase;
 	font-size: 12px;
 	font-weight: 600;
@@ -799,7 +816,7 @@ fieldset[disabled] .form-control {
 	.divider{
 		position: relative;
 		top: 9px;
-	width: 686px;
+	width: 627px;
 left: 147px;
 		height: 5px;
 		border-top: 1px solid @stroke-color;
@@ -1209,7 +1226,7 @@ hgroup.secondary {
 	// .top-bottom-border;
 	border-bottom: 1px solid @stroke-color;
 	padding: 17px;
-	width: 100%;
+	width: 97%;
 }
 
 .sub_nav.bottom_half{
@@ -1571,7 +1588,7 @@ hgroup.secondary {
 			float:left;
 			margin-bottom: 0;
 			margin-top: 30px;
-			width: 580px;
+			width: 500px;
 			text-align: left;
 			text-overflow: ellipsis;
 				white-space: nowrap;
@@ -3426,13 +3443,18 @@ a.voted-arrow{
 }
 
 .ebook-details{
-
+	padding-top: 10px;
+	padding-bottom: 10px;
 	.img-pair{
 		width: 90%;
 		margin-left: 5%;
 		padding-top: 30px;
 		padding-bottom: 30px;
 		overflow: hidden;
+		&.width-70{
+			width: 80%;
+			margin: auto;
+		}
 		img{
 			width: 48%;
 			text-align: center;
@@ -3445,6 +3467,14 @@ a.voted-arrow{
 		margin-left: 10%;
 		padding-top: 30px;
 		padding-bottom: 30px;
+	}
+
+	h2{
+		padding-bottom: 0px;
+	}
+
+	h2#gray-title{
+		padding-bottom: 20px;
 	}
 }
 
@@ -3481,4 +3511,74 @@ a.ebook-bottom-button.button.blue-button{
 
 .we-wrote-tag:hover{
 	opacity: 1;
+}
+
+#ebook-preview{
+	width: 100%;
+}
+
+#ebook-page-preview{
+	background-color: @dark-teal;
+	margin-top:70px;
+	width: 110%;
+	margin-left: -5%;
+	padding-bottom: 50px;
+	color: white;
+	border-top: 1px solid @stroke-color;
+
+	h2{
+		margin-top: 40px;
+		color: white;
+		font-size: 48px;
+		font-weight: 200;
+		margin-bottom: 20px;
+	}
+
+	p{
+		color: white;
+		font-weight: 200;
+	}
+
+	img{
+		margin-top: 0px;
+		margin-bottom: 0px;
+		padding-top: 30px;
+		padding-bottom: 0px;
+	}
+	
+	img.background-color-light-teal{
+
+	}
+	.button-wrapper{
+		.gray-button{
+			margin-right: 10px;
+			.rounded-corners(5px);
+		}
+		.blue-button{
+			.rounded-corners(5px);
+			&:hover{
+				color: white;
+			}
+		}
+	}
+
+	hr{
+
+	}
+}
+
+#white-get-it{
+	background-color: white;
+	.rounded-corners(5px);
+	margin: auto;
+	text-align: center;
+	font-size: 24px;
+	color: @dark-teal;
+	padding: 10px 40px;
+
+	&:hover{
+		background-color: @teal;
+		color: white;
+		border: 1px solid @stroke-color;
+	}
 }
