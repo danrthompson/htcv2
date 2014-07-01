@@ -2,16 +2,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def after_sign_in_path_for(resource)
-	'/community'
+    # '/community'
+    '/'
   end
 
   def after_sign_out_path_for(resource)
-  '/'
+    '/'
   end
 
   protected
 
-	def admin_auth_check!
+  def admin_auth_check!
     authorize! :access, :admin_area
   end
 

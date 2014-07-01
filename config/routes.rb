@@ -11,8 +11,8 @@ Htcv2::Application.routes.draw do
   get 'press' => 'static#press'
   get 'resources(/:seo_url)', to: 'resources#index', as: 'resources'
 
-  get 'pages', to: redirect('/blog')
-  get 'pages/:id', to: 'posts#show_content_page'
+  # get 'pages', to: redirect('/blog')
+  # get 'pages/:id', to: 'posts#show_content_page'
 
   get "/404", :to => "static#error_page"
   get "/422", :to => "static#error_page"
@@ -42,9 +42,9 @@ Htcv2::Application.routes.draw do
     root to: 'services#index'
   end
 
-  resources :community_posts, only: [:index, :create, :destroy], path: 'community' do 
-    resources :comments, only: [:create, :destroy]
-  end
+  # resources :community_posts, only: [:index, :create, :destroy], path: 'community' do 
+  #   resources :comments, only: [:create, :destroy]
+  # end
 
   # scope '/conversation' do
   #   resources :advice_posts, only: [:index, :show, :create, :destroy], path: 'advice' do 
@@ -77,43 +77,43 @@ Htcv2::Application.routes.draw do
   # mount Spree::Core::Engine, :at => '/store'
         
 
-  scope '/blog' do
+  # scope '/blog' do
 
-    namespace :admin do
-      resource :session
+  #   namespace :admin do
+  #     resource :session
 
-      # resources :posts, :pages do
-      resources :posts do
-        post 'preview', :on => :collection
-      end
-      # resources :comments
-      resources :undo_items do
-        post 'undo', :on => :member
-      end
+  #     # resources :posts, :pages do
+  #     resources :posts do
+  #       post 'preview', :on => :collection
+  #     end
+  #     # resources :comments
+  #     resources :undo_items do
+  #       post 'undo', :on => :member
+  #     end
 
-      match 'health(/:action)' => 'health', :action => 'index', :as => :health
+  #     match 'health(/:action)' => 'health', :action => 'index', :as => :health
 
-      root :to => 'dashboard#show'
-    end
+  #     root :to => 'dashboard#show'
+  #   end
 
-    # resources :archives, :only => [:index]
-    # resources :pages, :only => [:show]
+  #   # resources :archives, :only => [:index]
+  #   # resources :pages, :only => [:show]
 
-    constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
-      # get ':year/:month/:day/:slug/comments'  => 'comments#index'
-      # post ':year/:month/:day/:slug/comments' => 'comments#create'
-      # get ':year/:month/:day/:slug/comments/new' => 'comments#new'
-      get ':year/:month/:day/:slug' => 'posts#show'
-    end
+  #   constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
+  #     # get ':year/:month/:day/:slug/comments'  => 'comments#index'
+  #     # post ':year/:month/:day/:slug/comments' => 'comments#create'
+  #     # get ':year/:month/:day/:slug/comments/new' => 'comments#new'
+  #     get ':year/:month/:day/:slug' => 'posts#show'
+  #   end
 
-    scope :to => 'posts#index' do
-      get 'posts.:format', :as => :formatted_posts
-      # get '(:tag)', :as => :posts
-    end
+  #   scope :to => 'posts#index' do
+  #     get 'posts.:format', :as => :formatted_posts
+  #     # get '(:tag)', :as => :posts
+  #   end
 
-    root :to => 'posts#index'
+  #   root :to => 'posts#index'
 
-  end
+  # end
 
   # root to: 'posts#index'
 
