@@ -290,6 +290,10 @@ fieldset{
 	font-weight: 400;
 }
 
+.background-gray{
+	background-color: @light-gray;
+}
+
 ////////////////// CODE INPUT FROM TWITTER BOOTSTRAP//////////////////
 
 .form-control {
@@ -3425,6 +3429,49 @@ a.voted-arrow{
 	}
 }
 
+.attention-getter{
+	width: 110%;
+	margin-left: -5%;
+	// background-color: @light-gray;
+	padding-bottom: 50px;
+}
+
+.gray-divider{
+	height: 5px;
+	width: 110%;
+	margin-left: -5%;
+	background-color: @light-gray;
+}
+.notable-quote{
+	font-weight: 500;
+	font-size: 22px;
+	margin-bottom: 40px;
+	line-height: 32px;
+	color: @middle-gray;
+}
+
+.quote-caption{
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.quote-emphasis{
+	font-weight: 600;
+	// color: red;
+	&#qe-1{
+		color: #076270;
+	}
+	&#qe-2{
+		color: #E4702F;
+	}
+	&#qe-3{
+		color: #43A77B;
+	}
+}
+.individual-quote-wrapper{
+	width: 100%;
+	min-height:65px;
+}
 .ebook-entry{
 	overflow: hidden;
 
@@ -3460,9 +3507,91 @@ a.voted-arrow{
 				color: white;
 			}
 		}
+	}	
+
+	.ebook-sample{
+		margin-top: 30px;
+		width: 100%;
+		margin: auto;
+		text-align: center;
+		background-color: @light-gray;
+		.page-sample{
+			margin-top: 10px;
+		}
+	}
+}
+
+.ebook-header-wrapper{
+	width: 110%;
+	margin-left: -5%;
+	padding-top: 50px;
+	text-align: center;
+	// margin: auto;
+	// background-color: blue;
+	min-height: 55px;
+
+
+	h4{
+		text-transform: uppercase;
+		color: white;
+		font-weight: 400;
+
+		// background-color: pink;
+		min-height: 55px;
+		margin-top: 20px;
+		text-align: center;
+	}
+
+	h4.top-nudge{
+		padding-top: 8px;
+		min-height: 47px;
+	}
+
+	.ebook-header{
+		// background-color: green;
+		border-top: 4px solid @light-gray;
+		border-bottom: 4px solid @light-gray;
+
+	}
+
+	a.ebook-header-left{
+		background-color: #46A47B;
+	}
+	a.ebook-header-right{
+		background-color: #0A7B8D;
+	}
+
+	a.ebook-header-left:hover{
+		background-color: #34C695;
+	}
+	a.ebook-header-right:hover{
+		background-color: #18B1B5;
 	}
 
 	
+}
+.centered-logo-wrapper{
+	text-align: center;
+	position: relative;
+	// top: -113px;
+	height: 0px;
+
+
+	#centered-logo{
+		position: relative;
+		top: -98px;
+		width: 120px;
+		text-align: center;
+		margin-left: auto;
+	}
+
+}
+
+
+
+
+.ebook-header-right{
+	backgrocolor: pink;
 }
 
 .ebook-details{
