@@ -22,7 +22,7 @@ Htcv2::Application.routes.draw do
 
 
   # root to: 'posts#index'
-  root to: '/ebook'
+  root to: 'static#ebook_page'
   ActiveAdmin.routes(self)
 
   scope '/campaign-tools' do
