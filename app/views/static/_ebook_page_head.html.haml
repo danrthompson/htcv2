@@ -1,0 +1,13 @@
+:javascript
+	$( document ).ready(function() {
+	  $("#ebook-left-button").click(function() {
+	      $('html, body').animate({
+	          scrollTop: $("#ebook-section").offset().top
+	      }, 700);
+	  });
+	  $("#ebook-right-button").click(function() {
+	      $('html, body').animate({
+	          scrollTop: $("#kit-section").offset().top
+	      }, 700);
+	  });
+	});

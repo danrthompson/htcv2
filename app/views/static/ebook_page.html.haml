@@ -1,6 +1,6 @@
 - content_for :page_title do
 	= raw "Ebook | "
-= render 'shared/head'
+= render partial: 'ebook_page_head', layout: 'shared/head'
 
 
 
@@ -8,9 +8,9 @@
 
 .ebook-header-wrapper
 	/ %a.test{:href => ""} 
-	%a.ebook-header-left.float-left.width-50.ebook-header{:href => "#ebook-section"} 
+	%a.ebook-header-left.float-left.width-50.ebook-header#ebook-left-button 
 		%h4.width-50 A Practical Guide To Crowdfunding
-	%a.ebook-header-right.float-right.width-50.ebook-header{:href=>"#kit-section"}
+	%a.ebook-header-right.float-right.width-50.ebook-header#ebook-right-button
 		%h4.width-50.top-nudge A Kit To Save You Time
 .centered-logo-wrapper
 	%img#centered-logo{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/we-wanna-hear.png", :alt => ""}/ 
@@ -29,7 +29,7 @@
 			.individual-quote-wrapper
 				%h3.notable-quote.width-70.float-left “<span class="quote-emphasis" id="qe-1">Informative</span> even for those who are intimately familiar with raising cash online.”<br> <span class="quote-caption"> - CrowdSourcing.org</span>
 			.individual-quote-wrapper
-				%h3.notable-quote.right-align.width-70.float-right “A <span class="quote-emphasis" id="qe-2">one-stop shop</span> for those looking to fund an idea through crowdfunding” <br><span class="quote-caption"> - The Denver Post </span>
+				%h3.notable-quote.right-align.width-70.float-right “A <span class="quote-emphasis" id="qe-2">one-stop shop</span> for those looking to fund an idea through crowdfunding.” <br><span class="quote-caption"> - The Denver Post </span>
 			.individual-quote-wrapper
 				%h3.notable-quote.width-80.float-left "If you’re planning a campaign, Harness the Crowd is hands down <span class="quote-emphasis" id="qe-3">the best place to start.</span>" <br><span class="quote-caption"> - Crowdfund Insider </span>
 
@@ -75,9 +75,9 @@
 	%img.width-45.float-right.lpadding-5{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/kit-v2.png", :alt => ""}/ 
 	.width-45.float-left.left-align
 		%h2 CROWDKIT    <span class="blue-subtext">eBook + Toolkit</span> <br/><span id="ebook-thin">Tools To Run A Successful Campaign</span>
-		%p Let us save you time. Aggregating work from dozens of successful campaigns, Crowdkit<span class="bold-blue"> vastly streamlines the campaign process</span>. From outreach templates for managing PR, to fulfillment tables, to scaffolding for your campaign content, and HTML forms for backer engagement, we've developed the best tools to help you succeed. 
+		%p Let us save you time. Aggregating work from dozens of successful campaigns, Crowdkit<span class="bold-blue"> vastly streamlines the campaign process</span>. From outreach templates for managing PR, to fulfillment tables, to scaffolding for your campaign content, to HTML forms to improve backer engagement, we've developed the best tools to help you succeed. 
 
-		%p This kit will save you dozens of hours of work, and save you from common mistakes when starting their first campaign. <span class="bold-blue">It also includes the Harness the Crowd eBook</span>, as a reference for when you launch your campaign. To get up to speed fast, click the link below.
+		%p This kit will save you dozens of hours of work, and save you from common mistakes when starting your first campaign. <span class="bold-blue">It also includes the Harness the Crowd eBook</span>, as a reference for when you launch your campaign. To get up to speed fast, click the link below.
 		.button-wrapper
 
 			/ %a.float-left.button.gray-button{:href => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/htc-preview.pdf", target: '_blank'} Preview!
