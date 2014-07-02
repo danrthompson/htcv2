@@ -5,7 +5,7 @@ Htcv2::Application.routes.draw do
   resources :feedbacks, only: [:create]
 
   get 'service/:id/:featured/:location' => 'services#this_service'
-
+  get 'kit-temp' => 'static#kit_not_available'
   get 'about-us' => 'static#about_us'
   get 'contact-us' => 'static#contact_us'
   get 'press' => 'static#press'

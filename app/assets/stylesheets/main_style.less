@@ -3433,19 +3433,23 @@ a.voted-arrow{
 	width: 110%;
 	margin-left: -5%;
 	// background-color: @light-gray;
-	padding-bottom: 50px;
+	padding-bottom: 30px;
+
 }
 
 .gray-divider{
 	height: 5px;
 	width: 110%;
 	margin-left: -5%;
+	margin-top: 5px;
+	margin-bottom: 5px;
 	background-color: @light-gray;
 }
 .notable-quote{
 	font-weight: 500;
-	font-size: 22px;
+	font-size: 24px;
 	margin-bottom: 40px;
+	margin-top: 10px;
 	line-height: 32px;
 	color: @middle-gray;
 }
@@ -3470,7 +3474,12 @@ a.voted-arrow{
 }
 .individual-quote-wrapper{
 	width: 100%;
-	min-height:65px;
+	min-height:50px;
+}
+
+.bold-blue{
+	font-weight: 600;
+	color: @teal;
 }
 .ebook-entry{
 	overflow: hidden;
@@ -3479,8 +3488,10 @@ a.voted-arrow{
 	padding-bottom: 00px;
 	width:90%;
 	margin:auto;
+
 	h2{
 		.mp(0);
+		font-size: 26px;
 	}
 
 	#ebook-thin{
@@ -3489,6 +3500,13 @@ a.voted-arrow{
 		text-transform: uppercase;
 	}
 
+	.blue-subtext{
+		font-size: 18px;
+		font-weight: 500;
+
+		// font-style: italic;
+		color: @dark-gray;
+	}
 	p{
 		font-size: 16px;
 		font-weight: 200;
@@ -3514,9 +3532,10 @@ a.voted-arrow{
 		width: 100%;
 		margin: auto;
 		text-align: center;
-		background-color: @light-gray;
+		// background-color: @light-gray;
 		.page-sample{
 			margin-top: 10px;
+
 		}
 	}
 }

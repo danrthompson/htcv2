@@ -1,0 +1,49 @@
+- content_for :page_title do
+	= raw "Ebook | "
+= render 'shared/head'
+
+
+
+
+.thank-you-wrapper.center-align
+	%br/ 
+	%br/ 
+	%br/ 
+	%img.width-50{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/kit-maintain.png", :alt => ""}/ 
+
+	%h2.center-align.gray.thanks-page
+		We're Updating The Kit
+	
+	%p 
+		Thanks for your interest in Crowdkit! It's an awesome resource which we're excited to announce is about to get even better. We've pulled the Kit from the site so we can update it and add new content. You're going to love the changes we're making!
+		%br/ 
+		%br/ 
+		Sign up below to be notified and receive a special discount when we realease the new version.
+		%br/ 
+		%br/ 
+		Thanks!
+
+	= render 'static/kitsignup'
+
+.gray-divider.half-opactiy
+
+// Ebook
+.ebook-entry#ebook-section
+	%br/ 
+	%br/ 
+	%img.width-45.float-left.rpadding-5{:src => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/harness-ipad-2.jpg", :alt => ""}/ 
+	.width-45.float-right.left-align
+		%h2{style:"font-size: 24px"} HARNESS THE CROWD EBOOK<span class="blue-subtext"></span> <br/><span id="ebook-thin">A Practical Guide To Crowdfunding</span>
+		%p Crowdfunding is a big process. From crafting your idea, to lining up press, to launching your campaign, there's a lot to think about.
+
+		%p Harness the Crowd provides <span class="bold-blue">a roadmap for what to do</span> and when to do it. It pulls from dozens of effective campaigns to build a framework for success. If you're thinking about crowdfunding an idea, Harness The Crowd will give you a  solid head start.
+		.button-wrapper
+
+			%a.float-left.button.gray-button{:href => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/htc-preview.pdf", target: '_blank'} Preview!
+
+			%a.float-left.button.blue-button.dpdcart.iframe{:href => "https://harnessthecrowd.dpdcart.com/cart/add?product_id=64900&amp;method_id=66768", target: '_top'} Get It!
+
+
+
+<script type="text/javascript" src="https://getdpd.com/js/cart.js"></script>
+
