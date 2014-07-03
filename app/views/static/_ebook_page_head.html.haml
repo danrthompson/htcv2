@@ -10,4 +10,7 @@
 	          scrollTop: $("#kit-section").offset().top
 	      }, 700);
 	  });
+	  $("#preview_button").click(function() {
+	  	ga('send', 'event', 'preview_button', 'click', 'ebook_page');
+	  });
 	});

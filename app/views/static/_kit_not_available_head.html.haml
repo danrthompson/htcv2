@@ -1,0 +1,9 @@
+:javascript
+	$( document ).ready(function() {
+	  $("#preview_button").click(function() {
+	  	ga('send', 'event', 'preview_button', 'click', 'kit_page');
+	  });
+	  $("#mc-embedded-subscribe").click(function() {
+	  	ga('send', 'event', 'mailchimp_sign_up', 'click', 'kit_page');
+	  });
+	});

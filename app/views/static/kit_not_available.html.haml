@@ -1,6 +1,6 @@
 - content_for :page_title do
 	= raw "Ebook | "
-= render 'shared/head'
+= render partial: 'kit_not_available_head', layout: 'shared/head'
 
 
 
@@ -39,7 +39,7 @@
 		%p Harness the Crowd provides <span class="bold-blue">a roadmap for what to do</span> and when to do it. It pulls from dozens of effective campaigns to build a framework for success. If you're thinking about crowdfunding an idea, Harness The Crowd will give you a  solid head start.
 		.button-wrapper
 
-			%a.float-left.button.gray-button{:href => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/htc-preview.pdf", target: '_blank'} Preview!
+			%a.float-left.button.gray-button#preview_button{:href => "https://s3.amazonaws.com/harnessthecrowd/admin_uploads/htc-preview.pdf", target: '_blank'} Preview!
 
 			%a.float-left.button.blue-button.dpdcart.iframe{:href => "https://harnessthecrowd.dpdcart.com/cart/add?product_id=64900&amp;method_id=66768", target: '_top'} Get It!
 
